@@ -2,16 +2,16 @@ import { Task } from "grimoire-kolmafia";
 import { Item, availableAmount, cliExecute, closetAmount, haveEquipped, inebrietyLimit, itemAmount, myGardenType, myInebriety, use } from "kolmafia";
 import { $familiar, $item, get } from "libram";
 
-import { PRE_ASCEND_GARDEN } from "../../../lib/constants";
+import { args, stringToGardenItem } from "../../../lib/args";
 
 export const PRE_ASCEND: Task[] = [
     {
         name: "Plant Garden",
-        ready: () => get(PRE_ASCEND_GARDEN) !== "" && itemAmount(getGardenItem(get(PRE_ASCEND_GARDEN))) > 0,
-        completed: () => myGardenType() === get(PRE_ASCEND_GARDEN),
+        ready: () => args.leg1.garden !== $item.none && itemAmount(args.leg1.garden) > 0,
+        completed: () => stringToGardenItem(myGardenType()) === args.leg1.garden,
         do: () => {
             cliExecute("garden pick");
-            use(1, getGardenItem(get(PRE_ASCEND_GARDEN)));
+            use(1, args.leg1.garden);
         }
     },
     {

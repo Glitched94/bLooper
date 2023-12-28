@@ -1,9 +1,9 @@
 import { get, set } from "libram";
 
-import { EVENT_LIST } from "./lib/constants";
+import { args } from "./lib/args";
 
 export function logEvent(event: string): void {
-    let eventList = get(EVENT_LIST, "").split(',');
+    let eventList = args.global.eventList.split(',');
 
     if(eventList.includes(event)) {
         logEvent(event + "1");
@@ -11,5 +11,5 @@ export function logEvent(event: string): void {
     }
 
     eventList.push(event);
-    set(EVENT_LIST, eventList.toString());
+    args.global.eventList = eventList.toString();
 }

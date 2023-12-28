@@ -1,8 +1,9 @@
 import { Task } from "grimoire-kolmafia";
 import { availableAmount, cliExecute, use } from "kolmafia";
 import { $item } from "libram";
-import { BIG_BOOK_USED } from "../../../lib/constants";
-import { get, getBoolean, set } from "libram/dist/property";
+import { get } from "libram/dist/property";
+
+import { args } from "../../../lib/args";
 
 export const DAILY_TASKS: Task[] = [
     {
@@ -18,10 +19,10 @@ export const DAILY_TASKS: Task[] = [
     {
         name: "Big Book",
         ready: () => availableAmount($item`The Big Book of Every Skill`) > 0,
-        completed: () => getBoolean(BIG_BOOK_USED),
+        completed: () => args.bigBookUsed,
         do: () => {
             use($item`The Big Book of Every Skill`);
-            set(BIG_BOOK_USED, true);
+            args.bigBookUsed = true;
         }
     }
 ]

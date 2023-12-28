@@ -1,10 +1,10 @@
 import { Task } from "grimoire-kolmafia";
 import { cliExecute, getClanName } from "kolmafia";
-import { HOME_CLAN } from "../../../lib/constants";
-import { get } from "libram";
+
+import { args } from "../../../lib/args";
 
 export const JOIN_CLAN: Task = {
     name: "Whitelist",
-    completed: () => getClanName() === get(HOME_CLAN),
-    do: () => cliExecute(`/whitelist ${get(HOME_CLAN)}`)
+    completed: () => getClanName() === args.global.homeClan,
+    do: () => cliExecute(`/whitelist ${args.global.homeClan}`)
 };
