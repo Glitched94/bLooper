@@ -1,12 +1,13 @@
 import { Args } from "grimoire-kolmafia";
-import { Class, Item, print } from "kolmafia";
-import { $class, $item } from "libram";
+import { Class, Item, Path, print } from "kolmafia";
+import { $class, $item, $path } from "libram";
 
 import { allGardenAliases, stringToGardenItem } from "./aliases/garden";
 import { allWorkshedAliases, stringToWorkshedItem } from "./aliases/workshed";
 import { allAstralDeliAliases, stringToAstralDeliItem } from "./aliases/astralDeli";
 import { allAstralPetAliases, stringToAstralPet } from "./aliases/astralPet";
 import { allClasses, stringToClass } from "./aliases/class";
+import { allPathAliases, stringToPath } from "./aliases/path";
 
 export function toInitials(s: string): string {
     const initials = s
@@ -91,7 +92,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
                 ...allAstralDeliAliases.map(
                     ({ item, aliases }) => [
                         item,
-                        `${[...aliases ]
+                        `${aliases
                             .filter((alias) => alias !== "")
                             .join(", ")}`,
                     ] as [Item, string],
@@ -101,20 +102,20 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
         },
         stringToAstralDeliItem,
         "Item"),
-        astralPet: Args.custom<Item | null>({
+        astralPet: Args.custom<Item>({
             setting: "bLoop.astralPet",
             help: "",
-            default: null,
+            default: $item.none,
             options: [
                 ...allAstralPetAliases.map(
                     ({ item, aliases }) => [
                         item,
-                        `${[...aliases ]
+                        `${aliases
                             .filter((alias) => alias !== "")
                             .join(", ")}`,
                     ] as [Item, string],
                 ),
-                [null, "leave this field blank"]
+                [$item.none, "leave this field blank"]
             ],
         },
         stringToAstralPet,
@@ -131,7 +132,8 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
         }),
         moonSign: Args.number({
             setting: "bLoop.moonId",
-            help: "The integer id of the Moon Sign you want to ascend under.",
+            help: "The name of the Moon Sign you want to ascend under.",
+            default: 8,
             options: [
                 [1, "Mongoose"],
                 [2, "Wallaby"],
@@ -144,14 +146,23 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
                 [9, "Packrat"]
             ]
         }),
-        pathId: Args.number({
+        path: Args.custom<Path>({
             setting: "bLoop.pathId",
             help: "The integer id of the ascension path you want to run.",
-            default: 25,
+            default: $path`Community Service`,
             options: [
-                [25, "Community Service"],
-            ]
-        }),
+                ...allPathAliases.map(
+                    ({ path, aliases }) => [
+                        path,
+                        `${[...aliases, toInitials(path.name)]
+                            .filter((alias) => alias !== "")
+                            .join(", ")}`,
+                    ] as [Path, string],
+                )
+            ],
+        },
+        stringToPath,
+        "Path"),
         class: Args.custom<Class>({
             setting: "bLoop.class",
             help: "",

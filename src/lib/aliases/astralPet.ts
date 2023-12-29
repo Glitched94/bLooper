@@ -26,8 +26,8 @@ export const allAstralPetAliases = [
     })
 ];
 
-export function stringToAstralPet(s: string): Item | null {
-    if (s === "") return null;
+export function stringToAstralPet(s: string): Item {
+    if (s === "") return $item.none;
 
     const lowercaseName = s.toLowerCase();
     const strippedName = stripString(lowercaseName);
