@@ -50,6 +50,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
     permType: constants.permType.arg,
   }),
   leg2: Args.group("Leg 2 Preferences", {
+    ascensionScript: constants.ascensionScript.arg,
     leg2Workshed: Args.custom<Item>(
       {
         setting: "tptb.bLooper.leg2Workshed",

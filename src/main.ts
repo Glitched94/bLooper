@@ -4,6 +4,7 @@ import { args } from "./lib/args";
 import * as constants from "./lib/constants";
 import { breakfast } from "./quests/breakfast/breakfast";
 import { leg1 } from "./quests/leg1/leg1";
+import { leg2 } from "./quests/leg2/leg2";
 
 export default function main(command?: string): void {
   Args.fill(args, command);
@@ -22,7 +23,7 @@ export default function main(command?: string): void {
     return;
   }
 
-  const tasks = getTasks([breakfast, ...leg1]);
+  const tasks = getTasks([breakfast, ...leg1, ...leg2]);
   const engine = new Engine(tasks);
 
   try {
@@ -52,4 +53,7 @@ function initialize(): void {
   constants.astralPet.init();
   constants.astralDeli.init();
   constants.gender.init();
+
+  // Leg 2
+  constants.ascensionScript.init();
 }

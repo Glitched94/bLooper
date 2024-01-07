@@ -13,6 +13,7 @@ import * as leg1ValueOfAdventure from "./preferences/leg1/leg1ValueOfAdventure";
 import * as leg1Workshed from "./preferences/leg1/leg1Workshed";
 import * as preAscendGarden from "./preferences/leg1/preAscendGarden";
 import * as wineglassValueOfAdventure from "./preferences/leg1/wineglassValueOfAdventure";
+import * as ascensionScript from "./preferences/leg2/ascensionScript";
 
 // Properties (that I need to access)
 export const BIG_BOOK_USED = "_tptb.bLooper.bigBookUsed";
@@ -33,6 +34,7 @@ export {
   ascendClass,
   gender,
   permType,
+  ascensionScript,
 };
 
 // Event Names

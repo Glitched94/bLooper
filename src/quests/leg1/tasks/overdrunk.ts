@@ -98,12 +98,12 @@ const useCombo: Task = {
 export const OVERDRUNK: Quest<Task>[] = [
   {
     name: "Overdrunk with Wineglass",
-    ready: () => have($item`Drunkula's wineglass`),
+    ready: () => get("ascensionsToday") === 0 && have($item`Drunkula's wineglass`),
     tasks: [overdrink, ...pvpPrep, fightStuff, ...overdrunkGarbo, fightStuff],
   },
   {
     name: "Overdrunk without Wineglass",
-    ready: () => !have($item`Drunkula's wineglass`),
+    ready: () => get("ascensionsToday") === 0 && !have($item`Drunkula's wineglass`),
     tasks: [overdrink, useCombo, ...pvpPrep, fightStuff],
   },
 ];

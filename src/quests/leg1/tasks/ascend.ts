@@ -1,14 +1,12 @@
 import { Quest, Task } from "grimoire-kolmafia";
-import { Skill, count, getPermedSkills, visitUrl, xpath } from "kolmafia";
+import { Skill, count, getPermedSkills, visitUrl } from "kolmafia";
 import { $path, Lifestyle, ascend, get, have } from "libram";
 
-import { logEvent } from "../../../eventLogging";
 import { args } from "../../../lib/args";
-import { PRE_ASCEND } from "../../../lib/constants";
 
 export const ASCEND: Quest<Task> = {
   name: "Ascend CS",
-  ready: () => args.afterlife.path === $path`Community Service`,
+  ready: () => get("ascensionsToday") === 0 && args.afterlife.path === $path`Community Service`,
   completed: () => get("ascensionsToday") === 1,
   tasks: [
     {
@@ -24,7 +22,6 @@ export const ASCEND: Quest<Task> = {
         );
 
         visitUrl("council.php");
-        logEvent(PRE_ASCEND);
         ascend({
           path: args.afterlife.path,
           playerClass: args.afterlife.class,

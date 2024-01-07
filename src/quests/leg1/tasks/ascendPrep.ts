@@ -1,28 +1,32 @@
 import { Task } from "grimoire-kolmafia";
 import {
-  Item,
   availableAmount,
   cliExecute,
-  closetAmount,
+  fullnessLimit,
   haveEquipped,
   inebrietyLimit,
   itemAmount,
+  myFullness,
   myGardenType,
   myInebriety,
+  mySpleenUse,
+  spleenLimit,
   use,
 } from "kolmafia";
 import { $familiar, $item, get } from "libram";
 
-import { args, stringToGardenItem } from "../../../lib/args";
+import { stringToGardenItem } from "../../../lib/aliases/garden";
+import { args } from "../../../lib/args";
 
 export const PRE_ASCEND: Task[] = [
   {
     name: "Plant Garden",
-    ready: () => args.leg1.garden !== $item.none && itemAmount(args.leg1.garden) > 0,
-    completed: () => stringToGardenItem(myGardenType()) === args.leg1.garden,
+    ready: () =>
+      args.leg1.preAscendGarden !== $item.none && itemAmount(args.leg1.preAscendGarden) > 0,
+    completed: () => stringToGardenItem(myGardenType()) === args.leg1.preAscendGarden,
     do: () => {
       cliExecute("garden pick");
-      use(1, args.leg1.garden);
+      use(1, args.leg1.preAscendGarden);
     },
   },
   {
@@ -36,7 +40,10 @@ export const PRE_ASCEND: Task[] = [
   },
   {
     name: "CONSUME",
-    completed: () => myInebriety() === inebrietyLimit(),
+    completed: () =>
+      myFullness() >= fullnessLimit() &&
+      myInebriety() >= inebrietyLimit() &&
+      mySpleenUse() >= spleenLimit(),
     do: () => cliExecute("CONSUME ALL"),
   },
   {
@@ -75,31 +82,6 @@ export const PRE_ASCEND: Task[] = [
   },
 ];
 
-function getGardenItem(garden: string): Item {
-  switch (garden) {
-    case "pumpkin":
-      return $item`packet of pumpkin seeds`;
-    case "peppermint":
-      return $item`Peppermint Pip Packet`;
-    case "skeleton":
-      return $item`packet of dragon's teeth`;
-    case "beer":
-      return $item`packet of beer seeds`;
-    case "winter":
-      return $item`packet of winter seeds`;
-    case "thanksgarden":
-      return $item`packet of thanksgarden seeds`;
-    case "grass":
-      return $item`packet of tall grass seeds`;
-    case "mushroom":
-      return $item`packet of mushroom seeds`;
-    case "rock":
-      return $item`packet of rock seeds`;
-    default:
-      return $item.none;
-  }
-}
-
 function haveCsPulls(): boolean {
   return (
     availableAmount($item`calzone of legend`) > 0 &&
@@ -109,6 +91,6 @@ function haveCsPulls(): boolean {
     availableAmount($item`non-Euclidean angle`) > 0 &&
     availableAmount($item`tobiko marble soda`) > 0 &&
     availableAmount($item`wasabi marble soda`) > 0 &&
-    availableAmount($item`one-day pass to Dinseylandfill`) > 0
+    availableAmount($item`one-day ticket to Dinseylandfill`) > 0
   );
 }

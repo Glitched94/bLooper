@@ -1,5 +1,14 @@
 import { Task } from "grimoire-kolmafia";
-import { cliExecute, itemAmount, mallPrice, myAdventures, print, use } from "kolmafia";
+import {
+  cliExecute,
+  inebrietyLimit,
+  itemAmount,
+  mallPrice,
+  myAdventures,
+  myInebriety,
+  print,
+  use,
+} from "kolmafia";
 import { $item, get } from "libram";
 import { set } from "libram/dist/property";
 
@@ -40,7 +49,7 @@ export const GARBO: Task[] = [
   },
   {
     name: "Garbo",
-    ready: () => get("ascensionsToday") === 0,
+    ready: () => get("ascensionsToday") === 0 && myInebriety() <= inebrietyLimit(),
     completed: () => myAdventures() === 0,
     do: () => {
       const command = buildGarboCommand(true);

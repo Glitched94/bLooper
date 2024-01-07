@@ -1,4 +1,5 @@
 import { Quest, Task } from "grimoire-kolmafia";
+import { get } from "libram";
 
 import { ASCEND } from "./tasks/ascend";
 import { PRE_ASCEND } from "./tasks/ascendPrep";
@@ -13,14 +14,14 @@ export const leg1: Quest<Task>[] = [
   },
   {
     name: "Leg 1 Garbo",
+    ready: () => get("ascensionsToday") === 0,
     tasks: [...GARBO],
   },
-  // {
-  //     name: "Ascenscion Prep",
-  //     tasks: [
-  //         ...PRE_ASCEND,
-  //     ]
-  // },
-  // ...OVERDRUNK,
-  // ASCEND
+  {
+    name: "Ascenscion Prep",
+    ready: () => get("ascensionsToday") === 0,
+    tasks: [...PRE_ASCEND],
+  },
+  ...OVERDRUNK,
+  ASCEND,
 ];
