@@ -9,7 +9,7 @@ on:
 
 env:
   node-version: "18"
-  path: "KoLmafia"
+  path: "dist"
 
 jobs:
   test:
