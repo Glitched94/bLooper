@@ -1,5 +1,5 @@
 import { Args } from "grimoire-kolmafia";
-import { Class, Item, Path, print } from "kolmafia";
+import { Class, Item, Path } from "kolmafia";
 import { $class, $item, $path } from "libram";
 
 import { allGardenAliases, stringToGardenItem } from "./aliases/garden";
@@ -31,24 +31,24 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
     }),
     global: Args.group("Global Preferences", {
         eventList: Args.string({
-            setting: "bLoop.eventList",
+            setting: "tptb.bLooper.eventList",
             default: "",
             hidden: true,
         }),
         homeClan: Args.string({
-            setting: "bLoop.homeClan",
+            setting: "tptb.bLooper.homeClan",
             help: "Your home clan. The script will ensure you are in this clan at the start of each leg of the loop.",
             default: "",
         }),
     }),
     leg1: Args.group("Leg 1 Preferences", {
         buyDaypass: Args.flag({
-            setting: "bLoop.buyDaypass",
+            setting: "tptb.bLooper.buyDaypass",
             help: "Set to 'true' if you'd like to attempt purchasing a one-day pass to Spring Break Beach for yachtzeechaining.",
             default: false,
         }),
         leg1Workshed: Args.custom<Item>({
-            setting: "bLoop.leg1Workshed",
+            setting: "tptb.bLooper.leg1Workshed",
             help: "The workshed you'd like the script to install at the start of Leg 1. Leave blank to ignore.",
             default: $item.none,
             options: [
@@ -66,7 +66,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
         stringToWorkshedItem,
         "Item"),
         garden: Args.custom<Item>({
-            setting: "bLoop.preAscendGarden",
+            setting: "tptb.bLooper.preAscendGarden",
             help: "The garden you'd like the script to install at the start of Leg 1. Leave blank to ignore.",
             default: $item.none,
             options: [
@@ -86,7 +86,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
     }),
     afterlife: Args.group("Afterlife preferences", {
         astralDeli: Args.custom<Item>({
-            setting: "bLoop.astralDeli",
+            setting: "tptb.bLooper.astralDeli",
             help: "The name of the item you'd like to buy from the Astral Deli in the afterlife.",
             default: $item.none,
             options: [
@@ -104,7 +104,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
         stringToAstralDeliItem,
         "Item"),
         astralPet: Args.custom<Item>({
-            setting: "bLoop.astralPet",
+            setting: "tptb.bLooper.astralPet",
             help: "",
             default: $item.none,
             options: [
@@ -122,7 +122,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
         stringToAstralPet,
         "Item"),
         lifestyle: Args.number({
-            setting: "bLoop.lifestyle",
+            setting: "tptb.bLooper.lifestyle",
             help: "The type of ascension you want to run.",
             default: 2,
             options: [
@@ -132,7 +132,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
             ]
         }),
         moonSign: Args.number({
-            setting: "bLoop.moonId",
+            setting: "tptb.bLooper.moonId",
             help: "The name of the Moon Sign you want to ascend under.",
             default: 8,
             options: [
@@ -148,7 +148,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
             ]
         }),
         path: Args.custom<Path>({
-            setting: "bLoop.pathId",
+            setting: "tptb.bLooper.pathId",
             help: "The integer id of the ascension path you want to run.",
             default: $path`Community Service`,
             options: [
@@ -165,7 +165,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
         stringToPath,
         "Path"),
         class: Args.custom<Class>({
-            setting: "bLoop.class",
+            setting: "tptb.bLooper.class",
             help: "",
             default: $class`Sauceror`,
             options: [
@@ -182,7 +182,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
         stringToClass,
         "Class"),
         gender: Args.number({
-            setting: "bLoop.gender",
+            setting: "tptb.bLooper.gender",
             help: "",
             default: 1,
             options: [
@@ -191,7 +191,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
             ]
         }),
         permType: Args.string({
-            setting: "bLoop.permType",
+            setting: "tptb.bLooper.permType",
             help: "How should we try and permanancey skills in the afterlife?",
             default: "sc",
             options: [
@@ -202,7 +202,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
     }),
     leg2: Args.group("Leg 2 Preferences", {
         leg2Workshed: Args.custom<Item>({
-            setting: "bLoop.leg2Workshed",
+            setting: "tptb.bLooper.leg2Workshed",
             help: "The workshed you'd like the script to install at the start of Leg 2. Leave blank to ignore.",
             default: $item.none,
             options: [
