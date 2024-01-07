@@ -5626,24 +5626,24 @@ var args = Args.create("bLooper", "A re-entrant daily looping wrapper", {
   }),
   global: Args.group("Global Preferences", {
     eventList: Args.string({
-      setting: "bLoop.eventList",
+      setting: "tptb.bLooper.eventList",
       default: "",
       hidden: !0
     }),
     homeClan: Args.string({
-      setting: "bLoop.homeClan",
+      setting: "tptb.bLooper.homeClan",
       help: "Your home clan. The script will ensure you are in this clan at the start of each leg of the loop.",
       default: ""
     })
   }),
   leg1: Args.group("Leg 1 Preferences", {
     buyDaypass: Args.flag({
-      setting: "bLoop.buyDaypass",
+      setting: "tptb.bLooper.buyDaypass",
       help: "Set to 'true' if you'd like to attempt purchasing a one-day pass to Spring Break Beach for yachtzeechaining.",
       default: !1
     }),
     leg1Workshed: Args.custom({
-      setting: "bLoop.leg1Workshed",
+      setting: "tptb.bLooper.leg1Workshed",
       help: "The workshed you'd like the script to install at the start of Leg 1. Leave blank to ignore.",
       default: $item.none,
       options: [].concat(_toConsumableArray13(allWorkshedAliases.map(function(_ref) {
@@ -5654,7 +5654,7 @@ var args = Args.create("bLooper", "A re-entrant daily looping wrapper", {
       })), [[$item.none, "leave this field blank"]])
     }, stringToWorkshedItem, "Item"),
     garden: Args.custom({
-      setting: "bLoop.preAscendGarden",
+      setting: "tptb.bLooper.preAscendGarden",
       help: "The garden you'd like the script to install at the start of Leg 1. Leave blank to ignore.",
       default: $item.none,
       options: [].concat(_toConsumableArray13(allGardenAliases.map(function(_ref2) {
@@ -5667,7 +5667,7 @@ var args = Args.create("bLooper", "A re-entrant daily looping wrapper", {
   }),
   afterlife: Args.group("Afterlife preferences", {
     astralDeli: Args.custom({
-      setting: "bLoop.astralDeli",
+      setting: "tptb.bLooper.astralDeli",
       help: "The name of the item you'd like to buy from the Astral Deli in the afterlife.",
       default: $item.none,
       options: [].concat(_toConsumableArray13(allAstralDeliAliases.map(function(_ref3) {
@@ -5678,7 +5678,7 @@ var args = Args.create("bLooper", "A re-entrant daily looping wrapper", {
       })), [[$item.none, "leave this field blank"]])
     }, stringToAstralDeliItem, "Item"),
     astralPet: Args.custom({
-      setting: "bLoop.astralPet",
+      setting: "tptb.bLooper.astralPet",
       help: "",
       default: $item.none,
       options: [].concat(_toConsumableArray13(allAstralPetAliases.map(function(_ref4) {
@@ -5689,19 +5689,19 @@ var args = Args.create("bLooper", "A re-entrant daily looping wrapper", {
       })), [[$item.none, "leave this field blank"]])
     }, stringToAstralPet, "Item"),
     lifestyle: Args.number({
-      setting: "bLoop.lifestyle",
+      setting: "tptb.bLooper.lifestyle",
       help: "The type of ascension you want to run.",
       default: 2,
       options: [[1, "Casual"], [2, "Normal (or Softcore)"], [3, "Hardcore"]]
     }),
     moonSign: Args.number({
-      setting: "bLoop.moonId",
+      setting: "tptb.bLooper.moonId",
       help: "The name of the Moon Sign you want to ascend under.",
       default: 8,
       options: [[1, "Mongoose"], [2, "Wallaby"], [3, "Vole"], [4, "Platypus"], [5, "Opossum"], [6, "Marmot"], [7, "Wombat"], [8, "Blender"], [9, "Packrat"]]
     }),
     path: Args.custom({
-      setting: "bLoop.pathId",
+      setting: "tptb.bLooper.pathId",
       help: "The integer id of the ascension path you want to run.",
       default: $path(_templateObject76 || (_templateObject76 = _taggedTemplateLiteral11(["Community Service"]))),
       options: _toConsumableArray13(allPathAliases.map(function(_ref5) {
@@ -5712,7 +5712,7 @@ var args = Args.create("bLooper", "A re-entrant daily looping wrapper", {
       }))
     }, stringToPath, "Path"),
     class: Args.custom({
-      setting: "bLoop.class",
+      setting: "tptb.bLooper.class",
       help: "",
       default: $class(_templateObject221 || (_templateObject221 = _taggedTemplateLiteral11(["Sauceror"]))),
       options: _toConsumableArray13(allClasses.map(function(_ref6) {
@@ -5723,13 +5723,13 @@ var args = Args.create("bLooper", "A re-entrant daily looping wrapper", {
       }))
     }, stringToClass, "Class"),
     gender: Args.number({
-      setting: "bLoop.gender",
+      setting: "tptb.bLooper.gender",
       help: "",
       default: 1,
       options: [[1, "Male"], [2, "Female"]]
     }),
     permType: Args.string({
-      setting: "bLoop.permType",
+      setting: "tptb.bLooper.permType",
       help: "How should we try and permanancey skills in the afterlife?",
       default: "sc",
       options: [["sc", "Softcore"], ["hc", "Hardcore"]]
@@ -5737,7 +5737,7 @@ var args = Args.create("bLooper", "A re-entrant daily looping wrapper", {
   }),
   leg2: Args.group("Leg 2 Preferences", {
     leg2Workshed: Args.custom({
-      setting: "bLoop.leg2Workshed",
+      setting: "tptb.bLooper.leg2Workshed",
       help: "The workshed you'd like the script to install at the start of Leg 2. Leave blank to ignore.",
       default: $item.none,
       options: [].concat(_toConsumableArray13(allWorkshedAliases.map(function(_ref7) {
