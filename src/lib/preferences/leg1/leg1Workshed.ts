@@ -36,7 +36,7 @@ stringToWorkshedItem,
 "Item");
 
 function setLeg1Workshed(): void {
-    var pref = userPrompt(leg1Workshed.help + " Use 'blooper help showAll' to see all acceptable values for this setting.");
+    var pref = userPrompt(leg1Workshed.help + " Use 'blooper help options' to see all acceptable values for this setting.");
     set(leg1Workshed.setting, pref);
     args.leg1.leg1Workshed = stringToWorkshedItem(pref);
 }

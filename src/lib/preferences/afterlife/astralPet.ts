@@ -36,7 +36,7 @@ stringToAstralPet,
 "Item");
 
 function setAstralPet(): void {
-    var pref = userPrompt(astralPet.help + " Use 'blooper help showAll' to see all acceptable values for this setting.");
+    var pref = userPrompt(astralPet.help + " Use 'blooper help options' to see all acceptable values for this setting.");
     set(astralPet.setting, pref);
     args.afterlife.astralPet = stringToAstralPet(pref);
 }

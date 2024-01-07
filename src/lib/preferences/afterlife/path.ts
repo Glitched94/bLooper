@@ -35,7 +35,7 @@ stringToPath,
 "Path");
 
 function setPath(): void {
-    var pref = userPrompt(path.help + " Use 'blooper help showAll' to see all acceptable values for this setting.");
+    var pref = userPrompt(path.help + " Use 'blooper help options' to see all acceptable values for this setting.");
     set(path.setting, pref);
     args.afterlife.path = stringToPath(pref);
 }

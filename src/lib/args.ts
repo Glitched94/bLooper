@@ -24,7 +24,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
         help: "Use for first-time setup of bLooper.",
         default: false
     }),
-    showAll: Args.flag({
+    options: Args.flag({
         help: "Use this to see all options for the preferences in this help menu. By default, none will be shown.",
         default: false,
     }),

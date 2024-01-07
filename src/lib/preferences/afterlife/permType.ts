@@ -26,7 +26,7 @@ const permTypePref = Args.string({
 });
 
 function setPermType(): void {
-    var pref = userPrompt(permType.help + " Use 'blooper help showAll' to see all acceptable values for this setting.");
+    var pref = userPrompt(permType.help + " Use 'blooper help options' to see all acceptable values for this setting.");
     set(permType.setting, pref);
     args.afterlife.permType = pref;
 }

@@ -33,7 +33,7 @@ const moonSignPref = Args.number({
 });
 
 function setMoonSign(): void {
-    var pref = Number.parseInt(userPrompt(moonSign.help + " Use 'blooper help showAll' to see all acceptable values for this setting."));
+    var pref = Number.parseInt(userPrompt(moonSign.help + " Use 'blooper help options' to see all acceptable values for this setting."));
     set(moonSign.setting, pref);
     args.afterlife.moonSign = pref;
 }

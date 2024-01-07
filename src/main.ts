@@ -9,7 +9,7 @@ import * as constants from "./lib/constants";
 export default function main(command?: string): void {
   Args.fill(args, command);
   if (args.help) {
-    if (args.showAll) {
+    if (args.options) {
       Args.showHelp(args);
     } else {
       Args.showHelp(args, 0);
