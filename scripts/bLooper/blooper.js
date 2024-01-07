@@ -5283,7 +5283,6 @@ var astralDeli = {
   setting: astralDeli.setting,
   help: astralDeli.help,
   default: $item.none,
-  hidden: !0,
   options: [].concat(_toConsumableArray9(allAstralDeliAliases.map(function(_ref) {
     var item = _ref.item, aliases = _ref.aliases;
     return [item, "".concat(aliases.filter(function(alias) {
@@ -5460,7 +5459,6 @@ var astralPet = {
   setting: astralPet.setting,
   help: astralPet.help,
   default: $item.none,
-  hidden: !0,
   options: [].concat(_toConsumableArray11(allAstralPetAliases.map(function(_ref) {
     var item = _ref.item, aliases = _ref.aliases;
     return [item, "".concat(aliases.filter(function(alias) {
@@ -5648,7 +5646,6 @@ var gender = {
   setting: gender.setting,
   help: gender.help,
   default: 1,
-  hidden: !0,
   options: [[1, "Male"], [2, "Female"]]
 });
 function setGender() {
@@ -5707,7 +5704,6 @@ var moonSign = {
   setting: moonSign.setting,
   help: moonSign.help,
   default: 8,
-  hidden: !0,
   options: [[1, "Mongoose"], [2, "Wallaby"], [3, "Vole"], [4, "Platypus"], [5, "Opossum"], [6, "Marmot"], [7, "Wombat"], [8, "Blender"], [9, "Packrat"]]
 });
 function setMoonSign() {
@@ -6254,7 +6250,6 @@ var args = Args.create("bLooper", "A re-entrant daily looping wrapper", {
       setting: "tptb.bLooper.leg2Workshed",
       help: "The workshed you'd like the script to install at the start of Leg 2. Leave blank to ignore.",
       default: $item.none,
-      hidden: !0,
       options: [].concat(_toConsumableArray19(allWorkshedAliases.map(function(_ref) {
         var item = _ref.item, aliases = _ref.aliases;
         return [item, "".concat([].concat(_toConsumableArray19(aliases), [toInitials(item.name.toLowerCase())]).filter(function(alias) {
