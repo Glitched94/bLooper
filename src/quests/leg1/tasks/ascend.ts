@@ -1,9 +1,9 @@
 import { Quest, Task } from "grimoire-kolmafia";
-import { Skill, count, getPermedSkills, max, print, visitUrl, xpath } from "kolmafia";
-import { $path, $skills, Lifestyle, ascend, get, have } from "libram";
+import { Skill, count, getPermedSkills, visitUrl, xpath } from "kolmafia";
+import { $path, Lifestyle, ascend, get, have } from "libram";
 
 import { args } from "../../../lib/args";
-import { COMMUNITY_SERVICE, PRE_ASCEND } from "../../../lib/constants";
+import { PRE_ASCEND } from "../../../lib/constants";
 import { logEvent } from "../../../eventLogging";
 
 export const ASCEND: Quest<Task> = {
@@ -38,24 +38,6 @@ export const ASCEND: Quest<Task> = {
                         permSkills
                     }
                 });
-            }
-        },
-        {
-            name: "Perm Skills",
-            completed: () => get("bankedKarma") <= (args.afterlife.permType === "hc" ? 211 : 111),
-            do: () => {
-                const permType = args.afterlife.permType;
-                const buffer = visitUrl("afterlife.php?place=permery");
-                const hcsc = xpath(buffer, '//form[@action="afterlife.php"]//input[@name="action"]/@value');
-                const perm = xpath(buffer,'//form[@action="afterlife.php"]//input[@name="whichskill"]/@value');
-
-                const canAfford = get("bankedKarma") / (permType ? 200 : 100);
-                const loops = Math.min(perm.length, canAfford);
-                for (let i = 0; i < loops; i++) {
-                    if (hcsc[i] == `${permType}perm`) {
-                        visitUrl(`afterlife.php?action=${permType}perm&whichskill=${perm[i]}`, true, true);
-                    }
-                }
             }
         }
     ]

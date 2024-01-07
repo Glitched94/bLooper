@@ -1,6 +1,6 @@
 import { Task } from "grimoire-kolmafia";
-import { buy, canAdventure, cliExecute, haveEquipped, itemAmount, mallPrice, use } from "kolmafia";
-import { $item, $location, get } from "libram";
+import { abort, buy, canAdventure, cliExecute, haveEquipped, itemAmount, mallPrice, myAdventures, print, use } from "kolmafia";
+import { $item, $location, ascend, get } from "libram";
 
 import { LEG1GARBO } from "../../../lib/constants";
 import { getBoolean } from "libram/dist/property";
@@ -35,19 +35,37 @@ export const GARBO: Task[] = [
     {
         name: "Garbo",
         ready: () => get("ascensionsToday") === 0,
-        completed: () => args.global.eventList.includes(LEG1GARBO),
+        completed: () => myAdventures() === 0,
         do: () => {
-            let garboCommand = "candydish ascend";
-            if (hasYachtzeeAccess())
-                garboCommand += " yachtzeechain";
-            if (args.leg1.workshed != $item.none)
-                garboCommand += ` workshed="${args.leg1.workshed.name}"`;
-            
-            cliExecute(`garbo ${garboCommand}`);
-            logEvent(LEG1GARBO);
+            const command = buildGarboCommand(true);
+
+            print(`Running garbo with command '${command}'`);
+            const success = cliExecute(`garbo ${command}`);
+            if (!success) throw `Failed to execute garbo with ${command}`;
+        },
+        limit: {
+            tries: 1
         }
     },
 ];
+
+function buildGarboCommand(ascending: boolean): string {
+    const commandStrings = ["candydish"];
+
+    if (ascending) {
+        commandStrings.push("ascend");
+    }
+
+    if (hasYachtzeeAccess()) {
+        commandStrings.push("yachtzeechain");0
+    }
+
+    if (args.leg1.leg1Workshed != $item.none) {
+        commandStrings.push(`workshed="${args.leg1.leg1Workshed}"`);
+    }
+
+    return commandStrings.join(" ");
+}
 
 function hasYachtzeeAccess(): boolean {
     if (canAdventure($location`The Sunken Party Yacht`))

@@ -1,3 +1,7 @@
+// Properties (that I need to access)
+export const BIG_BOOK_USED = "_bLoop.bigBookUsed";
+export const EVENT_LIST = "bLoop.eventList";
+
 // Event Names
 export const LEG1GARBO = "leg1garbo";
 export const WINEGLASS = "wineglassDone";

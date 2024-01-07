@@ -19,12 +19,12 @@ export const leg1: Quest<Task>[] = [
             ...GARBO,
         ]
     },
-    {
-        name: "Ascenscion Prep",
-        tasks: [
-            ...PRE_ASCEND,
-        ]
-    },
-    ...OVERDRUNK,
-    ASCEND
+    // {
+    //     name: "Ascenscion Prep",
+    //     tasks: [
+    //         ...PRE_ASCEND,
+    //     ]
+    // },
+    // ...OVERDRUNK,
+    // ASCEND
 ];

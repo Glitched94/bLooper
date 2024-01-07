@@ -8,6 +8,7 @@ import { allAstralDeliAliases, stringToAstralDeliItem } from "./aliases/astralDe
 import { allAstralPetAliases, stringToAstralPet } from "./aliases/astralPet";
 import { allClasses, stringToClass } from "./aliases/class";
 import { allPathAliases, stringToPath } from "./aliases/path";
+import { BIG_BOOK_USED } from "./constants";
 
 export function toInitials(s: string): string {
     const initials = s
@@ -46,8 +47,8 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
             help: "Set to 'true' if you'd like to attempt purchasing a one-day pass to Spring Break Beach for yachtzeechaining.",
             default: false,
         }),
-        workshed: Args.custom<Item>({
-            setting: "bLoop.preAscendWorkshed",
+        leg1Workshed: Args.custom<Item>({
+            setting: "bLoop.leg1Workshed",
             help: "The workshed you'd like the script to install at the start of Leg 1. Leave blank to ignore.",
             default: $item.none,
             options: [
@@ -200,8 +201,8 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
         })
     }),
     leg2: Args.group("Leg 2 Preferences", {
-        workshed: Args.custom<Item>({
-            setting: "bLoop.postAscentWorkshed",
+        leg2Workshed: Args.custom<Item>({
+            setting: "bLoop.leg2Workshed",
             help: "The workshed you'd like the script to install at the start of Leg 2. Leave blank to ignore.",
             default: $item.none,
             options: [
@@ -221,8 +222,8 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
         "Item")
     }),
     // Hidden properties
-    bigBookUsed: Args.flag({
-        setting: "_bLoop.bigBookUsed",
+    bigBookUsed: Args.boolean({
+        setting: BIG_BOOK_USED,
         default: false,
         hidden: true
     }),
