@@ -5169,6 +5169,7 @@ __export(astralDeli_exports, {
   }
 });
 init_kolmafia_polyfill();
+var import_kolmafia13 = require("kolmafia");
 
 // src/lib/aliases/astralDeli.ts
 init_kolmafia_polyfill();
@@ -5244,7 +5245,6 @@ function stringToAstralDeliItem(s) {
 }
 
 // src/lib/preferences/afterlife/astralDeli.ts
-var import_kolmafia13 = require("kolmafia");
 function _toConsumableArray9(arr) {
   return _arrayWithoutHoles9(arr) || _iterableToArray9(arr) || _unsupportedIterableToArray12(arr) || _nonIterableSpread9();
 }
@@ -5309,6 +5309,7 @@ __export(astralPet_exports, {
   }
 });
 init_kolmafia_polyfill();
+var import_kolmafia15 = require("kolmafia");
 
 // src/lib/aliases/astralPet.ts
 init_kolmafia_polyfill();
@@ -5420,7 +5421,6 @@ function stringToAstralPet(s) {
 }
 
 // src/lib/preferences/afterlife/astralPet.ts
-var import_kolmafia15 = require("kolmafia");
 function _toConsumableArray11(arr) {
   return _arrayWithoutHoles11(arr) || _iterableToArray11(arr) || _unsupportedIterableToArray14(arr) || _nonIterableSpread11();
 }
@@ -5950,6 +5950,34 @@ function setBuyDaypass() {
   _set(buyDaypass.setting, pref), args.leg1.buyDaypass = pref;
 }
 
+// src/lib/preferences/leg1/leg1ValueOfAdventure.ts
+var leg1ValueOfAdventure_exports = {};
+__export(leg1ValueOfAdventure_exports, {
+  arg: function() {
+    return leg1ValueOfAdventurePref;
+  },
+  init: function() {
+    return setLeg1ValueOfAdventure;
+  },
+  pref: function() {
+    return leg1ValueOfAdventure;
+  }
+});
+init_kolmafia_polyfill();
+var import_kolmafia26 = require("kolmafia");
+var leg1ValueOfAdventure = {
+  setting: "tptb.bLooper.leg1ValueOfAdventure",
+  help: "The 'valueOfAdventure' to set before running Garbo in Leg1 of your loop."
+}, leg1ValueOfAdventurePref = Args.number({
+  setting: leg1ValueOfAdventure.setting,
+  help: leg1ValueOfAdventure.help,
+  default: get("valueOfAdventure")
+});
+function setLeg1ValueOfAdventure() {
+  var pref = Number.parseInt((0, import_kolmafia26.userPrompt)(leg1ValueOfAdventure.help));
+  _set(leg1ValueOfAdventure.setting, pref), args.leg1.leg1ValueOfAdventure = pref;
+}
+
 // src/lib/preferences/leg1/leg1Workshed.ts
 var leg1Workshed_exports = {};
 __export(leg1Workshed_exports, {
@@ -5964,7 +5992,7 @@ __export(leg1Workshed_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia26 = require("kolmafia");
+var import_kolmafia27 = require("kolmafia");
 function _toConsumableArray16(arr) {
   return _arrayWithoutHoles16(arr) || _iterableToArray16(arr) || _unsupportedIterableToArray19(arr) || _nonIterableSpread16();
 }
@@ -6011,7 +6039,7 @@ var leg1Workshed = {
   })), [[$item.none, "leave this field blank"]])
 }, stringToWorkshedItem, "Item");
 function setLeg1Workshed() {
-  var pref = (0, import_kolmafia26.userPrompt)(leg1Workshed.help + " Use 'blooper help options' to see all acceptable values for this setting.");
+  var pref = (0, import_kolmafia27.userPrompt)(leg1Workshed.help + " Use 'blooper help options' to see all acceptable values for this setting.");
   _set(leg1Workshed.setting, pref), args.leg1.leg1Workshed = stringToWorkshedItem(pref);
 }
 
@@ -6029,11 +6057,11 @@ __export(preAscendGarden_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia28 = require("kolmafia");
+var import_kolmafia29 = require("kolmafia");
 
 // src/lib/aliases/garden.ts
 init_kolmafia_polyfill();
-var import_kolmafia27 = require("kolmafia");
+var import_kolmafia28 = require("kolmafia");
 var _templateObject76, _templateObject220, _templateObject317, _templateObject415, _templateObject513, _templateObject610, _templateObject77, _templateObject84, _templateObject95;
 function _toConsumableArray17(arr) {
   return _arrayWithoutHoles17(arr) || _iterableToArray17(arr) || _unsupportedIterableToArray20(arr) || _nonIterableSpread17();
@@ -6113,12 +6141,12 @@ function stringToGardenItem(s) {
     });
   });
   if (validGardens.length > 1)
-    throw (0, import_kolmafia27.print)("Invalid Garden: ".concat(s, " matches multiple gardens! Matched:"), "red"), validGardens.forEach(function(_ref3) {
+    throw (0, import_kolmafia28.print)("Invalid Garden: ".concat(s, " matches multiple gardens! Matched:"), "red"), validGardens.forEach(function(_ref3) {
       var item = _ref3.item;
-      return (0, import_kolmafia27.print)("".concat(item), "red");
+      return (0, import_kolmafia28.print)("".concat(item), "red");
     }), new Error();
   if (validGardens.length === 0)
-    throw (0, import_kolmafia27.print)("Invalid Garden: ".concat(s, " does not match any gardens!"), "red"), new Error();
+    throw (0, import_kolmafia28.print)("Invalid Garden: ".concat(s, " does not match any gardens!"), "red"), new Error();
   return validGardens[0].item;
 }
 
@@ -6169,8 +6197,36 @@ var preAscendGarden = {
   })), [[$item.none, "leave this field blank"]])
 }, stringToGardenItem, "Item");
 function setPreAscendGarden() {
-  var pref = (0, import_kolmafia28.userPrompt)(preAscendGarden.help + " Use 'blooper help options' to see all acceptable values for this setting.");
+  var pref = (0, import_kolmafia29.userPrompt)(preAscendGarden.help + " Use 'blooper help options' to see all acceptable values for this setting.");
   _set(preAscendGarden.setting, pref), args.leg1.preAscendGarden = stringToGardenItem(pref);
+}
+
+// src/lib/preferences/leg1/wineglassValueOfAdventure.ts
+var wineglassValueOfAdventure_exports = {};
+__export(wineglassValueOfAdventure_exports, {
+  arg: function() {
+    return wineglassValueOfAdventurePref;
+  },
+  init: function() {
+    return setWineglassValueOfAdventure;
+  },
+  pref: function() {
+    return wineglassValueOfAdventure;
+  }
+});
+init_kolmafia_polyfill();
+var import_kolmafia30 = require("kolmafia");
+var wineglassValueOfAdventure = {
+  setting: "tptb.bLooper.wineglassValueOfAdventure",
+  help: "The 'valueOfAdventure' to set before running garbo in Leg1 while overdrunk with a wineglass."
+}, wineglassValueOfAdventurePref = Args.number({
+  setting: wineglassValueOfAdventure.setting,
+  help: wineglassValueOfAdventure.help,
+  default: get("valueOfAdventure")
+});
+function setWineglassValueOfAdventure() {
+  var pref = Number.parseInt((0, import_kolmafia30.userPrompt)(wineglassValueOfAdventure.help));
+  _set(wineglassValueOfAdventure.setting, pref), args.leg1.wineglassValueOfAdventure = pref;
 }
 
 // src/lib/constants.ts
@@ -6232,8 +6288,10 @@ var args = Args.create("bLooper", "A re-entrant daily looping wrapper", {
   }),
   leg1: Args.group("Leg 1 Preferences", {
     buyDaypass: buyDaypass_exports.arg,
+    leg1ValueOfAdventure: leg1ValueOfAdventure_exports.arg,
     leg1Workshed: leg1Workshed_exports.arg,
-    preAscendGarden: preAscendGarden_exports.arg
+    preAscendGarden: preAscendGarden_exports.arg,
+    wineglassValueOfAdventure: wineglassValueOfAdventure_exports.arg
   }),
   afterlife: Args.group("Afterlife preferences", {
     astralDeli: astralDeli_exports.arg,
@@ -6271,7 +6329,7 @@ init_kolmafia_polyfill();
 
 // src/quests/breakfast/tasks/daily.ts
 init_kolmafia_polyfill();
-var import_kolmafia29 = require("kolmafia");
+var import_kolmafia31 = require("kolmafia");
 var _templateObject78, _templateObject221;
 function _taggedTemplateLiteral13(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
@@ -6282,7 +6340,7 @@ var DAILY_TASKS = [{
     return get("breakfastCompleted");
   },
   do: function() {
-    return (0, import_kolmafia29.cliExecute)("breakfast");
+    return (0, import_kolmafia31.cliExecute)("breakfast");
   }
 }, {
   name: "Double Ice",
@@ -6290,18 +6348,18 @@ var DAILY_TASKS = [{
     return get("_aprilShower");
   },
   do: function() {
-    return (0, import_kolmafia29.cliExecute)("shower ice");
+    return (0, import_kolmafia31.cliExecute)("shower ice");
   }
 }, {
   name: "Big Book",
   ready: function() {
-    return (0, import_kolmafia29.availableAmount)($item(_templateObject78 || (_templateObject78 = _taggedTemplateLiteral13(["The Big Book of Every Skill"])))) > 0;
+    return (0, import_kolmafia31.availableAmount)($item(_templateObject78 || (_templateObject78 = _taggedTemplateLiteral13(["The Big Book of Every Skill"])))) > 0;
   },
   completed: function() {
     return args.bigBookUsed;
   },
   do: function() {
-    (0, import_kolmafia29.use)($item(_templateObject221 || (_templateObject221 = _taggedTemplateLiteral13(["The Big Book of Every Skill"])))), _set(BIG_BOOK_USED, !0), args.bigBookUsed = !0;
+    (0, import_kolmafia31.use)($item(_templateObject221 || (_templateObject221 = _taggedTemplateLiteral13(["The Big Book of Every Skill"])))), _set(BIG_BOOK_USED, !0), args.bigBookUsed = !0;
   }
 }];
 
@@ -6345,62 +6403,80 @@ var breakfast = {
 // src/quests/leg1/leg1.ts
 init_kolmafia_polyfill();
 
-// src/quests/leg1/tasks/whitelist.ts
-init_kolmafia_polyfill();
-var import_kolmafia30 = require("kolmafia");
-var JOIN_CLAN = {
-  name: "Whitelist",
-  completed: function() {
-    return (0, import_kolmafia30.getClanName)() === args.global.homeClan;
-  },
-  do: function() {
-    return (0, import_kolmafia30.cliExecute)("/whitelist ".concat(args.global.homeClan));
-  }
-};
-
 // src/quests/leg1/tasks/garbo.ts
 init_kolmafia_polyfill();
-var import_kolmafia31 = require("kolmafia");
-var _templateObject79, _templateObject224, _templateObject318, _templateObject416, _templateObject514, _templateObject611, _templateObject710, _templateObject85, _templateObject96, _templateObject105, _templateObject115, _templateObject125, _templateObject135;
+var import_kolmafia33 = require("kolmafia");
+
+// src/lib/garboBuilder.ts
+init_kolmafia_polyfill();
+var import_kolmafia32 = require("kolmafia");
+var _templateObject79, _templateObject224, _templateObject318, _templateObject416, _templateObject514, _templateObject611;
 function _taggedTemplateLiteral14(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+function buildGarboCommand(ascending) {
+  var commandStrings = ["candydish"];
+  return ascending && commandStrings.push("ascend"), hasYachtzeeAccess() && commandStrings.push("yachtzeechain"), args.leg1.leg1Workshed != $item.none && commandStrings.push('workshed="'.concat(args.leg1.leg1Workshed, '"')), commandStrings.join(" ");
+}
+function hasYachtzeeAccess() {
+  if ((0, import_kolmafia32.canAdventure)($location(_templateObject79 || (_templateObject79 = _taggedTemplateLiteral14(["The Sunken Party Yacht"])))))
+    return !0;
+  if (args.leg1.buyDaypass && ((0, import_kolmafia32.itemAmount)($item(_templateObject224 || (_templateObject224 = _taggedTemplateLiteral14(["Jurassic Parka"])))) > 0 || (0, import_kolmafia32.haveEquipped)($item(_templateObject318 || (_templateObject318 = _taggedTemplateLiteral14(["Jurassic Parka"]))))) && (0, import_kolmafia32.itemAmount)($item(_templateObject416 || (_templateObject416 = _taggedTemplateLiteral14(["Cincho de Mayo"])))) > 0 && (0, import_kolmafia32.itemAmount)($item(_templateObject514 || (_templateObject514 = _taggedTemplateLiteral14(["Clara's Bell"])))) > 0 && get("_spikolodonSpikeUses") === 0 && get("_claraBellUsed") === !1) {
+    var sbb = $item(_templateObject611 || (_templateObject611 = _taggedTemplateLiteral14(["one-day ticket to Spring Break Beach"])));
+    return (0, import_kolmafia32.itemAmount)(sbb) === 0 && (0, import_kolmafia32.buy)(1, sbb, 6e5), (0, import_kolmafia32.itemAmount)(sbb) === 0 ? !1 : ((0, import_kolmafia32.use)(1, sbb), !0);
+  }
+  return !1;
+}
+
+// src/quests/leg1/tasks/garbo.ts
+var _templateObject80, _templateObject225, _templateObject319, _templateObject417, _templateObject515, _templateObject612, _templateObject710;
+function _taggedTemplateLiteral15(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 var GARBO = [{
   name: "Essential Tofu",
   ready: function() {
-    return (0, import_kolmafia31.mallPrice)($item(_templateObject79 || (_templateObject79 = _taggedTemplateLiteral14(["Essential Tofu"])))) < 4 * get("valueOfAdventure");
+    return (0, import_kolmafia33.mallPrice)($item(_templateObject80 || (_templateObject80 = _taggedTemplateLiteral15(["Essential Tofu"])))) < 4 * get("valueOfAdventure");
   },
   completed: function() {
     return get("_essentialTofuUsed");
   },
   acquire: [{
-    item: $item(_templateObject224 || (_templateObject224 = _taggedTemplateLiteral14(["Essential Tofu"]))),
+    item: $item(_templateObject225 || (_templateObject225 = _taggedTemplateLiteral15(["Essential Tofu"]))),
     price: get("valueOfAdventure") * 4
   }],
   do: function() {
-    return (0, import_kolmafia31.use)(1, $item(_templateObject318 || (_templateObject318 = _taggedTemplateLiteral14(["Essential Tofu"]))));
+    return (0, import_kolmafia33.use)(1, $item(_templateObject319 || (_templateObject319 = _taggedTemplateLiteral15(["Essential Tofu"]))));
   }
 }, {
   name: "Golden Dice",
   ready: function() {
-    return (0, import_kolmafia31.itemAmount)($item(_templateObject416 || (_templateObject416 = _taggedTemplateLiteral14(["Glenn's Golden Dice"])))) > 0;
+    return (0, import_kolmafia33.itemAmount)($item(_templateObject417 || (_templateObject417 = _taggedTemplateLiteral15(["Glenn's Golden Dice"])))) > 0;
   },
   completed: function() {
     return get("_glennGoldenDiceUsed");
   },
   do: function() {
-    return (0, import_kolmafia31.use)(1, $item(_templateObject514 || (_templateObject514 = _taggedTemplateLiteral14(["Glenn's Golden Dice"]))));
+    return (0, import_kolmafia33.use)(1, $item(_templateObject515 || (_templateObject515 = _taggedTemplateLiteral15(["Glenn's Golden Dice"]))));
   }
 }, {
   name: "Lodestone",
   ready: function() {
-    return (0, import_kolmafia31.itemAmount)($item(_templateObject611 || (_templateObject611 = _taggedTemplateLiteral14(["lodestone"])))) > 0;
+    return (0, import_kolmafia33.itemAmount)($item(_templateObject612 || (_templateObject612 = _taggedTemplateLiteral15(["lodestone"])))) > 0;
   },
   completed: function() {
     return get("_lodestoneUsed");
   },
   do: function() {
-    return (0, import_kolmafia31.use)(1, $item(_templateObject710 || (_templateObject710 = _taggedTemplateLiteral14(["lodestone"]))));
+    return (0, import_kolmafia33.use)(1, $item(_templateObject710 || (_templateObject710 = _taggedTemplateLiteral15(["lodestone"]))));
+  }
+}, {
+  name: "Leg1 valueOfAdventure",
+  completed: function() {
+    return get("valueOfAdventure") === args.leg1.leg1ValueOfAdventure;
+  },
+  do: function() {
+    _set("valueOfAdventure", args.leg1.leg1ValueOfAdventure);
   }
 }, {
   name: "Garbo",
@@ -6408,32 +6484,32 @@ var GARBO = [{
     return get("ascensionsToday") === 0;
   },
   completed: function() {
-    return (0, import_kolmafia31.myAdventures)() === 0;
+    return (0, import_kolmafia33.myAdventures)() === 0;
   },
   do: function() {
     var command = buildGarboCommand(!0);
-    (0, import_kolmafia31.print)("Running garbo with command '".concat(command, "'"));
-    var success = (0, import_kolmafia31.cliExecute)("garbo ".concat(command));
+    (0, import_kolmafia33.print)("Running garbo with command '".concat(command, "'"), "teal");
+    var success = (0, import_kolmafia33.cliExecute)("garbo ".concat(command));
     if (!success)
-      throw "Failed to execute garbo with ".concat(command);
+      throw "Failed to execute garbo with command '".concat(command, "'");
   },
   limit: {
     tries: 1
   }
 }];
-function buildGarboCommand(ascending) {
-  var commandStrings = ["candydish"];
-  return ascending && commandStrings.push("ascend"), hasYachtzeeAccess() && commandStrings.push("yachtzeechain"), args.leg1.leg1Workshed != $item.none && commandStrings.push('workshed="'.concat(args.leg1.leg1Workshed, '"')), commandStrings.join(" ");
-}
-function hasYachtzeeAccess() {
-  if ((0, import_kolmafia31.canAdventure)($location(_templateObject85 || (_templateObject85 = _taggedTemplateLiteral14(["The Sunken Party Yacht"])))))
-    return !0;
-  if (args.leg1.buyDaypass && ((0, import_kolmafia31.itemAmount)($item(_templateObject96 || (_templateObject96 = _taggedTemplateLiteral14(["Jurassic Parka"])))) > 0 || (0, import_kolmafia31.haveEquipped)($item(_templateObject105 || (_templateObject105 = _taggedTemplateLiteral14(["Jurassic Parka"]))))) && (0, import_kolmafia31.itemAmount)($item(_templateObject115 || (_templateObject115 = _taggedTemplateLiteral14(["Cincho de Mayo"])))) > 0 && (0, import_kolmafia31.itemAmount)($item(_templateObject125 || (_templateObject125 = _taggedTemplateLiteral14(["Clara's Bell"])))) > 0 && get("_spikolodonSpikeUses") === 0 && get("_claraBellUsed") === !1) {
-    var sbb = $item(_templateObject135 || (_templateObject135 = _taggedTemplateLiteral14(["one-day ticket to Spring Break Beach"])));
-    return (0, import_kolmafia31.itemAmount)(sbb) === 0 && (0, import_kolmafia31.buy)(1, sbb, 6e5), (0, import_kolmafia31.itemAmount)(sbb) === 0 ? !1 : ((0, import_kolmafia31.use)(1, sbb), !0);
+
+// src/quests/leg1/tasks/whitelist.ts
+init_kolmafia_polyfill();
+var import_kolmafia34 = require("kolmafia");
+var JOIN_CLAN = {
+  name: "Whitelist",
+  completed: function() {
+    return (0, import_kolmafia34.getClanName)() === args.global.homeClan;
+  },
+  do: function() {
+    return (0, import_kolmafia34.cliExecute)("/whitelist ".concat(args.global.homeClan));
   }
-  return !1;
-}
+};
 
 // src/quests/leg1/leg1.ts
 function _toConsumableArray21(arr) {
@@ -6535,5 +6611,5 @@ function main(command) {
   }
 }
 function initialize() {
-  homeClan_exports.init(), buyDaypass_exports.init(), leg1Workshed_exports.init(), preAscendGarden_exports.init(), permType_exports.init(), path_exports.init(), lifestyle_exports.init(), moonSign_exports.init(), class_exports.init(), astralPet_exports.init(), astralDeli_exports.init(), gender_exports.init();
+  homeClan_exports.init(), buyDaypass_exports.init(), leg1ValueOfAdventure_exports.init(), leg1Workshed_exports.init(), preAscendGarden_exports.init(), wineglassValueOfAdventure_exports.init(), permType_exports.init(), path_exports.init(), lifestyle_exports.init(), moonSign_exports.init(), class_exports.init(), astralPet_exports.init(), astralDeli_exports.init(), gender_exports.init();
 }
