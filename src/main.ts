@@ -1,10 +1,9 @@
 import { Args, Engine, getTasks } from "grimoire-kolmafia";
 
 import { args } from "./lib/args";
-
+import * as constants from "./lib/constants";
 import { breakfast } from "./quests/breakfast/breakfast";
 import { leg1 } from "./quests/leg1/leg1";
-import * as constants from "./lib/constants";
 
 export default function main(command?: string): void {
   Args.fill(args, command);
@@ -23,10 +22,7 @@ export default function main(command?: string): void {
     return;
   }
 
-  const tasks = getTasks([
-    breakfast,
-    ...leg1
-  ]);
+  const tasks = getTasks([breakfast, ...leg1]);
   const engine = new Engine(tasks);
 
   try {
@@ -42,8 +38,10 @@ function initialize(): void {
 
   // Leg 1
   constants.buyDaypass.init();
+  constants.leg1ValueOfAdventure.init();
   constants.leg1Workshed.init();
   constants.preAscendGarden.init();
+  constants.wineglassValueOfAdventure.init();
 
   // Afterlife
   constants.permType.init();

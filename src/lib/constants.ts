@@ -9,27 +9,31 @@ import * as permType from "./preferences/afterlife/permType";
 import * as eventList from "./preferences/global/eventList";
 import * as homeClan from "./preferences/global/homeClan";
 import * as buyDaypass from "./preferences/leg1/buyDaypass";
+import * as leg1ValueOfAdventure from "./preferences/leg1/leg1ValueOfAdventure";
 import * as leg1Workshed from "./preferences/leg1/leg1Workshed";
 import * as preAscendGarden from "./preferences/leg1/preAscendGarden";
+import * as wineglassValueOfAdventure from "./preferences/leg1/wineglassValueOfAdventure";
 
 // Properties (that I need to access)
 export const BIG_BOOK_USED = "_tptb.bLooper.bigBookUsed";
 
 export {
-    eventList,
-    homeClan,
-    leg1Workshed,
-    buyDaypass,
-    preAscendGarden,
-    astralDeli,
-    astralPet,
-    lifestyle,
-    moonSign,
-    path,
-    ascendClass,
-    gender,
-    permType,
-}
+  eventList,
+  homeClan,
+  leg1ValueOfAdventure,
+  leg1Workshed,
+  buyDaypass,
+  preAscendGarden,
+  wineglassValueOfAdventure,
+  astralDeli,
+  astralPet,
+  lifestyle,
+  moonSign,
+  path,
+  ascendClass,
+  gender,
+  permType,
+};
 
 // Event Names
 export const LEG1GARBO = "leg1garbo";
