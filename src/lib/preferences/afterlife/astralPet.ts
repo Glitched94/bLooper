@@ -20,7 +20,6 @@ const astralPetPref = Args.custom<Item>({
     setting: astralPet.setting,
     help: astralPet.help,
     default: $item.none,
-    hidden: true,
     options: [
         ...allAstralPetAliases.map(
             ({ item, aliases }) => [

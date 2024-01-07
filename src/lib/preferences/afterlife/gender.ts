@@ -19,7 +19,6 @@ const genderPref = Args.number({
     setting: gender.setting,
     help: gender.help,
     default: 1,
-    hidden: true,
     options: [
         [1, "Male"],
         [2, "Female"]

@@ -19,7 +19,6 @@ const moonSignPref = Args.number({
     setting: moonSign.setting,
     help: moonSign.help,
     default: 8,
-    hidden: true,
     options: [
         [1, "Mongoose"],
         [2, "Wallaby"],

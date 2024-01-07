@@ -20,7 +20,6 @@ const astralDeliPref = Args.custom<Item>({
     setting: astralDeli.setting,
     help: astralDeli.help,
     default: $item.none,
-    hidden: true,
     options: [
         ...allAstralDeliAliases.map(
             ({ item, aliases }) => [

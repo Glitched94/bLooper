@@ -52,7 +52,6 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
             setting: "tptb.bLooper.leg2Workshed",
             help: "The workshed you'd like the script to install at the start of Leg 2. Leave blank to ignore.",
             default: $item.none,
-            hidden: true,
             options: [
                 ...allWorkshedAliases.map(
                     ({ item, aliases }) => [
