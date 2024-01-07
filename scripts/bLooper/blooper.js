@@ -5291,7 +5291,7 @@ var astralDeli = {
   })), [[$item.none, "leave this field blank"]])
 }, stringToAstralDeliItem, "Item");
 function setAstralDeli() {
-  var pref = (0, import_kolmafia13.userPrompt)(astralDeli.help + " Use 'blooper help showAll' to see all acceptable values for this setting.");
+  var pref = (0, import_kolmafia13.userPrompt)(astralDeli.help + " Use 'blooper help options' to see all acceptable values for this setting.");
   _set(astralDeli.setting, pref), args.afterlife.astralDeli = stringToAstralDeliItem(pref);
 }
 
@@ -5467,7 +5467,7 @@ var astralPet = {
   })), [[$item.none, "leave this field blank"]])
 }, stringToAstralPet, "Item");
 function setAstralPet() {
-  var pref = (0, import_kolmafia15.userPrompt)(astralPet.help + " Use 'blooper help showAll' to see all acceptable values for this setting.");
+  var pref = (0, import_kolmafia15.userPrompt)(astralPet.help + " Use 'blooper help options' to see all acceptable values for this setting.");
   _set(astralPet.setting, pref), args.afterlife.astralPet = stringToAstralPet(pref);
 }
 
@@ -5620,7 +5620,7 @@ var ascendClass = {
   }))
 }, stringToClass, "Class");
 function setAscendClass() {
-  var pref = (0, import_kolmafia17.userPrompt)(ascendClass.help + " Use 'blooper help showAll' to see all acceptable values for this setting.");
+  var pref = (0, import_kolmafia17.userPrompt)(ascendClass.help + " Use 'blooper help options' to see all acceptable values for this setting.");
   _set(ascendClass.setting, pref), args.afterlife.class = stringToClass(pref);
 }
 
@@ -5649,7 +5649,7 @@ var gender = {
   options: [[1, "Male"], [2, "Female"]]
 });
 function setGender() {
-  var pref = Number.parseInt((0, import_kolmafia18.userPrompt)(gender.help + " Use 'blooper help showAll' to see all acceptable values for this setting."));
+  var pref = Number.parseInt((0, import_kolmafia18.userPrompt)(gender.help + " Use 'blooper help options' to see all acceptable values for this setting."));
   _set(gender.setting, pref), args.afterlife.gender = pref;
 }
 
@@ -5678,7 +5678,7 @@ var lifestyle = {
   options: [[1, "Casual"], [2, "Normal (or Softcore)"], [3, "Hardcore"]]
 });
 function setLifestyle() {
-  var pref = Number.parseInt((0, import_kolmafia19.userPrompt)(lifestyle.help + " Use 'blooper help showAll' to see all acceptable values for this setting."));
+  var pref = Number.parseInt((0, import_kolmafia19.userPrompt)(lifestyle.help + " Use 'blooper help options' to see all acceptable values for this setting."));
   _set(lifestyle.setting, pref), args.afterlife.lifestyle = pref;
 }
 
@@ -5707,7 +5707,7 @@ var moonSign = {
   options: [[1, "Mongoose"], [2, "Wallaby"], [3, "Vole"], [4, "Platypus"], [5, "Opossum"], [6, "Marmot"], [7, "Wombat"], [8, "Blender"], [9, "Packrat"]]
 });
 function setMoonSign() {
-  var pref = Number.parseInt((0, import_kolmafia20.userPrompt)(moonSign.help + " Use 'blooper help showAll' to see all acceptable values for this setting."));
+  var pref = Number.parseInt((0, import_kolmafia20.userPrompt)(moonSign.help + " Use 'blooper help options' to see all acceptable values for this setting."));
   _set(moonSign.setting, pref), args.afterlife.moonSign = pref;
 }
 
@@ -5841,7 +5841,7 @@ var path = {
   }))
 }, stringToPath, "Path");
 function setPath() {
-  var pref = (0, import_kolmafia22.userPrompt)(path.help + " Use 'blooper help showAll' to see all acceptable values for this setting.");
+  var pref = (0, import_kolmafia22.userPrompt)(path.help + " Use 'blooper help options' to see all acceptable values for this setting.");
   _set(path.setting, pref), args.afterlife.path = stringToPath(pref);
 }
 
@@ -5870,7 +5870,7 @@ var permType = {
   options: [["sc", "Softcore"], ["hc", "Hardcore"]]
 });
 function setPermType() {
-  var pref = (0, import_kolmafia23.userPrompt)(permType.help + " Use 'blooper help showAll' to see all acceptable values for this setting.");
+  var pref = (0, import_kolmafia23.userPrompt)(permType.help + " Use 'blooper help options' to see all acceptable values for this setting.");
   _set(permType.setting, pref), args.afterlife.permType = pref;
 }
 
@@ -6011,7 +6011,7 @@ var leg1Workshed = {
   })), [[$item.none, "leave this field blank"]])
 }, stringToWorkshedItem, "Item");
 function setLeg1Workshed() {
-  var pref = (0, import_kolmafia26.userPrompt)(leg1Workshed.help + " Use 'blooper help showAll' to see all acceptable values for this setting.");
+  var pref = (0, import_kolmafia26.userPrompt)(leg1Workshed.help + " Use 'blooper help options' to see all acceptable values for this setting.");
   _set(leg1Workshed.setting, pref), args.leg1.leg1Workshed = stringToWorkshedItem(pref);
 }
 
@@ -6169,7 +6169,7 @@ var preAscendGarden = {
   })), [[$item.none, "leave this field blank"]])
 }, stringToGardenItem, "Item");
 function setPreAscendGarden() {
-  var pref = (0, import_kolmafia28.userPrompt)(preAscendGarden.help + " Use 'blooper help showAll' to see all acceptable values for this setting.");
+  var pref = (0, import_kolmafia28.userPrompt)(preAscendGarden.help + " Use 'blooper help options' to see all acceptable values for this setting.");
   _set(preAscendGarden.setting, pref), args.leg1.preAscendGarden = stringToGardenItem(pref);
 }
 
@@ -6222,7 +6222,7 @@ var args = Args.create("bLooper", "A re-entrant daily looping wrapper", {
     help: "Use for first-time setup of bLooper.",
     default: !1
   }),
-  showAll: Args.flag({
+  options: Args.flag({
     help: "Use this to see all options for the preferences in this help menu. By default, none will be shown.",
     default: !1
   }),
@@ -6520,7 +6520,7 @@ function _arrayLikeToArray25(arr, len) {
 }
 function main(command) {
   if (Args.fill(args, command), args.help) {
-    args.showAll ? Args.showHelp(args) : Args.showHelp(args, 0);
+    args.options ? Args.showHelp(args) : Args.showHelp(args, 0);
     return;
   }
   if (args.init) {
