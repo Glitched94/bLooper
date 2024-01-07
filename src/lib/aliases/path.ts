@@ -3,7 +3,7 @@ import { $path, $paths } from "libram";
 
 import { stripString, toInitials } from "../args";
 
-const unaliasedPaths = $paths``;
+const unaliasedPaths = $paths`Community Service`;
 export const allPathAliases = [
     ...unaliasedPaths.map((path) => {
         return { path: path, aliases: [path.name.toLowerCase()] };

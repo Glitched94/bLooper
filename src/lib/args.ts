@@ -51,6 +51,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
             setting: "tptb.bLooper.leg1Workshed",
             help: "The workshed you'd like the script to install at the start of Leg 1. Leave blank to ignore.",
             default: $item.none,
+            hidden: true,
             options: [
                 ...allWorkshedAliases.map(
                     ({ item, aliases }) => [
@@ -69,6 +70,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
             setting: "tptb.bLooper.preAscendGarden",
             help: "The garden you'd like the script to install at the start of Leg 1. Leave blank to ignore.",
             default: $item.none,
+            hidden: true,
             options: [
                 ...allGardenAliases.map(
                     ({ item, aliases }) => [
@@ -89,6 +91,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
             setting: "tptb.bLooper.astralDeli",
             help: "The name of the item you'd like to buy from the Astral Deli in the afterlife.",
             default: $item.none,
+            hidden: true,
             options: [
                 ...allAstralDeliAliases.map(
                     ({ item, aliases }) => [
@@ -107,6 +110,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
             setting: "tptb.bLooper.astralPet",
             help: "",
             default: $item.none,
+            hidden: true,
             options: [
                 ...allAstralPetAliases.map(
                     ({ item, aliases }) => [
@@ -135,6 +139,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
             setting: "tptb.bLooper.moonId",
             help: "The name of the Moon Sign you want to ascend under.",
             default: 8,
+            hidden: true,
             options: [
                 [1, "Mongoose"],
                 [2, "Wallaby"],
@@ -185,6 +190,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
             setting: "tptb.bLooper.gender",
             help: "",
             default: 1,
+            hidden: true,
             options: [
                 [1, "Male"],
                 [2, "Female"]
@@ -205,6 +211,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
             setting: "tptb.bLooper.leg2Workshed",
             help: "The workshed you'd like the script to install at the start of Leg 2. Leave blank to ignore.",
             default: $item.none,
+            hidden: true,
             options: [
                 ...allWorkshedAliases.map(
                     ({ item, aliases }) => [
