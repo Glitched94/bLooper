@@ -5,8 +5,7 @@
   "homepage": "",
   "license": "MIT",
   "scripts": {
-    "build": "node --no-warnings build.mjs && yarn run copyStatic",
-    "copyStatic": "copyFiles --up 1 \"static/**/*\" dist",
+    "build": "node --no-warnings build.mjs",
     "format": "eslint src --fix && prettier --write .",
     "lint": "yarn format && eslint src && prettier --check .",
     "install-mafia": "create-kolmafia-script --install"
@@ -28,7 +27,6 @@
     "@types/node": "^20.4.2",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
-    "copyfiles": "^2.4.1",
     "create-kolmafia-script": "latest",
     "esbuild": "^0.18.13",
     "esbuild-plugin-babel": "^0.2.3",
