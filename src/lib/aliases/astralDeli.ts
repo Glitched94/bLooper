@@ -6,7 +6,7 @@ import { stripString, toInitials } from "../args";
 const astralDeliAliases = [
   { item: $item`astral hot dog dinner`, aliases: ["hot dog"] },
   { item: $item`astral six-pack`, aliases: ["six-pack", "pilsner"] },
-  { item: $item`carton of astral energy drinks`, aliases: ["energy drinks"] },
+  { item: $item`[10882]carton of astral energy drinks`, aliases: ["energy drinks"] },
 ];
 export const allAstralDeliAliases = [
   ...astralDeliAliases.map(({ item, aliases }) => {

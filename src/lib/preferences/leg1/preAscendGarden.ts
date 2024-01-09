@@ -36,9 +36,8 @@ const preAscendGardenPref = Args.custom<Item>(
 );
 
 function setPreAscendGarden(): void {
-  var pref = userPrompt(
-    preAscendGarden.help +
-      " Use 'blooper help options' to see all acceptable values for this setting.",
+  const pref = userPrompt(
+    `${preAscendGarden.help} Use 'blooper help options' to see all acceptable values for this setting.`,
   );
   set(preAscendGarden.setting, pref);
   args.leg1.preAscendGarden = stringToGardenItem(pref);

@@ -7,6 +7,7 @@ import * as moonSign from "./preferences/afterlife/moonSign";
 import * as path from "./preferences/afterlife/path";
 import * as permType from "./preferences/afterlife/permType";
 import * as eventList from "./preferences/global/eventList";
+import * as getBounties from "./preferences/global/getBounties";
 import * as homeClan from "./preferences/global/homeClan";
 import * as buyDaypass from "./preferences/leg1/buyDaypass";
 import * as leg1ValueOfAdventure from "./preferences/leg1/leg1ValueOfAdventure";
@@ -21,6 +22,7 @@ export const BIG_BOOK_USED = "_tptb.bLooper.bigBookUsed";
 export {
   eventList,
   homeClan,
+  getBounties,
   leg1ValueOfAdventure,
   leg1Workshed,
   buyDaypass,
@@ -38,6 +40,7 @@ export {
 };
 
 // Event Names
+export const LEG1GARBO_NOBARF = "leg1garbo_nobarf";
 export const LEG1GARBO = "leg1garbo";
 export const WINEGLASS = "wineglassDone";
 export const PRE_ASCEND = "preAscend";

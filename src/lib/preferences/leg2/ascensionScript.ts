@@ -18,7 +18,7 @@ const ascensionScriptPref = Args.string({
 });
 
 function setAscensionScript(): void {
-  var pref = userPrompt(ascensionScript.help);
+  const pref = userPrompt(ascensionScript.help);
   set(ascensionScript.setting, pref);
   args.leg2.ascensionScript = pref;
 }

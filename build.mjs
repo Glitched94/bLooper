@@ -20,7 +20,7 @@ const watchPlugin = {
 };
 
 const config = {
-  entryPoints: { "blooper": "src/main.ts" },
+  entryPoints: { blooper: "src/main.ts" },
   bundle: true,
   minifySyntax: true,
   platform: "node",

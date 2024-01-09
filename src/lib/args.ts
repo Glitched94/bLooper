@@ -31,6 +31,7 @@ export const args = Args.create("bLooper", "A re-entrant daily looping wrapper",
   global: Args.group("Global Preferences", {
     eventList: constants.eventList.arg,
     homeClan: constants.homeClan.arg,
+    getBounties: constants.getBounties.arg,
   }),
   leg1: Args.group("Leg 1 Preferences", {
     buyDaypass: constants.buyDaypass.arg,

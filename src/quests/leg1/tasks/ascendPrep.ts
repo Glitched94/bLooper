@@ -50,15 +50,15 @@ export const PRE_ASCEND: Task[] = [
     name: "Prepare Pulls",
     acquire: [
       {
-        item: $item`calzone of legend`,
+        item: $item`Calzone of Legend`,
         price: 50 * get("valueOfAdventure"),
       },
       {
-        item: $item`pizza of legend`,
+        item: $item`Pizza of Legend`,
         price: 50 * get("valueOfAdventure"),
       },
       {
-        item: $item`deep dish of legend`,
+        item: $item`Deep Dish of Legend`,
         price: 50 * get("valueOfAdventure"),
       },
       {
@@ -84,9 +84,9 @@ export const PRE_ASCEND: Task[] = [
 
 function haveCsPulls(): boolean {
   return (
-    availableAmount($item`calzone of legend`) > 0 &&
-    availableAmount($item`pizza of legend`) > 0 &&
-    availableAmount($item`deep dish of legend`) > 0 &&
+    availableAmount($item`Calzone of Legend`) > 0 &&
+    availableAmount($item`Pizza of Legend`) > 0 &&
+    availableAmount($item`Deep Dish of Legend`) > 0 &&
     availableAmount($item`borrowed time`) > 0 &&
     availableAmount($item`non-Euclidean angle`) > 0 &&
     availableAmount($item`tobiko marble soda`) > 0 &&

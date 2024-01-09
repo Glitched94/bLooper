@@ -1,5 +1,5 @@
 import { Args } from "grimoire-kolmafia";
-import { Item, toItem, userPrompt } from "kolmafia";
+import { Item, userPrompt } from "kolmafia";
 import { $item, set } from "libram";
 
 import { allWorkshedAliases, stringToWorkshedItem } from "../../aliases/workshed";
@@ -36,9 +36,8 @@ const leg1WorkshedPref = Args.custom<Item>(
 );
 
 function setLeg1Workshed(): void {
-  var pref = userPrompt(
-    leg1Workshed.help +
-      " Use 'blooper help options' to see all acceptable values for this setting.",
+  const pref = userPrompt(
+    `${leg1Workshed.help} Use 'blooper help options' to see all acceptable values for this setting.`,
   );
   set(leg1Workshed.setting, pref);
   args.leg1.leg1Workshed = stringToWorkshedItem(pref);

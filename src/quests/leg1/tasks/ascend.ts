@@ -1,6 +1,6 @@
 import { Quest, Task } from "grimoire-kolmafia";
-import { Skill, count, getPermedSkills, visitUrl } from "kolmafia";
-import { $path, Lifestyle, ascend, get, have } from "libram";
+import { count, getPermedSkills, Skill, visitUrl } from "kolmafia";
+import { $path, ascend, get, have, Lifestyle } from "libram";
 
 import { args } from "../../../lib/args";
 

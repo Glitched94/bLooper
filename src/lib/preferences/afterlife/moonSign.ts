@@ -30,9 +30,9 @@ const moonSignPref = Args.number({
 });
 
 function setMoonSign(): void {
-  var pref = Number.parseInt(
+  const pref = Number.parseInt(
     userPrompt(
-      moonSign.help + " Use 'blooper help options' to see all acceptable values for this setting.",
+      `${moonSign.help} Use 'blooper help options' to see all acceptable values for this setting.`,
     ),
   );
   set(moonSign.setting, pref);

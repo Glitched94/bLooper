@@ -31,8 +31,8 @@ const astralDeliPref = Args.custom<Item>(
 );
 
 function setAstralDeli(): void {
-  var pref = userPrompt(
-    astralDeli.help + " Use 'blooper help options' to see all acceptable values for this setting.",
+  const pref = userPrompt(
+    `${astralDeli.help} Use 'blooper help options' to see all acceptable values for this setting.`,
   );
   set(astralDeli.setting, pref);
   args.afterlife.astralDeli = stringToAstralDeliItem(pref);

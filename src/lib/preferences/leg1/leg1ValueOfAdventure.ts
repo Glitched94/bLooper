@@ -23,7 +23,7 @@ const leg1ValueOfAdventurePref = Args.number({
 });
 
 function setLeg1ValueOfAdventure(): void {
-  var pref = Number.parseInt(userPrompt(leg1ValueOfAdventure.help));
+  const pref = Number.parseInt(userPrompt(leg1ValueOfAdventure.help));
   set(leg1ValueOfAdventure.setting, pref);
   args.leg1.leg1ValueOfAdventure = pref;
 }

@@ -19,7 +19,7 @@ const homeClanPref = Args.string({
 });
 
 function setHomeClan(): void {
-  var homeClanPref = userPrompt(homeClan.help);
+  const homeClanPref = userPrompt(homeClan.help);
   set(homeClan.setting, homeClanPref);
   args.global.homeClan = homeClanPref;
 }

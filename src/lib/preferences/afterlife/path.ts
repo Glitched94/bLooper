@@ -33,8 +33,8 @@ const pathPref = Args.custom<Path>(
 );
 
 function setPath(): void {
-  var pref = userPrompt(
-    path.help + " Use 'blooper help options' to see all acceptable values for this setting.",
+  const pref = userPrompt(
+    `${path.help} Use 'blooper help options' to see all acceptable values for this setting.`,
   );
   set(path.setting, pref);
   args.afterlife.path = stringToPath(pref);

@@ -1,10 +1,21 @@
-import { buy, canAdventure, haveEquipped, itemAmount, use } from "kolmafia";
+import { buy, canAdventure, cliExecute, haveEquipped, itemAmount, print, use } from "kolmafia";
 import { $item, $location, get } from "libram";
 
 import { args } from "./args";
 
-export function buildGarboCommand(ascending: boolean): string {
+export function executeGarbo(ascending: boolean, nobarf: boolean = false): void {
+  const command = buildGarboCommand(ascending, nobarf);
+  print(`Running garbo with command '${command}'`, "teal");
+  const success = cliExecute(`garbo ${command}`);
+  if (!success) throw `Failed to execute garbo with command '${command}'`;
+}
+
+function buildGarboCommand(ascending: boolean, nobarf: boolean): string {
   const commandStrings = ["candydish"];
+
+  if (nobarf) {
+    commandStrings.push("nobarf");
+  }
 
   if (ascending) {
     commandStrings.push("ascend");
@@ -15,7 +26,7 @@ export function buildGarboCommand(ascending: boolean): string {
     0;
   }
 
-  if (args.leg1.leg1Workshed != $item.none) {
+  if (args.leg1.leg1Workshed !== $item.none) {
     commandStrings.push(`workshed="${args.leg1.leg1Workshed}"`);
   }
 
@@ -29,7 +40,7 @@ function hasYachtzeeAccess(): boolean {
     args.leg1.buyDaypass &&
     (itemAmount($item`Jurassic Parka`) > 0 || haveEquipped($item`Jurassic Parka`)) &&
     itemAmount($item`Cincho de Mayo`) > 0 &&
-    itemAmount($item`Clara's Bell`) > 0
+    itemAmount($item`Clara's bell`) > 0
   ) {
     if (get("_spikolodonSpikeUses") === 0 && get("_claraBellUsed") === false) {
       const sbb = $item`one-day ticket to Spring Break Beach`;

@@ -24,9 +24,9 @@ const lifestylePref = Args.number({
 });
 
 function setLifestyle(): void {
-  var pref = Number.parseInt(
+  const pref = Number.parseInt(
     userPrompt(
-      lifestyle.help + " Use 'blooper help options' to see all acceptable values for this setting.",
+      `${lifestyle.help} Use 'blooper help options' to see all acceptable values for this setting.`,
     ),
   );
   set(lifestyle.setting, pref);

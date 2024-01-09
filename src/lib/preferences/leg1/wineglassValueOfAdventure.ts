@@ -23,7 +23,7 @@ const wineglassValueOfAdventurePref = Args.number({
 });
 
 function setWineglassValueOfAdventure(): void {
-  var pref = Number.parseInt(userPrompt(wineglassValueOfAdventure.help));
+  const pref = Number.parseInt(userPrompt(wineglassValueOfAdventure.help));
   set(wineglassValueOfAdventure.setting, pref);
   args.leg1.wineglassValueOfAdventure = pref;
 }

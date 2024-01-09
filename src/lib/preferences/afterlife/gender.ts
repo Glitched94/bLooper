@@ -23,9 +23,9 @@ const genderPref = Args.number({
 });
 
 function setGender(): void {
-  var pref = Number.parseInt(
+  const pref = Number.parseInt(
     userPrompt(
-      gender.help + " Use 'blooper help options' to see all acceptable values for this setting.",
+      `${gender.help} Use 'blooper help options' to see all acceptable values for this setting.`,
     ),
   );
   set(gender.setting, pref);

@@ -19,7 +19,7 @@ const buyDaypassPref = Args.boolean({
 });
 
 function setBuyDaypass(): void {
-  var pref = toBoolean(userPrompt(buyDaypass.help));
+  const pref = toBoolean(userPrompt(buyDaypass.help));
   set(buyDaypass.setting, pref);
   args.leg1.buyDaypass = pref;
 }

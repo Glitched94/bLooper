@@ -5,7 +5,7 @@ import { stripString, toInitials } from "../args";
 
 const workshedAliases = [
   { item: $item`model train set`, aliases: ["trainrealm"] },
-  { item: $item`Asdon Martin keyfob`, aliases: ["breadcar", "car", "aston"] },
+  { item: $item`Asdon Martin keyfob (on ring)`, aliases: ["breadcar", "car", "aston"] },
   { item: $item`Little Geneticist DNA-Splicing Lab`, aliases: ["dnalab"] },
 ];
 const unaliasedSheds = $items`cold medicine cabinet, diabolic pizza cube, portable Mayo Clinic, spinning wheel, warbear auto-anvil, warbear chemistry lab, warbear high-efficiency still, warbear induction oven, warbear jackhammer drill press, warbear LP-ROM burner`;

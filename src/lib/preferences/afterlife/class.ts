@@ -30,8 +30,8 @@ const ascendClassPref = Args.custom<Class>(
 );
 
 function setAscendClass(): void {
-  var pref = userPrompt(
-    ascendClass.help + " Use 'blooper help options' to see all acceptable values for this setting.",
+  const pref = userPrompt(
+    `${ascendClass.help} Use 'blooper help options' to see all acceptable values for this setting.`,
   );
   set(ascendClass.setting, pref);
   args.afterlife.class = stringToClass(pref);

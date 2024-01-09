@@ -7,7 +7,6 @@ import {
   mallPrice,
   myAdventures,
   myInebriety,
-  print,
   pvpAttacksLeft,
   use,
   visitUrl,
@@ -16,10 +15,8 @@ import { $item, get, have } from "libram";
 import { set } from "libram/dist/counter";
 import { getBoolean } from "libram/dist/property";
 
-import { logEvent } from "../../../eventLogging";
 import { args } from "../../../lib/args";
-import { WINEGLASS } from "../../../lib/constants";
-import { buildGarboCommand } from "../../../lib/garboBuilder";
+import { executeGarbo } from "../../../lib/garboBuilder";
 
 const overdrink: Task = {
   name: "Get drunk",
@@ -79,11 +76,7 @@ const overdrunkGarbo: Task[] = [
     ready: () => myInebriety() > inebrietyLimit() && myAdventures() > 0,
     completed: () => myAdventures() === 0,
     do: () => {
-      const command = buildGarboCommand(true);
-
-      print(`Running garbo with command: '${command}'`, "teal");
-      const success = cliExecute(`garbo ${command}`);
-      if (!success) throw `Failed to execute garbo with command '${command}'`;
+      executeGarbo(true);
     },
   },
 ];
@@ -112,8 +105,8 @@ function comboReady(): boolean {
   if (have($item`Beach Comb`)) return true;
 
   if (have($item`driftwood beach comb`)) {
-    const sandPrice = mallPrice($item`Grain of sand`) * 3;
-    const combPrice = mallPrice($item`Piece of driftwood`);
+    const sandPrice = mallPrice($item`grain of sand`) * 3;
+    const combPrice = mallPrice($item`piece of driftwood`);
     const advLimit = combPrice / sandPrice;
 
     if (myAdventures() > advLimit) {
