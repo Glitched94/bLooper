@@ -1,11 +1,17 @@
 "use strict";
+var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __getProtoOf = Object.getPrototypeOf, __hasOwnProp = Object.prototype.hasOwnProperty;
 var __esm = function(fn, res) {
   return function() {
     return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
+  };
+};
+var __commonJS = function(cb, mod) {
+  return function() {
+    return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   };
 };
 var __export = function(target, all) {
@@ -19,7 +25,16 @@ var __export = function(target, all) {
       }.bind(null, key), enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
   return to;
 };
-var __toCommonJS = function(mod) {
+var __toESM = function(mod, isNodeMode, target) {
+  return target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+    // If the importer is in node compatibility mode or this is not an ESM
+    // file that has been converted to a CommonJS file using a Babel-
+    // compatible transform (i.e. "__esModule" has not been set), then set
+    // "default" to the CommonJS "module.exports" for node compatibility.
+    isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: !0 }) : target,
+    mod
+  );
+}, __toCommonJS = function(mod) {
   return __copyProps(__defProp({}, "__esModule", { value: !0 }), mod);
 };
 
@@ -30,6 +45,4593 @@ var kolmafia, console, init_kolmafia_polyfill = __esm({
     kolmafia = require("kolmafia"), console = {
       log: kolmafia.print
     };
+  }
+});
+
+// node_modules/html-entities/lib/named-references.js
+var require_named_references = __commonJS({
+  "node_modules/html-entities/lib/named-references.js": function(exports) {
+    "use strict";
+    init_kolmafia_polyfill();
+    Object.defineProperty(exports, "__esModule", {
+      value: !0
+    });
+    exports.bodyRegExps = {
+      xml: /&(?:#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+);?/g,
+      html4: /&notin;|&(?:nbsp|iexcl|cent|pound|curren|yen|brvbar|sect|uml|copy|ordf|laquo|not|shy|reg|macr|deg|plusmn|sup2|sup3|acute|micro|para|middot|cedil|sup1|ordm|raquo|frac14|frac12|frac34|iquest|Agrave|Aacute|Acirc|Atilde|Auml|Aring|AElig|Ccedil|Egrave|Eacute|Ecirc|Euml|Igrave|Iacute|Icirc|Iuml|ETH|Ntilde|Ograve|Oacute|Ocirc|Otilde|Ouml|times|Oslash|Ugrave|Uacute|Ucirc|Uuml|Yacute|THORN|szlig|agrave|aacute|acirc|atilde|auml|aring|aelig|ccedil|egrave|eacute|ecirc|euml|igrave|iacute|icirc|iuml|eth|ntilde|ograve|oacute|ocirc|otilde|ouml|divide|oslash|ugrave|uacute|ucirc|uuml|yacute|thorn|yuml|quot|amp|lt|gt|#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+);?/g,
+      html5: /&centerdot;|&copysr;|&divideontimes;|&gtcc;|&gtcir;|&gtdot;|&gtlPar;|&gtquest;|&gtrapprox;|&gtrarr;|&gtrdot;|&gtreqless;|&gtreqqless;|&gtrless;|&gtrsim;|&ltcc;|&ltcir;|&ltdot;|&lthree;|&ltimes;|&ltlarr;|&ltquest;|&ltrPar;|&ltri;|&ltrie;|&ltrif;|&notin;|&notinE;|&notindot;|&notinva;|&notinvb;|&notinvc;|&notni;|&notniva;|&notnivb;|&notnivc;|&parallel;|&timesb;|&timesbar;|&timesd;|&(?:AElig|AMP|Aacute|Acirc|Agrave|Aring|Atilde|Auml|COPY|Ccedil|ETH|Eacute|Ecirc|Egrave|Euml|GT|Iacute|Icirc|Igrave|Iuml|LT|Ntilde|Oacute|Ocirc|Ograve|Oslash|Otilde|Ouml|QUOT|REG|THORN|Uacute|Ucirc|Ugrave|Uuml|Yacute|aacute|acirc|acute|aelig|agrave|amp|aring|atilde|auml|brvbar|ccedil|cedil|cent|copy|curren|deg|divide|eacute|ecirc|egrave|eth|euml|frac12|frac14|frac34|gt|iacute|icirc|iexcl|igrave|iquest|iuml|laquo|lt|macr|micro|middot|nbsp|not|ntilde|oacute|ocirc|ograve|ordf|ordm|oslash|otilde|ouml|para|plusmn|pound|quot|raquo|reg|sect|shy|sup1|sup2|sup3|szlig|thorn|times|uacute|ucirc|ugrave|uml|uuml|yacute|yen|yuml|#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+);?/g
+    };
+    exports.namedReferences = {
+      xml: {
+        entities: {
+          "&lt;": "<",
+          "&gt;": ">",
+          "&quot;": '"',
+          "&apos;": "'",
+          "&amp;": "&"
+        },
+        characters: {
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&apos;",
+          "&": "&amp;"
+        }
+      },
+      html4: {
+        entities: {
+          "&apos;": "'",
+          "&nbsp": "\xA0",
+          "&nbsp;": "\xA0",
+          "&iexcl": "\xA1",
+          "&iexcl;": "\xA1",
+          "&cent": "\xA2",
+          "&cent;": "\xA2",
+          "&pound": "\xA3",
+          "&pound;": "\xA3",
+          "&curren": "\xA4",
+          "&curren;": "\xA4",
+          "&yen": "\xA5",
+          "&yen;": "\xA5",
+          "&brvbar": "\xA6",
+          "&brvbar;": "\xA6",
+          "&sect": "\xA7",
+          "&sect;": "\xA7",
+          "&uml": "\xA8",
+          "&uml;": "\xA8",
+          "&copy": "\xA9",
+          "&copy;": "\xA9",
+          "&ordf": "\xAA",
+          "&ordf;": "\xAA",
+          "&laquo": "\xAB",
+          "&laquo;": "\xAB",
+          "&not": "\xAC",
+          "&not;": "\xAC",
+          "&shy": "\xAD",
+          "&shy;": "\xAD",
+          "&reg": "\xAE",
+          "&reg;": "\xAE",
+          "&macr": "\xAF",
+          "&macr;": "\xAF",
+          "&deg": "\xB0",
+          "&deg;": "\xB0",
+          "&plusmn": "\xB1",
+          "&plusmn;": "\xB1",
+          "&sup2": "\xB2",
+          "&sup2;": "\xB2",
+          "&sup3": "\xB3",
+          "&sup3;": "\xB3",
+          "&acute": "\xB4",
+          "&acute;": "\xB4",
+          "&micro": "\xB5",
+          "&micro;": "\xB5",
+          "&para": "\xB6",
+          "&para;": "\xB6",
+          "&middot": "\xB7",
+          "&middot;": "\xB7",
+          "&cedil": "\xB8",
+          "&cedil;": "\xB8",
+          "&sup1": "\xB9",
+          "&sup1;": "\xB9",
+          "&ordm": "\xBA",
+          "&ordm;": "\xBA",
+          "&raquo": "\xBB",
+          "&raquo;": "\xBB",
+          "&frac14": "\xBC",
+          "&frac14;": "\xBC",
+          "&frac12": "\xBD",
+          "&frac12;": "\xBD",
+          "&frac34": "\xBE",
+          "&frac34;": "\xBE",
+          "&iquest": "\xBF",
+          "&iquest;": "\xBF",
+          "&Agrave": "\xC0",
+          "&Agrave;": "\xC0",
+          "&Aacute": "\xC1",
+          "&Aacute;": "\xC1",
+          "&Acirc": "\xC2",
+          "&Acirc;": "\xC2",
+          "&Atilde": "\xC3",
+          "&Atilde;": "\xC3",
+          "&Auml": "\xC4",
+          "&Auml;": "\xC4",
+          "&Aring": "\xC5",
+          "&Aring;": "\xC5",
+          "&AElig": "\xC6",
+          "&AElig;": "\xC6",
+          "&Ccedil": "\xC7",
+          "&Ccedil;": "\xC7",
+          "&Egrave": "\xC8",
+          "&Egrave;": "\xC8",
+          "&Eacute": "\xC9",
+          "&Eacute;": "\xC9",
+          "&Ecirc": "\xCA",
+          "&Ecirc;": "\xCA",
+          "&Euml": "\xCB",
+          "&Euml;": "\xCB",
+          "&Igrave": "\xCC",
+          "&Igrave;": "\xCC",
+          "&Iacute": "\xCD",
+          "&Iacute;": "\xCD",
+          "&Icirc": "\xCE",
+          "&Icirc;": "\xCE",
+          "&Iuml": "\xCF",
+          "&Iuml;": "\xCF",
+          "&ETH": "\xD0",
+          "&ETH;": "\xD0",
+          "&Ntilde": "\xD1",
+          "&Ntilde;": "\xD1",
+          "&Ograve": "\xD2",
+          "&Ograve;": "\xD2",
+          "&Oacute": "\xD3",
+          "&Oacute;": "\xD3",
+          "&Ocirc": "\xD4",
+          "&Ocirc;": "\xD4",
+          "&Otilde": "\xD5",
+          "&Otilde;": "\xD5",
+          "&Ouml": "\xD6",
+          "&Ouml;": "\xD6",
+          "&times": "\xD7",
+          "&times;": "\xD7",
+          "&Oslash": "\xD8",
+          "&Oslash;": "\xD8",
+          "&Ugrave": "\xD9",
+          "&Ugrave;": "\xD9",
+          "&Uacute": "\xDA",
+          "&Uacute;": "\xDA",
+          "&Ucirc": "\xDB",
+          "&Ucirc;": "\xDB",
+          "&Uuml": "\xDC",
+          "&Uuml;": "\xDC",
+          "&Yacute": "\xDD",
+          "&Yacute;": "\xDD",
+          "&THORN": "\xDE",
+          "&THORN;": "\xDE",
+          "&szlig": "\xDF",
+          "&szlig;": "\xDF",
+          "&agrave": "\xE0",
+          "&agrave;": "\xE0",
+          "&aacute": "\xE1",
+          "&aacute;": "\xE1",
+          "&acirc": "\xE2",
+          "&acirc;": "\xE2",
+          "&atilde": "\xE3",
+          "&atilde;": "\xE3",
+          "&auml": "\xE4",
+          "&auml;": "\xE4",
+          "&aring": "\xE5",
+          "&aring;": "\xE5",
+          "&aelig": "\xE6",
+          "&aelig;": "\xE6",
+          "&ccedil": "\xE7",
+          "&ccedil;": "\xE7",
+          "&egrave": "\xE8",
+          "&egrave;": "\xE8",
+          "&eacute": "\xE9",
+          "&eacute;": "\xE9",
+          "&ecirc": "\xEA",
+          "&ecirc;": "\xEA",
+          "&euml": "\xEB",
+          "&euml;": "\xEB",
+          "&igrave": "\xEC",
+          "&igrave;": "\xEC",
+          "&iacute": "\xED",
+          "&iacute;": "\xED",
+          "&icirc": "\xEE",
+          "&icirc;": "\xEE",
+          "&iuml": "\xEF",
+          "&iuml;": "\xEF",
+          "&eth": "\xF0",
+          "&eth;": "\xF0",
+          "&ntilde": "\xF1",
+          "&ntilde;": "\xF1",
+          "&ograve": "\xF2",
+          "&ograve;": "\xF2",
+          "&oacute": "\xF3",
+          "&oacute;": "\xF3",
+          "&ocirc": "\xF4",
+          "&ocirc;": "\xF4",
+          "&otilde": "\xF5",
+          "&otilde;": "\xF5",
+          "&ouml": "\xF6",
+          "&ouml;": "\xF6",
+          "&divide": "\xF7",
+          "&divide;": "\xF7",
+          "&oslash": "\xF8",
+          "&oslash;": "\xF8",
+          "&ugrave": "\xF9",
+          "&ugrave;": "\xF9",
+          "&uacute": "\xFA",
+          "&uacute;": "\xFA",
+          "&ucirc": "\xFB",
+          "&ucirc;": "\xFB",
+          "&uuml": "\xFC",
+          "&uuml;": "\xFC",
+          "&yacute": "\xFD",
+          "&yacute;": "\xFD",
+          "&thorn": "\xFE",
+          "&thorn;": "\xFE",
+          "&yuml": "\xFF",
+          "&yuml;": "\xFF",
+          "&quot": '"',
+          "&quot;": '"',
+          "&amp": "&",
+          "&amp;": "&",
+          "&lt": "<",
+          "&lt;": "<",
+          "&gt": ">",
+          "&gt;": ">",
+          "&OElig;": "\u0152",
+          "&oelig;": "\u0153",
+          "&Scaron;": "\u0160",
+          "&scaron;": "\u0161",
+          "&Yuml;": "\u0178",
+          "&circ;": "\u02C6",
+          "&tilde;": "\u02DC",
+          "&ensp;": "\u2002",
+          "&emsp;": "\u2003",
+          "&thinsp;": "\u2009",
+          "&zwnj;": "\u200C",
+          "&zwj;": "\u200D",
+          "&lrm;": "\u200E",
+          "&rlm;": "\u200F",
+          "&ndash;": "\u2013",
+          "&mdash;": "\u2014",
+          "&lsquo;": "\u2018",
+          "&rsquo;": "\u2019",
+          "&sbquo;": "\u201A",
+          "&ldquo;": "\u201C",
+          "&rdquo;": "\u201D",
+          "&bdquo;": "\u201E",
+          "&dagger;": "\u2020",
+          "&Dagger;": "\u2021",
+          "&permil;": "\u2030",
+          "&lsaquo;": "\u2039",
+          "&rsaquo;": "\u203A",
+          "&euro;": "\u20AC",
+          "&fnof;": "\u0192",
+          "&Alpha;": "\u0391",
+          "&Beta;": "\u0392",
+          "&Gamma;": "\u0393",
+          "&Delta;": "\u0394",
+          "&Epsilon;": "\u0395",
+          "&Zeta;": "\u0396",
+          "&Eta;": "\u0397",
+          "&Theta;": "\u0398",
+          "&Iota;": "\u0399",
+          "&Kappa;": "\u039A",
+          "&Lambda;": "\u039B",
+          "&Mu;": "\u039C",
+          "&Nu;": "\u039D",
+          "&Xi;": "\u039E",
+          "&Omicron;": "\u039F",
+          "&Pi;": "\u03A0",
+          "&Rho;": "\u03A1",
+          "&Sigma;": "\u03A3",
+          "&Tau;": "\u03A4",
+          "&Upsilon;": "\u03A5",
+          "&Phi;": "\u03A6",
+          "&Chi;": "\u03A7",
+          "&Psi;": "\u03A8",
+          "&Omega;": "\u03A9",
+          "&alpha;": "\u03B1",
+          "&beta;": "\u03B2",
+          "&gamma;": "\u03B3",
+          "&delta;": "\u03B4",
+          "&epsilon;": "\u03B5",
+          "&zeta;": "\u03B6",
+          "&eta;": "\u03B7",
+          "&theta;": "\u03B8",
+          "&iota;": "\u03B9",
+          "&kappa;": "\u03BA",
+          "&lambda;": "\u03BB",
+          "&mu;": "\u03BC",
+          "&nu;": "\u03BD",
+          "&xi;": "\u03BE",
+          "&omicron;": "\u03BF",
+          "&pi;": "\u03C0",
+          "&rho;": "\u03C1",
+          "&sigmaf;": "\u03C2",
+          "&sigma;": "\u03C3",
+          "&tau;": "\u03C4",
+          "&upsilon;": "\u03C5",
+          "&phi;": "\u03C6",
+          "&chi;": "\u03C7",
+          "&psi;": "\u03C8",
+          "&omega;": "\u03C9",
+          "&thetasym;": "\u03D1",
+          "&upsih;": "\u03D2",
+          "&piv;": "\u03D6",
+          "&bull;": "\u2022",
+          "&hellip;": "\u2026",
+          "&prime;": "\u2032",
+          "&Prime;": "\u2033",
+          "&oline;": "\u203E",
+          "&frasl;": "\u2044",
+          "&weierp;": "\u2118",
+          "&image;": "\u2111",
+          "&real;": "\u211C",
+          "&trade;": "\u2122",
+          "&alefsym;": "\u2135",
+          "&larr;": "\u2190",
+          "&uarr;": "\u2191",
+          "&rarr;": "\u2192",
+          "&darr;": "\u2193",
+          "&harr;": "\u2194",
+          "&crarr;": "\u21B5",
+          "&lArr;": "\u21D0",
+          "&uArr;": "\u21D1",
+          "&rArr;": "\u21D2",
+          "&dArr;": "\u21D3",
+          "&hArr;": "\u21D4",
+          "&forall;": "\u2200",
+          "&part;": "\u2202",
+          "&exist;": "\u2203",
+          "&empty;": "\u2205",
+          "&nabla;": "\u2207",
+          "&isin;": "\u2208",
+          "&notin;": "\u2209",
+          "&ni;": "\u220B",
+          "&prod;": "\u220F",
+          "&sum;": "\u2211",
+          "&minus;": "\u2212",
+          "&lowast;": "\u2217",
+          "&radic;": "\u221A",
+          "&prop;": "\u221D",
+          "&infin;": "\u221E",
+          "&ang;": "\u2220",
+          "&and;": "\u2227",
+          "&or;": "\u2228",
+          "&cap;": "\u2229",
+          "&cup;": "\u222A",
+          "&int;": "\u222B",
+          "&there4;": "\u2234",
+          "&sim;": "\u223C",
+          "&cong;": "\u2245",
+          "&asymp;": "\u2248",
+          "&ne;": "\u2260",
+          "&equiv;": "\u2261",
+          "&le;": "\u2264",
+          "&ge;": "\u2265",
+          "&sub;": "\u2282",
+          "&sup;": "\u2283",
+          "&nsub;": "\u2284",
+          "&sube;": "\u2286",
+          "&supe;": "\u2287",
+          "&oplus;": "\u2295",
+          "&otimes;": "\u2297",
+          "&perp;": "\u22A5",
+          "&sdot;": "\u22C5",
+          "&lceil;": "\u2308",
+          "&rceil;": "\u2309",
+          "&lfloor;": "\u230A",
+          "&rfloor;": "\u230B",
+          "&lang;": "\u2329",
+          "&rang;": "\u232A",
+          "&loz;": "\u25CA",
+          "&spades;": "\u2660",
+          "&clubs;": "\u2663",
+          "&hearts;": "\u2665",
+          "&diams;": "\u2666"
+        },
+        characters: {
+          "'": "&apos;",
+          "\xA0": "&nbsp;",
+          "\xA1": "&iexcl;",
+          "\xA2": "&cent;",
+          "\xA3": "&pound;",
+          "\xA4": "&curren;",
+          "\xA5": "&yen;",
+          "\xA6": "&brvbar;",
+          "\xA7": "&sect;",
+          "\xA8": "&uml;",
+          "\xA9": "&copy;",
+          \u00AA: "&ordf;",
+          "\xAB": "&laquo;",
+          "\xAC": "&not;",
+          "\xAD": "&shy;",
+          "\xAE": "&reg;",
+          "\xAF": "&macr;",
+          "\xB0": "&deg;",
+          "\xB1": "&plusmn;",
+          "\xB2": "&sup2;",
+          "\xB3": "&sup3;",
+          "\xB4": "&acute;",
+          \u00B5: "&micro;",
+          "\xB6": "&para;",
+          "\xB7": "&middot;",
+          "\xB8": "&cedil;",
+          "\xB9": "&sup1;",
+          \u00BA: "&ordm;",
+          "\xBB": "&raquo;",
+          "\xBC": "&frac14;",
+          "\xBD": "&frac12;",
+          "\xBE": "&frac34;",
+          "\xBF": "&iquest;",
+          \u00C0: "&Agrave;",
+          \u00C1: "&Aacute;",
+          \u00C2: "&Acirc;",
+          \u00C3: "&Atilde;",
+          \u00C4: "&Auml;",
+          \u00C5: "&Aring;",
+          \u00C6: "&AElig;",
+          \u00C7: "&Ccedil;",
+          \u00C8: "&Egrave;",
+          \u00C9: "&Eacute;",
+          \u00CA: "&Ecirc;",
+          \u00CB: "&Euml;",
+          \u00CC: "&Igrave;",
+          \u00CD: "&Iacute;",
+          \u00CE: "&Icirc;",
+          \u00CF: "&Iuml;",
+          \u00D0: "&ETH;",
+          \u00D1: "&Ntilde;",
+          \u00D2: "&Ograve;",
+          \u00D3: "&Oacute;",
+          \u00D4: "&Ocirc;",
+          \u00D5: "&Otilde;",
+          \u00D6: "&Ouml;",
+          "\xD7": "&times;",
+          \u00D8: "&Oslash;",
+          \u00D9: "&Ugrave;",
+          \u00DA: "&Uacute;",
+          \u00DB: "&Ucirc;",
+          \u00DC: "&Uuml;",
+          \u00DD: "&Yacute;",
+          \u00DE: "&THORN;",
+          \u00DF: "&szlig;",
+          \u00E0: "&agrave;",
+          \u00E1: "&aacute;",
+          \u00E2: "&acirc;",
+          \u00E3: "&atilde;",
+          \u00E4: "&auml;",
+          \u00E5: "&aring;",
+          \u00E6: "&aelig;",
+          \u00E7: "&ccedil;",
+          \u00E8: "&egrave;",
+          \u00E9: "&eacute;",
+          \u00EA: "&ecirc;",
+          \u00EB: "&euml;",
+          \u00EC: "&igrave;",
+          \u00ED: "&iacute;",
+          \u00EE: "&icirc;",
+          \u00EF: "&iuml;",
+          \u00F0: "&eth;",
+          \u00F1: "&ntilde;",
+          \u00F2: "&ograve;",
+          \u00F3: "&oacute;",
+          \u00F4: "&ocirc;",
+          \u00F5: "&otilde;",
+          \u00F6: "&ouml;",
+          "\xF7": "&divide;",
+          \u00F8: "&oslash;",
+          \u00F9: "&ugrave;",
+          \u00FA: "&uacute;",
+          \u00FB: "&ucirc;",
+          \u00FC: "&uuml;",
+          \u00FD: "&yacute;",
+          \u00FE: "&thorn;",
+          \u00FF: "&yuml;",
+          '"': "&quot;",
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          \u0152: "&OElig;",
+          \u0153: "&oelig;",
+          \u0160: "&Scaron;",
+          \u0161: "&scaron;",
+          \u0178: "&Yuml;",
+          "\u02C6": "&circ;",
+          "\u02DC": "&tilde;",
+          "\u2002": "&ensp;",
+          "\u2003": "&emsp;",
+          "\u2009": "&thinsp;",
+          "\u200C": "&zwnj;",
+          "\u200D": "&zwj;",
+          "\u200E": "&lrm;",
+          "\u200F": "&rlm;",
+          "\u2013": "&ndash;",
+          "\u2014": "&mdash;",
+          "\u2018": "&lsquo;",
+          "\u2019": "&rsquo;",
+          "\u201A": "&sbquo;",
+          "\u201C": "&ldquo;",
+          "\u201D": "&rdquo;",
+          "\u201E": "&bdquo;",
+          "\u2020": "&dagger;",
+          "\u2021": "&Dagger;",
+          "\u2030": "&permil;",
+          "\u2039": "&lsaquo;",
+          "\u203A": "&rsaquo;",
+          "\u20AC": "&euro;",
+          \u0192: "&fnof;",
+          \u0391: "&Alpha;",
+          \u0392: "&Beta;",
+          \u0393: "&Gamma;",
+          \u0394: "&Delta;",
+          \u0395: "&Epsilon;",
+          \u0396: "&Zeta;",
+          \u0397: "&Eta;",
+          \u0398: "&Theta;",
+          \u0399: "&Iota;",
+          \u039A: "&Kappa;",
+          \u039B: "&Lambda;",
+          \u039C: "&Mu;",
+          \u039D: "&Nu;",
+          \u039E: "&Xi;",
+          \u039F: "&Omicron;",
+          \u03A0: "&Pi;",
+          \u03A1: "&Rho;",
+          \u03A3: "&Sigma;",
+          \u03A4: "&Tau;",
+          \u03A5: "&Upsilon;",
+          \u03A6: "&Phi;",
+          \u03A7: "&Chi;",
+          \u03A8: "&Psi;",
+          \u03A9: "&Omega;",
+          \u03B1: "&alpha;",
+          \u03B2: "&beta;",
+          \u03B3: "&gamma;",
+          \u03B4: "&delta;",
+          \u03B5: "&epsilon;",
+          \u03B6: "&zeta;",
+          \u03B7: "&eta;",
+          \u03B8: "&theta;",
+          \u03B9: "&iota;",
+          \u03BA: "&kappa;",
+          \u03BB: "&lambda;",
+          \u03BC: "&mu;",
+          \u03BD: "&nu;",
+          \u03BE: "&xi;",
+          \u03BF: "&omicron;",
+          \u03C0: "&pi;",
+          \u03C1: "&rho;",
+          \u03C2: "&sigmaf;",
+          \u03C3: "&sigma;",
+          \u03C4: "&tau;",
+          \u03C5: "&upsilon;",
+          \u03C6: "&phi;",
+          \u03C7: "&chi;",
+          \u03C8: "&psi;",
+          \u03C9: "&omega;",
+          \u03D1: "&thetasym;",
+          \u03D2: "&upsih;",
+          \u03D6: "&piv;",
+          "\u2022": "&bull;",
+          "\u2026": "&hellip;",
+          "\u2032": "&prime;",
+          "\u2033": "&Prime;",
+          "\u203E": "&oline;",
+          "\u2044": "&frasl;",
+          "\u2118": "&weierp;",
+          \u2111: "&image;",
+          \u211C: "&real;",
+          "\u2122": "&trade;",
+          \u2135: "&alefsym;",
+          "\u2190": "&larr;",
+          "\u2191": "&uarr;",
+          "\u2192": "&rarr;",
+          "\u2193": "&darr;",
+          "\u2194": "&harr;",
+          "\u21B5": "&crarr;",
+          "\u21D0": "&lArr;",
+          "\u21D1": "&uArr;",
+          "\u21D2": "&rArr;",
+          "\u21D3": "&dArr;",
+          "\u21D4": "&hArr;",
+          "\u2200": "&forall;",
+          "\u2202": "&part;",
+          "\u2203": "&exist;",
+          "\u2205": "&empty;",
+          "\u2207": "&nabla;",
+          "\u2208": "&isin;",
+          "\u2209": "&notin;",
+          "\u220B": "&ni;",
+          "\u220F": "&prod;",
+          "\u2211": "&sum;",
+          "\u2212": "&minus;",
+          "\u2217": "&lowast;",
+          "\u221A": "&radic;",
+          "\u221D": "&prop;",
+          "\u221E": "&infin;",
+          "\u2220": "&ang;",
+          "\u2227": "&and;",
+          "\u2228": "&or;",
+          "\u2229": "&cap;",
+          "\u222A": "&cup;",
+          "\u222B": "&int;",
+          "\u2234": "&there4;",
+          "\u223C": "&sim;",
+          "\u2245": "&cong;",
+          "\u2248": "&asymp;",
+          "\u2260": "&ne;",
+          "\u2261": "&equiv;",
+          "\u2264": "&le;",
+          "\u2265": "&ge;",
+          "\u2282": "&sub;",
+          "\u2283": "&sup;",
+          "\u2284": "&nsub;",
+          "\u2286": "&sube;",
+          "\u2287": "&supe;",
+          "\u2295": "&oplus;",
+          "\u2297": "&otimes;",
+          "\u22A5": "&perp;",
+          "\u22C5": "&sdot;",
+          "\u2308": "&lceil;",
+          "\u2309": "&rceil;",
+          "\u230A": "&lfloor;",
+          "\u230B": "&rfloor;",
+          "\u2329": "&lang;",
+          "\u232A": "&rang;",
+          "\u25CA": "&loz;",
+          "\u2660": "&spades;",
+          "\u2663": "&clubs;",
+          "\u2665": "&hearts;",
+          "\u2666": "&diams;"
+        }
+      },
+      html5: {
+        entities: {
+          "&AElig": "\xC6",
+          "&AElig;": "\xC6",
+          "&AMP": "&",
+          "&AMP;": "&",
+          "&Aacute": "\xC1",
+          "&Aacute;": "\xC1",
+          "&Abreve;": "\u0102",
+          "&Acirc": "\xC2",
+          "&Acirc;": "\xC2",
+          "&Acy;": "\u0410",
+          "&Afr;": "\uD835\uDD04",
+          "&Agrave": "\xC0",
+          "&Agrave;": "\xC0",
+          "&Alpha;": "\u0391",
+          "&Amacr;": "\u0100",
+          "&And;": "\u2A53",
+          "&Aogon;": "\u0104",
+          "&Aopf;": "\uD835\uDD38",
+          "&ApplyFunction;": "\u2061",
+          "&Aring": "\xC5",
+          "&Aring;": "\xC5",
+          "&Ascr;": "\uD835\uDC9C",
+          "&Assign;": "\u2254",
+          "&Atilde": "\xC3",
+          "&Atilde;": "\xC3",
+          "&Auml": "\xC4",
+          "&Auml;": "\xC4",
+          "&Backslash;": "\u2216",
+          "&Barv;": "\u2AE7",
+          "&Barwed;": "\u2306",
+          "&Bcy;": "\u0411",
+          "&Because;": "\u2235",
+          "&Bernoullis;": "\u212C",
+          "&Beta;": "\u0392",
+          "&Bfr;": "\uD835\uDD05",
+          "&Bopf;": "\uD835\uDD39",
+          "&Breve;": "\u02D8",
+          "&Bscr;": "\u212C",
+          "&Bumpeq;": "\u224E",
+          "&CHcy;": "\u0427",
+          "&COPY": "\xA9",
+          "&COPY;": "\xA9",
+          "&Cacute;": "\u0106",
+          "&Cap;": "\u22D2",
+          "&CapitalDifferentialD;": "\u2145",
+          "&Cayleys;": "\u212D",
+          "&Ccaron;": "\u010C",
+          "&Ccedil": "\xC7",
+          "&Ccedil;": "\xC7",
+          "&Ccirc;": "\u0108",
+          "&Cconint;": "\u2230",
+          "&Cdot;": "\u010A",
+          "&Cedilla;": "\xB8",
+          "&CenterDot;": "\xB7",
+          "&Cfr;": "\u212D",
+          "&Chi;": "\u03A7",
+          "&CircleDot;": "\u2299",
+          "&CircleMinus;": "\u2296",
+          "&CirclePlus;": "\u2295",
+          "&CircleTimes;": "\u2297",
+          "&ClockwiseContourIntegral;": "\u2232",
+          "&CloseCurlyDoubleQuote;": "\u201D",
+          "&CloseCurlyQuote;": "\u2019",
+          "&Colon;": "\u2237",
+          "&Colone;": "\u2A74",
+          "&Congruent;": "\u2261",
+          "&Conint;": "\u222F",
+          "&ContourIntegral;": "\u222E",
+          "&Copf;": "\u2102",
+          "&Coproduct;": "\u2210",
+          "&CounterClockwiseContourIntegral;": "\u2233",
+          "&Cross;": "\u2A2F",
+          "&Cscr;": "\uD835\uDC9E",
+          "&Cup;": "\u22D3",
+          "&CupCap;": "\u224D",
+          "&DD;": "\u2145",
+          "&DDotrahd;": "\u2911",
+          "&DJcy;": "\u0402",
+          "&DScy;": "\u0405",
+          "&DZcy;": "\u040F",
+          "&Dagger;": "\u2021",
+          "&Darr;": "\u21A1",
+          "&Dashv;": "\u2AE4",
+          "&Dcaron;": "\u010E",
+          "&Dcy;": "\u0414",
+          "&Del;": "\u2207",
+          "&Delta;": "\u0394",
+          "&Dfr;": "\uD835\uDD07",
+          "&DiacriticalAcute;": "\xB4",
+          "&DiacriticalDot;": "\u02D9",
+          "&DiacriticalDoubleAcute;": "\u02DD",
+          "&DiacriticalGrave;": "`",
+          "&DiacriticalTilde;": "\u02DC",
+          "&Diamond;": "\u22C4",
+          "&DifferentialD;": "\u2146",
+          "&Dopf;": "\uD835\uDD3B",
+          "&Dot;": "\xA8",
+          "&DotDot;": "\u20DC",
+          "&DotEqual;": "\u2250",
+          "&DoubleContourIntegral;": "\u222F",
+          "&DoubleDot;": "\xA8",
+          "&DoubleDownArrow;": "\u21D3",
+          "&DoubleLeftArrow;": "\u21D0",
+          "&DoubleLeftRightArrow;": "\u21D4",
+          "&DoubleLeftTee;": "\u2AE4",
+          "&DoubleLongLeftArrow;": "\u27F8",
+          "&DoubleLongLeftRightArrow;": "\u27FA",
+          "&DoubleLongRightArrow;": "\u27F9",
+          "&DoubleRightArrow;": "\u21D2",
+          "&DoubleRightTee;": "\u22A8",
+          "&DoubleUpArrow;": "\u21D1",
+          "&DoubleUpDownArrow;": "\u21D5",
+          "&DoubleVerticalBar;": "\u2225",
+          "&DownArrow;": "\u2193",
+          "&DownArrowBar;": "\u2913",
+          "&DownArrowUpArrow;": "\u21F5",
+          "&DownBreve;": "\u0311",
+          "&DownLeftRightVector;": "\u2950",
+          "&DownLeftTeeVector;": "\u295E",
+          "&DownLeftVector;": "\u21BD",
+          "&DownLeftVectorBar;": "\u2956",
+          "&DownRightTeeVector;": "\u295F",
+          "&DownRightVector;": "\u21C1",
+          "&DownRightVectorBar;": "\u2957",
+          "&DownTee;": "\u22A4",
+          "&DownTeeArrow;": "\u21A7",
+          "&Downarrow;": "\u21D3",
+          "&Dscr;": "\uD835\uDC9F",
+          "&Dstrok;": "\u0110",
+          "&ENG;": "\u014A",
+          "&ETH": "\xD0",
+          "&ETH;": "\xD0",
+          "&Eacute": "\xC9",
+          "&Eacute;": "\xC9",
+          "&Ecaron;": "\u011A",
+          "&Ecirc": "\xCA",
+          "&Ecirc;": "\xCA",
+          "&Ecy;": "\u042D",
+          "&Edot;": "\u0116",
+          "&Efr;": "\uD835\uDD08",
+          "&Egrave": "\xC8",
+          "&Egrave;": "\xC8",
+          "&Element;": "\u2208",
+          "&Emacr;": "\u0112",
+          "&EmptySmallSquare;": "\u25FB",
+          "&EmptyVerySmallSquare;": "\u25AB",
+          "&Eogon;": "\u0118",
+          "&Eopf;": "\uD835\uDD3C",
+          "&Epsilon;": "\u0395",
+          "&Equal;": "\u2A75",
+          "&EqualTilde;": "\u2242",
+          "&Equilibrium;": "\u21CC",
+          "&Escr;": "\u2130",
+          "&Esim;": "\u2A73",
+          "&Eta;": "\u0397",
+          "&Euml": "\xCB",
+          "&Euml;": "\xCB",
+          "&Exists;": "\u2203",
+          "&ExponentialE;": "\u2147",
+          "&Fcy;": "\u0424",
+          "&Ffr;": "\uD835\uDD09",
+          "&FilledSmallSquare;": "\u25FC",
+          "&FilledVerySmallSquare;": "\u25AA",
+          "&Fopf;": "\uD835\uDD3D",
+          "&ForAll;": "\u2200",
+          "&Fouriertrf;": "\u2131",
+          "&Fscr;": "\u2131",
+          "&GJcy;": "\u0403",
+          "&GT": ">",
+          "&GT;": ">",
+          "&Gamma;": "\u0393",
+          "&Gammad;": "\u03DC",
+          "&Gbreve;": "\u011E",
+          "&Gcedil;": "\u0122",
+          "&Gcirc;": "\u011C",
+          "&Gcy;": "\u0413",
+          "&Gdot;": "\u0120",
+          "&Gfr;": "\uD835\uDD0A",
+          "&Gg;": "\u22D9",
+          "&Gopf;": "\uD835\uDD3E",
+          "&GreaterEqual;": "\u2265",
+          "&GreaterEqualLess;": "\u22DB",
+          "&GreaterFullEqual;": "\u2267",
+          "&GreaterGreater;": "\u2AA2",
+          "&GreaterLess;": "\u2277",
+          "&GreaterSlantEqual;": "\u2A7E",
+          "&GreaterTilde;": "\u2273",
+          "&Gscr;": "\uD835\uDCA2",
+          "&Gt;": "\u226B",
+          "&HARDcy;": "\u042A",
+          "&Hacek;": "\u02C7",
+          "&Hat;": "^",
+          "&Hcirc;": "\u0124",
+          "&Hfr;": "\u210C",
+          "&HilbertSpace;": "\u210B",
+          "&Hopf;": "\u210D",
+          "&HorizontalLine;": "\u2500",
+          "&Hscr;": "\u210B",
+          "&Hstrok;": "\u0126",
+          "&HumpDownHump;": "\u224E",
+          "&HumpEqual;": "\u224F",
+          "&IEcy;": "\u0415",
+          "&IJlig;": "\u0132",
+          "&IOcy;": "\u0401",
+          "&Iacute": "\xCD",
+          "&Iacute;": "\xCD",
+          "&Icirc": "\xCE",
+          "&Icirc;": "\xCE",
+          "&Icy;": "\u0418",
+          "&Idot;": "\u0130",
+          "&Ifr;": "\u2111",
+          "&Igrave": "\xCC",
+          "&Igrave;": "\xCC",
+          "&Im;": "\u2111",
+          "&Imacr;": "\u012A",
+          "&ImaginaryI;": "\u2148",
+          "&Implies;": "\u21D2",
+          "&Int;": "\u222C",
+          "&Integral;": "\u222B",
+          "&Intersection;": "\u22C2",
+          "&InvisibleComma;": "\u2063",
+          "&InvisibleTimes;": "\u2062",
+          "&Iogon;": "\u012E",
+          "&Iopf;": "\uD835\uDD40",
+          "&Iota;": "\u0399",
+          "&Iscr;": "\u2110",
+          "&Itilde;": "\u0128",
+          "&Iukcy;": "\u0406",
+          "&Iuml": "\xCF",
+          "&Iuml;": "\xCF",
+          "&Jcirc;": "\u0134",
+          "&Jcy;": "\u0419",
+          "&Jfr;": "\uD835\uDD0D",
+          "&Jopf;": "\uD835\uDD41",
+          "&Jscr;": "\uD835\uDCA5",
+          "&Jsercy;": "\u0408",
+          "&Jukcy;": "\u0404",
+          "&KHcy;": "\u0425",
+          "&KJcy;": "\u040C",
+          "&Kappa;": "\u039A",
+          "&Kcedil;": "\u0136",
+          "&Kcy;": "\u041A",
+          "&Kfr;": "\uD835\uDD0E",
+          "&Kopf;": "\uD835\uDD42",
+          "&Kscr;": "\uD835\uDCA6",
+          "&LJcy;": "\u0409",
+          "&LT": "<",
+          "&LT;": "<",
+          "&Lacute;": "\u0139",
+          "&Lambda;": "\u039B",
+          "&Lang;": "\u27EA",
+          "&Laplacetrf;": "\u2112",
+          "&Larr;": "\u219E",
+          "&Lcaron;": "\u013D",
+          "&Lcedil;": "\u013B",
+          "&Lcy;": "\u041B",
+          "&LeftAngleBracket;": "\u27E8",
+          "&LeftArrow;": "\u2190",
+          "&LeftArrowBar;": "\u21E4",
+          "&LeftArrowRightArrow;": "\u21C6",
+          "&LeftCeiling;": "\u2308",
+          "&LeftDoubleBracket;": "\u27E6",
+          "&LeftDownTeeVector;": "\u2961",
+          "&LeftDownVector;": "\u21C3",
+          "&LeftDownVectorBar;": "\u2959",
+          "&LeftFloor;": "\u230A",
+          "&LeftRightArrow;": "\u2194",
+          "&LeftRightVector;": "\u294E",
+          "&LeftTee;": "\u22A3",
+          "&LeftTeeArrow;": "\u21A4",
+          "&LeftTeeVector;": "\u295A",
+          "&LeftTriangle;": "\u22B2",
+          "&LeftTriangleBar;": "\u29CF",
+          "&LeftTriangleEqual;": "\u22B4",
+          "&LeftUpDownVector;": "\u2951",
+          "&LeftUpTeeVector;": "\u2960",
+          "&LeftUpVector;": "\u21BF",
+          "&LeftUpVectorBar;": "\u2958",
+          "&LeftVector;": "\u21BC",
+          "&LeftVectorBar;": "\u2952",
+          "&Leftarrow;": "\u21D0",
+          "&Leftrightarrow;": "\u21D4",
+          "&LessEqualGreater;": "\u22DA",
+          "&LessFullEqual;": "\u2266",
+          "&LessGreater;": "\u2276",
+          "&LessLess;": "\u2AA1",
+          "&LessSlantEqual;": "\u2A7D",
+          "&LessTilde;": "\u2272",
+          "&Lfr;": "\uD835\uDD0F",
+          "&Ll;": "\u22D8",
+          "&Lleftarrow;": "\u21DA",
+          "&Lmidot;": "\u013F",
+          "&LongLeftArrow;": "\u27F5",
+          "&LongLeftRightArrow;": "\u27F7",
+          "&LongRightArrow;": "\u27F6",
+          "&Longleftarrow;": "\u27F8",
+          "&Longleftrightarrow;": "\u27FA",
+          "&Longrightarrow;": "\u27F9",
+          "&Lopf;": "\uD835\uDD43",
+          "&LowerLeftArrow;": "\u2199",
+          "&LowerRightArrow;": "\u2198",
+          "&Lscr;": "\u2112",
+          "&Lsh;": "\u21B0",
+          "&Lstrok;": "\u0141",
+          "&Lt;": "\u226A",
+          "&Map;": "\u2905",
+          "&Mcy;": "\u041C",
+          "&MediumSpace;": "\u205F",
+          "&Mellintrf;": "\u2133",
+          "&Mfr;": "\uD835\uDD10",
+          "&MinusPlus;": "\u2213",
+          "&Mopf;": "\uD835\uDD44",
+          "&Mscr;": "\u2133",
+          "&Mu;": "\u039C",
+          "&NJcy;": "\u040A",
+          "&Nacute;": "\u0143",
+          "&Ncaron;": "\u0147",
+          "&Ncedil;": "\u0145",
+          "&Ncy;": "\u041D",
+          "&NegativeMediumSpace;": "\u200B",
+          "&NegativeThickSpace;": "\u200B",
+          "&NegativeThinSpace;": "\u200B",
+          "&NegativeVeryThinSpace;": "\u200B",
+          "&NestedGreaterGreater;": "\u226B",
+          "&NestedLessLess;": "\u226A",
+          "&NewLine;": "\n",
+          "&Nfr;": "\uD835\uDD11",
+          "&NoBreak;": "\u2060",
+          "&NonBreakingSpace;": "\xA0",
+          "&Nopf;": "\u2115",
+          "&Not;": "\u2AEC",
+          "&NotCongruent;": "\u2262",
+          "&NotCupCap;": "\u226D",
+          "&NotDoubleVerticalBar;": "\u2226",
+          "&NotElement;": "\u2209",
+          "&NotEqual;": "\u2260",
+          "&NotEqualTilde;": "\u2242\u0338",
+          "&NotExists;": "\u2204",
+          "&NotGreater;": "\u226F",
+          "&NotGreaterEqual;": "\u2271",
+          "&NotGreaterFullEqual;": "\u2267\u0338",
+          "&NotGreaterGreater;": "\u226B\u0338",
+          "&NotGreaterLess;": "\u2279",
+          "&NotGreaterSlantEqual;": "\u2A7E\u0338",
+          "&NotGreaterTilde;": "\u2275",
+          "&NotHumpDownHump;": "\u224E\u0338",
+          "&NotHumpEqual;": "\u224F\u0338",
+          "&NotLeftTriangle;": "\u22EA",
+          "&NotLeftTriangleBar;": "\u29CF\u0338",
+          "&NotLeftTriangleEqual;": "\u22EC",
+          "&NotLess;": "\u226E",
+          "&NotLessEqual;": "\u2270",
+          "&NotLessGreater;": "\u2278",
+          "&NotLessLess;": "\u226A\u0338",
+          "&NotLessSlantEqual;": "\u2A7D\u0338",
+          "&NotLessTilde;": "\u2274",
+          "&NotNestedGreaterGreater;": "\u2AA2\u0338",
+          "&NotNestedLessLess;": "\u2AA1\u0338",
+          "&NotPrecedes;": "\u2280",
+          "&NotPrecedesEqual;": "\u2AAF\u0338",
+          "&NotPrecedesSlantEqual;": "\u22E0",
+          "&NotReverseElement;": "\u220C",
+          "&NotRightTriangle;": "\u22EB",
+          "&NotRightTriangleBar;": "\u29D0\u0338",
+          "&NotRightTriangleEqual;": "\u22ED",
+          "&NotSquareSubset;": "\u228F\u0338",
+          "&NotSquareSubsetEqual;": "\u22E2",
+          "&NotSquareSuperset;": "\u2290\u0338",
+          "&NotSquareSupersetEqual;": "\u22E3",
+          "&NotSubset;": "\u2282\u20D2",
+          "&NotSubsetEqual;": "\u2288",
+          "&NotSucceeds;": "\u2281",
+          "&NotSucceedsEqual;": "\u2AB0\u0338",
+          "&NotSucceedsSlantEqual;": "\u22E1",
+          "&NotSucceedsTilde;": "\u227F\u0338",
+          "&NotSuperset;": "\u2283\u20D2",
+          "&NotSupersetEqual;": "\u2289",
+          "&NotTilde;": "\u2241",
+          "&NotTildeEqual;": "\u2244",
+          "&NotTildeFullEqual;": "\u2247",
+          "&NotTildeTilde;": "\u2249",
+          "&NotVerticalBar;": "\u2224",
+          "&Nscr;": "\uD835\uDCA9",
+          "&Ntilde": "\xD1",
+          "&Ntilde;": "\xD1",
+          "&Nu;": "\u039D",
+          "&OElig;": "\u0152",
+          "&Oacute": "\xD3",
+          "&Oacute;": "\xD3",
+          "&Ocirc": "\xD4",
+          "&Ocirc;": "\xD4",
+          "&Ocy;": "\u041E",
+          "&Odblac;": "\u0150",
+          "&Ofr;": "\uD835\uDD12",
+          "&Ograve": "\xD2",
+          "&Ograve;": "\xD2",
+          "&Omacr;": "\u014C",
+          "&Omega;": "\u03A9",
+          "&Omicron;": "\u039F",
+          "&Oopf;": "\uD835\uDD46",
+          "&OpenCurlyDoubleQuote;": "\u201C",
+          "&OpenCurlyQuote;": "\u2018",
+          "&Or;": "\u2A54",
+          "&Oscr;": "\uD835\uDCAA",
+          "&Oslash": "\xD8",
+          "&Oslash;": "\xD8",
+          "&Otilde": "\xD5",
+          "&Otilde;": "\xD5",
+          "&Otimes;": "\u2A37",
+          "&Ouml": "\xD6",
+          "&Ouml;": "\xD6",
+          "&OverBar;": "\u203E",
+          "&OverBrace;": "\u23DE",
+          "&OverBracket;": "\u23B4",
+          "&OverParenthesis;": "\u23DC",
+          "&PartialD;": "\u2202",
+          "&Pcy;": "\u041F",
+          "&Pfr;": "\uD835\uDD13",
+          "&Phi;": "\u03A6",
+          "&Pi;": "\u03A0",
+          "&PlusMinus;": "\xB1",
+          "&Poincareplane;": "\u210C",
+          "&Popf;": "\u2119",
+          "&Pr;": "\u2ABB",
+          "&Precedes;": "\u227A",
+          "&PrecedesEqual;": "\u2AAF",
+          "&PrecedesSlantEqual;": "\u227C",
+          "&PrecedesTilde;": "\u227E",
+          "&Prime;": "\u2033",
+          "&Product;": "\u220F",
+          "&Proportion;": "\u2237",
+          "&Proportional;": "\u221D",
+          "&Pscr;": "\uD835\uDCAB",
+          "&Psi;": "\u03A8",
+          "&QUOT": '"',
+          "&QUOT;": '"',
+          "&Qfr;": "\uD835\uDD14",
+          "&Qopf;": "\u211A",
+          "&Qscr;": "\uD835\uDCAC",
+          "&RBarr;": "\u2910",
+          "&REG": "\xAE",
+          "&REG;": "\xAE",
+          "&Racute;": "\u0154",
+          "&Rang;": "\u27EB",
+          "&Rarr;": "\u21A0",
+          "&Rarrtl;": "\u2916",
+          "&Rcaron;": "\u0158",
+          "&Rcedil;": "\u0156",
+          "&Rcy;": "\u0420",
+          "&Re;": "\u211C",
+          "&ReverseElement;": "\u220B",
+          "&ReverseEquilibrium;": "\u21CB",
+          "&ReverseUpEquilibrium;": "\u296F",
+          "&Rfr;": "\u211C",
+          "&Rho;": "\u03A1",
+          "&RightAngleBracket;": "\u27E9",
+          "&RightArrow;": "\u2192",
+          "&RightArrowBar;": "\u21E5",
+          "&RightArrowLeftArrow;": "\u21C4",
+          "&RightCeiling;": "\u2309",
+          "&RightDoubleBracket;": "\u27E7",
+          "&RightDownTeeVector;": "\u295D",
+          "&RightDownVector;": "\u21C2",
+          "&RightDownVectorBar;": "\u2955",
+          "&RightFloor;": "\u230B",
+          "&RightTee;": "\u22A2",
+          "&RightTeeArrow;": "\u21A6",
+          "&RightTeeVector;": "\u295B",
+          "&RightTriangle;": "\u22B3",
+          "&RightTriangleBar;": "\u29D0",
+          "&RightTriangleEqual;": "\u22B5",
+          "&RightUpDownVector;": "\u294F",
+          "&RightUpTeeVector;": "\u295C",
+          "&RightUpVector;": "\u21BE",
+          "&RightUpVectorBar;": "\u2954",
+          "&RightVector;": "\u21C0",
+          "&RightVectorBar;": "\u2953",
+          "&Rightarrow;": "\u21D2",
+          "&Ropf;": "\u211D",
+          "&RoundImplies;": "\u2970",
+          "&Rrightarrow;": "\u21DB",
+          "&Rscr;": "\u211B",
+          "&Rsh;": "\u21B1",
+          "&RuleDelayed;": "\u29F4",
+          "&SHCHcy;": "\u0429",
+          "&SHcy;": "\u0428",
+          "&SOFTcy;": "\u042C",
+          "&Sacute;": "\u015A",
+          "&Sc;": "\u2ABC",
+          "&Scaron;": "\u0160",
+          "&Scedil;": "\u015E",
+          "&Scirc;": "\u015C",
+          "&Scy;": "\u0421",
+          "&Sfr;": "\uD835\uDD16",
+          "&ShortDownArrow;": "\u2193",
+          "&ShortLeftArrow;": "\u2190",
+          "&ShortRightArrow;": "\u2192",
+          "&ShortUpArrow;": "\u2191",
+          "&Sigma;": "\u03A3",
+          "&SmallCircle;": "\u2218",
+          "&Sopf;": "\uD835\uDD4A",
+          "&Sqrt;": "\u221A",
+          "&Square;": "\u25A1",
+          "&SquareIntersection;": "\u2293",
+          "&SquareSubset;": "\u228F",
+          "&SquareSubsetEqual;": "\u2291",
+          "&SquareSuperset;": "\u2290",
+          "&SquareSupersetEqual;": "\u2292",
+          "&SquareUnion;": "\u2294",
+          "&Sscr;": "\uD835\uDCAE",
+          "&Star;": "\u22C6",
+          "&Sub;": "\u22D0",
+          "&Subset;": "\u22D0",
+          "&SubsetEqual;": "\u2286",
+          "&Succeeds;": "\u227B",
+          "&SucceedsEqual;": "\u2AB0",
+          "&SucceedsSlantEqual;": "\u227D",
+          "&SucceedsTilde;": "\u227F",
+          "&SuchThat;": "\u220B",
+          "&Sum;": "\u2211",
+          "&Sup;": "\u22D1",
+          "&Superset;": "\u2283",
+          "&SupersetEqual;": "\u2287",
+          "&Supset;": "\u22D1",
+          "&THORN": "\xDE",
+          "&THORN;": "\xDE",
+          "&TRADE;": "\u2122",
+          "&TSHcy;": "\u040B",
+          "&TScy;": "\u0426",
+          "&Tab;": "	",
+          "&Tau;": "\u03A4",
+          "&Tcaron;": "\u0164",
+          "&Tcedil;": "\u0162",
+          "&Tcy;": "\u0422",
+          "&Tfr;": "\uD835\uDD17",
+          "&Therefore;": "\u2234",
+          "&Theta;": "\u0398",
+          "&ThickSpace;": "\u205F\u200A",
+          "&ThinSpace;": "\u2009",
+          "&Tilde;": "\u223C",
+          "&TildeEqual;": "\u2243",
+          "&TildeFullEqual;": "\u2245",
+          "&TildeTilde;": "\u2248",
+          "&Topf;": "\uD835\uDD4B",
+          "&TripleDot;": "\u20DB",
+          "&Tscr;": "\uD835\uDCAF",
+          "&Tstrok;": "\u0166",
+          "&Uacute": "\xDA",
+          "&Uacute;": "\xDA",
+          "&Uarr;": "\u219F",
+          "&Uarrocir;": "\u2949",
+          "&Ubrcy;": "\u040E",
+          "&Ubreve;": "\u016C",
+          "&Ucirc": "\xDB",
+          "&Ucirc;": "\xDB",
+          "&Ucy;": "\u0423",
+          "&Udblac;": "\u0170",
+          "&Ufr;": "\uD835\uDD18",
+          "&Ugrave": "\xD9",
+          "&Ugrave;": "\xD9",
+          "&Umacr;": "\u016A",
+          "&UnderBar;": "_",
+          "&UnderBrace;": "\u23DF",
+          "&UnderBracket;": "\u23B5",
+          "&UnderParenthesis;": "\u23DD",
+          "&Union;": "\u22C3",
+          "&UnionPlus;": "\u228E",
+          "&Uogon;": "\u0172",
+          "&Uopf;": "\uD835\uDD4C",
+          "&UpArrow;": "\u2191",
+          "&UpArrowBar;": "\u2912",
+          "&UpArrowDownArrow;": "\u21C5",
+          "&UpDownArrow;": "\u2195",
+          "&UpEquilibrium;": "\u296E",
+          "&UpTee;": "\u22A5",
+          "&UpTeeArrow;": "\u21A5",
+          "&Uparrow;": "\u21D1",
+          "&Updownarrow;": "\u21D5",
+          "&UpperLeftArrow;": "\u2196",
+          "&UpperRightArrow;": "\u2197",
+          "&Upsi;": "\u03D2",
+          "&Upsilon;": "\u03A5",
+          "&Uring;": "\u016E",
+          "&Uscr;": "\uD835\uDCB0",
+          "&Utilde;": "\u0168",
+          "&Uuml": "\xDC",
+          "&Uuml;": "\xDC",
+          "&VDash;": "\u22AB",
+          "&Vbar;": "\u2AEB",
+          "&Vcy;": "\u0412",
+          "&Vdash;": "\u22A9",
+          "&Vdashl;": "\u2AE6",
+          "&Vee;": "\u22C1",
+          "&Verbar;": "\u2016",
+          "&Vert;": "\u2016",
+          "&VerticalBar;": "\u2223",
+          "&VerticalLine;": "|",
+          "&VerticalSeparator;": "\u2758",
+          "&VerticalTilde;": "\u2240",
+          "&VeryThinSpace;": "\u200A",
+          "&Vfr;": "\uD835\uDD19",
+          "&Vopf;": "\uD835\uDD4D",
+          "&Vscr;": "\uD835\uDCB1",
+          "&Vvdash;": "\u22AA",
+          "&Wcirc;": "\u0174",
+          "&Wedge;": "\u22C0",
+          "&Wfr;": "\uD835\uDD1A",
+          "&Wopf;": "\uD835\uDD4E",
+          "&Wscr;": "\uD835\uDCB2",
+          "&Xfr;": "\uD835\uDD1B",
+          "&Xi;": "\u039E",
+          "&Xopf;": "\uD835\uDD4F",
+          "&Xscr;": "\uD835\uDCB3",
+          "&YAcy;": "\u042F",
+          "&YIcy;": "\u0407",
+          "&YUcy;": "\u042E",
+          "&Yacute": "\xDD",
+          "&Yacute;": "\xDD",
+          "&Ycirc;": "\u0176",
+          "&Ycy;": "\u042B",
+          "&Yfr;": "\uD835\uDD1C",
+          "&Yopf;": "\uD835\uDD50",
+          "&Yscr;": "\uD835\uDCB4",
+          "&Yuml;": "\u0178",
+          "&ZHcy;": "\u0416",
+          "&Zacute;": "\u0179",
+          "&Zcaron;": "\u017D",
+          "&Zcy;": "\u0417",
+          "&Zdot;": "\u017B",
+          "&ZeroWidthSpace;": "\u200B",
+          "&Zeta;": "\u0396",
+          "&Zfr;": "\u2128",
+          "&Zopf;": "\u2124",
+          "&Zscr;": "\uD835\uDCB5",
+          "&aacute": "\xE1",
+          "&aacute;": "\xE1",
+          "&abreve;": "\u0103",
+          "&ac;": "\u223E",
+          "&acE;": "\u223E\u0333",
+          "&acd;": "\u223F",
+          "&acirc": "\xE2",
+          "&acirc;": "\xE2",
+          "&acute": "\xB4",
+          "&acute;": "\xB4",
+          "&acy;": "\u0430",
+          "&aelig": "\xE6",
+          "&aelig;": "\xE6",
+          "&af;": "\u2061",
+          "&afr;": "\uD835\uDD1E",
+          "&agrave": "\xE0",
+          "&agrave;": "\xE0",
+          "&alefsym;": "\u2135",
+          "&aleph;": "\u2135",
+          "&alpha;": "\u03B1",
+          "&amacr;": "\u0101",
+          "&amalg;": "\u2A3F",
+          "&amp": "&",
+          "&amp;": "&",
+          "&and;": "\u2227",
+          "&andand;": "\u2A55",
+          "&andd;": "\u2A5C",
+          "&andslope;": "\u2A58",
+          "&andv;": "\u2A5A",
+          "&ang;": "\u2220",
+          "&ange;": "\u29A4",
+          "&angle;": "\u2220",
+          "&angmsd;": "\u2221",
+          "&angmsdaa;": "\u29A8",
+          "&angmsdab;": "\u29A9",
+          "&angmsdac;": "\u29AA",
+          "&angmsdad;": "\u29AB",
+          "&angmsdae;": "\u29AC",
+          "&angmsdaf;": "\u29AD",
+          "&angmsdag;": "\u29AE",
+          "&angmsdah;": "\u29AF",
+          "&angrt;": "\u221F",
+          "&angrtvb;": "\u22BE",
+          "&angrtvbd;": "\u299D",
+          "&angsph;": "\u2222",
+          "&angst;": "\xC5",
+          "&angzarr;": "\u237C",
+          "&aogon;": "\u0105",
+          "&aopf;": "\uD835\uDD52",
+          "&ap;": "\u2248",
+          "&apE;": "\u2A70",
+          "&apacir;": "\u2A6F",
+          "&ape;": "\u224A",
+          "&apid;": "\u224B",
+          "&apos;": "'",
+          "&approx;": "\u2248",
+          "&approxeq;": "\u224A",
+          "&aring": "\xE5",
+          "&aring;": "\xE5",
+          "&ascr;": "\uD835\uDCB6",
+          "&ast;": "*",
+          "&asymp;": "\u2248",
+          "&asympeq;": "\u224D",
+          "&atilde": "\xE3",
+          "&atilde;": "\xE3",
+          "&auml": "\xE4",
+          "&auml;": "\xE4",
+          "&awconint;": "\u2233",
+          "&awint;": "\u2A11",
+          "&bNot;": "\u2AED",
+          "&backcong;": "\u224C",
+          "&backepsilon;": "\u03F6",
+          "&backprime;": "\u2035",
+          "&backsim;": "\u223D",
+          "&backsimeq;": "\u22CD",
+          "&barvee;": "\u22BD",
+          "&barwed;": "\u2305",
+          "&barwedge;": "\u2305",
+          "&bbrk;": "\u23B5",
+          "&bbrktbrk;": "\u23B6",
+          "&bcong;": "\u224C",
+          "&bcy;": "\u0431",
+          "&bdquo;": "\u201E",
+          "&becaus;": "\u2235",
+          "&because;": "\u2235",
+          "&bemptyv;": "\u29B0",
+          "&bepsi;": "\u03F6",
+          "&bernou;": "\u212C",
+          "&beta;": "\u03B2",
+          "&beth;": "\u2136",
+          "&between;": "\u226C",
+          "&bfr;": "\uD835\uDD1F",
+          "&bigcap;": "\u22C2",
+          "&bigcirc;": "\u25EF",
+          "&bigcup;": "\u22C3",
+          "&bigodot;": "\u2A00",
+          "&bigoplus;": "\u2A01",
+          "&bigotimes;": "\u2A02",
+          "&bigsqcup;": "\u2A06",
+          "&bigstar;": "\u2605",
+          "&bigtriangledown;": "\u25BD",
+          "&bigtriangleup;": "\u25B3",
+          "&biguplus;": "\u2A04",
+          "&bigvee;": "\u22C1",
+          "&bigwedge;": "\u22C0",
+          "&bkarow;": "\u290D",
+          "&blacklozenge;": "\u29EB",
+          "&blacksquare;": "\u25AA",
+          "&blacktriangle;": "\u25B4",
+          "&blacktriangledown;": "\u25BE",
+          "&blacktriangleleft;": "\u25C2",
+          "&blacktriangleright;": "\u25B8",
+          "&blank;": "\u2423",
+          "&blk12;": "\u2592",
+          "&blk14;": "\u2591",
+          "&blk34;": "\u2593",
+          "&block;": "\u2588",
+          "&bne;": "=\u20E5",
+          "&bnequiv;": "\u2261\u20E5",
+          "&bnot;": "\u2310",
+          "&bopf;": "\uD835\uDD53",
+          "&bot;": "\u22A5",
+          "&bottom;": "\u22A5",
+          "&bowtie;": "\u22C8",
+          "&boxDL;": "\u2557",
+          "&boxDR;": "\u2554",
+          "&boxDl;": "\u2556",
+          "&boxDr;": "\u2553",
+          "&boxH;": "\u2550",
+          "&boxHD;": "\u2566",
+          "&boxHU;": "\u2569",
+          "&boxHd;": "\u2564",
+          "&boxHu;": "\u2567",
+          "&boxUL;": "\u255D",
+          "&boxUR;": "\u255A",
+          "&boxUl;": "\u255C",
+          "&boxUr;": "\u2559",
+          "&boxV;": "\u2551",
+          "&boxVH;": "\u256C",
+          "&boxVL;": "\u2563",
+          "&boxVR;": "\u2560",
+          "&boxVh;": "\u256B",
+          "&boxVl;": "\u2562",
+          "&boxVr;": "\u255F",
+          "&boxbox;": "\u29C9",
+          "&boxdL;": "\u2555",
+          "&boxdR;": "\u2552",
+          "&boxdl;": "\u2510",
+          "&boxdr;": "\u250C",
+          "&boxh;": "\u2500",
+          "&boxhD;": "\u2565",
+          "&boxhU;": "\u2568",
+          "&boxhd;": "\u252C",
+          "&boxhu;": "\u2534",
+          "&boxminus;": "\u229F",
+          "&boxplus;": "\u229E",
+          "&boxtimes;": "\u22A0",
+          "&boxuL;": "\u255B",
+          "&boxuR;": "\u2558",
+          "&boxul;": "\u2518",
+          "&boxur;": "\u2514",
+          "&boxv;": "\u2502",
+          "&boxvH;": "\u256A",
+          "&boxvL;": "\u2561",
+          "&boxvR;": "\u255E",
+          "&boxvh;": "\u253C",
+          "&boxvl;": "\u2524",
+          "&boxvr;": "\u251C",
+          "&bprime;": "\u2035",
+          "&breve;": "\u02D8",
+          "&brvbar": "\xA6",
+          "&brvbar;": "\xA6",
+          "&bscr;": "\uD835\uDCB7",
+          "&bsemi;": "\u204F",
+          "&bsim;": "\u223D",
+          "&bsime;": "\u22CD",
+          "&bsol;": "\\",
+          "&bsolb;": "\u29C5",
+          "&bsolhsub;": "\u27C8",
+          "&bull;": "\u2022",
+          "&bullet;": "\u2022",
+          "&bump;": "\u224E",
+          "&bumpE;": "\u2AAE",
+          "&bumpe;": "\u224F",
+          "&bumpeq;": "\u224F",
+          "&cacute;": "\u0107",
+          "&cap;": "\u2229",
+          "&capand;": "\u2A44",
+          "&capbrcup;": "\u2A49",
+          "&capcap;": "\u2A4B",
+          "&capcup;": "\u2A47",
+          "&capdot;": "\u2A40",
+          "&caps;": "\u2229\uFE00",
+          "&caret;": "\u2041",
+          "&caron;": "\u02C7",
+          "&ccaps;": "\u2A4D",
+          "&ccaron;": "\u010D",
+          "&ccedil": "\xE7",
+          "&ccedil;": "\xE7",
+          "&ccirc;": "\u0109",
+          "&ccups;": "\u2A4C",
+          "&ccupssm;": "\u2A50",
+          "&cdot;": "\u010B",
+          "&cedil": "\xB8",
+          "&cedil;": "\xB8",
+          "&cemptyv;": "\u29B2",
+          "&cent": "\xA2",
+          "&cent;": "\xA2",
+          "&centerdot;": "\xB7",
+          "&cfr;": "\uD835\uDD20",
+          "&chcy;": "\u0447",
+          "&check;": "\u2713",
+          "&checkmark;": "\u2713",
+          "&chi;": "\u03C7",
+          "&cir;": "\u25CB",
+          "&cirE;": "\u29C3",
+          "&circ;": "\u02C6",
+          "&circeq;": "\u2257",
+          "&circlearrowleft;": "\u21BA",
+          "&circlearrowright;": "\u21BB",
+          "&circledR;": "\xAE",
+          "&circledS;": "\u24C8",
+          "&circledast;": "\u229B",
+          "&circledcirc;": "\u229A",
+          "&circleddash;": "\u229D",
+          "&cire;": "\u2257",
+          "&cirfnint;": "\u2A10",
+          "&cirmid;": "\u2AEF",
+          "&cirscir;": "\u29C2",
+          "&clubs;": "\u2663",
+          "&clubsuit;": "\u2663",
+          "&colon;": ":",
+          "&colone;": "\u2254",
+          "&coloneq;": "\u2254",
+          "&comma;": ",",
+          "&commat;": "@",
+          "&comp;": "\u2201",
+          "&compfn;": "\u2218",
+          "&complement;": "\u2201",
+          "&complexes;": "\u2102",
+          "&cong;": "\u2245",
+          "&congdot;": "\u2A6D",
+          "&conint;": "\u222E",
+          "&copf;": "\uD835\uDD54",
+          "&coprod;": "\u2210",
+          "&copy": "\xA9",
+          "&copy;": "\xA9",
+          "&copysr;": "\u2117",
+          "&crarr;": "\u21B5",
+          "&cross;": "\u2717",
+          "&cscr;": "\uD835\uDCB8",
+          "&csub;": "\u2ACF",
+          "&csube;": "\u2AD1",
+          "&csup;": "\u2AD0",
+          "&csupe;": "\u2AD2",
+          "&ctdot;": "\u22EF",
+          "&cudarrl;": "\u2938",
+          "&cudarrr;": "\u2935",
+          "&cuepr;": "\u22DE",
+          "&cuesc;": "\u22DF",
+          "&cularr;": "\u21B6",
+          "&cularrp;": "\u293D",
+          "&cup;": "\u222A",
+          "&cupbrcap;": "\u2A48",
+          "&cupcap;": "\u2A46",
+          "&cupcup;": "\u2A4A",
+          "&cupdot;": "\u228D",
+          "&cupor;": "\u2A45",
+          "&cups;": "\u222A\uFE00",
+          "&curarr;": "\u21B7",
+          "&curarrm;": "\u293C",
+          "&curlyeqprec;": "\u22DE",
+          "&curlyeqsucc;": "\u22DF",
+          "&curlyvee;": "\u22CE",
+          "&curlywedge;": "\u22CF",
+          "&curren": "\xA4",
+          "&curren;": "\xA4",
+          "&curvearrowleft;": "\u21B6",
+          "&curvearrowright;": "\u21B7",
+          "&cuvee;": "\u22CE",
+          "&cuwed;": "\u22CF",
+          "&cwconint;": "\u2232",
+          "&cwint;": "\u2231",
+          "&cylcty;": "\u232D",
+          "&dArr;": "\u21D3",
+          "&dHar;": "\u2965",
+          "&dagger;": "\u2020",
+          "&daleth;": "\u2138",
+          "&darr;": "\u2193",
+          "&dash;": "\u2010",
+          "&dashv;": "\u22A3",
+          "&dbkarow;": "\u290F",
+          "&dblac;": "\u02DD",
+          "&dcaron;": "\u010F",
+          "&dcy;": "\u0434",
+          "&dd;": "\u2146",
+          "&ddagger;": "\u2021",
+          "&ddarr;": "\u21CA",
+          "&ddotseq;": "\u2A77",
+          "&deg": "\xB0",
+          "&deg;": "\xB0",
+          "&delta;": "\u03B4",
+          "&demptyv;": "\u29B1",
+          "&dfisht;": "\u297F",
+          "&dfr;": "\uD835\uDD21",
+          "&dharl;": "\u21C3",
+          "&dharr;": "\u21C2",
+          "&diam;": "\u22C4",
+          "&diamond;": "\u22C4",
+          "&diamondsuit;": "\u2666",
+          "&diams;": "\u2666",
+          "&die;": "\xA8",
+          "&digamma;": "\u03DD",
+          "&disin;": "\u22F2",
+          "&div;": "\xF7",
+          "&divide": "\xF7",
+          "&divide;": "\xF7",
+          "&divideontimes;": "\u22C7",
+          "&divonx;": "\u22C7",
+          "&djcy;": "\u0452",
+          "&dlcorn;": "\u231E",
+          "&dlcrop;": "\u230D",
+          "&dollar;": "$",
+          "&dopf;": "\uD835\uDD55",
+          "&dot;": "\u02D9",
+          "&doteq;": "\u2250",
+          "&doteqdot;": "\u2251",
+          "&dotminus;": "\u2238",
+          "&dotplus;": "\u2214",
+          "&dotsquare;": "\u22A1",
+          "&doublebarwedge;": "\u2306",
+          "&downarrow;": "\u2193",
+          "&downdownarrows;": "\u21CA",
+          "&downharpoonleft;": "\u21C3",
+          "&downharpoonright;": "\u21C2",
+          "&drbkarow;": "\u2910",
+          "&drcorn;": "\u231F",
+          "&drcrop;": "\u230C",
+          "&dscr;": "\uD835\uDCB9",
+          "&dscy;": "\u0455",
+          "&dsol;": "\u29F6",
+          "&dstrok;": "\u0111",
+          "&dtdot;": "\u22F1",
+          "&dtri;": "\u25BF",
+          "&dtrif;": "\u25BE",
+          "&duarr;": "\u21F5",
+          "&duhar;": "\u296F",
+          "&dwangle;": "\u29A6",
+          "&dzcy;": "\u045F",
+          "&dzigrarr;": "\u27FF",
+          "&eDDot;": "\u2A77",
+          "&eDot;": "\u2251",
+          "&eacute": "\xE9",
+          "&eacute;": "\xE9",
+          "&easter;": "\u2A6E",
+          "&ecaron;": "\u011B",
+          "&ecir;": "\u2256",
+          "&ecirc": "\xEA",
+          "&ecirc;": "\xEA",
+          "&ecolon;": "\u2255",
+          "&ecy;": "\u044D",
+          "&edot;": "\u0117",
+          "&ee;": "\u2147",
+          "&efDot;": "\u2252",
+          "&efr;": "\uD835\uDD22",
+          "&eg;": "\u2A9A",
+          "&egrave": "\xE8",
+          "&egrave;": "\xE8",
+          "&egs;": "\u2A96",
+          "&egsdot;": "\u2A98",
+          "&el;": "\u2A99",
+          "&elinters;": "\u23E7",
+          "&ell;": "\u2113",
+          "&els;": "\u2A95",
+          "&elsdot;": "\u2A97",
+          "&emacr;": "\u0113",
+          "&empty;": "\u2205",
+          "&emptyset;": "\u2205",
+          "&emptyv;": "\u2205",
+          "&emsp13;": "\u2004",
+          "&emsp14;": "\u2005",
+          "&emsp;": "\u2003",
+          "&eng;": "\u014B",
+          "&ensp;": "\u2002",
+          "&eogon;": "\u0119",
+          "&eopf;": "\uD835\uDD56",
+          "&epar;": "\u22D5",
+          "&eparsl;": "\u29E3",
+          "&eplus;": "\u2A71",
+          "&epsi;": "\u03B5",
+          "&epsilon;": "\u03B5",
+          "&epsiv;": "\u03F5",
+          "&eqcirc;": "\u2256",
+          "&eqcolon;": "\u2255",
+          "&eqsim;": "\u2242",
+          "&eqslantgtr;": "\u2A96",
+          "&eqslantless;": "\u2A95",
+          "&equals;": "=",
+          "&equest;": "\u225F",
+          "&equiv;": "\u2261",
+          "&equivDD;": "\u2A78",
+          "&eqvparsl;": "\u29E5",
+          "&erDot;": "\u2253",
+          "&erarr;": "\u2971",
+          "&escr;": "\u212F",
+          "&esdot;": "\u2250",
+          "&esim;": "\u2242",
+          "&eta;": "\u03B7",
+          "&eth": "\xF0",
+          "&eth;": "\xF0",
+          "&euml": "\xEB",
+          "&euml;": "\xEB",
+          "&euro;": "\u20AC",
+          "&excl;": "!",
+          "&exist;": "\u2203",
+          "&expectation;": "\u2130",
+          "&exponentiale;": "\u2147",
+          "&fallingdotseq;": "\u2252",
+          "&fcy;": "\u0444",
+          "&female;": "\u2640",
+          "&ffilig;": "\uFB03",
+          "&fflig;": "\uFB00",
+          "&ffllig;": "\uFB04",
+          "&ffr;": "\uD835\uDD23",
+          "&filig;": "\uFB01",
+          "&fjlig;": "fj",
+          "&flat;": "\u266D",
+          "&fllig;": "\uFB02",
+          "&fltns;": "\u25B1",
+          "&fnof;": "\u0192",
+          "&fopf;": "\uD835\uDD57",
+          "&forall;": "\u2200",
+          "&fork;": "\u22D4",
+          "&forkv;": "\u2AD9",
+          "&fpartint;": "\u2A0D",
+          "&frac12": "\xBD",
+          "&frac12;": "\xBD",
+          "&frac13;": "\u2153",
+          "&frac14": "\xBC",
+          "&frac14;": "\xBC",
+          "&frac15;": "\u2155",
+          "&frac16;": "\u2159",
+          "&frac18;": "\u215B",
+          "&frac23;": "\u2154",
+          "&frac25;": "\u2156",
+          "&frac34": "\xBE",
+          "&frac34;": "\xBE",
+          "&frac35;": "\u2157",
+          "&frac38;": "\u215C",
+          "&frac45;": "\u2158",
+          "&frac56;": "\u215A",
+          "&frac58;": "\u215D",
+          "&frac78;": "\u215E",
+          "&frasl;": "\u2044",
+          "&frown;": "\u2322",
+          "&fscr;": "\uD835\uDCBB",
+          "&gE;": "\u2267",
+          "&gEl;": "\u2A8C",
+          "&gacute;": "\u01F5",
+          "&gamma;": "\u03B3",
+          "&gammad;": "\u03DD",
+          "&gap;": "\u2A86",
+          "&gbreve;": "\u011F",
+          "&gcirc;": "\u011D",
+          "&gcy;": "\u0433",
+          "&gdot;": "\u0121",
+          "&ge;": "\u2265",
+          "&gel;": "\u22DB",
+          "&geq;": "\u2265",
+          "&geqq;": "\u2267",
+          "&geqslant;": "\u2A7E",
+          "&ges;": "\u2A7E",
+          "&gescc;": "\u2AA9",
+          "&gesdot;": "\u2A80",
+          "&gesdoto;": "\u2A82",
+          "&gesdotol;": "\u2A84",
+          "&gesl;": "\u22DB\uFE00",
+          "&gesles;": "\u2A94",
+          "&gfr;": "\uD835\uDD24",
+          "&gg;": "\u226B",
+          "&ggg;": "\u22D9",
+          "&gimel;": "\u2137",
+          "&gjcy;": "\u0453",
+          "&gl;": "\u2277",
+          "&glE;": "\u2A92",
+          "&gla;": "\u2AA5",
+          "&glj;": "\u2AA4",
+          "&gnE;": "\u2269",
+          "&gnap;": "\u2A8A",
+          "&gnapprox;": "\u2A8A",
+          "&gne;": "\u2A88",
+          "&gneq;": "\u2A88",
+          "&gneqq;": "\u2269",
+          "&gnsim;": "\u22E7",
+          "&gopf;": "\uD835\uDD58",
+          "&grave;": "`",
+          "&gscr;": "\u210A",
+          "&gsim;": "\u2273",
+          "&gsime;": "\u2A8E",
+          "&gsiml;": "\u2A90",
+          "&gt": ">",
+          "&gt;": ">",
+          "&gtcc;": "\u2AA7",
+          "&gtcir;": "\u2A7A",
+          "&gtdot;": "\u22D7",
+          "&gtlPar;": "\u2995",
+          "&gtquest;": "\u2A7C",
+          "&gtrapprox;": "\u2A86",
+          "&gtrarr;": "\u2978",
+          "&gtrdot;": "\u22D7",
+          "&gtreqless;": "\u22DB",
+          "&gtreqqless;": "\u2A8C",
+          "&gtrless;": "\u2277",
+          "&gtrsim;": "\u2273",
+          "&gvertneqq;": "\u2269\uFE00",
+          "&gvnE;": "\u2269\uFE00",
+          "&hArr;": "\u21D4",
+          "&hairsp;": "\u200A",
+          "&half;": "\xBD",
+          "&hamilt;": "\u210B",
+          "&hardcy;": "\u044A",
+          "&harr;": "\u2194",
+          "&harrcir;": "\u2948",
+          "&harrw;": "\u21AD",
+          "&hbar;": "\u210F",
+          "&hcirc;": "\u0125",
+          "&hearts;": "\u2665",
+          "&heartsuit;": "\u2665",
+          "&hellip;": "\u2026",
+          "&hercon;": "\u22B9",
+          "&hfr;": "\uD835\uDD25",
+          "&hksearow;": "\u2925",
+          "&hkswarow;": "\u2926",
+          "&hoarr;": "\u21FF",
+          "&homtht;": "\u223B",
+          "&hookleftarrow;": "\u21A9",
+          "&hookrightarrow;": "\u21AA",
+          "&hopf;": "\uD835\uDD59",
+          "&horbar;": "\u2015",
+          "&hscr;": "\uD835\uDCBD",
+          "&hslash;": "\u210F",
+          "&hstrok;": "\u0127",
+          "&hybull;": "\u2043",
+          "&hyphen;": "\u2010",
+          "&iacute": "\xED",
+          "&iacute;": "\xED",
+          "&ic;": "\u2063",
+          "&icirc": "\xEE",
+          "&icirc;": "\xEE",
+          "&icy;": "\u0438",
+          "&iecy;": "\u0435",
+          "&iexcl": "\xA1",
+          "&iexcl;": "\xA1",
+          "&iff;": "\u21D4",
+          "&ifr;": "\uD835\uDD26",
+          "&igrave": "\xEC",
+          "&igrave;": "\xEC",
+          "&ii;": "\u2148",
+          "&iiiint;": "\u2A0C",
+          "&iiint;": "\u222D",
+          "&iinfin;": "\u29DC",
+          "&iiota;": "\u2129",
+          "&ijlig;": "\u0133",
+          "&imacr;": "\u012B",
+          "&image;": "\u2111",
+          "&imagline;": "\u2110",
+          "&imagpart;": "\u2111",
+          "&imath;": "\u0131",
+          "&imof;": "\u22B7",
+          "&imped;": "\u01B5",
+          "&in;": "\u2208",
+          "&incare;": "\u2105",
+          "&infin;": "\u221E",
+          "&infintie;": "\u29DD",
+          "&inodot;": "\u0131",
+          "&int;": "\u222B",
+          "&intcal;": "\u22BA",
+          "&integers;": "\u2124",
+          "&intercal;": "\u22BA",
+          "&intlarhk;": "\u2A17",
+          "&intprod;": "\u2A3C",
+          "&iocy;": "\u0451",
+          "&iogon;": "\u012F",
+          "&iopf;": "\uD835\uDD5A",
+          "&iota;": "\u03B9",
+          "&iprod;": "\u2A3C",
+          "&iquest": "\xBF",
+          "&iquest;": "\xBF",
+          "&iscr;": "\uD835\uDCBE",
+          "&isin;": "\u2208",
+          "&isinE;": "\u22F9",
+          "&isindot;": "\u22F5",
+          "&isins;": "\u22F4",
+          "&isinsv;": "\u22F3",
+          "&isinv;": "\u2208",
+          "&it;": "\u2062",
+          "&itilde;": "\u0129",
+          "&iukcy;": "\u0456",
+          "&iuml": "\xEF",
+          "&iuml;": "\xEF",
+          "&jcirc;": "\u0135",
+          "&jcy;": "\u0439",
+          "&jfr;": "\uD835\uDD27",
+          "&jmath;": "\u0237",
+          "&jopf;": "\uD835\uDD5B",
+          "&jscr;": "\uD835\uDCBF",
+          "&jsercy;": "\u0458",
+          "&jukcy;": "\u0454",
+          "&kappa;": "\u03BA",
+          "&kappav;": "\u03F0",
+          "&kcedil;": "\u0137",
+          "&kcy;": "\u043A",
+          "&kfr;": "\uD835\uDD28",
+          "&kgreen;": "\u0138",
+          "&khcy;": "\u0445",
+          "&kjcy;": "\u045C",
+          "&kopf;": "\uD835\uDD5C",
+          "&kscr;": "\uD835\uDCC0",
+          "&lAarr;": "\u21DA",
+          "&lArr;": "\u21D0",
+          "&lAtail;": "\u291B",
+          "&lBarr;": "\u290E",
+          "&lE;": "\u2266",
+          "&lEg;": "\u2A8B",
+          "&lHar;": "\u2962",
+          "&lacute;": "\u013A",
+          "&laemptyv;": "\u29B4",
+          "&lagran;": "\u2112",
+          "&lambda;": "\u03BB",
+          "&lang;": "\u27E8",
+          "&langd;": "\u2991",
+          "&langle;": "\u27E8",
+          "&lap;": "\u2A85",
+          "&laquo": "\xAB",
+          "&laquo;": "\xAB",
+          "&larr;": "\u2190",
+          "&larrb;": "\u21E4",
+          "&larrbfs;": "\u291F",
+          "&larrfs;": "\u291D",
+          "&larrhk;": "\u21A9",
+          "&larrlp;": "\u21AB",
+          "&larrpl;": "\u2939",
+          "&larrsim;": "\u2973",
+          "&larrtl;": "\u21A2",
+          "&lat;": "\u2AAB",
+          "&latail;": "\u2919",
+          "&late;": "\u2AAD",
+          "&lates;": "\u2AAD\uFE00",
+          "&lbarr;": "\u290C",
+          "&lbbrk;": "\u2772",
+          "&lbrace;": "{",
+          "&lbrack;": "[",
+          "&lbrke;": "\u298B",
+          "&lbrksld;": "\u298F",
+          "&lbrkslu;": "\u298D",
+          "&lcaron;": "\u013E",
+          "&lcedil;": "\u013C",
+          "&lceil;": "\u2308",
+          "&lcub;": "{",
+          "&lcy;": "\u043B",
+          "&ldca;": "\u2936",
+          "&ldquo;": "\u201C",
+          "&ldquor;": "\u201E",
+          "&ldrdhar;": "\u2967",
+          "&ldrushar;": "\u294B",
+          "&ldsh;": "\u21B2",
+          "&le;": "\u2264",
+          "&leftarrow;": "\u2190",
+          "&leftarrowtail;": "\u21A2",
+          "&leftharpoondown;": "\u21BD",
+          "&leftharpoonup;": "\u21BC",
+          "&leftleftarrows;": "\u21C7",
+          "&leftrightarrow;": "\u2194",
+          "&leftrightarrows;": "\u21C6",
+          "&leftrightharpoons;": "\u21CB",
+          "&leftrightsquigarrow;": "\u21AD",
+          "&leftthreetimes;": "\u22CB",
+          "&leg;": "\u22DA",
+          "&leq;": "\u2264",
+          "&leqq;": "\u2266",
+          "&leqslant;": "\u2A7D",
+          "&les;": "\u2A7D",
+          "&lescc;": "\u2AA8",
+          "&lesdot;": "\u2A7F",
+          "&lesdoto;": "\u2A81",
+          "&lesdotor;": "\u2A83",
+          "&lesg;": "\u22DA\uFE00",
+          "&lesges;": "\u2A93",
+          "&lessapprox;": "\u2A85",
+          "&lessdot;": "\u22D6",
+          "&lesseqgtr;": "\u22DA",
+          "&lesseqqgtr;": "\u2A8B",
+          "&lessgtr;": "\u2276",
+          "&lesssim;": "\u2272",
+          "&lfisht;": "\u297C",
+          "&lfloor;": "\u230A",
+          "&lfr;": "\uD835\uDD29",
+          "&lg;": "\u2276",
+          "&lgE;": "\u2A91",
+          "&lhard;": "\u21BD",
+          "&lharu;": "\u21BC",
+          "&lharul;": "\u296A",
+          "&lhblk;": "\u2584",
+          "&ljcy;": "\u0459",
+          "&ll;": "\u226A",
+          "&llarr;": "\u21C7",
+          "&llcorner;": "\u231E",
+          "&llhard;": "\u296B",
+          "&lltri;": "\u25FA",
+          "&lmidot;": "\u0140",
+          "&lmoust;": "\u23B0",
+          "&lmoustache;": "\u23B0",
+          "&lnE;": "\u2268",
+          "&lnap;": "\u2A89",
+          "&lnapprox;": "\u2A89",
+          "&lne;": "\u2A87",
+          "&lneq;": "\u2A87",
+          "&lneqq;": "\u2268",
+          "&lnsim;": "\u22E6",
+          "&loang;": "\u27EC",
+          "&loarr;": "\u21FD",
+          "&lobrk;": "\u27E6",
+          "&longleftarrow;": "\u27F5",
+          "&longleftrightarrow;": "\u27F7",
+          "&longmapsto;": "\u27FC",
+          "&longrightarrow;": "\u27F6",
+          "&looparrowleft;": "\u21AB",
+          "&looparrowright;": "\u21AC",
+          "&lopar;": "\u2985",
+          "&lopf;": "\uD835\uDD5D",
+          "&loplus;": "\u2A2D",
+          "&lotimes;": "\u2A34",
+          "&lowast;": "\u2217",
+          "&lowbar;": "_",
+          "&loz;": "\u25CA",
+          "&lozenge;": "\u25CA",
+          "&lozf;": "\u29EB",
+          "&lpar;": "(",
+          "&lparlt;": "\u2993",
+          "&lrarr;": "\u21C6",
+          "&lrcorner;": "\u231F",
+          "&lrhar;": "\u21CB",
+          "&lrhard;": "\u296D",
+          "&lrm;": "\u200E",
+          "&lrtri;": "\u22BF",
+          "&lsaquo;": "\u2039",
+          "&lscr;": "\uD835\uDCC1",
+          "&lsh;": "\u21B0",
+          "&lsim;": "\u2272",
+          "&lsime;": "\u2A8D",
+          "&lsimg;": "\u2A8F",
+          "&lsqb;": "[",
+          "&lsquo;": "\u2018",
+          "&lsquor;": "\u201A",
+          "&lstrok;": "\u0142",
+          "&lt": "<",
+          "&lt;": "<",
+          "&ltcc;": "\u2AA6",
+          "&ltcir;": "\u2A79",
+          "&ltdot;": "\u22D6",
+          "&lthree;": "\u22CB",
+          "&ltimes;": "\u22C9",
+          "&ltlarr;": "\u2976",
+          "&ltquest;": "\u2A7B",
+          "&ltrPar;": "\u2996",
+          "&ltri;": "\u25C3",
+          "&ltrie;": "\u22B4",
+          "&ltrif;": "\u25C2",
+          "&lurdshar;": "\u294A",
+          "&luruhar;": "\u2966",
+          "&lvertneqq;": "\u2268\uFE00",
+          "&lvnE;": "\u2268\uFE00",
+          "&mDDot;": "\u223A",
+          "&macr": "\xAF",
+          "&macr;": "\xAF",
+          "&male;": "\u2642",
+          "&malt;": "\u2720",
+          "&maltese;": "\u2720",
+          "&map;": "\u21A6",
+          "&mapsto;": "\u21A6",
+          "&mapstodown;": "\u21A7",
+          "&mapstoleft;": "\u21A4",
+          "&mapstoup;": "\u21A5",
+          "&marker;": "\u25AE",
+          "&mcomma;": "\u2A29",
+          "&mcy;": "\u043C",
+          "&mdash;": "\u2014",
+          "&measuredangle;": "\u2221",
+          "&mfr;": "\uD835\uDD2A",
+          "&mho;": "\u2127",
+          "&micro": "\xB5",
+          "&micro;": "\xB5",
+          "&mid;": "\u2223",
+          "&midast;": "*",
+          "&midcir;": "\u2AF0",
+          "&middot": "\xB7",
+          "&middot;": "\xB7",
+          "&minus;": "\u2212",
+          "&minusb;": "\u229F",
+          "&minusd;": "\u2238",
+          "&minusdu;": "\u2A2A",
+          "&mlcp;": "\u2ADB",
+          "&mldr;": "\u2026",
+          "&mnplus;": "\u2213",
+          "&models;": "\u22A7",
+          "&mopf;": "\uD835\uDD5E",
+          "&mp;": "\u2213",
+          "&mscr;": "\uD835\uDCC2",
+          "&mstpos;": "\u223E",
+          "&mu;": "\u03BC",
+          "&multimap;": "\u22B8",
+          "&mumap;": "\u22B8",
+          "&nGg;": "\u22D9\u0338",
+          "&nGt;": "\u226B\u20D2",
+          "&nGtv;": "\u226B\u0338",
+          "&nLeftarrow;": "\u21CD",
+          "&nLeftrightarrow;": "\u21CE",
+          "&nLl;": "\u22D8\u0338",
+          "&nLt;": "\u226A\u20D2",
+          "&nLtv;": "\u226A\u0338",
+          "&nRightarrow;": "\u21CF",
+          "&nVDash;": "\u22AF",
+          "&nVdash;": "\u22AE",
+          "&nabla;": "\u2207",
+          "&nacute;": "\u0144",
+          "&nang;": "\u2220\u20D2",
+          "&nap;": "\u2249",
+          "&napE;": "\u2A70\u0338",
+          "&napid;": "\u224B\u0338",
+          "&napos;": "\u0149",
+          "&napprox;": "\u2249",
+          "&natur;": "\u266E",
+          "&natural;": "\u266E",
+          "&naturals;": "\u2115",
+          "&nbsp": "\xA0",
+          "&nbsp;": "\xA0",
+          "&nbump;": "\u224E\u0338",
+          "&nbumpe;": "\u224F\u0338",
+          "&ncap;": "\u2A43",
+          "&ncaron;": "\u0148",
+          "&ncedil;": "\u0146",
+          "&ncong;": "\u2247",
+          "&ncongdot;": "\u2A6D\u0338",
+          "&ncup;": "\u2A42",
+          "&ncy;": "\u043D",
+          "&ndash;": "\u2013",
+          "&ne;": "\u2260",
+          "&neArr;": "\u21D7",
+          "&nearhk;": "\u2924",
+          "&nearr;": "\u2197",
+          "&nearrow;": "\u2197",
+          "&nedot;": "\u2250\u0338",
+          "&nequiv;": "\u2262",
+          "&nesear;": "\u2928",
+          "&nesim;": "\u2242\u0338",
+          "&nexist;": "\u2204",
+          "&nexists;": "\u2204",
+          "&nfr;": "\uD835\uDD2B",
+          "&ngE;": "\u2267\u0338",
+          "&nge;": "\u2271",
+          "&ngeq;": "\u2271",
+          "&ngeqq;": "\u2267\u0338",
+          "&ngeqslant;": "\u2A7E\u0338",
+          "&nges;": "\u2A7E\u0338",
+          "&ngsim;": "\u2275",
+          "&ngt;": "\u226F",
+          "&ngtr;": "\u226F",
+          "&nhArr;": "\u21CE",
+          "&nharr;": "\u21AE",
+          "&nhpar;": "\u2AF2",
+          "&ni;": "\u220B",
+          "&nis;": "\u22FC",
+          "&nisd;": "\u22FA",
+          "&niv;": "\u220B",
+          "&njcy;": "\u045A",
+          "&nlArr;": "\u21CD",
+          "&nlE;": "\u2266\u0338",
+          "&nlarr;": "\u219A",
+          "&nldr;": "\u2025",
+          "&nle;": "\u2270",
+          "&nleftarrow;": "\u219A",
+          "&nleftrightarrow;": "\u21AE",
+          "&nleq;": "\u2270",
+          "&nleqq;": "\u2266\u0338",
+          "&nleqslant;": "\u2A7D\u0338",
+          "&nles;": "\u2A7D\u0338",
+          "&nless;": "\u226E",
+          "&nlsim;": "\u2274",
+          "&nlt;": "\u226E",
+          "&nltri;": "\u22EA",
+          "&nltrie;": "\u22EC",
+          "&nmid;": "\u2224",
+          "&nopf;": "\uD835\uDD5F",
+          "&not": "\xAC",
+          "&not;": "\xAC",
+          "&notin;": "\u2209",
+          "&notinE;": "\u22F9\u0338",
+          "&notindot;": "\u22F5\u0338",
+          "&notinva;": "\u2209",
+          "&notinvb;": "\u22F7",
+          "&notinvc;": "\u22F6",
+          "&notni;": "\u220C",
+          "&notniva;": "\u220C",
+          "&notnivb;": "\u22FE",
+          "&notnivc;": "\u22FD",
+          "&npar;": "\u2226",
+          "&nparallel;": "\u2226",
+          "&nparsl;": "\u2AFD\u20E5",
+          "&npart;": "\u2202\u0338",
+          "&npolint;": "\u2A14",
+          "&npr;": "\u2280",
+          "&nprcue;": "\u22E0",
+          "&npre;": "\u2AAF\u0338",
+          "&nprec;": "\u2280",
+          "&npreceq;": "\u2AAF\u0338",
+          "&nrArr;": "\u21CF",
+          "&nrarr;": "\u219B",
+          "&nrarrc;": "\u2933\u0338",
+          "&nrarrw;": "\u219D\u0338",
+          "&nrightarrow;": "\u219B",
+          "&nrtri;": "\u22EB",
+          "&nrtrie;": "\u22ED",
+          "&nsc;": "\u2281",
+          "&nsccue;": "\u22E1",
+          "&nsce;": "\u2AB0\u0338",
+          "&nscr;": "\uD835\uDCC3",
+          "&nshortmid;": "\u2224",
+          "&nshortparallel;": "\u2226",
+          "&nsim;": "\u2241",
+          "&nsime;": "\u2244",
+          "&nsimeq;": "\u2244",
+          "&nsmid;": "\u2224",
+          "&nspar;": "\u2226",
+          "&nsqsube;": "\u22E2",
+          "&nsqsupe;": "\u22E3",
+          "&nsub;": "\u2284",
+          "&nsubE;": "\u2AC5\u0338",
+          "&nsube;": "\u2288",
+          "&nsubset;": "\u2282\u20D2",
+          "&nsubseteq;": "\u2288",
+          "&nsubseteqq;": "\u2AC5\u0338",
+          "&nsucc;": "\u2281",
+          "&nsucceq;": "\u2AB0\u0338",
+          "&nsup;": "\u2285",
+          "&nsupE;": "\u2AC6\u0338",
+          "&nsupe;": "\u2289",
+          "&nsupset;": "\u2283\u20D2",
+          "&nsupseteq;": "\u2289",
+          "&nsupseteqq;": "\u2AC6\u0338",
+          "&ntgl;": "\u2279",
+          "&ntilde": "\xF1",
+          "&ntilde;": "\xF1",
+          "&ntlg;": "\u2278",
+          "&ntriangleleft;": "\u22EA",
+          "&ntrianglelefteq;": "\u22EC",
+          "&ntriangleright;": "\u22EB",
+          "&ntrianglerighteq;": "\u22ED",
+          "&nu;": "\u03BD",
+          "&num;": "#",
+          "&numero;": "\u2116",
+          "&numsp;": "\u2007",
+          "&nvDash;": "\u22AD",
+          "&nvHarr;": "\u2904",
+          "&nvap;": "\u224D\u20D2",
+          "&nvdash;": "\u22AC",
+          "&nvge;": "\u2265\u20D2",
+          "&nvgt;": ">\u20D2",
+          "&nvinfin;": "\u29DE",
+          "&nvlArr;": "\u2902",
+          "&nvle;": "\u2264\u20D2",
+          "&nvlt;": "<\u20D2",
+          "&nvltrie;": "\u22B4\u20D2",
+          "&nvrArr;": "\u2903",
+          "&nvrtrie;": "\u22B5\u20D2",
+          "&nvsim;": "\u223C\u20D2",
+          "&nwArr;": "\u21D6",
+          "&nwarhk;": "\u2923",
+          "&nwarr;": "\u2196",
+          "&nwarrow;": "\u2196",
+          "&nwnear;": "\u2927",
+          "&oS;": "\u24C8",
+          "&oacute": "\xF3",
+          "&oacute;": "\xF3",
+          "&oast;": "\u229B",
+          "&ocir;": "\u229A",
+          "&ocirc": "\xF4",
+          "&ocirc;": "\xF4",
+          "&ocy;": "\u043E",
+          "&odash;": "\u229D",
+          "&odblac;": "\u0151",
+          "&odiv;": "\u2A38",
+          "&odot;": "\u2299",
+          "&odsold;": "\u29BC",
+          "&oelig;": "\u0153",
+          "&ofcir;": "\u29BF",
+          "&ofr;": "\uD835\uDD2C",
+          "&ogon;": "\u02DB",
+          "&ograve": "\xF2",
+          "&ograve;": "\xF2",
+          "&ogt;": "\u29C1",
+          "&ohbar;": "\u29B5",
+          "&ohm;": "\u03A9",
+          "&oint;": "\u222E",
+          "&olarr;": "\u21BA",
+          "&olcir;": "\u29BE",
+          "&olcross;": "\u29BB",
+          "&oline;": "\u203E",
+          "&olt;": "\u29C0",
+          "&omacr;": "\u014D",
+          "&omega;": "\u03C9",
+          "&omicron;": "\u03BF",
+          "&omid;": "\u29B6",
+          "&ominus;": "\u2296",
+          "&oopf;": "\uD835\uDD60",
+          "&opar;": "\u29B7",
+          "&operp;": "\u29B9",
+          "&oplus;": "\u2295",
+          "&or;": "\u2228",
+          "&orarr;": "\u21BB",
+          "&ord;": "\u2A5D",
+          "&order;": "\u2134",
+          "&orderof;": "\u2134",
+          "&ordf": "\xAA",
+          "&ordf;": "\xAA",
+          "&ordm": "\xBA",
+          "&ordm;": "\xBA",
+          "&origof;": "\u22B6",
+          "&oror;": "\u2A56",
+          "&orslope;": "\u2A57",
+          "&orv;": "\u2A5B",
+          "&oscr;": "\u2134",
+          "&oslash": "\xF8",
+          "&oslash;": "\xF8",
+          "&osol;": "\u2298",
+          "&otilde": "\xF5",
+          "&otilde;": "\xF5",
+          "&otimes;": "\u2297",
+          "&otimesas;": "\u2A36",
+          "&ouml": "\xF6",
+          "&ouml;": "\xF6",
+          "&ovbar;": "\u233D",
+          "&par;": "\u2225",
+          "&para": "\xB6",
+          "&para;": "\xB6",
+          "&parallel;": "\u2225",
+          "&parsim;": "\u2AF3",
+          "&parsl;": "\u2AFD",
+          "&part;": "\u2202",
+          "&pcy;": "\u043F",
+          "&percnt;": "%",
+          "&period;": ".",
+          "&permil;": "\u2030",
+          "&perp;": "\u22A5",
+          "&pertenk;": "\u2031",
+          "&pfr;": "\uD835\uDD2D",
+          "&phi;": "\u03C6",
+          "&phiv;": "\u03D5",
+          "&phmmat;": "\u2133",
+          "&phone;": "\u260E",
+          "&pi;": "\u03C0",
+          "&pitchfork;": "\u22D4",
+          "&piv;": "\u03D6",
+          "&planck;": "\u210F",
+          "&planckh;": "\u210E",
+          "&plankv;": "\u210F",
+          "&plus;": "+",
+          "&plusacir;": "\u2A23",
+          "&plusb;": "\u229E",
+          "&pluscir;": "\u2A22",
+          "&plusdo;": "\u2214",
+          "&plusdu;": "\u2A25",
+          "&pluse;": "\u2A72",
+          "&plusmn": "\xB1",
+          "&plusmn;": "\xB1",
+          "&plussim;": "\u2A26",
+          "&plustwo;": "\u2A27",
+          "&pm;": "\xB1",
+          "&pointint;": "\u2A15",
+          "&popf;": "\uD835\uDD61",
+          "&pound": "\xA3",
+          "&pound;": "\xA3",
+          "&pr;": "\u227A",
+          "&prE;": "\u2AB3",
+          "&prap;": "\u2AB7",
+          "&prcue;": "\u227C",
+          "&pre;": "\u2AAF",
+          "&prec;": "\u227A",
+          "&precapprox;": "\u2AB7",
+          "&preccurlyeq;": "\u227C",
+          "&preceq;": "\u2AAF",
+          "&precnapprox;": "\u2AB9",
+          "&precneqq;": "\u2AB5",
+          "&precnsim;": "\u22E8",
+          "&precsim;": "\u227E",
+          "&prime;": "\u2032",
+          "&primes;": "\u2119",
+          "&prnE;": "\u2AB5",
+          "&prnap;": "\u2AB9",
+          "&prnsim;": "\u22E8",
+          "&prod;": "\u220F",
+          "&profalar;": "\u232E",
+          "&profline;": "\u2312",
+          "&profsurf;": "\u2313",
+          "&prop;": "\u221D",
+          "&propto;": "\u221D",
+          "&prsim;": "\u227E",
+          "&prurel;": "\u22B0",
+          "&pscr;": "\uD835\uDCC5",
+          "&psi;": "\u03C8",
+          "&puncsp;": "\u2008",
+          "&qfr;": "\uD835\uDD2E",
+          "&qint;": "\u2A0C",
+          "&qopf;": "\uD835\uDD62",
+          "&qprime;": "\u2057",
+          "&qscr;": "\uD835\uDCC6",
+          "&quaternions;": "\u210D",
+          "&quatint;": "\u2A16",
+          "&quest;": "?",
+          "&questeq;": "\u225F",
+          "&quot": '"',
+          "&quot;": '"',
+          "&rAarr;": "\u21DB",
+          "&rArr;": "\u21D2",
+          "&rAtail;": "\u291C",
+          "&rBarr;": "\u290F",
+          "&rHar;": "\u2964",
+          "&race;": "\u223D\u0331",
+          "&racute;": "\u0155",
+          "&radic;": "\u221A",
+          "&raemptyv;": "\u29B3",
+          "&rang;": "\u27E9",
+          "&rangd;": "\u2992",
+          "&range;": "\u29A5",
+          "&rangle;": "\u27E9",
+          "&raquo": "\xBB",
+          "&raquo;": "\xBB",
+          "&rarr;": "\u2192",
+          "&rarrap;": "\u2975",
+          "&rarrb;": "\u21E5",
+          "&rarrbfs;": "\u2920",
+          "&rarrc;": "\u2933",
+          "&rarrfs;": "\u291E",
+          "&rarrhk;": "\u21AA",
+          "&rarrlp;": "\u21AC",
+          "&rarrpl;": "\u2945",
+          "&rarrsim;": "\u2974",
+          "&rarrtl;": "\u21A3",
+          "&rarrw;": "\u219D",
+          "&ratail;": "\u291A",
+          "&ratio;": "\u2236",
+          "&rationals;": "\u211A",
+          "&rbarr;": "\u290D",
+          "&rbbrk;": "\u2773",
+          "&rbrace;": "}",
+          "&rbrack;": "]",
+          "&rbrke;": "\u298C",
+          "&rbrksld;": "\u298E",
+          "&rbrkslu;": "\u2990",
+          "&rcaron;": "\u0159",
+          "&rcedil;": "\u0157",
+          "&rceil;": "\u2309",
+          "&rcub;": "}",
+          "&rcy;": "\u0440",
+          "&rdca;": "\u2937",
+          "&rdldhar;": "\u2969",
+          "&rdquo;": "\u201D",
+          "&rdquor;": "\u201D",
+          "&rdsh;": "\u21B3",
+          "&real;": "\u211C",
+          "&realine;": "\u211B",
+          "&realpart;": "\u211C",
+          "&reals;": "\u211D",
+          "&rect;": "\u25AD",
+          "&reg": "\xAE",
+          "&reg;": "\xAE",
+          "&rfisht;": "\u297D",
+          "&rfloor;": "\u230B",
+          "&rfr;": "\uD835\uDD2F",
+          "&rhard;": "\u21C1",
+          "&rharu;": "\u21C0",
+          "&rharul;": "\u296C",
+          "&rho;": "\u03C1",
+          "&rhov;": "\u03F1",
+          "&rightarrow;": "\u2192",
+          "&rightarrowtail;": "\u21A3",
+          "&rightharpoondown;": "\u21C1",
+          "&rightharpoonup;": "\u21C0",
+          "&rightleftarrows;": "\u21C4",
+          "&rightleftharpoons;": "\u21CC",
+          "&rightrightarrows;": "\u21C9",
+          "&rightsquigarrow;": "\u219D",
+          "&rightthreetimes;": "\u22CC",
+          "&ring;": "\u02DA",
+          "&risingdotseq;": "\u2253",
+          "&rlarr;": "\u21C4",
+          "&rlhar;": "\u21CC",
+          "&rlm;": "\u200F",
+          "&rmoust;": "\u23B1",
+          "&rmoustache;": "\u23B1",
+          "&rnmid;": "\u2AEE",
+          "&roang;": "\u27ED",
+          "&roarr;": "\u21FE",
+          "&robrk;": "\u27E7",
+          "&ropar;": "\u2986",
+          "&ropf;": "\uD835\uDD63",
+          "&roplus;": "\u2A2E",
+          "&rotimes;": "\u2A35",
+          "&rpar;": ")",
+          "&rpargt;": "\u2994",
+          "&rppolint;": "\u2A12",
+          "&rrarr;": "\u21C9",
+          "&rsaquo;": "\u203A",
+          "&rscr;": "\uD835\uDCC7",
+          "&rsh;": "\u21B1",
+          "&rsqb;": "]",
+          "&rsquo;": "\u2019",
+          "&rsquor;": "\u2019",
+          "&rthree;": "\u22CC",
+          "&rtimes;": "\u22CA",
+          "&rtri;": "\u25B9",
+          "&rtrie;": "\u22B5",
+          "&rtrif;": "\u25B8",
+          "&rtriltri;": "\u29CE",
+          "&ruluhar;": "\u2968",
+          "&rx;": "\u211E",
+          "&sacute;": "\u015B",
+          "&sbquo;": "\u201A",
+          "&sc;": "\u227B",
+          "&scE;": "\u2AB4",
+          "&scap;": "\u2AB8",
+          "&scaron;": "\u0161",
+          "&sccue;": "\u227D",
+          "&sce;": "\u2AB0",
+          "&scedil;": "\u015F",
+          "&scirc;": "\u015D",
+          "&scnE;": "\u2AB6",
+          "&scnap;": "\u2ABA",
+          "&scnsim;": "\u22E9",
+          "&scpolint;": "\u2A13",
+          "&scsim;": "\u227F",
+          "&scy;": "\u0441",
+          "&sdot;": "\u22C5",
+          "&sdotb;": "\u22A1",
+          "&sdote;": "\u2A66",
+          "&seArr;": "\u21D8",
+          "&searhk;": "\u2925",
+          "&searr;": "\u2198",
+          "&searrow;": "\u2198",
+          "&sect": "\xA7",
+          "&sect;": "\xA7",
+          "&semi;": ";",
+          "&seswar;": "\u2929",
+          "&setminus;": "\u2216",
+          "&setmn;": "\u2216",
+          "&sext;": "\u2736",
+          "&sfr;": "\uD835\uDD30",
+          "&sfrown;": "\u2322",
+          "&sharp;": "\u266F",
+          "&shchcy;": "\u0449",
+          "&shcy;": "\u0448",
+          "&shortmid;": "\u2223",
+          "&shortparallel;": "\u2225",
+          "&shy": "\xAD",
+          "&shy;": "\xAD",
+          "&sigma;": "\u03C3",
+          "&sigmaf;": "\u03C2",
+          "&sigmav;": "\u03C2",
+          "&sim;": "\u223C",
+          "&simdot;": "\u2A6A",
+          "&sime;": "\u2243",
+          "&simeq;": "\u2243",
+          "&simg;": "\u2A9E",
+          "&simgE;": "\u2AA0",
+          "&siml;": "\u2A9D",
+          "&simlE;": "\u2A9F",
+          "&simne;": "\u2246",
+          "&simplus;": "\u2A24",
+          "&simrarr;": "\u2972",
+          "&slarr;": "\u2190",
+          "&smallsetminus;": "\u2216",
+          "&smashp;": "\u2A33",
+          "&smeparsl;": "\u29E4",
+          "&smid;": "\u2223",
+          "&smile;": "\u2323",
+          "&smt;": "\u2AAA",
+          "&smte;": "\u2AAC",
+          "&smtes;": "\u2AAC\uFE00",
+          "&softcy;": "\u044C",
+          "&sol;": "/",
+          "&solb;": "\u29C4",
+          "&solbar;": "\u233F",
+          "&sopf;": "\uD835\uDD64",
+          "&spades;": "\u2660",
+          "&spadesuit;": "\u2660",
+          "&spar;": "\u2225",
+          "&sqcap;": "\u2293",
+          "&sqcaps;": "\u2293\uFE00",
+          "&sqcup;": "\u2294",
+          "&sqcups;": "\u2294\uFE00",
+          "&sqsub;": "\u228F",
+          "&sqsube;": "\u2291",
+          "&sqsubset;": "\u228F",
+          "&sqsubseteq;": "\u2291",
+          "&sqsup;": "\u2290",
+          "&sqsupe;": "\u2292",
+          "&sqsupset;": "\u2290",
+          "&sqsupseteq;": "\u2292",
+          "&squ;": "\u25A1",
+          "&square;": "\u25A1",
+          "&squarf;": "\u25AA",
+          "&squf;": "\u25AA",
+          "&srarr;": "\u2192",
+          "&sscr;": "\uD835\uDCC8",
+          "&ssetmn;": "\u2216",
+          "&ssmile;": "\u2323",
+          "&sstarf;": "\u22C6",
+          "&star;": "\u2606",
+          "&starf;": "\u2605",
+          "&straightepsilon;": "\u03F5",
+          "&straightphi;": "\u03D5",
+          "&strns;": "\xAF",
+          "&sub;": "\u2282",
+          "&subE;": "\u2AC5",
+          "&subdot;": "\u2ABD",
+          "&sube;": "\u2286",
+          "&subedot;": "\u2AC3",
+          "&submult;": "\u2AC1",
+          "&subnE;": "\u2ACB",
+          "&subne;": "\u228A",
+          "&subplus;": "\u2ABF",
+          "&subrarr;": "\u2979",
+          "&subset;": "\u2282",
+          "&subseteq;": "\u2286",
+          "&subseteqq;": "\u2AC5",
+          "&subsetneq;": "\u228A",
+          "&subsetneqq;": "\u2ACB",
+          "&subsim;": "\u2AC7",
+          "&subsub;": "\u2AD5",
+          "&subsup;": "\u2AD3",
+          "&succ;": "\u227B",
+          "&succapprox;": "\u2AB8",
+          "&succcurlyeq;": "\u227D",
+          "&succeq;": "\u2AB0",
+          "&succnapprox;": "\u2ABA",
+          "&succneqq;": "\u2AB6",
+          "&succnsim;": "\u22E9",
+          "&succsim;": "\u227F",
+          "&sum;": "\u2211",
+          "&sung;": "\u266A",
+          "&sup1": "\xB9",
+          "&sup1;": "\xB9",
+          "&sup2": "\xB2",
+          "&sup2;": "\xB2",
+          "&sup3": "\xB3",
+          "&sup3;": "\xB3",
+          "&sup;": "\u2283",
+          "&supE;": "\u2AC6",
+          "&supdot;": "\u2ABE",
+          "&supdsub;": "\u2AD8",
+          "&supe;": "\u2287",
+          "&supedot;": "\u2AC4",
+          "&suphsol;": "\u27C9",
+          "&suphsub;": "\u2AD7",
+          "&suplarr;": "\u297B",
+          "&supmult;": "\u2AC2",
+          "&supnE;": "\u2ACC",
+          "&supne;": "\u228B",
+          "&supplus;": "\u2AC0",
+          "&supset;": "\u2283",
+          "&supseteq;": "\u2287",
+          "&supseteqq;": "\u2AC6",
+          "&supsetneq;": "\u228B",
+          "&supsetneqq;": "\u2ACC",
+          "&supsim;": "\u2AC8",
+          "&supsub;": "\u2AD4",
+          "&supsup;": "\u2AD6",
+          "&swArr;": "\u21D9",
+          "&swarhk;": "\u2926",
+          "&swarr;": "\u2199",
+          "&swarrow;": "\u2199",
+          "&swnwar;": "\u292A",
+          "&szlig": "\xDF",
+          "&szlig;": "\xDF",
+          "&target;": "\u2316",
+          "&tau;": "\u03C4",
+          "&tbrk;": "\u23B4",
+          "&tcaron;": "\u0165",
+          "&tcedil;": "\u0163",
+          "&tcy;": "\u0442",
+          "&tdot;": "\u20DB",
+          "&telrec;": "\u2315",
+          "&tfr;": "\uD835\uDD31",
+          "&there4;": "\u2234",
+          "&therefore;": "\u2234",
+          "&theta;": "\u03B8",
+          "&thetasym;": "\u03D1",
+          "&thetav;": "\u03D1",
+          "&thickapprox;": "\u2248",
+          "&thicksim;": "\u223C",
+          "&thinsp;": "\u2009",
+          "&thkap;": "\u2248",
+          "&thksim;": "\u223C",
+          "&thorn": "\xFE",
+          "&thorn;": "\xFE",
+          "&tilde;": "\u02DC",
+          "&times": "\xD7",
+          "&times;": "\xD7",
+          "&timesb;": "\u22A0",
+          "&timesbar;": "\u2A31",
+          "&timesd;": "\u2A30",
+          "&tint;": "\u222D",
+          "&toea;": "\u2928",
+          "&top;": "\u22A4",
+          "&topbot;": "\u2336",
+          "&topcir;": "\u2AF1",
+          "&topf;": "\uD835\uDD65",
+          "&topfork;": "\u2ADA",
+          "&tosa;": "\u2929",
+          "&tprime;": "\u2034",
+          "&trade;": "\u2122",
+          "&triangle;": "\u25B5",
+          "&triangledown;": "\u25BF",
+          "&triangleleft;": "\u25C3",
+          "&trianglelefteq;": "\u22B4",
+          "&triangleq;": "\u225C",
+          "&triangleright;": "\u25B9",
+          "&trianglerighteq;": "\u22B5",
+          "&tridot;": "\u25EC",
+          "&trie;": "\u225C",
+          "&triminus;": "\u2A3A",
+          "&triplus;": "\u2A39",
+          "&trisb;": "\u29CD",
+          "&tritime;": "\u2A3B",
+          "&trpezium;": "\u23E2",
+          "&tscr;": "\uD835\uDCC9",
+          "&tscy;": "\u0446",
+          "&tshcy;": "\u045B",
+          "&tstrok;": "\u0167",
+          "&twixt;": "\u226C",
+          "&twoheadleftarrow;": "\u219E",
+          "&twoheadrightarrow;": "\u21A0",
+          "&uArr;": "\u21D1",
+          "&uHar;": "\u2963",
+          "&uacute": "\xFA",
+          "&uacute;": "\xFA",
+          "&uarr;": "\u2191",
+          "&ubrcy;": "\u045E",
+          "&ubreve;": "\u016D",
+          "&ucirc": "\xFB",
+          "&ucirc;": "\xFB",
+          "&ucy;": "\u0443",
+          "&udarr;": "\u21C5",
+          "&udblac;": "\u0171",
+          "&udhar;": "\u296E",
+          "&ufisht;": "\u297E",
+          "&ufr;": "\uD835\uDD32",
+          "&ugrave": "\xF9",
+          "&ugrave;": "\xF9",
+          "&uharl;": "\u21BF",
+          "&uharr;": "\u21BE",
+          "&uhblk;": "\u2580",
+          "&ulcorn;": "\u231C",
+          "&ulcorner;": "\u231C",
+          "&ulcrop;": "\u230F",
+          "&ultri;": "\u25F8",
+          "&umacr;": "\u016B",
+          "&uml": "\xA8",
+          "&uml;": "\xA8",
+          "&uogon;": "\u0173",
+          "&uopf;": "\uD835\uDD66",
+          "&uparrow;": "\u2191",
+          "&updownarrow;": "\u2195",
+          "&upharpoonleft;": "\u21BF",
+          "&upharpoonright;": "\u21BE",
+          "&uplus;": "\u228E",
+          "&upsi;": "\u03C5",
+          "&upsih;": "\u03D2",
+          "&upsilon;": "\u03C5",
+          "&upuparrows;": "\u21C8",
+          "&urcorn;": "\u231D",
+          "&urcorner;": "\u231D",
+          "&urcrop;": "\u230E",
+          "&uring;": "\u016F",
+          "&urtri;": "\u25F9",
+          "&uscr;": "\uD835\uDCCA",
+          "&utdot;": "\u22F0",
+          "&utilde;": "\u0169",
+          "&utri;": "\u25B5",
+          "&utrif;": "\u25B4",
+          "&uuarr;": "\u21C8",
+          "&uuml": "\xFC",
+          "&uuml;": "\xFC",
+          "&uwangle;": "\u29A7",
+          "&vArr;": "\u21D5",
+          "&vBar;": "\u2AE8",
+          "&vBarv;": "\u2AE9",
+          "&vDash;": "\u22A8",
+          "&vangrt;": "\u299C",
+          "&varepsilon;": "\u03F5",
+          "&varkappa;": "\u03F0",
+          "&varnothing;": "\u2205",
+          "&varphi;": "\u03D5",
+          "&varpi;": "\u03D6",
+          "&varpropto;": "\u221D",
+          "&varr;": "\u2195",
+          "&varrho;": "\u03F1",
+          "&varsigma;": "\u03C2",
+          "&varsubsetneq;": "\u228A\uFE00",
+          "&varsubsetneqq;": "\u2ACB\uFE00",
+          "&varsupsetneq;": "\u228B\uFE00",
+          "&varsupsetneqq;": "\u2ACC\uFE00",
+          "&vartheta;": "\u03D1",
+          "&vartriangleleft;": "\u22B2",
+          "&vartriangleright;": "\u22B3",
+          "&vcy;": "\u0432",
+          "&vdash;": "\u22A2",
+          "&vee;": "\u2228",
+          "&veebar;": "\u22BB",
+          "&veeeq;": "\u225A",
+          "&vellip;": "\u22EE",
+          "&verbar;": "|",
+          "&vert;": "|",
+          "&vfr;": "\uD835\uDD33",
+          "&vltri;": "\u22B2",
+          "&vnsub;": "\u2282\u20D2",
+          "&vnsup;": "\u2283\u20D2",
+          "&vopf;": "\uD835\uDD67",
+          "&vprop;": "\u221D",
+          "&vrtri;": "\u22B3",
+          "&vscr;": "\uD835\uDCCB",
+          "&vsubnE;": "\u2ACB\uFE00",
+          "&vsubne;": "\u228A\uFE00",
+          "&vsupnE;": "\u2ACC\uFE00",
+          "&vsupne;": "\u228B\uFE00",
+          "&vzigzag;": "\u299A",
+          "&wcirc;": "\u0175",
+          "&wedbar;": "\u2A5F",
+          "&wedge;": "\u2227",
+          "&wedgeq;": "\u2259",
+          "&weierp;": "\u2118",
+          "&wfr;": "\uD835\uDD34",
+          "&wopf;": "\uD835\uDD68",
+          "&wp;": "\u2118",
+          "&wr;": "\u2240",
+          "&wreath;": "\u2240",
+          "&wscr;": "\uD835\uDCCC",
+          "&xcap;": "\u22C2",
+          "&xcirc;": "\u25EF",
+          "&xcup;": "\u22C3",
+          "&xdtri;": "\u25BD",
+          "&xfr;": "\uD835\uDD35",
+          "&xhArr;": "\u27FA",
+          "&xharr;": "\u27F7",
+          "&xi;": "\u03BE",
+          "&xlArr;": "\u27F8",
+          "&xlarr;": "\u27F5",
+          "&xmap;": "\u27FC",
+          "&xnis;": "\u22FB",
+          "&xodot;": "\u2A00",
+          "&xopf;": "\uD835\uDD69",
+          "&xoplus;": "\u2A01",
+          "&xotime;": "\u2A02",
+          "&xrArr;": "\u27F9",
+          "&xrarr;": "\u27F6",
+          "&xscr;": "\uD835\uDCCD",
+          "&xsqcup;": "\u2A06",
+          "&xuplus;": "\u2A04",
+          "&xutri;": "\u25B3",
+          "&xvee;": "\u22C1",
+          "&xwedge;": "\u22C0",
+          "&yacute": "\xFD",
+          "&yacute;": "\xFD",
+          "&yacy;": "\u044F",
+          "&ycirc;": "\u0177",
+          "&ycy;": "\u044B",
+          "&yen": "\xA5",
+          "&yen;": "\xA5",
+          "&yfr;": "\uD835\uDD36",
+          "&yicy;": "\u0457",
+          "&yopf;": "\uD835\uDD6A",
+          "&yscr;": "\uD835\uDCCE",
+          "&yucy;": "\u044E",
+          "&yuml": "\xFF",
+          "&yuml;": "\xFF",
+          "&zacute;": "\u017A",
+          "&zcaron;": "\u017E",
+          "&zcy;": "\u0437",
+          "&zdot;": "\u017C",
+          "&zeetrf;": "\u2128",
+          "&zeta;": "\u03B6",
+          "&zfr;": "\uD835\uDD37",
+          "&zhcy;": "\u0436",
+          "&zigrarr;": "\u21DD",
+          "&zopf;": "\uD835\uDD6B",
+          "&zscr;": "\uD835\uDCCF",
+          "&zwj;": "\u200D",
+          "&zwnj;": "\u200C"
+        },
+        characters: {
+          \u00C6: "&AElig;",
+          "&": "&amp;",
+          \u00C1: "&Aacute;",
+          \u0102: "&Abreve;",
+          \u00C2: "&Acirc;",
+          \u0410: "&Acy;",
+          "\uD835\uDD04": "&Afr;",
+          \u00C0: "&Agrave;",
+          \u0391: "&Alpha;",
+          \u0100: "&Amacr;",
+          "\u2A53": "&And;",
+          \u0104: "&Aogon;",
+          "\uD835\uDD38": "&Aopf;",
+          "\u2061": "&af;",
+          \u00C5: "&angst;",
+          "\uD835\uDC9C": "&Ascr;",
+          "\u2254": "&coloneq;",
+          \u00C3: "&Atilde;",
+          \u00C4: "&Auml;",
+          "\u2216": "&ssetmn;",
+          "\u2AE7": "&Barv;",
+          "\u2306": "&doublebarwedge;",
+          \u0411: "&Bcy;",
+          "\u2235": "&because;",
+          \u212C: "&bernou;",
+          \u0392: "&Beta;",
+          "\uD835\uDD05": "&Bfr;",
+          "\uD835\uDD39": "&Bopf;",
+          "\u02D8": "&breve;",
+          "\u224E": "&bump;",
+          \u0427: "&CHcy;",
+          "\xA9": "&copy;",
+          \u0106: "&Cacute;",
+          "\u22D2": "&Cap;",
+          "\u2145": "&DD;",
+          \u212D: "&Cfr;",
+          \u010C: "&Ccaron;",
+          \u00C7: "&Ccedil;",
+          \u0108: "&Ccirc;",
+          "\u2230": "&Cconint;",
+          \u010A: "&Cdot;",
+          "\xB8": "&cedil;",
+          "\xB7": "&middot;",
+          \u03A7: "&Chi;",
+          "\u2299": "&odot;",
+          "\u2296": "&ominus;",
+          "\u2295": "&oplus;",
+          "\u2297": "&otimes;",
+          "\u2232": "&cwconint;",
+          "\u201D": "&rdquor;",
+          "\u2019": "&rsquor;",
+          "\u2237": "&Proportion;",
+          "\u2A74": "&Colone;",
+          "\u2261": "&equiv;",
+          "\u222F": "&DoubleContourIntegral;",
+          "\u222E": "&oint;",
+          \u2102: "&complexes;",
+          "\u2210": "&coprod;",
+          "\u2233": "&awconint;",
+          "\u2A2F": "&Cross;",
+          "\uD835\uDC9E": "&Cscr;",
+          "\u22D3": "&Cup;",
+          "\u224D": "&asympeq;",
+          "\u2911": "&DDotrahd;",
+          \u0402: "&DJcy;",
+          \u0405: "&DScy;",
+          \u040F: "&DZcy;",
+          "\u2021": "&ddagger;",
+          "\u21A1": "&Darr;",
+          "\u2AE4": "&DoubleLeftTee;",
+          \u010E: "&Dcaron;",
+          \u0414: "&Dcy;",
+          "\u2207": "&nabla;",
+          \u0394: "&Delta;",
+          "\uD835\uDD07": "&Dfr;",
+          "\xB4": "&acute;",
+          "\u02D9": "&dot;",
+          "\u02DD": "&dblac;",
+          "`": "&grave;",
+          "\u02DC": "&tilde;",
+          "\u22C4": "&diamond;",
+          "\u2146": "&dd;",
+          "\uD835\uDD3B": "&Dopf;",
+          "\xA8": "&uml;",
+          "\u20DC": "&DotDot;",
+          "\u2250": "&esdot;",
+          "\u21D3": "&dArr;",
+          "\u21D0": "&lArr;",
+          "\u21D4": "&iff;",
+          "\u27F8": "&xlArr;",
+          "\u27FA": "&xhArr;",
+          "\u27F9": "&xrArr;",
+          "\u21D2": "&rArr;",
+          "\u22A8": "&vDash;",
+          "\u21D1": "&uArr;",
+          "\u21D5": "&vArr;",
+          "\u2225": "&spar;",
+          "\u2193": "&downarrow;",
+          "\u2913": "&DownArrowBar;",
+          "\u21F5": "&duarr;",
+          "\u0311": "&DownBreve;",
+          "\u2950": "&DownLeftRightVector;",
+          "\u295E": "&DownLeftTeeVector;",
+          "\u21BD": "&lhard;",
+          "\u2956": "&DownLeftVectorBar;",
+          "\u295F": "&DownRightTeeVector;",
+          "\u21C1": "&rightharpoondown;",
+          "\u2957": "&DownRightVectorBar;",
+          "\u22A4": "&top;",
+          "\u21A7": "&mapstodown;",
+          "\uD835\uDC9F": "&Dscr;",
+          \u0110: "&Dstrok;",
+          \u014A: "&ENG;",
+          \u00D0: "&ETH;",
+          \u00C9: "&Eacute;",
+          \u011A: "&Ecaron;",
+          \u00CA: "&Ecirc;",
+          \u042D: "&Ecy;",
+          \u0116: "&Edot;",
+          "\uD835\uDD08": "&Efr;",
+          \u00C8: "&Egrave;",
+          "\u2208": "&isinv;",
+          \u0112: "&Emacr;",
+          "\u25FB": "&EmptySmallSquare;",
+          "\u25AB": "&EmptyVerySmallSquare;",
+          \u0118: "&Eogon;",
+          "\uD835\uDD3C": "&Eopf;",
+          \u0395: "&Epsilon;",
+          "\u2A75": "&Equal;",
+          "\u2242": "&esim;",
+          "\u21CC": "&rlhar;",
+          \u2130: "&expectation;",
+          "\u2A73": "&Esim;",
+          \u0397: "&Eta;",
+          \u00CB: "&Euml;",
+          "\u2203": "&exist;",
+          "\u2147": "&exponentiale;",
+          \u0424: "&Fcy;",
+          "\uD835\uDD09": "&Ffr;",
+          "\u25FC": "&FilledSmallSquare;",
+          "\u25AA": "&squf;",
+          "\uD835\uDD3D": "&Fopf;",
+          "\u2200": "&forall;",
+          \u2131: "&Fscr;",
+          \u0403: "&GJcy;",
+          ">": "&gt;",
+          \u0393: "&Gamma;",
+          \u03DC: "&Gammad;",
+          \u011E: "&Gbreve;",
+          \u0122: "&Gcedil;",
+          \u011C: "&Gcirc;",
+          \u0413: "&Gcy;",
+          \u0120: "&Gdot;",
+          "\uD835\uDD0A": "&Gfr;",
+          "\u22D9": "&ggg;",
+          "\uD835\uDD3E": "&Gopf;",
+          "\u2265": "&geq;",
+          "\u22DB": "&gtreqless;",
+          "\u2267": "&geqq;",
+          "\u2AA2": "&GreaterGreater;",
+          "\u2277": "&gtrless;",
+          "\u2A7E": "&ges;",
+          "\u2273": "&gtrsim;",
+          "\uD835\uDCA2": "&Gscr;",
+          "\u226B": "&gg;",
+          \u042A: "&HARDcy;",
+          "\u02C7": "&caron;",
+          "^": "&Hat;",
+          \u0124: "&Hcirc;",
+          \u210C: "&Poincareplane;",
+          \u210B: "&hamilt;",
+          \u210D: "&quaternions;",
+          "\u2500": "&boxh;",
+          \u0126: "&Hstrok;",
+          "\u224F": "&bumpeq;",
+          \u0415: "&IEcy;",
+          \u0132: "&IJlig;",
+          \u0401: "&IOcy;",
+          \u00CD: "&Iacute;",
+          \u00CE: "&Icirc;",
+          \u0418: "&Icy;",
+          \u0130: "&Idot;",
+          \u2111: "&imagpart;",
+          \u00CC: "&Igrave;",
+          \u012A: "&Imacr;",
+          "\u2148": "&ii;",
+          "\u222C": "&Int;",
+          "\u222B": "&int;",
+          "\u22C2": "&xcap;",
+          "\u2063": "&ic;",
+          "\u2062": "&it;",
+          \u012E: "&Iogon;",
+          "\uD835\uDD40": "&Iopf;",
+          \u0399: "&Iota;",
+          \u2110: "&imagline;",
+          \u0128: "&Itilde;",
+          \u0406: "&Iukcy;",
+          \u00CF: "&Iuml;",
+          \u0134: "&Jcirc;",
+          \u0419: "&Jcy;",
+          "\uD835\uDD0D": "&Jfr;",
+          "\uD835\uDD41": "&Jopf;",
+          "\uD835\uDCA5": "&Jscr;",
+          \u0408: "&Jsercy;",
+          \u0404: "&Jukcy;",
+          \u0425: "&KHcy;",
+          \u040C: "&KJcy;",
+          \u039A: "&Kappa;",
+          \u0136: "&Kcedil;",
+          \u041A: "&Kcy;",
+          "\uD835\uDD0E": "&Kfr;",
+          "\uD835\uDD42": "&Kopf;",
+          "\uD835\uDCA6": "&Kscr;",
+          \u0409: "&LJcy;",
+          "<": "&lt;",
+          \u0139: "&Lacute;",
+          \u039B: "&Lambda;",
+          "\u27EA": "&Lang;",
+          \u2112: "&lagran;",
+          "\u219E": "&twoheadleftarrow;",
+          \u013D: "&Lcaron;",
+          \u013B: "&Lcedil;",
+          \u041B: "&Lcy;",
+          "\u27E8": "&langle;",
+          "\u2190": "&slarr;",
+          "\u21E4": "&larrb;",
+          "\u21C6": "&lrarr;",
+          "\u2308": "&lceil;",
+          "\u27E6": "&lobrk;",
+          "\u2961": "&LeftDownTeeVector;",
+          "\u21C3": "&downharpoonleft;",
+          "\u2959": "&LeftDownVectorBar;",
+          "\u230A": "&lfloor;",
+          "\u2194": "&leftrightarrow;",
+          "\u294E": "&LeftRightVector;",
+          "\u22A3": "&dashv;",
+          "\u21A4": "&mapstoleft;",
+          "\u295A": "&LeftTeeVector;",
+          "\u22B2": "&vltri;",
+          "\u29CF": "&LeftTriangleBar;",
+          "\u22B4": "&trianglelefteq;",
+          "\u2951": "&LeftUpDownVector;",
+          "\u2960": "&LeftUpTeeVector;",
+          "\u21BF": "&upharpoonleft;",
+          "\u2958": "&LeftUpVectorBar;",
+          "\u21BC": "&lharu;",
+          "\u2952": "&LeftVectorBar;",
+          "\u22DA": "&lesseqgtr;",
+          "\u2266": "&leqq;",
+          "\u2276": "&lg;",
+          "\u2AA1": "&LessLess;",
+          "\u2A7D": "&les;",
+          "\u2272": "&lsim;",
+          "\uD835\uDD0F": "&Lfr;",
+          "\u22D8": "&Ll;",
+          "\u21DA": "&lAarr;",
+          \u013F: "&Lmidot;",
+          "\u27F5": "&xlarr;",
+          "\u27F7": "&xharr;",
+          "\u27F6": "&xrarr;",
+          "\uD835\uDD43": "&Lopf;",
+          "\u2199": "&swarrow;",
+          "\u2198": "&searrow;",
+          "\u21B0": "&lsh;",
+          \u0141: "&Lstrok;",
+          "\u226A": "&ll;",
+          "\u2905": "&Map;",
+          \u041C: "&Mcy;",
+          "\u205F": "&MediumSpace;",
+          \u2133: "&phmmat;",
+          "\uD835\uDD10": "&Mfr;",
+          "\u2213": "&mp;",
+          "\uD835\uDD44": "&Mopf;",
+          \u039C: "&Mu;",
+          \u040A: "&NJcy;",
+          \u0143: "&Nacute;",
+          \u0147: "&Ncaron;",
+          \u0145: "&Ncedil;",
+          \u041D: "&Ncy;",
+          "\u200B": "&ZeroWidthSpace;",
+          "\n": "&NewLine;",
+          "\uD835\uDD11": "&Nfr;",
+          "\u2060": "&NoBreak;",
+          "\xA0": "&nbsp;",
+          \u2115: "&naturals;",
+          "\u2AEC": "&Not;",
+          "\u2262": "&nequiv;",
+          "\u226D": "&NotCupCap;",
+          "\u2226": "&nspar;",
+          "\u2209": "&notinva;",
+          "\u2260": "&ne;",
+          "\u2242\u0338": "&nesim;",
+          "\u2204": "&nexists;",
+          "\u226F": "&ngtr;",
+          "\u2271": "&ngeq;",
+          "\u2267\u0338": "&ngeqq;",
+          "\u226B\u0338": "&nGtv;",
+          "\u2279": "&ntgl;",
+          "\u2A7E\u0338": "&nges;",
+          "\u2275": "&ngsim;",
+          "\u224E\u0338": "&nbump;",
+          "\u224F\u0338": "&nbumpe;",
+          "\u22EA": "&ntriangleleft;",
+          "\u29CF\u0338": "&NotLeftTriangleBar;",
+          "\u22EC": "&ntrianglelefteq;",
+          "\u226E": "&nlt;",
+          "\u2270": "&nleq;",
+          "\u2278": "&ntlg;",
+          "\u226A\u0338": "&nLtv;",
+          "\u2A7D\u0338": "&nles;",
+          "\u2274": "&nlsim;",
+          "\u2AA2\u0338": "&NotNestedGreaterGreater;",
+          "\u2AA1\u0338": "&NotNestedLessLess;",
+          "\u2280": "&nprec;",
+          "\u2AAF\u0338": "&npreceq;",
+          "\u22E0": "&nprcue;",
+          "\u220C": "&notniva;",
+          "\u22EB": "&ntriangleright;",
+          "\u29D0\u0338": "&NotRightTriangleBar;",
+          "\u22ED": "&ntrianglerighteq;",
+          "\u228F\u0338": "&NotSquareSubset;",
+          "\u22E2": "&nsqsube;",
+          "\u2290\u0338": "&NotSquareSuperset;",
+          "\u22E3": "&nsqsupe;",
+          "\u2282\u20D2": "&vnsub;",
+          "\u2288": "&nsubseteq;",
+          "\u2281": "&nsucc;",
+          "\u2AB0\u0338": "&nsucceq;",
+          "\u22E1": "&nsccue;",
+          "\u227F\u0338": "&NotSucceedsTilde;",
+          "\u2283\u20D2": "&vnsup;",
+          "\u2289": "&nsupseteq;",
+          "\u2241": "&nsim;",
+          "\u2244": "&nsimeq;",
+          "\u2247": "&ncong;",
+          "\u2249": "&napprox;",
+          "\u2224": "&nsmid;",
+          "\uD835\uDCA9": "&Nscr;",
+          \u00D1: "&Ntilde;",
+          \u039D: "&Nu;",
+          \u0152: "&OElig;",
+          \u00D3: "&Oacute;",
+          \u00D4: "&Ocirc;",
+          \u041E: "&Ocy;",
+          \u0150: "&Odblac;",
+          "\uD835\uDD12": "&Ofr;",
+          \u00D2: "&Ograve;",
+          \u014C: "&Omacr;",
+          \u03A9: "&ohm;",
+          \u039F: "&Omicron;",
+          "\uD835\uDD46": "&Oopf;",
+          "\u201C": "&ldquo;",
+          "\u2018": "&lsquo;",
+          "\u2A54": "&Or;",
+          "\uD835\uDCAA": "&Oscr;",
+          \u00D8: "&Oslash;",
+          \u00D5: "&Otilde;",
+          "\u2A37": "&Otimes;",
+          \u00D6: "&Ouml;",
+          "\u203E": "&oline;",
+          "\u23DE": "&OverBrace;",
+          "\u23B4": "&tbrk;",
+          "\u23DC": "&OverParenthesis;",
+          "\u2202": "&part;",
+          \u041F: "&Pcy;",
+          "\uD835\uDD13": "&Pfr;",
+          \u03A6: "&Phi;",
+          \u03A0: "&Pi;",
+          "\xB1": "&pm;",
+          \u2119: "&primes;",
+          "\u2ABB": "&Pr;",
+          "\u227A": "&prec;",
+          "\u2AAF": "&preceq;",
+          "\u227C": "&preccurlyeq;",
+          "\u227E": "&prsim;",
+          "\u2033": "&Prime;",
+          "\u220F": "&prod;",
+          "\u221D": "&vprop;",
+          "\uD835\uDCAB": "&Pscr;",
+          \u03A8: "&Psi;",
+          '"': "&quot;",
+          "\uD835\uDD14": "&Qfr;",
+          \u211A: "&rationals;",
+          "\uD835\uDCAC": "&Qscr;",
+          "\u2910": "&drbkarow;",
+          "\xAE": "&reg;",
+          \u0154: "&Racute;",
+          "\u27EB": "&Rang;",
+          "\u21A0": "&twoheadrightarrow;",
+          "\u2916": "&Rarrtl;",
+          \u0158: "&Rcaron;",
+          \u0156: "&Rcedil;",
+          \u0420: "&Rcy;",
+          \u211C: "&realpart;",
+          "\u220B": "&niv;",
+          "\u21CB": "&lrhar;",
+          "\u296F": "&duhar;",
+          \u03A1: "&Rho;",
+          "\u27E9": "&rangle;",
+          "\u2192": "&srarr;",
+          "\u21E5": "&rarrb;",
+          "\u21C4": "&rlarr;",
+          "\u2309": "&rceil;",
+          "\u27E7": "&robrk;",
+          "\u295D": "&RightDownTeeVector;",
+          "\u21C2": "&downharpoonright;",
+          "\u2955": "&RightDownVectorBar;",
+          "\u230B": "&rfloor;",
+          "\u22A2": "&vdash;",
+          "\u21A6": "&mapsto;",
+          "\u295B": "&RightTeeVector;",
+          "\u22B3": "&vrtri;",
+          "\u29D0": "&RightTriangleBar;",
+          "\u22B5": "&trianglerighteq;",
+          "\u294F": "&RightUpDownVector;",
+          "\u295C": "&RightUpTeeVector;",
+          "\u21BE": "&upharpoonright;",
+          "\u2954": "&RightUpVectorBar;",
+          "\u21C0": "&rightharpoonup;",
+          "\u2953": "&RightVectorBar;",
+          \u211D: "&reals;",
+          "\u2970": "&RoundImplies;",
+          "\u21DB": "&rAarr;",
+          \u211B: "&realine;",
+          "\u21B1": "&rsh;",
+          "\u29F4": "&RuleDelayed;",
+          \u0429: "&SHCHcy;",
+          \u0428: "&SHcy;",
+          \u042C: "&SOFTcy;",
+          \u015A: "&Sacute;",
+          "\u2ABC": "&Sc;",
+          \u0160: "&Scaron;",
+          \u015E: "&Scedil;",
+          \u015C: "&Scirc;",
+          \u0421: "&Scy;",
+          "\uD835\uDD16": "&Sfr;",
+          "\u2191": "&uparrow;",
+          \u03A3: "&Sigma;",
+          "\u2218": "&compfn;",
+          "\uD835\uDD4A": "&Sopf;",
+          "\u221A": "&radic;",
+          "\u25A1": "&square;",
+          "\u2293": "&sqcap;",
+          "\u228F": "&sqsubset;",
+          "\u2291": "&sqsubseteq;",
+          "\u2290": "&sqsupset;",
+          "\u2292": "&sqsupseteq;",
+          "\u2294": "&sqcup;",
+          "\uD835\uDCAE": "&Sscr;",
+          "\u22C6": "&sstarf;",
+          "\u22D0": "&Subset;",
+          "\u2286": "&subseteq;",
+          "\u227B": "&succ;",
+          "\u2AB0": "&succeq;",
+          "\u227D": "&succcurlyeq;",
+          "\u227F": "&succsim;",
+          "\u2211": "&sum;",
+          "\u22D1": "&Supset;",
+          "\u2283": "&supset;",
+          "\u2287": "&supseteq;",
+          \u00DE: "&THORN;",
+          "\u2122": "&trade;",
+          \u040B: "&TSHcy;",
+          \u0426: "&TScy;",
+          "	": "&Tab;",
+          \u03A4: "&Tau;",
+          \u0164: "&Tcaron;",
+          \u0162: "&Tcedil;",
+          \u0422: "&Tcy;",
+          "\uD835\uDD17": "&Tfr;",
+          "\u2234": "&therefore;",
+          \u0398: "&Theta;",
+          "\u205F\u200A": "&ThickSpace;",
+          "\u2009": "&thinsp;",
+          "\u223C": "&thksim;",
+          "\u2243": "&simeq;",
+          "\u2245": "&cong;",
+          "\u2248": "&thkap;",
+          "\uD835\uDD4B": "&Topf;",
+          "\u20DB": "&tdot;",
+          "\uD835\uDCAF": "&Tscr;",
+          \u0166: "&Tstrok;",
+          \u00DA: "&Uacute;",
+          "\u219F": "&Uarr;",
+          "\u2949": "&Uarrocir;",
+          \u040E: "&Ubrcy;",
+          \u016C: "&Ubreve;",
+          \u00DB: "&Ucirc;",
+          \u0423: "&Ucy;",
+          \u0170: "&Udblac;",
+          "\uD835\uDD18": "&Ufr;",
+          \u00D9: "&Ugrave;",
+          \u016A: "&Umacr;",
+          _: "&lowbar;",
+          "\u23DF": "&UnderBrace;",
+          "\u23B5": "&bbrk;",
+          "\u23DD": "&UnderParenthesis;",
+          "\u22C3": "&xcup;",
+          "\u228E": "&uplus;",
+          \u0172: "&Uogon;",
+          "\uD835\uDD4C": "&Uopf;",
+          "\u2912": "&UpArrowBar;",
+          "\u21C5": "&udarr;",
+          "\u2195": "&varr;",
+          "\u296E": "&udhar;",
+          "\u22A5": "&perp;",
+          "\u21A5": "&mapstoup;",
+          "\u2196": "&nwarrow;",
+          "\u2197": "&nearrow;",
+          \u03D2: "&upsih;",
+          \u03A5: "&Upsilon;",
+          \u016E: "&Uring;",
+          "\uD835\uDCB0": "&Uscr;",
+          \u0168: "&Utilde;",
+          \u00DC: "&Uuml;",
+          "\u22AB": "&VDash;",
+          "\u2AEB": "&Vbar;",
+          \u0412: "&Vcy;",
+          "\u22A9": "&Vdash;",
+          "\u2AE6": "&Vdashl;",
+          "\u22C1": "&xvee;",
+          "\u2016": "&Vert;",
+          "\u2223": "&smid;",
+          "|": "&vert;",
+          "\u2758": "&VerticalSeparator;",
+          "\u2240": "&wreath;",
+          "\u200A": "&hairsp;",
+          "\uD835\uDD19": "&Vfr;",
+          "\uD835\uDD4D": "&Vopf;",
+          "\uD835\uDCB1": "&Vscr;",
+          "\u22AA": "&Vvdash;",
+          \u0174: "&Wcirc;",
+          "\u22C0": "&xwedge;",
+          "\uD835\uDD1A": "&Wfr;",
+          "\uD835\uDD4E": "&Wopf;",
+          "\uD835\uDCB2": "&Wscr;",
+          "\uD835\uDD1B": "&Xfr;",
+          \u039E: "&Xi;",
+          "\uD835\uDD4F": "&Xopf;",
+          "\uD835\uDCB3": "&Xscr;",
+          \u042F: "&YAcy;",
+          \u0407: "&YIcy;",
+          \u042E: "&YUcy;",
+          \u00DD: "&Yacute;",
+          \u0176: "&Ycirc;",
+          \u042B: "&Ycy;",
+          "\uD835\uDD1C": "&Yfr;",
+          "\uD835\uDD50": "&Yopf;",
+          "\uD835\uDCB4": "&Yscr;",
+          \u0178: "&Yuml;",
+          \u0416: "&ZHcy;",
+          \u0179: "&Zacute;",
+          \u017D: "&Zcaron;",
+          \u0417: "&Zcy;",
+          \u017B: "&Zdot;",
+          \u0396: "&Zeta;",
+          \u2128: "&zeetrf;",
+          \u2124: "&integers;",
+          "\uD835\uDCB5": "&Zscr;",
+          \u00E1: "&aacute;",
+          \u0103: "&abreve;",
+          "\u223E": "&mstpos;",
+          "\u223E\u0333": "&acE;",
+          "\u223F": "&acd;",
+          \u00E2: "&acirc;",
+          \u0430: "&acy;",
+          \u00E6: "&aelig;",
+          "\uD835\uDD1E": "&afr;",
+          \u00E0: "&agrave;",
+          \u2135: "&aleph;",
+          \u03B1: "&alpha;",
+          \u0101: "&amacr;",
+          "\u2A3F": "&amalg;",
+          "\u2227": "&wedge;",
+          "\u2A55": "&andand;",
+          "\u2A5C": "&andd;",
+          "\u2A58": "&andslope;",
+          "\u2A5A": "&andv;",
+          "\u2220": "&angle;",
+          "\u29A4": "&ange;",
+          "\u2221": "&measuredangle;",
+          "\u29A8": "&angmsdaa;",
+          "\u29A9": "&angmsdab;",
+          "\u29AA": "&angmsdac;",
+          "\u29AB": "&angmsdad;",
+          "\u29AC": "&angmsdae;",
+          "\u29AD": "&angmsdaf;",
+          "\u29AE": "&angmsdag;",
+          "\u29AF": "&angmsdah;",
+          "\u221F": "&angrt;",
+          "\u22BE": "&angrtvb;",
+          "\u299D": "&angrtvbd;",
+          "\u2222": "&angsph;",
+          "\u237C": "&angzarr;",
+          \u0105: "&aogon;",
+          "\uD835\uDD52": "&aopf;",
+          "\u2A70": "&apE;",
+          "\u2A6F": "&apacir;",
+          "\u224A": "&approxeq;",
+          "\u224B": "&apid;",
+          "'": "&apos;",
+          \u00E5: "&aring;",
+          "\uD835\uDCB6": "&ascr;",
+          "*": "&midast;",
+          \u00E3: "&atilde;",
+          \u00E4: "&auml;",
+          "\u2A11": "&awint;",
+          "\u2AED": "&bNot;",
+          "\u224C": "&bcong;",
+          "\u03F6": "&bepsi;",
+          "\u2035": "&bprime;",
+          "\u223D": "&bsim;",
+          "\u22CD": "&bsime;",
+          "\u22BD": "&barvee;",
+          "\u2305": "&barwedge;",
+          "\u23B6": "&bbrktbrk;",
+          \u0431: "&bcy;",
+          "\u201E": "&ldquor;",
+          "\u29B0": "&bemptyv;",
+          \u03B2: "&beta;",
+          \u2136: "&beth;",
+          "\u226C": "&twixt;",
+          "\uD835\uDD1F": "&bfr;",
+          "\u25EF": "&xcirc;",
+          "\u2A00": "&xodot;",
+          "\u2A01": "&xoplus;",
+          "\u2A02": "&xotime;",
+          "\u2A06": "&xsqcup;",
+          "\u2605": "&starf;",
+          "\u25BD": "&xdtri;",
+          "\u25B3": "&xutri;",
+          "\u2A04": "&xuplus;",
+          "\u290D": "&rbarr;",
+          "\u29EB": "&lozf;",
+          "\u25B4": "&utrif;",
+          "\u25BE": "&dtrif;",
+          "\u25C2": "&ltrif;",
+          "\u25B8": "&rtrif;",
+          "\u2423": "&blank;",
+          "\u2592": "&blk12;",
+          "\u2591": "&blk14;",
+          "\u2593": "&blk34;",
+          "\u2588": "&block;",
+          "=\u20E5": "&bne;",
+          "\u2261\u20E5": "&bnequiv;",
+          "\u2310": "&bnot;",
+          "\uD835\uDD53": "&bopf;",
+          "\u22C8": "&bowtie;",
+          "\u2557": "&boxDL;",
+          "\u2554": "&boxDR;",
+          "\u2556": "&boxDl;",
+          "\u2553": "&boxDr;",
+          "\u2550": "&boxH;",
+          "\u2566": "&boxHD;",
+          "\u2569": "&boxHU;",
+          "\u2564": "&boxHd;",
+          "\u2567": "&boxHu;",
+          "\u255D": "&boxUL;",
+          "\u255A": "&boxUR;",
+          "\u255C": "&boxUl;",
+          "\u2559": "&boxUr;",
+          "\u2551": "&boxV;",
+          "\u256C": "&boxVH;",
+          "\u2563": "&boxVL;",
+          "\u2560": "&boxVR;",
+          "\u256B": "&boxVh;",
+          "\u2562": "&boxVl;",
+          "\u255F": "&boxVr;",
+          "\u29C9": "&boxbox;",
+          "\u2555": "&boxdL;",
+          "\u2552": "&boxdR;",
+          "\u2510": "&boxdl;",
+          "\u250C": "&boxdr;",
+          "\u2565": "&boxhD;",
+          "\u2568": "&boxhU;",
+          "\u252C": "&boxhd;",
+          "\u2534": "&boxhu;",
+          "\u229F": "&minusb;",
+          "\u229E": "&plusb;",
+          "\u22A0": "&timesb;",
+          "\u255B": "&boxuL;",
+          "\u2558": "&boxuR;",
+          "\u2518": "&boxul;",
+          "\u2514": "&boxur;",
+          "\u2502": "&boxv;",
+          "\u256A": "&boxvH;",
+          "\u2561": "&boxvL;",
+          "\u255E": "&boxvR;",
+          "\u253C": "&boxvh;",
+          "\u2524": "&boxvl;",
+          "\u251C": "&boxvr;",
+          "\xA6": "&brvbar;",
+          "\uD835\uDCB7": "&bscr;",
+          "\u204F": "&bsemi;",
+          "\\": "&bsol;",
+          "\u29C5": "&bsolb;",
+          "\u27C8": "&bsolhsub;",
+          "\u2022": "&bullet;",
+          "\u2AAE": "&bumpE;",
+          \u0107: "&cacute;",
+          "\u2229": "&cap;",
+          "\u2A44": "&capand;",
+          "\u2A49": "&capbrcup;",
+          "\u2A4B": "&capcap;",
+          "\u2A47": "&capcup;",
+          "\u2A40": "&capdot;",
+          "\u2229\uFE00": "&caps;",
+          "\u2041": "&caret;",
+          "\u2A4D": "&ccaps;",
+          \u010D: "&ccaron;",
+          \u00E7: "&ccedil;",
+          \u0109: "&ccirc;",
+          "\u2A4C": "&ccups;",
+          "\u2A50": "&ccupssm;",
+          \u010B: "&cdot;",
+          "\u29B2": "&cemptyv;",
+          "\xA2": "&cent;",
+          "\uD835\uDD20": "&cfr;",
+          \u0447: "&chcy;",
+          "\u2713": "&checkmark;",
+          \u03C7: "&chi;",
+          "\u25CB": "&cir;",
+          "\u29C3": "&cirE;",
+          "\u02C6": "&circ;",
+          "\u2257": "&cire;",
+          "\u21BA": "&olarr;",
+          "\u21BB": "&orarr;",
+          "\u24C8": "&oS;",
+          "\u229B": "&oast;",
+          "\u229A": "&ocir;",
+          "\u229D": "&odash;",
+          "\u2A10": "&cirfnint;",
+          "\u2AEF": "&cirmid;",
+          "\u29C2": "&cirscir;",
+          "\u2663": "&clubsuit;",
+          ":": "&colon;",
+          ",": "&comma;",
+          "@": "&commat;",
+          "\u2201": "&complement;",
+          "\u2A6D": "&congdot;",
+          "\uD835\uDD54": "&copf;",
+          "\u2117": "&copysr;",
+          "\u21B5": "&crarr;",
+          "\u2717": "&cross;",
+          "\uD835\uDCB8": "&cscr;",
+          "\u2ACF": "&csub;",
+          "\u2AD1": "&csube;",
+          "\u2AD0": "&csup;",
+          "\u2AD2": "&csupe;",
+          "\u22EF": "&ctdot;",
+          "\u2938": "&cudarrl;",
+          "\u2935": "&cudarrr;",
+          "\u22DE": "&curlyeqprec;",
+          "\u22DF": "&curlyeqsucc;",
+          "\u21B6": "&curvearrowleft;",
+          "\u293D": "&cularrp;",
+          "\u222A": "&cup;",
+          "\u2A48": "&cupbrcap;",
+          "\u2A46": "&cupcap;",
+          "\u2A4A": "&cupcup;",
+          "\u228D": "&cupdot;",
+          "\u2A45": "&cupor;",
+          "\u222A\uFE00": "&cups;",
+          "\u21B7": "&curvearrowright;",
+          "\u293C": "&curarrm;",
+          "\u22CE": "&cuvee;",
+          "\u22CF": "&cuwed;",
+          "\xA4": "&curren;",
+          "\u2231": "&cwint;",
+          "\u232D": "&cylcty;",
+          "\u2965": "&dHar;",
+          "\u2020": "&dagger;",
+          \u2138: "&daleth;",
+          "\u2010": "&hyphen;",
+          "\u290F": "&rBarr;",
+          \u010F: "&dcaron;",
+          \u0434: "&dcy;",
+          "\u21CA": "&downdownarrows;",
+          "\u2A77": "&eDDot;",
+          "\xB0": "&deg;",
+          \u03B4: "&delta;",
+          "\u29B1": "&demptyv;",
+          "\u297F": "&dfisht;",
+          "\uD835\uDD21": "&dfr;",
+          "\u2666": "&diams;",
+          \u03DD: "&gammad;",
+          "\u22F2": "&disin;",
+          "\xF7": "&divide;",
+          "\u22C7": "&divonx;",
+          \u0452: "&djcy;",
+          "\u231E": "&llcorner;",
+          "\u230D": "&dlcrop;",
+          $: "&dollar;",
+          "\uD835\uDD55": "&dopf;",
+          "\u2251": "&eDot;",
+          "\u2238": "&minusd;",
+          "\u2214": "&plusdo;",
+          "\u22A1": "&sdotb;",
+          "\u231F": "&lrcorner;",
+          "\u230C": "&drcrop;",
+          "\uD835\uDCB9": "&dscr;",
+          \u0455: "&dscy;",
+          "\u29F6": "&dsol;",
+          \u0111: "&dstrok;",
+          "\u22F1": "&dtdot;",
+          "\u25BF": "&triangledown;",
+          "\u29A6": "&dwangle;",
+          \u045F: "&dzcy;",
+          "\u27FF": "&dzigrarr;",
+          \u00E9: "&eacute;",
+          "\u2A6E": "&easter;",
+          \u011B: "&ecaron;",
+          "\u2256": "&eqcirc;",
+          \u00EA: "&ecirc;",
+          "\u2255": "&eqcolon;",
+          \u044D: "&ecy;",
+          \u0117: "&edot;",
+          "\u2252": "&fallingdotseq;",
+          "\uD835\uDD22": "&efr;",
+          "\u2A9A": "&eg;",
+          \u00E8: "&egrave;",
+          "\u2A96": "&eqslantgtr;",
+          "\u2A98": "&egsdot;",
+          "\u2A99": "&el;",
+          "\u23E7": "&elinters;",
+          \u2113: "&ell;",
+          "\u2A95": "&eqslantless;",
+          "\u2A97": "&elsdot;",
+          \u0113: "&emacr;",
+          "\u2205": "&varnothing;",
+          "\u2004": "&emsp13;",
+          "\u2005": "&emsp14;",
+          "\u2003": "&emsp;",
+          \u014B: "&eng;",
+          "\u2002": "&ensp;",
+          \u0119: "&eogon;",
+          "\uD835\uDD56": "&eopf;",
+          "\u22D5": "&epar;",
+          "\u29E3": "&eparsl;",
+          "\u2A71": "&eplus;",
+          \u03B5: "&epsilon;",
+          "\u03F5": "&varepsilon;",
+          "=": "&equals;",
+          "\u225F": "&questeq;",
+          "\u2A78": "&equivDD;",
+          "\u29E5": "&eqvparsl;",
+          "\u2253": "&risingdotseq;",
+          "\u2971": "&erarr;",
+          \u212F: "&escr;",
+          \u03B7: "&eta;",
+          \u00F0: "&eth;",
+          \u00EB: "&euml;",
+          "\u20AC": "&euro;",
+          "!": "&excl;",
+          \u0444: "&fcy;",
+          "\u2640": "&female;",
+          \uFB03: "&ffilig;",
+          \uFB00: "&fflig;",
+          \uFB04: "&ffllig;",
+          "\uD835\uDD23": "&ffr;",
+          \uFB01: "&filig;",
+          fj: "&fjlig;",
+          "\u266D": "&flat;",
+          \uFB02: "&fllig;",
+          "\u25B1": "&fltns;",
+          \u0192: "&fnof;",
+          "\uD835\uDD57": "&fopf;",
+          "\u22D4": "&pitchfork;",
+          "\u2AD9": "&forkv;",
+          "\u2A0D": "&fpartint;",
+          "\xBD": "&half;",
+          "\u2153": "&frac13;",
+          "\xBC": "&frac14;",
+          "\u2155": "&frac15;",
+          "\u2159": "&frac16;",
+          "\u215B": "&frac18;",
+          "\u2154": "&frac23;",
+          "\u2156": "&frac25;",
+          "\xBE": "&frac34;",
+          "\u2157": "&frac35;",
+          "\u215C": "&frac38;",
+          "\u2158": "&frac45;",
+          "\u215A": "&frac56;",
+          "\u215D": "&frac58;",
+          "\u215E": "&frac78;",
+          "\u2044": "&frasl;",
+          "\u2322": "&sfrown;",
+          "\uD835\uDCBB": "&fscr;",
+          "\u2A8C": "&gtreqqless;",
+          \u01F5: "&gacute;",
+          \u03B3: "&gamma;",
+          "\u2A86": "&gtrapprox;",
+          \u011F: "&gbreve;",
+          \u011D: "&gcirc;",
+          \u0433: "&gcy;",
+          \u0121: "&gdot;",
+          "\u2AA9": "&gescc;",
+          "\u2A80": "&gesdot;",
+          "\u2A82": "&gesdoto;",
+          "\u2A84": "&gesdotol;",
+          "\u22DB\uFE00": "&gesl;",
+          "\u2A94": "&gesles;",
+          "\uD835\uDD24": "&gfr;",
+          \u2137: "&gimel;",
+          \u0453: "&gjcy;",
+          "\u2A92": "&glE;",
+          "\u2AA5": "&gla;",
+          "\u2AA4": "&glj;",
+          "\u2269": "&gneqq;",
+          "\u2A8A": "&gnapprox;",
+          "\u2A88": "&gneq;",
+          "\u22E7": "&gnsim;",
+          "\uD835\uDD58": "&gopf;",
+          \u210A: "&gscr;",
+          "\u2A8E": "&gsime;",
+          "\u2A90": "&gsiml;",
+          "\u2AA7": "&gtcc;",
+          "\u2A7A": "&gtcir;",
+          "\u22D7": "&gtrdot;",
+          "\u2995": "&gtlPar;",
+          "\u2A7C": "&gtquest;",
+          "\u2978": "&gtrarr;",
+          "\u2269\uFE00": "&gvnE;",
+          \u044A: "&hardcy;",
+          "\u2948": "&harrcir;",
+          "\u21AD": "&leftrightsquigarrow;",
+          \u210F: "&plankv;",
+          \u0125: "&hcirc;",
+          "\u2665": "&heartsuit;",
+          "\u2026": "&mldr;",
+          "\u22B9": "&hercon;",
+          "\uD835\uDD25": "&hfr;",
+          "\u2925": "&searhk;",
+          "\u2926": "&swarhk;",
+          "\u21FF": "&hoarr;",
+          "\u223B": "&homtht;",
+          "\u21A9": "&larrhk;",
+          "\u21AA": "&rarrhk;",
+          "\uD835\uDD59": "&hopf;",
+          "\u2015": "&horbar;",
+          "\uD835\uDCBD": "&hscr;",
+          \u0127: "&hstrok;",
+          "\u2043": "&hybull;",
+          \u00ED: "&iacute;",
+          \u00EE: "&icirc;",
+          \u0438: "&icy;",
+          \u0435: "&iecy;",
+          "\xA1": "&iexcl;",
+          "\uD835\uDD26": "&ifr;",
+          \u00EC: "&igrave;",
+          "\u2A0C": "&qint;",
+          "\u222D": "&tint;",
+          "\u29DC": "&iinfin;",
+          "\u2129": "&iiota;",
+          \u0133: "&ijlig;",
+          \u012B: "&imacr;",
+          \u0131: "&inodot;",
+          "\u22B7": "&imof;",
+          \u01B5: "&imped;",
+          "\u2105": "&incare;",
+          "\u221E": "&infin;",
+          "\u29DD": "&infintie;",
+          "\u22BA": "&intercal;",
+          "\u2A17": "&intlarhk;",
+          "\u2A3C": "&iprod;",
+          \u0451: "&iocy;",
+          \u012F: "&iogon;",
+          "\uD835\uDD5A": "&iopf;",
+          \u03B9: "&iota;",
+          "\xBF": "&iquest;",
+          "\uD835\uDCBE": "&iscr;",
+          "\u22F9": "&isinE;",
+          "\u22F5": "&isindot;",
+          "\u22F4": "&isins;",
+          "\u22F3": "&isinsv;",
+          \u0129: "&itilde;",
+          \u0456: "&iukcy;",
+          \u00EF: "&iuml;",
+          \u0135: "&jcirc;",
+          \u0439: "&jcy;",
+          "\uD835\uDD27": "&jfr;",
+          "\u0237": "&jmath;",
+          "\uD835\uDD5B": "&jopf;",
+          "\uD835\uDCBF": "&jscr;",
+          \u0458: "&jsercy;",
+          \u0454: "&jukcy;",
+          \u03BA: "&kappa;",
+          \u03F0: "&varkappa;",
+          \u0137: "&kcedil;",
+          \u043A: "&kcy;",
+          "\uD835\uDD28": "&kfr;",
+          \u0138: "&kgreen;",
+          \u0445: "&khcy;",
+          \u045C: "&kjcy;",
+          "\uD835\uDD5C": "&kopf;",
+          "\uD835\uDCC0": "&kscr;",
+          "\u291B": "&lAtail;",
+          "\u290E": "&lBarr;",
+          "\u2A8B": "&lesseqqgtr;",
+          "\u2962": "&lHar;",
+          \u013A: "&lacute;",
+          "\u29B4": "&laemptyv;",
+          \u03BB: "&lambda;",
+          "\u2991": "&langd;",
+          "\u2A85": "&lessapprox;",
+          "\xAB": "&laquo;",
+          "\u291F": "&larrbfs;",
+          "\u291D": "&larrfs;",
+          "\u21AB": "&looparrowleft;",
+          "\u2939": "&larrpl;",
+          "\u2973": "&larrsim;",
+          "\u21A2": "&leftarrowtail;",
+          "\u2AAB": "&lat;",
+          "\u2919": "&latail;",
+          "\u2AAD": "&late;",
+          "\u2AAD\uFE00": "&lates;",
+          "\u290C": "&lbarr;",
+          "\u2772": "&lbbrk;",
+          "{": "&lcub;",
+          "[": "&lsqb;",
+          "\u298B": "&lbrke;",
+          "\u298F": "&lbrksld;",
+          "\u298D": "&lbrkslu;",
+          \u013E: "&lcaron;",
+          \u013C: "&lcedil;",
+          \u043B: "&lcy;",
+          "\u2936": "&ldca;",
+          "\u2967": "&ldrdhar;",
+          "\u294B": "&ldrushar;",
+          "\u21B2": "&ldsh;",
+          "\u2264": "&leq;",
+          "\u21C7": "&llarr;",
+          "\u22CB": "&lthree;",
+          "\u2AA8": "&lescc;",
+          "\u2A7F": "&lesdot;",
+          "\u2A81": "&lesdoto;",
+          "\u2A83": "&lesdotor;",
+          "\u22DA\uFE00": "&lesg;",
+          "\u2A93": "&lesges;",
+          "\u22D6": "&ltdot;",
+          "\u297C": "&lfisht;",
+          "\uD835\uDD29": "&lfr;",
+          "\u2A91": "&lgE;",
+          "\u296A": "&lharul;",
+          "\u2584": "&lhblk;",
+          \u0459: "&ljcy;",
+          "\u296B": "&llhard;",
+          "\u25FA": "&lltri;",
+          \u0140: "&lmidot;",
+          "\u23B0": "&lmoustache;",
+          "\u2268": "&lneqq;",
+          "\u2A89": "&lnapprox;",
+          "\u2A87": "&lneq;",
+          "\u22E6": "&lnsim;",
+          "\u27EC": "&loang;",
+          "\u21FD": "&loarr;",
+          "\u27FC": "&xmap;",
+          "\u21AC": "&rarrlp;",
+          "\u2985": "&lopar;",
+          "\uD835\uDD5D": "&lopf;",
+          "\u2A2D": "&loplus;",
+          "\u2A34": "&lotimes;",
+          "\u2217": "&lowast;",
+          "\u25CA": "&lozenge;",
+          "(": "&lpar;",
+          "\u2993": "&lparlt;",
+          "\u296D": "&lrhard;",
+          "\u200E": "&lrm;",
+          "\u22BF": "&lrtri;",
+          "\u2039": "&lsaquo;",
+          "\uD835\uDCC1": "&lscr;",
+          "\u2A8D": "&lsime;",
+          "\u2A8F": "&lsimg;",
+          "\u201A": "&sbquo;",
+          \u0142: "&lstrok;",
+          "\u2AA6": "&ltcc;",
+          "\u2A79": "&ltcir;",
+          "\u22C9": "&ltimes;",
+          "\u2976": "&ltlarr;",
+          "\u2A7B": "&ltquest;",
+          "\u2996": "&ltrPar;",
+          "\u25C3": "&triangleleft;",
+          "\u294A": "&lurdshar;",
+          "\u2966": "&luruhar;",
+          "\u2268\uFE00": "&lvnE;",
+          "\u223A": "&mDDot;",
+          "\xAF": "&strns;",
+          "\u2642": "&male;",
+          "\u2720": "&maltese;",
+          "\u25AE": "&marker;",
+          "\u2A29": "&mcomma;",
+          \u043C: "&mcy;",
+          "\u2014": "&mdash;",
+          "\uD835\uDD2A": "&mfr;",
+          "\u2127": "&mho;",
+          \u00B5: "&micro;",
+          "\u2AF0": "&midcir;",
+          "\u2212": "&minus;",
+          "\u2A2A": "&minusdu;",
+          "\u2ADB": "&mlcp;",
+          "\u22A7": "&models;",
+          "\uD835\uDD5E": "&mopf;",
+          "\uD835\uDCC2": "&mscr;",
+          \u03BC: "&mu;",
+          "\u22B8": "&mumap;",
+          "\u22D9\u0338": "&nGg;",
+          "\u226B\u20D2": "&nGt;",
+          "\u21CD": "&nlArr;",
+          "\u21CE": "&nhArr;",
+          "\u22D8\u0338": "&nLl;",
+          "\u226A\u20D2": "&nLt;",
+          "\u21CF": "&nrArr;",
+          "\u22AF": "&nVDash;",
+          "\u22AE": "&nVdash;",
+          \u0144: "&nacute;",
+          "\u2220\u20D2": "&nang;",
+          "\u2A70\u0338": "&napE;",
+          "\u224B\u0338": "&napid;",
+          \u0149: "&napos;",
+          "\u266E": "&natural;",
+          "\u2A43": "&ncap;",
+          \u0148: "&ncaron;",
+          \u0146: "&ncedil;",
+          "\u2A6D\u0338": "&ncongdot;",
+          "\u2A42": "&ncup;",
+          \u043D: "&ncy;",
+          "\u2013": "&ndash;",
+          "\u21D7": "&neArr;",
+          "\u2924": "&nearhk;",
+          "\u2250\u0338": "&nedot;",
+          "\u2928": "&toea;",
+          "\uD835\uDD2B": "&nfr;",
+          "\u21AE": "&nleftrightarrow;",
+          "\u2AF2": "&nhpar;",
+          "\u22FC": "&nis;",
+          "\u22FA": "&nisd;",
+          \u045A: "&njcy;",
+          "\u2266\u0338": "&nleqq;",
+          "\u219A": "&nleftarrow;",
+          "\u2025": "&nldr;",
+          "\uD835\uDD5F": "&nopf;",
+          "\xAC": "&not;",
+          "\u22F9\u0338": "&notinE;",
+          "\u22F5\u0338": "&notindot;",
+          "\u22F7": "&notinvb;",
+          "\u22F6": "&notinvc;",
+          "\u22FE": "&notnivb;",
+          "\u22FD": "&notnivc;",
+          "\u2AFD\u20E5": "&nparsl;",
+          "\u2202\u0338": "&npart;",
+          "\u2A14": "&npolint;",
+          "\u219B": "&nrightarrow;",
+          "\u2933\u0338": "&nrarrc;",
+          "\u219D\u0338": "&nrarrw;",
+          "\uD835\uDCC3": "&nscr;",
+          "\u2284": "&nsub;",
+          "\u2AC5\u0338": "&nsubseteqq;",
+          "\u2285": "&nsup;",
+          "\u2AC6\u0338": "&nsupseteqq;",
+          \u00F1: "&ntilde;",
+          \u03BD: "&nu;",
+          "#": "&num;",
+          "\u2116": "&numero;",
+          "\u2007": "&numsp;",
+          "\u22AD": "&nvDash;",
+          "\u2904": "&nvHarr;",
+          "\u224D\u20D2": "&nvap;",
+          "\u22AC": "&nvdash;",
+          "\u2265\u20D2": "&nvge;",
+          ">\u20D2": "&nvgt;",
+          "\u29DE": "&nvinfin;",
+          "\u2902": "&nvlArr;",
+          "\u2264\u20D2": "&nvle;",
+          "<\u20D2": "&nvlt;",
+          "\u22B4\u20D2": "&nvltrie;",
+          "\u2903": "&nvrArr;",
+          "\u22B5\u20D2": "&nvrtrie;",
+          "\u223C\u20D2": "&nvsim;",
+          "\u21D6": "&nwArr;",
+          "\u2923": "&nwarhk;",
+          "\u2927": "&nwnear;",
+          \u00F3: "&oacute;",
+          \u00F4: "&ocirc;",
+          \u043E: "&ocy;",
+          \u0151: "&odblac;",
+          "\u2A38": "&odiv;",
+          "\u29BC": "&odsold;",
+          \u0153: "&oelig;",
+          "\u29BF": "&ofcir;",
+          "\uD835\uDD2C": "&ofr;",
+          "\u02DB": "&ogon;",
+          \u00F2: "&ograve;",
+          "\u29C1": "&ogt;",
+          "\u29B5": "&ohbar;",
+          "\u29BE": "&olcir;",
+          "\u29BB": "&olcross;",
+          "\u29C0": "&olt;",
+          \u014D: "&omacr;",
+          \u03C9: "&omega;",
+          \u03BF: "&omicron;",
+          "\u29B6": "&omid;",
+          "\uD835\uDD60": "&oopf;",
+          "\u29B7": "&opar;",
+          "\u29B9": "&operp;",
+          "\u2228": "&vee;",
+          "\u2A5D": "&ord;",
+          \u2134: "&oscr;",
+          \u00AA: "&ordf;",
+          \u00BA: "&ordm;",
+          "\u22B6": "&origof;",
+          "\u2A56": "&oror;",
+          "\u2A57": "&orslope;",
+          "\u2A5B": "&orv;",
+          \u00F8: "&oslash;",
+          "\u2298": "&osol;",
+          \u00F5: "&otilde;",
+          "\u2A36": "&otimesas;",
+          \u00F6: "&ouml;",
+          "\u233D": "&ovbar;",
+          "\xB6": "&para;",
+          "\u2AF3": "&parsim;",
+          "\u2AFD": "&parsl;",
+          \u043F: "&pcy;",
+          "%": "&percnt;",
+          ".": "&period;",
+          "\u2030": "&permil;",
+          "\u2031": "&pertenk;",
+          "\uD835\uDD2D": "&pfr;",
+          \u03C6: "&phi;",
+          \u03D5: "&varphi;",
+          "\u260E": "&phone;",
+          \u03C0: "&pi;",
+          \u03D6: "&varpi;",
+          \u210E: "&planckh;",
+          "+": "&plus;",
+          "\u2A23": "&plusacir;",
+          "\u2A22": "&pluscir;",
+          "\u2A25": "&plusdu;",
+          "\u2A72": "&pluse;",
+          "\u2A26": "&plussim;",
+          "\u2A27": "&plustwo;",
+          "\u2A15": "&pointint;",
+          "\uD835\uDD61": "&popf;",
+          "\xA3": "&pound;",
+          "\u2AB3": "&prE;",
+          "\u2AB7": "&precapprox;",
+          "\u2AB9": "&prnap;",
+          "\u2AB5": "&prnE;",
+          "\u22E8": "&prnsim;",
+          "\u2032": "&prime;",
+          "\u232E": "&profalar;",
+          "\u2312": "&profline;",
+          "\u2313": "&profsurf;",
+          "\u22B0": "&prurel;",
+          "\uD835\uDCC5": "&pscr;",
+          \u03C8: "&psi;",
+          "\u2008": "&puncsp;",
+          "\uD835\uDD2E": "&qfr;",
+          "\uD835\uDD62": "&qopf;",
+          "\u2057": "&qprime;",
+          "\uD835\uDCC6": "&qscr;",
+          "\u2A16": "&quatint;",
+          "?": "&quest;",
+          "\u291C": "&rAtail;",
+          "\u2964": "&rHar;",
+          "\u223D\u0331": "&race;",
+          \u0155: "&racute;",
+          "\u29B3": "&raemptyv;",
+          "\u2992": "&rangd;",
+          "\u29A5": "&range;",
+          "\xBB": "&raquo;",
+          "\u2975": "&rarrap;",
+          "\u2920": "&rarrbfs;",
+          "\u2933": "&rarrc;",
+          "\u291E": "&rarrfs;",
+          "\u2945": "&rarrpl;",
+          "\u2974": "&rarrsim;",
+          "\u21A3": "&rightarrowtail;",
+          "\u219D": "&rightsquigarrow;",
+          "\u291A": "&ratail;",
+          "\u2236": "&ratio;",
+          "\u2773": "&rbbrk;",
+          "}": "&rcub;",
+          "]": "&rsqb;",
+          "\u298C": "&rbrke;",
+          "\u298E": "&rbrksld;",
+          "\u2990": "&rbrkslu;",
+          \u0159: "&rcaron;",
+          \u0157: "&rcedil;",
+          \u0440: "&rcy;",
+          "\u2937": "&rdca;",
+          "\u2969": "&rdldhar;",
+          "\u21B3": "&rdsh;",
+          "\u25AD": "&rect;",
+          "\u297D": "&rfisht;",
+          "\uD835\uDD2F": "&rfr;",
+          "\u296C": "&rharul;",
+          \u03C1: "&rho;",
+          \u03F1: "&varrho;",
+          "\u21C9": "&rrarr;",
+          "\u22CC": "&rthree;",
+          "\u02DA": "&ring;",
+          "\u200F": "&rlm;",
+          "\u23B1": "&rmoustache;",
+          "\u2AEE": "&rnmid;",
+          "\u27ED": "&roang;",
+          "\u21FE": "&roarr;",
+          "\u2986": "&ropar;",
+          "\uD835\uDD63": "&ropf;",
+          "\u2A2E": "&roplus;",
+          "\u2A35": "&rotimes;",
+          ")": "&rpar;",
+          "\u2994": "&rpargt;",
+          "\u2A12": "&rppolint;",
+          "\u203A": "&rsaquo;",
+          "\uD835\uDCC7": "&rscr;",
+          "\u22CA": "&rtimes;",
+          "\u25B9": "&triangleright;",
+          "\u29CE": "&rtriltri;",
+          "\u2968": "&ruluhar;",
+          "\u211E": "&rx;",
+          \u015B: "&sacute;",
+          "\u2AB4": "&scE;",
+          "\u2AB8": "&succapprox;",
+          \u0161: "&scaron;",
+          \u015F: "&scedil;",
+          \u015D: "&scirc;",
+          "\u2AB6": "&succneqq;",
+          "\u2ABA": "&succnapprox;",
+          "\u22E9": "&succnsim;",
+          "\u2A13": "&scpolint;",
+          \u0441: "&scy;",
+          "\u22C5": "&sdot;",
+          "\u2A66": "&sdote;",
+          "\u21D8": "&seArr;",
+          "\xA7": "&sect;",
+          ";": "&semi;",
+          "\u2929": "&tosa;",
+          "\u2736": "&sext;",
+          "\uD835\uDD30": "&sfr;",
+          "\u266F": "&sharp;",
+          \u0449: "&shchcy;",
+          \u0448: "&shcy;",
+          "\xAD": "&shy;",
+          \u03C3: "&sigma;",
+          \u03C2: "&varsigma;",
+          "\u2A6A": "&simdot;",
+          "\u2A9E": "&simg;",
+          "\u2AA0": "&simgE;",
+          "\u2A9D": "&siml;",
+          "\u2A9F": "&simlE;",
+          "\u2246": "&simne;",
+          "\u2A24": "&simplus;",
+          "\u2972": "&simrarr;",
+          "\u2A33": "&smashp;",
+          "\u29E4": "&smeparsl;",
+          "\u2323": "&ssmile;",
+          "\u2AAA": "&smt;",
+          "\u2AAC": "&smte;",
+          "\u2AAC\uFE00": "&smtes;",
+          \u044C: "&softcy;",
+          "/": "&sol;",
+          "\u29C4": "&solb;",
+          "\u233F": "&solbar;",
+          "\uD835\uDD64": "&sopf;",
+          "\u2660": "&spadesuit;",
+          "\u2293\uFE00": "&sqcaps;",
+          "\u2294\uFE00": "&sqcups;",
+          "\uD835\uDCC8": "&sscr;",
+          "\u2606": "&star;",
+          "\u2282": "&subset;",
+          "\u2AC5": "&subseteqq;",
+          "\u2ABD": "&subdot;",
+          "\u2AC3": "&subedot;",
+          "\u2AC1": "&submult;",
+          "\u2ACB": "&subsetneqq;",
+          "\u228A": "&subsetneq;",
+          "\u2ABF": "&subplus;",
+          "\u2979": "&subrarr;",
+          "\u2AC7": "&subsim;",
+          "\u2AD5": "&subsub;",
+          "\u2AD3": "&subsup;",
+          "\u266A": "&sung;",
+          "\xB9": "&sup1;",
+          "\xB2": "&sup2;",
+          "\xB3": "&sup3;",
+          "\u2AC6": "&supseteqq;",
+          "\u2ABE": "&supdot;",
+          "\u2AD8": "&supdsub;",
+          "\u2AC4": "&supedot;",
+          "\u27C9": "&suphsol;",
+          "\u2AD7": "&suphsub;",
+          "\u297B": "&suplarr;",
+          "\u2AC2": "&supmult;",
+          "\u2ACC": "&supsetneqq;",
+          "\u228B": "&supsetneq;",
+          "\u2AC0": "&supplus;",
+          "\u2AC8": "&supsim;",
+          "\u2AD4": "&supsub;",
+          "\u2AD6": "&supsup;",
+          "\u21D9": "&swArr;",
+          "\u292A": "&swnwar;",
+          \u00DF: "&szlig;",
+          "\u2316": "&target;",
+          \u03C4: "&tau;",
+          \u0165: "&tcaron;",
+          \u0163: "&tcedil;",
+          \u0442: "&tcy;",
+          "\u2315": "&telrec;",
+          "\uD835\uDD31": "&tfr;",
+          \u03B8: "&theta;",
+          \u03D1: "&vartheta;",
+          \u00FE: "&thorn;",
+          "\xD7": "&times;",
+          "\u2A31": "&timesbar;",
+          "\u2A30": "&timesd;",
+          "\u2336": "&topbot;",
+          "\u2AF1": "&topcir;",
+          "\uD835\uDD65": "&topf;",
+          "\u2ADA": "&topfork;",
+          "\u2034": "&tprime;",
+          "\u25B5": "&utri;",
+          "\u225C": "&trie;",
+          "\u25EC": "&tridot;",
+          "\u2A3A": "&triminus;",
+          "\u2A39": "&triplus;",
+          "\u29CD": "&trisb;",
+          "\u2A3B": "&tritime;",
+          "\u23E2": "&trpezium;",
+          "\uD835\uDCC9": "&tscr;",
+          \u0446: "&tscy;",
+          \u045B: "&tshcy;",
+          \u0167: "&tstrok;",
+          "\u2963": "&uHar;",
+          \u00FA: "&uacute;",
+          \u045E: "&ubrcy;",
+          \u016D: "&ubreve;",
+          \u00FB: "&ucirc;",
+          \u0443: "&ucy;",
+          \u0171: "&udblac;",
+          "\u297E": "&ufisht;",
+          "\uD835\uDD32": "&ufr;",
+          \u00F9: "&ugrave;",
+          "\u2580": "&uhblk;",
+          "\u231C": "&ulcorner;",
+          "\u230F": "&ulcrop;",
+          "\u25F8": "&ultri;",
+          \u016B: "&umacr;",
+          \u0173: "&uogon;",
+          "\uD835\uDD66": "&uopf;",
+          \u03C5: "&upsilon;",
+          "\u21C8": "&uuarr;",
+          "\u231D": "&urcorner;",
+          "\u230E": "&urcrop;",
+          \u016F: "&uring;",
+          "\u25F9": "&urtri;",
+          "\uD835\uDCCA": "&uscr;",
+          "\u22F0": "&utdot;",
+          \u0169: "&utilde;",
+          \u00FC: "&uuml;",
+          "\u29A7": "&uwangle;",
+          "\u2AE8": "&vBar;",
+          "\u2AE9": "&vBarv;",
+          "\u299C": "&vangrt;",
+          "\u228A\uFE00": "&vsubne;",
+          "\u2ACB\uFE00": "&vsubnE;",
+          "\u228B\uFE00": "&vsupne;",
+          "\u2ACC\uFE00": "&vsupnE;",
+          \u0432: "&vcy;",
+          "\u22BB": "&veebar;",
+          "\u225A": "&veeeq;",
+          "\u22EE": "&vellip;",
+          "\uD835\uDD33": "&vfr;",
+          "\uD835\uDD67": "&vopf;",
+          "\uD835\uDCCB": "&vscr;",
+          "\u299A": "&vzigzag;",
+          \u0175: "&wcirc;",
+          "\u2A5F": "&wedbar;",
+          "\u2259": "&wedgeq;",
+          "\u2118": "&wp;",
+          "\uD835\uDD34": "&wfr;",
+          "\uD835\uDD68": "&wopf;",
+          "\uD835\uDCCC": "&wscr;",
+          "\uD835\uDD35": "&xfr;",
+          \u03BE: "&xi;",
+          "\u22FB": "&xnis;",
+          "\uD835\uDD69": "&xopf;",
+          "\uD835\uDCCD": "&xscr;",
+          \u00FD: "&yacute;",
+          \u044F: "&yacy;",
+          \u0177: "&ycirc;",
+          \u044B: "&ycy;",
+          "\xA5": "&yen;",
+          "\uD835\uDD36": "&yfr;",
+          \u0457: "&yicy;",
+          "\uD835\uDD6A": "&yopf;",
+          "\uD835\uDCCE": "&yscr;",
+          \u044E: "&yucy;",
+          \u00FF: "&yuml;",
+          \u017A: "&zacute;",
+          \u017E: "&zcaron;",
+          \u0437: "&zcy;",
+          \u017C: "&zdot;",
+          \u03B6: "&zeta;",
+          "\uD835\uDD37": "&zfr;",
+          \u0436: "&zhcy;",
+          "\u21DD": "&zigrarr;",
+          "\uD835\uDD6B": "&zopf;",
+          "\uD835\uDCCF": "&zscr;",
+          "\u200D": "&zwj;",
+          "\u200C": "&zwnj;"
+        }
+      }
+    };
+  }
+});
+
+// node_modules/html-entities/lib/numeric-unicode-map.js
+var require_numeric_unicode_map = __commonJS({
+  "node_modules/html-entities/lib/numeric-unicode-map.js": function(exports) {
+    "use strict";
+    init_kolmafia_polyfill();
+    Object.defineProperty(exports, "__esModule", {
+      value: !0
+    });
+    exports.numericUnicodeMap = {
+      0: 65533,
+      128: 8364,
+      130: 8218,
+      131: 402,
+      132: 8222,
+      133: 8230,
+      134: 8224,
+      135: 8225,
+      136: 710,
+      137: 8240,
+      138: 352,
+      139: 8249,
+      140: 338,
+      142: 381,
+      145: 8216,
+      146: 8217,
+      147: 8220,
+      148: 8221,
+      149: 8226,
+      150: 8211,
+      151: 8212,
+      152: 732,
+      153: 8482,
+      154: 353,
+      155: 8250,
+      156: 339,
+      158: 382,
+      159: 376
+    };
+  }
+});
+
+// node_modules/html-entities/lib/surrogate-pairs.js
+var require_surrogate_pairs = __commonJS({
+  "node_modules/html-entities/lib/surrogate-pairs.js": function(exports) {
+    "use strict";
+    init_kolmafia_polyfill();
+    Object.defineProperty(exports, "__esModule", {
+      value: !0
+    });
+    exports.fromCodePoint = String.fromCodePoint || function(astralCodePoint) {
+      return String.fromCharCode(Math.floor((astralCodePoint - 65536) / 1024) + 55296, (astralCodePoint - 65536) % 1024 + 56320);
+    };
+    exports.getCodePoint = String.prototype.codePointAt ? function(input, position) {
+      return input.codePointAt(position);
+    } : function(input, position) {
+      return (input.charCodeAt(position) - 55296) * 1024 + input.charCodeAt(position + 1) - 56320 + 65536;
+    };
+    exports.highSurrogateFrom = 55296;
+    exports.highSurrogateTo = 56319;
+  }
+});
+
+// node_modules/html-entities/lib/index.js
+var require_lib = __commonJS({
+  "node_modules/html-entities/lib/index.js": function(exports) {
+    "use strict";
+    init_kolmafia_polyfill();
+    var __assign = exports && exports.__assign || function() {
+      return __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+          s = arguments[i];
+          for (var p in s)
+            Object.prototype.hasOwnProperty.call(s, p) && (t[p] = s[p]);
+        }
+        return t;
+      }, __assign.apply(this, arguments);
+    };
+    Object.defineProperty(exports, "__esModule", {
+      value: !0
+    });
+    var named_references_1 = require_named_references(), numeric_unicode_map_1 = require_numeric_unicode_map(), surrogate_pairs_1 = require_surrogate_pairs(), allNamedReferences = __assign(__assign({}, named_references_1.namedReferences), {
+      all: named_references_1.namedReferences.html5
+    }), encodeRegExps = {
+      specialChars: /[<>'"&]/g,
+      nonAscii: /[<>'"&\u0080-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g,
+      nonAsciiPrintable: /[<>'"&\x01-\x08\x11-\x15\x17-\x1F\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g,
+      nonAsciiPrintableOnly: /[\x01-\x08\x11-\x15\x17-\x1F\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g,
+      extensive: /[\x01-\x0c\x0e-\x1f\x21-\x2c\x2e-\x2f\x3a-\x40\x5b-\x60\x7b-\x7d\x7f-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/g
+    }, defaultEncodeOptions = {
+      mode: "specialChars",
+      level: "all",
+      numeric: "decimal"
+    };
+    function encode(text, _a) {
+      var _b = _a === void 0 ? defaultEncodeOptions : _a, _c = _b.mode, mode = _c === void 0 ? "specialChars" : _c, _d = _b.numeric, numeric = _d === void 0 ? "decimal" : _d, _e = _b.level, level = _e === void 0 ? "all" : _e;
+      if (!text)
+        return "";
+      var encodeRegExp = encodeRegExps[mode], references = allNamedReferences[level].characters, isHex = numeric === "hexadecimal";
+      encodeRegExp.lastIndex = 0;
+      var _b = encodeRegExp.exec(text), _c;
+      if (_b) {
+        _c = "";
+        var _d = 0;
+        do {
+          _d !== _b.index && (_c += text.substring(_d, _b.index));
+          var _e = _b[0], result_1 = references[_e];
+          if (!result_1) {
+            var code_1 = _e.length > 1 ? surrogate_pairs_1.getCodePoint(_e, 0) : _e.charCodeAt(0);
+            result_1 = (isHex ? "&#x" + code_1.toString(16) : "&#" + code_1) + ";";
+          }
+          _c += result_1, _d = _b.index + _e.length;
+        } while (_b = encodeRegExp.exec(text));
+        _d !== text.length && (_c += text.substring(_d));
+      } else
+        _c = text;
+      return _c;
+    }
+    exports.encode = encode;
+    var defaultDecodeOptions = {
+      scope: "body",
+      level: "all"
+    }, strict = /&(?:#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+);/g, attribute = /&(?:#\d+|#[xX][\da-fA-F]+|[0-9a-zA-Z]+)[;=]?/g, baseDecodeRegExps = {
+      xml: {
+        strict: strict,
+        attribute: attribute,
+        body: named_references_1.bodyRegExps.xml
+      },
+      html4: {
+        strict: strict,
+        attribute: attribute,
+        body: named_references_1.bodyRegExps.html4
+      },
+      html5: {
+        strict: strict,
+        attribute: attribute,
+        body: named_references_1.bodyRegExps.html5
+      }
+    }, decodeRegExps = __assign(__assign({}, baseDecodeRegExps), {
+      all: baseDecodeRegExps.html5
+    }), fromCharCode = String.fromCharCode, outOfBoundsChar = fromCharCode(65533), defaultDecodeEntityOptions = {
+      level: "all"
+    };
+    function decodeEntity(entity, _a) {
+      var _b = (_a === void 0 ? defaultDecodeEntityOptions : _a).level, level = _b === void 0 ? "all" : _b;
+      if (!entity)
+        return "";
+      var _b = entity, decodeEntityLastChar_1 = entity[entity.length - 1], decodeResultByReference_1 = allNamedReferences[level].entities[entity];
+      if (decodeResultByReference_1)
+        _b = decodeResultByReference_1;
+      else if (entity[0] === "&" && entity[1] === "#") {
+        var decodeSecondChar_1 = entity[2], decodeCode_1 = decodeSecondChar_1 == "x" || decodeSecondChar_1 == "X" ? parseInt(entity.substr(3), 16) : parseInt(entity.substr(2));
+        _b = decodeCode_1 >= 1114111 ? outOfBoundsChar : decodeCode_1 > 65535 ? surrogate_pairs_1.fromCodePoint(decodeCode_1) : fromCharCode(numeric_unicode_map_1.numericUnicodeMap[decodeCode_1] || decodeCode_1);
+      }
+      return _b;
+    }
+    exports.decodeEntity = decodeEntity;
+    function decode(text, _a) {
+      var decodeSecondChar_1 = _a === void 0 ? defaultDecodeOptions : _a, decodeCode_1 = decodeSecondChar_1.level, level = decodeCode_1 === void 0 ? "all" : decodeCode_1, _b = decodeSecondChar_1.scope, scope = _b === void 0 ? level === "xml" ? "strict" : "body" : _b;
+      if (!text)
+        return "";
+      var decodeRegExp = decodeRegExps[level][scope], references = allNamedReferences[level].entities, isAttribute = scope === "attribute", isStrict = scope === "strict";
+      decodeRegExp.lastIndex = 0;
+      var replaceMatch_1 = decodeRegExp.exec(text), replaceResult_1;
+      if (replaceMatch_1) {
+        replaceResult_1 = "";
+        var replaceLastIndex_1 = 0;
+        do {
+          replaceLastIndex_1 !== replaceMatch_1.index && (replaceResult_1 += text.substring(replaceLastIndex_1, replaceMatch_1.index));
+          var replaceInput_1 = replaceMatch_1[0], decodeResult_1 = replaceInput_1, decodeEntityLastChar_2 = replaceInput_1[replaceInput_1.length - 1];
+          if (isAttribute && decodeEntityLastChar_2 === "=")
+            decodeResult_1 = replaceInput_1;
+          else if (isStrict && decodeEntityLastChar_2 !== ";")
+            decodeResult_1 = replaceInput_1;
+          else {
+            var decodeResultByReference_2 = references[replaceInput_1];
+            if (decodeResultByReference_2)
+              decodeResult_1 = decodeResultByReference_2;
+            else if (replaceInput_1[0] === "&" && replaceInput_1[1] === "#") {
+              var decodeSecondChar_2 = replaceInput_1[2], decodeCode_2 = decodeSecondChar_2 == "x" || decodeSecondChar_2 == "X" ? parseInt(replaceInput_1.substr(3), 16) : parseInt(replaceInput_1.substr(2));
+              decodeResult_1 = decodeCode_2 >= 1114111 ? outOfBoundsChar : decodeCode_2 > 65535 ? surrogate_pairs_1.fromCodePoint(decodeCode_2) : fromCharCode(numeric_unicode_map_1.numericUnicodeMap[decodeCode_2] || decodeCode_2);
+            }
+          }
+          replaceResult_1 += decodeResult_1, replaceLastIndex_1 = replaceMatch_1.index + replaceInput_1.length;
+        } while (replaceMatch_1 = decodeRegExp.exec(text));
+        replaceLastIndex_1 !== text.length && (replaceResult_1 += text.substring(replaceLastIndex_1));
+      } else
+        replaceResult_1 = text;
+      return replaceResult_1;
+    }
+    exports.decode = decode;
   }
 });
 
@@ -1284,6 +5886,42 @@ function _createForOfIteratorHelper2(o, allowArrayLike) {
     }
   } };
 }
+function _slicedToArray2(arr, i) {
+  return _arrayWithHoles2(arr) || _iterableToArrayLimit2(arr, i) || _unsupportedIterableToArray3(arr, i) || _nonIterableRest2();
+}
+function _nonIterableRest2() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _iterableToArrayLimit2(arr, i) {
+  var _i = arr == null ? null : typeof Symbol < "u" && arr[Symbol.iterator] || arr["@@iterator"];
+  if (_i != null) {
+    var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1;
+    try {
+      if (_x = (_i = _i.call(arr)).next, i === 0) {
+        if (Object(_i) !== _i)
+          return;
+        _n = !1;
+      } else
+        for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0)
+          ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        if (!_n && _i.return != null && (_r = _i.return(), Object(_r) !== _r))
+          return;
+      } finally {
+        if (_d)
+          throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+function _arrayWithHoles2(arr) {
+  if (Array.isArray(arr))
+    return arr;
+}
 function _toConsumableArray(arr) {
   return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray3(arr) || _nonIterableSpread();
 }
@@ -1314,6 +5952,33 @@ function _arrayLikeToArray3(arr, len) {
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
   return arr2;
+}
+function notNull(value) {
+  return value !== null;
+}
+function parseNumber(n) {
+  return Number.parseInt(n.replace(/,/g, ""));
+}
+function arrayToCountedMap(array) {
+  if (!Array.isArray(array))
+    return array;
+  var map = /* @__PURE__ */ new Map();
+  return array.forEach(function(item) {
+    map.set(item, (map.get(item) || 0) + 1);
+  }), map;
+}
+function countedMapToArray(map) {
+  var _ref;
+  return (_ref = []).concat.apply(_ref, _toConsumableArray(_toConsumableArray(map).map(function(_ref2) {
+    var _ref3 = _slicedToArray2(_ref2, 2), item = _ref3[0], quantity = _ref3[1];
+    return Array(quantity).fill(item);
+  })));
+}
+function countedMapToString(map) {
+  return _toConsumableArray(map).map(function(_ref4) {
+    var _ref5 = _slicedToArray2(_ref4, 2), item = _ref5[0], quantity = _ref5[1];
+    return "".concat(quantity, " x ").concat(item);
+  }).join(", ");
 }
 function setEqual(a, b) {
   var sortedA = _toConsumableArray(a).sort(), sortedB = _toConsumableArray(b).sort();
@@ -1519,6 +6184,59 @@ function _getPrototypeOf(o) {
     return o2.__proto__ || Object.getPrototypeOf(o2);
   }, _getPrototypeOf(o);
 }
+function _slicedToArray3(arr, i) {
+  return _arrayWithHoles3(arr) || _iterableToArrayLimit3(arr, i) || _unsupportedIterableToArray4(arr, i) || _nonIterableRest3();
+}
+function _nonIterableRest3() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _unsupportedIterableToArray4(o, minLen) {
+  if (o) {
+    if (typeof o == "string")
+      return _arrayLikeToArray4(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
+      return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+      return _arrayLikeToArray4(o, minLen);
+  }
+}
+function _arrayLikeToArray4(arr, len) {
+  (len == null || len > arr.length) && (len = arr.length);
+  for (var i = 0, arr2 = new Array(len); i < len; i++)
+    arr2[i] = arr[i];
+  return arr2;
+}
+function _iterableToArrayLimit3(arr, i) {
+  var _i = arr == null ? null : typeof Symbol < "u" && arr[Symbol.iterator] || arr["@@iterator"];
+  if (_i != null) {
+    var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1;
+    try {
+      if (_x = (_i = _i.call(arr)).next, i === 0) {
+        if (Object(_i) !== _i)
+          return;
+        _n = !1;
+      } else
+        for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0)
+          ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        if (!_n && _i.return != null && (_r = _i.return(), Object(_r) !== _r))
+          return;
+      } finally {
+        if (_d)
+          throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+function _arrayWithHoles3(arr) {
+  if (Array.isArray(arr))
+    return arr;
+}
 function _taggedTemplateLiteral(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
@@ -1551,6 +6269,15 @@ var Wanderer;
   Wanderer2.Digitize = "Digitize Monster", Wanderer2.Enamorang = "Enamorang Monster", Wanderer2.Familiar = "Familiar", Wanderer2.Holiday = "Holiday Monster", Wanderer2.Kramco = "Kramco", Wanderer2.Nemesis = "Nemesis Assassin", Wanderer2.Portscan = "portscan.edu", Wanderer2.Romantic = "Romantic Monster", Wanderer2.Vote = "Vote Monster";
 })(Wanderer || (Wanderer = {}));
 var deterministicWanderers = [Wanderer.Digitize, Wanderer.Portscan];
+function getFoldGroup(item) {
+  return Object.entries((0, import_kolmafia5.getRelated)(item, "fold")).sort(function(_ref, _ref2) {
+    var _ref3 = _slicedToArray3(_ref, 2), a = _ref3[1], _ref4 = _slicedToArray3(_ref2, 2), b = _ref4[1];
+    return a - b;
+  }).map(function(_ref5) {
+    var _ref6 = _slicedToArray3(_ref5, 1), i = _ref6[0];
+    return import_kolmafia5.Item.get(i);
+  });
+}
 function uneffect(effect) {
   return (0, import_kolmafia5.cliExecute)("uneffect ".concat(effect.name));
 }
@@ -1594,7 +6321,7 @@ var overlappingItemNames = ["spider web", "really sticky spider web", "dictionar
 function _createForOfIteratorHelper3(o, allowArrayLike) {
   var it = typeof Symbol < "u" && o[Symbol.iterator] || o["@@iterator"];
   if (!it) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray4(o)) || allowArrayLike && o && typeof o.length == "number") {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray5(o)) || allowArrayLike && o && typeof o.length == "number") {
       it && (o = it);
       var i = 0, F = function() {
       };
@@ -1624,20 +6351,20 @@ function _createForOfIteratorHelper3(o, allowArrayLike) {
   } };
 }
 function _toConsumableArray2(arr) {
-  return _arrayWithoutHoles2(arr) || _iterableToArray2(arr) || _unsupportedIterableToArray4(arr) || _nonIterableSpread2();
+  return _arrayWithoutHoles2(arr) || _iterableToArray2(arr) || _unsupportedIterableToArray5(arr) || _nonIterableSpread2();
 }
 function _nonIterableSpread2() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray4(o, minLen) {
+function _unsupportedIterableToArray5(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray4(o, minLen);
+      return _arrayLikeToArray5(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray4(o, minLen);
+      return _arrayLikeToArray5(o, minLen);
   }
 }
 function _iterableToArray2(iter) {
@@ -1646,9 +6373,9 @@ function _iterableToArray2(iter) {
 }
 function _arrayWithoutHoles2(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray4(arr);
+    return _arrayLikeToArray5(arr);
 }
-function _arrayLikeToArray4(arr, len) {
+function _arrayLikeToArray5(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
@@ -2395,13 +7122,13 @@ _defineProperty4(Macro, "cachedAutoAttacks", /* @__PURE__ */ new Map());
 init_kolmafia_polyfill();
 var import_kolmafia7 = require("kolmafia");
 var _templateObject2, _templateObject210, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject92, _templateObject102, _templateObject112, _templateObject122, _templateObject132, _templateObject142, _templateObject152, _templateObject162, _templateObject172, _templateObject182, _templateObject192, _templateObject202, _templateObject212, _templateObject222, _templateObject232, _templateObject242, _templateObject252, _templateObject262, _templateObject272, _templateObject282, _templateObject292, _templateObject302, _templateObject312, _templateObject322, _templateObject332, _templateObject342, _templateObject35, _templateObject36, _templateObject37, _templateObject38, _templateObject39, _templateObject40, _templateObject41, _templateObject42, _templateObject43, _templateObject44, _templateObject45, _templateObject46, _templateObject47, _templateObject48, _templateObject49, _templateObject50;
-function _slicedToArray2(arr, i) {
-  return _arrayWithHoles2(arr) || _iterableToArrayLimit2(arr, i) || _unsupportedIterableToArray5(arr, i) || _nonIterableRest2();
+function _slicedToArray4(arr, i) {
+  return _arrayWithHoles4(arr) || _iterableToArrayLimit4(arr, i) || _unsupportedIterableToArray6(arr, i) || _nonIterableRest4();
 }
-function _nonIterableRest2() {
+function _nonIterableRest4() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _iterableToArrayLimit2(arr, i) {
+function _iterableToArrayLimit4(arr, i) {
   var _i = arr == null ? null : typeof Symbol < "u" && arr[Symbol.iterator] || arr["@@iterator"];
   if (_i != null) {
     var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1;
@@ -2427,7 +7154,7 @@ function _iterableToArrayLimit2(arr, i) {
     return _arr;
   }
 }
-function _arrayWithHoles2(arr) {
+function _arrayWithHoles4(arr) {
   if (Array.isArray(arr))
     return arr;
 }
@@ -2479,7 +7206,7 @@ function _classCallCheck6(instance, Constructor) {
 function _createForOfIteratorHelper4(o, allowArrayLike) {
   var it = typeof Symbol < "u" && o[Symbol.iterator] || o["@@iterator"];
   if (!it) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray5(o)) || allowArrayLike && o && typeof o.length == "number") {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray6(o)) || allowArrayLike && o && typeof o.length == "number") {
       it && (o = it);
       var i = 0, F = function() {
       };
@@ -2552,20 +7279,20 @@ function _toPrimitive6(input, hint) {
   return (hint === "string" ? String : Number)(input);
 }
 function _toConsumableArray3(arr) {
-  return _arrayWithoutHoles3(arr) || _iterableToArray3(arr) || _unsupportedIterableToArray5(arr) || _nonIterableSpread3();
+  return _arrayWithoutHoles3(arr) || _iterableToArray3(arr) || _unsupportedIterableToArray6(arr) || _nonIterableSpread3();
 }
 function _nonIterableSpread3() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray5(o, minLen) {
+function _unsupportedIterableToArray6(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray5(o, minLen);
+      return _arrayLikeToArray6(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray5(o, minLen);
+      return _arrayLikeToArray6(o, minLen);
   }
 }
 function _iterableToArray3(iter) {
@@ -2574,9 +7301,9 @@ function _iterableToArray3(iter) {
 }
 function _arrayWithoutHoles3(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray5(arr);
+    return _arrayLikeToArray6(arr);
 }
-function _arrayLikeToArray5(arr, len) {
+function _arrayLikeToArray6(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
@@ -2760,7 +7487,7 @@ function applyCached(entry, options) {
     var _iterator3 = _createForOfIteratorHelper4(entry.equipment), _step3;
     try {
       for (_iterator3.s(); !(_step3 = _iterator3.n()).done; ) {
-        var _step3$value = _slicedToArray2(_step3.value, 2), slot = _step3$value[0], item = _step3$value[1];
+        var _step3$value = _slicedToArray4(_step3.value, 2), slot = _step3$value[0], item = _step3$value[1];
         (0, import_kolmafia7.equippedItem)(slot) !== item && (0, import_kolmafia7.availableAmount)(item) > 0 && (0, import_kolmafia7.equip)(slot, item);
       }
     } catch (err) {
@@ -2784,13 +7511,13 @@ function verifyCached(entry) {
         var _entry$equipment$get;
         return [slot, (_entry$equipment$get = entry.equipment.get(slot)) !== null && _entry$equipment$get !== void 0 ? _entry$equipment$get : null];
       }).filter(function(_ref2) {
-        var _ref3 = _slicedToArray2(_ref2, 2), item = _ref3[1];
+        var _ref3 = _slicedToArray4(_ref2, 2), item = _ref3[1];
         return item !== null;
       }), desiredSet = desiredSlots.map(function(_ref4) {
-        var _ref5 = _slicedToArray2(_ref4, 2), item = _ref5[1];
+        var _ref5 = _slicedToArray4(_ref4, 2), item = _ref5[1];
         return item;
       }), equippedSet = desiredSlots.map(function(_ref6) {
-        var _ref7 = _slicedToArray2(_ref6, 1), slot = _ref7[0];
+        var _ref7 = _slicedToArray4(_ref6, 1), slot = _ref7[0];
         return (0, import_kolmafia7.equippedItem)(slot);
       });
       setEqual(desiredSet, equippedSet) || (warn && logger_default.warning("Failed to apply cached ".concat(desiredSet.join(", "), " in ").concat(slotGroup.join(", "), ".")), success = !1);
@@ -2858,10 +7585,10 @@ function maximizeCached(objectives) {
   }).sort()), _toConsumableArray3(preventSlot.map(function(slot) {
     return "-".concat(slot);
   }).sort()), _toConsumableArray3(Array.from(bonusEquip.entries()).filter(function(_ref8) {
-    var _ref9 = _slicedToArray2(_ref8, 2), bonus = _ref9[1];
+    var _ref9 = _slicedToArray4(_ref8, 2), bonus = _ref9[1];
     return bonus !== 0;
   }).map(function(_ref10) {
-    var _ref11 = _slicedToArray2(_ref10, 2), item = _ref11[0], bonus = _ref11[1];
+    var _ref11 = _slicedToArray4(_ref10, 2), item = _ref11[0], bonus = _ref11[1];
     return "".concat(Math.round(bonus * 100) / 100, ' "bonus ').concat(toMaximizerName(item), '"');
   }).sort())))).join(", "), untouchedSlots = cachedSlots.filter(function(slot) {
     return preventSlot.includes(slot) || onlySlot.length > 0 && !onlySlot.includes(slot);
@@ -2966,7 +7693,7 @@ var _maximizeParameters = /* @__PURE__ */ new WeakMap(), _maximizeOptions = /* @
 
 // node_modules/libram/dist/ascend.js
 init_kolmafia_polyfill();
-var import_kolmafia9 = require("kolmafia");
+var import_kolmafia8 = require("kolmafia");
 
 // node_modules/libram/dist/moonSign.js
 init_kolmafia_polyfill();
@@ -2975,23 +7702,12 @@ function signNameToId(moon) {
   return MoonSigns.indexOf(moon) + 1;
 }
 
-// node_modules/libram/dist/counter.js
-init_kolmafia_polyfill();
-var import_kolmafia8 = require("kolmafia");
-function get2(counter) {
-  var value = (0, import_kolmafia8.getCounter)(counter);
-  return value === -1 ? (0, import_kolmafia8.getCounters)(counter, -1, -1).trim() === "" ? 1 / 0 : -1 : value;
-}
-function set(counter, duration) {
-  return (0, import_kolmafia8.cliExecute)("counters add ".concat(duration, " ").concat(counter)), get2(counter) !== null;
-}
-
 // node_modules/libram/dist/ascend.js
 var _templateObject51, _templateObject211, _templateObject310, _templateObject410, _templateObject52, _templateObject62, _templateObject72, _templateObject82, _templateObject93;
 function _createForOfIteratorHelper5(o, allowArrayLike) {
   var it = typeof Symbol < "u" && o[Symbol.iterator] || o["@@iterator"];
   if (!it) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray6(o)) || allowArrayLike && o && typeof o.length == "number") {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray7(o)) || allowArrayLike && o && typeof o.length == "number") {
       it && (o = it);
       var i = 0, F = function() {
       };
@@ -3156,30 +7872,30 @@ function _toPrimitive7(input, hint) {
   }
   return (hint === "string" ? String : Number)(input);
 }
-function _slicedToArray3(arr, i) {
-  return _arrayWithHoles3(arr) || _iterableToArrayLimit3(arr, i) || _unsupportedIterableToArray6(arr, i) || _nonIterableRest3();
+function _slicedToArray5(arr, i) {
+  return _arrayWithHoles5(arr) || _iterableToArrayLimit5(arr, i) || _unsupportedIterableToArray7(arr, i) || _nonIterableRest5();
 }
-function _nonIterableRest3() {
+function _nonIterableRest5() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray6(o, minLen) {
+function _unsupportedIterableToArray7(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray6(o, minLen);
+      return _arrayLikeToArray7(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray6(o, minLen);
+      return _arrayLikeToArray7(o, minLen);
   }
 }
-function _arrayLikeToArray6(arr, len) {
+function _arrayLikeToArray7(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
   return arr2;
 }
-function _iterableToArrayLimit3(arr, i) {
+function _iterableToArrayLimit5(arr, i) {
   var _i = arr == null ? null : typeof Symbol < "u" && arr[Symbol.iterator] || arr["@@iterator"];
   if (_i != null) {
     var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1;
@@ -3205,7 +7921,7 @@ function _iterableToArrayLimit3(arr, i) {
     return _arr;
   }
 }
-function _arrayWithHoles3(arr) {
+function _arrayWithHoles5(arr) {
   if (Array.isArray(arr))
     return arr;
 }
@@ -3218,9 +7934,9 @@ var KolGender;
   KolGender2[KolGender2.male = 1] = "male", KolGender2[KolGender2.female = 2] = "female";
 })(KolGender || (KolGender = {}));
 function permedSkills() {
-  return new Map(Array.from(Object.entries((0, import_kolmafia9.getPermedSkills)())).map(function(_ref) {
-    var _ref2 = _slicedToArray3(_ref, 2), skillName = _ref2[0], isHardcore = _ref2[1];
-    return [(0, import_kolmafia9.toSkill)(skillName), isHardcore ? Lifestyle.hardcore : Lifestyle.softcore];
+  return new Map(Array.from(Object.entries((0, import_kolmafia8.getPermedSkills)())).map(function(_ref) {
+    var _ref2 = _slicedToArray5(_ref, 2), skillName = _ref2[0], isHardcore = _ref2[1];
+    return [(0, import_kolmafia8.toSkill)(skillName), isHardcore ? Lifestyle.hardcore : Lifestyle.softcore];
   }));
 }
 var AscendError = /* @__PURE__ */ function(_Error) {
@@ -3230,11 +7946,11 @@ var AscendError = /* @__PURE__ */ function(_Error) {
     var _this;
     if (_classCallCheck7(this, AscendError2), !cause)
       _this = _super.call(this, "Failed to ascend--do you have a pending trade offer?"), _defineProperty6(_assertThisInitialized3(_this), "cause", void 0);
-    else if (cause instanceof import_kolmafia9.Skill) {
-      var reason = cause.permable ? (0, import_kolmafia9.haveSkill)(cause) ? "too karmaically expensive" : "not a skill you currently know" : "unpermable";
+    else if (cause instanceof import_kolmafia8.Skill) {
+      var reason = cause.permable ? (0, import_kolmafia8.haveSkill)(cause) ? "too karmaically expensive" : "not a skill you currently know" : "unpermable";
       _this = _super.call(this, "Skill ".concat(cause, " is ").concat(reason, "!")), _defineProperty6(_assertThisInitialized3(_this), "cause", void 0);
     } else
-      cause instanceof import_kolmafia9.Item ? (_this = _super.call(this, "Invalid astral item: ".concat(cause, "!")), _defineProperty6(_assertThisInitialized3(_this), "cause", void 0)) : cause instanceof import_kolmafia9.Class ? (_this = _super.call(this, "Invalid class ".concat(cause, " for this path!")), _defineProperty6(_assertThisInitialized3(_this), "cause", void 0)) : cause instanceof import_kolmafia9.Path ? (_this = _super.call(this, "Invalid path ".concat(cause, "!")), _defineProperty6(_assertThisInitialized3(_this), "cause", void 0)) : (_this = _super.call(this, cause), _defineProperty6(_assertThisInitialized3(_this), "cause", void 0));
+      cause instanceof import_kolmafia8.Item ? (_this = _super.call(this, "Invalid astral item: ".concat(cause, "!")), _defineProperty6(_assertThisInitialized3(_this), "cause", void 0)) : cause instanceof import_kolmafia8.Class ? (_this = _super.call(this, "Invalid class ".concat(cause, " for this path!")), _defineProperty6(_assertThisInitialized3(_this), "cause", void 0)) : cause instanceof import_kolmafia8.Path ? (_this = _super.call(this, "Invalid path ".concat(cause, "!")), _defineProperty6(_assertThisInitialized3(_this), "cause", void 0)) : (_this = _super.call(this, cause), _defineProperty6(_assertThisInitialized3(_this), "cause", void 0));
     return _this.cause = cause, _possibleConstructorReturn3(_this);
   }
   return _createClass7(AscendError2);
@@ -3275,7 +7991,7 @@ function inputToMoonId(moon, playerClass) {
   }
 }
 function isInValhalla() {
-  var charPaneText = (0, import_kolmafia9.visitUrl)("charpane.php"), matches = charPaneText.match(/<img src="[^"]*\/otherimages\/inf_\w+\.gif">/);
+  var charPaneText = (0, import_kolmafia8.visitUrl)("charpane.php"), matches = charPaneText.match(/<img src="[^"]*\/otherimages\/inf_\w+\.gif">/);
   return matches !== null;
 }
 function ascend(options) {
@@ -3284,10 +8000,10 @@ function ascend(options) {
     consumable: $item(_templateObject410 || (_templateObject410 = _taggedTemplateLiteral3(["astral six-pack"]))),
     pet: $item(_templateObject52 || (_templateObject52 = _taggedTemplateLiteral3(["none"])))
   }, prunedOptions = Object.fromEntries(Object.entries(options).filter(function(_ref3) {
-    var _ref4 = _slicedToArray3(_ref3, 2), value = _ref4[1];
+    var _ref4 = _slicedToArray5(_ref3, 2), value = _ref4[1];
     return value;
   })), _DEFAULT_OPTIONS$prun = _objectSpread4(_objectSpread4({}, DEFAULT_OPTIONS), prunedOptions), path2 = _DEFAULT_OPTIONS$prun.path, playerClass = _DEFAULT_OPTIONS$prun.playerClass, lifestyle2 = _DEFAULT_OPTIONS$prun.lifestyle, kolGender = _DEFAULT_OPTIONS$prun.kolGender, moon = _DEFAULT_OPTIONS$prun.moon, consumable = _DEFAULT_OPTIONS$prun.consumable, pet = _DEFAULT_OPTIONS$prun.pet, permOptions = _DEFAULT_OPTIONS$prun.permOptions;
-  if (playerClass.path !== (path2.avatar ? path2 : import_kolmafia9.Path.none))
+  if (playerClass.path !== (path2.avatar ? path2 : import_kolmafia8.Path.none))
     throw new AscendError(playerClass);
   if (path2.id < 0)
     throw new AscendError(path2);
@@ -3299,17 +8015,17 @@ function ascend(options) {
   if (!$items(_templateObject72 || (_templateObject72 = _taggedTemplateLiteral3(["none, astral bludgeon, astral shield, astral chapeau, astral bracer, astral longbow, astral shorts, astral mace, astral trousers, astral ring, astral statuette, astral pistol, astral mask, astral pet sweater, astral shirt, astral belt"]))).includes(pet))
     throw new AscendError(pet);
   var illegalSkill = permOptions ? Array.from(permOptions.permSkills.keys()).find(function(skill2) {
-    return !skill2.permable || !(0, import_kolmafia9.haveSkill)(skill2);
+    return !skill2.permable || !(0, import_kolmafia8.haveSkill)(skill2);
   }) : void 0;
   if (illegalSkill)
     throw new AscendError(illegalSkill);
-  if (isInValhalla() || (0, import_kolmafia9.visitUrl)("ascend.php?action=ascend&confirm=on&confirm2=on"), !isInValhalla())
+  if (isInValhalla() || (0, import_kolmafia8.visitUrl)("ascend.php?action=ascend&confirm=on&confirm2=on"), !isInValhalla())
     throw new AscendError();
-  if ((0, import_kolmafia9.visitUrl)("afterlife.php?action=pearlygates"), consumable !== $item(_templateObject82 || (_templateObject82 = _taggedTemplateLiteral3(["none"]))) && (0, import_kolmafia9.visitUrl)("afterlife.php?action=buydeli&whichitem=".concat(consumable.id)), pet !== $item(_templateObject93 || (_templateObject93 = _taggedTemplateLiteral3(["none"]))) && (0, import_kolmafia9.visitUrl)("afterlife.php?action=buyarmory&whichitem=".concat(pet.id)), permOptions) {
+  if ((0, import_kolmafia8.visitUrl)("afterlife.php?action=pearlygates"), consumable !== $item(_templateObject82 || (_templateObject82 = _taggedTemplateLiteral3(["none"]))) && (0, import_kolmafia8.visitUrl)("afterlife.php?action=buydeli&whichitem=".concat(consumable.id)), pet !== $item(_templateObject93 || (_templateObject93 = _taggedTemplateLiteral3(["none"]))) && (0, import_kolmafia8.visitUrl)("afterlife.php?action=buyarmory&whichitem=".concat(pet.id)), permOptions) {
     var currentPerms = permedSkills(), karma = get("bankedKarma"), _iterator = _createForOfIteratorHelper5(permOptions.permSkills.entries()), _step;
     try {
       for (_iterator.s(); !(_step = _iterator.n()).done; ) {
-        var _currentPerms$get, _step$value = _slicedToArray3(_step.value, 2), skill = _step$value[0], prospectivePermLevel = _step$value[1], currentPermLevel = (_currentPerms$get = currentPerms.get(skill)) !== null && _currentPerms$get !== void 0 ? _currentPerms$get : Lifestyle.casual;
+        var _currentPerms$get, _step$value = _slicedToArray5(_step.value, 2), skill = _step$value[0], prospectivePermLevel = _step$value[1], currentPermLevel = (_currentPerms$get = currentPerms.get(skill)) !== null && _currentPerms$get !== void 0 ? _currentPerms$get : Lifestyle.casual;
         if (prospectivePermLevel > currentPermLevel) {
           var expectedKarma = 100 * (prospectivePermLevel - currentPermLevel);
           if (karma < expectedKarma) {
@@ -3319,7 +8035,7 @@ function ascend(options) {
           }
           karma -= expectedKarma;
           var permText = prospectivePermLevel === Lifestyle.hardcore ? "hcperm" : "scperm";
-          (0, import_kolmafia9.visitUrl)("afterlife.php?action=".concat(permText, "&whichskill=").concat(skill.id));
+          (0, import_kolmafia8.visitUrl)("afterlife.php?action=".concat(permText, "&whichskill=").concat(skill.id));
         }
       }
     } catch (err) {
@@ -3328,10 +8044,192 @@ function ascend(options) {
       _iterator.f();
     }
   }
-  (0, import_kolmafia9.visitUrl)("afterlife.php?action=ascend&confirmascend=1&whichsign=".concat(moonId, "&gender=").concat(kolGender, "&whichclass=").concat(playerClass.id, "&whichpath=").concat(path2.id, "&asctype=").concat(lifestyle2, "&nopetok=1&noskillsok=1&lamepathok=1&lamesignok=1&pwd"), !0);
+  (0, import_kolmafia8.visitUrl)("afterlife.php?action=ascend&confirmascend=1&whichsign=".concat(moonId, "&gender=").concat(kolGender, "&whichclass=").concat(playerClass.id, "&whichpath=").concat(path2.id, "&asctype=").concat(lifestyle2, "&nopetok=1&noskillsok=1&lamepathok=1&lamesignok=1&pwd"), !0);
 }
 
-// node_modules/grimoire-kolmafia/dist/combat.js
+// node_modules/libram/dist/Clan.js
+init_kolmafia_polyfill();
+var import_html_entities = __toESM(require_lib()), import_kolmafia9 = require("kolmafia");
+function _toConsumableArray4(arr) {
+  return _arrayWithoutHoles4(arr) || _iterableToArray4(arr) || _unsupportedIterableToArray8(arr) || _nonIterableSpread4();
+}
+function _nonIterableSpread4() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _iterableToArray4(iter) {
+  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
+    return Array.from(iter);
+}
+function _arrayWithoutHoles4(arr) {
+  if (Array.isArray(arr))
+    return _arrayLikeToArray8(arr);
+}
+function _createForOfIteratorHelper6(o, allowArrayLike) {
+  var it = typeof Symbol < "u" && o[Symbol.iterator] || o["@@iterator"];
+  if (!it) {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray8(o)) || allowArrayLike && o && typeof o.length == "number") {
+      it && (o = it);
+      var i = 0, F = function() {
+      };
+      return { s: F, n: function() {
+        return i >= o.length ? { done: !0 } : { done: !1, value: o[i++] };
+      }, e: function(_e2) {
+        throw _e2;
+      }, f: F };
+    }
+    throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+  var normalCompletion = !0, didErr = !1, err;
+  return { s: function() {
+    it = it.call(o);
+  }, n: function() {
+    var step = it.next();
+    return normalCompletion = step.done, step;
+  }, e: function(_e3) {
+    didErr = !0, err = _e3;
+  }, f: function() {
+    try {
+      !normalCompletion && it.return != null && it.return();
+    } finally {
+      if (didErr)
+        throw err;
+    }
+  } };
+}
+function _slicedToArray6(arr, i) {
+  return _arrayWithHoles6(arr) || _iterableToArrayLimit6(arr, i) || _unsupportedIterableToArray8(arr, i) || _nonIterableRest6();
+}
+function _nonIterableRest6() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _unsupportedIterableToArray8(o, minLen) {
+  if (o) {
+    if (typeof o == "string")
+      return _arrayLikeToArray8(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
+      return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+      return _arrayLikeToArray8(o, minLen);
+  }
+}
+function _arrayLikeToArray8(arr, len) {
+  (len == null || len > arr.length) && (len = arr.length);
+  for (var i = 0, arr2 = new Array(len); i < len; i++)
+    arr2[i] = arr[i];
+  return arr2;
+}
+function _iterableToArrayLimit6(arr, i) {
+  var _i = arr == null ? null : typeof Symbol < "u" && arr[Symbol.iterator] || arr["@@iterator"];
+  if (_i != null) {
+    var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1;
+    try {
+      if (_x = (_i = _i.call(arr)).next, i === 0) {
+        if (Object(_i) !== _i)
+          return;
+        _n = !1;
+      } else
+        for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0)
+          ;
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        if (!_n && _i.return != null && (_r = _i.return(), Object(_r) !== _r))
+          return;
+      } finally {
+        if (_d)
+          throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+function _arrayWithHoles6(arr) {
+  if (Array.isArray(arr))
+    return arr;
+}
+function _classCallCheck8(instance, Constructor) {
+  if (!(instance instanceof Constructor))
+    throw new TypeError("Cannot call a class as a function");
+}
+function _defineProperties8(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey8(descriptor.key), descriptor);
+  }
+}
+function _createClass8(Constructor, protoProps, staticProps) {
+  return protoProps && _defineProperties8(Constructor.prototype, protoProps), staticProps && _defineProperties8(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
+}
+function _defineProperty7(obj, key, value) {
+  return key = _toPropertyKey8(key), key in obj ? Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value, obj;
+}
+function _toPropertyKey8(arg) {
+  var key = _toPrimitive8(arg, "string");
+  return typeof key == "symbol" ? key : String(key);
+}
+function _toPrimitive8(input, hint) {
+  if (typeof input != "object" || input === null)
+    return input;
+  var prim = input[Symbol.toPrimitive];
+  if (prim !== void 0) {
+    var res = prim.call(input, hint || "default");
+    if (typeof res != "object")
+      return res;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return (hint === "string" ? String : Number)(input);
+}
+function _wrapRegExp() {
+  _wrapRegExp = function(re, groups) {
+    return new BabelRegExp(re, void 0, groups);
+  };
+  var _super = RegExp.prototype, _groups = /* @__PURE__ */ new WeakMap();
+  function BabelRegExp(re, flags, groups) {
+    var _this = new RegExp(re, flags);
+    return _groups.set(_this, groups || _groups.get(re)), _setPrototypeOf4(_this, BabelRegExp.prototype);
+  }
+  function buildGroups(result, re) {
+    var g = _groups.get(re);
+    return Object.keys(g).reduce(function(groups, name) {
+      var i = g[name];
+      if (typeof i == "number")
+        groups[name] = result[i];
+      else {
+        for (var k = 0; result[i[k]] === void 0 && k + 1 < i.length; )
+          k++;
+        groups[name] = result[i[k]];
+      }
+      return groups;
+    }, /* @__PURE__ */ Object.create(null));
+  }
+  return _inherits4(BabelRegExp, RegExp), BabelRegExp.prototype.exec = function(str) {
+    var result = _super.exec.call(this, str);
+    if (result) {
+      result.groups = buildGroups(result, this);
+      var indices = result.indices;
+      indices && (indices.groups = buildGroups(indices, this));
+    }
+    return result;
+  }, BabelRegExp.prototype[Symbol.replace] = function(str, substitution) {
+    if (typeof substitution == "string") {
+      var groups = _groups.get(this);
+      return _super[Symbol.replace].call(this, str, substitution.replace(/\$<([^>]+)>/g, function(_, name) {
+        var group = groups[name];
+        return "$" + (Array.isArray(group) ? group.join("$") : group);
+      }));
+    }
+    if (typeof substitution == "function") {
+      var _this = this;
+      return _super[Symbol.replace].call(this, str, function() {
+        var args2 = arguments;
+        return typeof args2[args2.length - 1] != "object" && (args2 = [].slice.call(args2)).push(buildGroups(args2, _this)), substitution.apply(this, args2);
+      });
+    }
+    return _super[Symbol.replace].call(this, str, substitution);
+  }, _wrapRegExp.apply(this, arguments);
+}
 function _inherits4(subClass, superClass) {
   if (typeof superClass != "function" && superClass !== null)
     throw new TypeError("Super expression must either be null or a function");
@@ -3341,6 +8239,322 @@ function _setPrototypeOf4(o, p) {
   return _setPrototypeOf4 = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(o2, p2) {
     return o2.__proto__ = p2, o2;
   }, _setPrototypeOf4(o, p);
+}
+var clanIdCache = {}, toPlayerId = function(player) {
+  return typeof player == "string" ? (0, import_kolmafia9.getPlayerId)(player) : player;
+}, LOG_FAX_PATTERN = /* @__PURE__ */ _wrapRegExp(/(\d{2}\/\d{2}\/\d{2}, \d{2}:\d{2}(?:AM|PM): )<a [^>]+>([^<]+)<\/a>(?: faxed in a (.*?))<br>/, {
+  monster: 3
+}), WHITELIST_DEGREE_PATTERN = /* @__PURE__ */ _wrapRegExp(/(.*?) \(\xB0(\d+)\)/, {
+  name: 1,
+  degree: 2
+}), Clan = /* @__PURE__ */ function() {
+  function Clan2(id, name) {
+    _classCallCheck8(this, Clan2), _defineProperty7(this, "id", void 0), _defineProperty7(this, "name", void 0), this.id = id, this.name = name;
+  }
+  return _createClass8(Clan2, [{
+    key: "_check",
+    value: function() {
+      if (this.id !== (0, import_kolmafia9.getClanId)())
+        throw new Error("You are no longer a member of this clan");
+    }
+    /**
+     * Join clan
+     *
+     * @returns Joined clan
+     */
+  }, {
+    key: "join",
+    value: function() {
+      return Clan2.join(this.id);
+    }
+    /**
+     * Check that this clan is the player's current clan
+     *
+     * @returns Whether this is the current clan
+     */
+  }, {
+    key: "check",
+    value: function() {
+      return (0, import_kolmafia9.visitUrl)("clan_hall.php").includes("<b>".concat(this.name, "</b>"));
+    }
+    /**
+     * Determine the monster that is currently in the current clan's fax machine if any
+     *
+     * @returns The current fax monster
+     */
+  }, {
+    key: "getCurrentFax",
+    value: function() {
+      this._check();
+      var logs = (0, import_kolmafia9.visitUrl)("clan_log.php"), lastFax = logs.match(LOG_FAX_PATTERN);
+      if (!lastFax)
+        return null;
+      var _lastFax = _slicedToArray6(lastFax, 4), monsterName = _lastFax[3];
+      return monsterName ? import_kolmafia9.Monster.get(monsterName) : null;
+    }
+    /**
+     * List available ranks (name, degree and id) from the current clan
+     *
+     * @returns List of ranks
+     */
+  }, {
+    key: "getRanks",
+    value: function() {
+      this._check();
+      var page = (0, import_kolmafia9.visitUrl)("clan_whitelist.php");
+      return (0, import_kolmafia9.xpath)(page, '//select[@name="level"]//option').map(function(option) {
+        var validHtml = "<select>".concat(option, "</select>"), match = (0, import_kolmafia9.xpath)(validHtml, "//text()")[0].match(WHITELIST_DEGREE_PATTERN), id = (0, import_kolmafia9.xpath)(validHtml, "//@value")[0];
+        if (!match || !id)
+          return null;
+        var _match = _slicedToArray6(match, 3), encodedName = _match[1], degree = _match[2];
+        return {
+          name: (0, import_html_entities.decode)(encodedName),
+          degree: Number.parseInt(degree),
+          id: Number.parseInt(id)
+        };
+      }).filter(notNull);
+    }
+    /**
+     * Add a player to the current clan's whitelist.
+     * If the player is already in the whitelist this will change their rank or title.
+     *
+     * @param player Player id or name
+     * @param rankName Rank to give the player. If not provided they will be given the lowest rank
+     * @param title Title to give the player. If not provided, will be blank
+     * @returns Success
+     */
+  }, {
+    key: "addPlayerToWhitelist",
+    value: function(player, rankName) {
+      var title = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : "";
+      this._check();
+      var playerId = toPlayerId(player), ranks = this.getRanks(), rank = rankName ? ranks.find(function(r) {
+        return r.name === rankName;
+      }) : ranks.sort(function(a, b) {
+        return a.degree - b.degree;
+      })[0];
+      if (!rank)
+        return !1;
+      var result = (0, import_kolmafia9.visitUrl)("clan_whitelist.php?action=add&pwd&addwho=".concat(playerId, "&level=").concat(rank.id, "&title=").concat(title));
+      return result.includes("added to whitelist.") || result.includes("That player is already on the whitelist");
+    }
+    /**
+     * Remove a player from the current clan's whitelist
+     *
+     * @param player Player id or name
+     * @returns Success
+     */
+  }, {
+    key: "removePlayerFromWhitelist",
+    value: function(player) {
+      this._check();
+      var playerId = toPlayerId(player), result = (0, import_kolmafia9.visitUrl)("clan_whitelist.php?action=updatewl&pwd&who=".concat(playerId, "&remove=Remove"));
+      return result.includes("Whitelist updated.");
+    }
+    /**
+     * Return the amount of meat in the current clan's coffer
+     *
+     * @returns Amount of meat
+     */
+  }, {
+    key: "getMeatInCoffer",
+    value: function() {
+      this._check();
+      var page = (0, import_kolmafia9.visitUrl)("clan_stash.php"), _ref = page.match(/Your <b>Clan Coffer<\/b> contains ([\d,]+) Meat./) || ["0", "0"], _ref2 = _slicedToArray6(_ref, 2), meat = _ref2[1];
+      return parseNumber(meat);
+    }
+    /**
+     * Add the given amount of meat to the current clan's coffer.
+     *
+     * @param amount Amount of meat to put in coffer
+     * @returns Success
+     */
+  }, {
+    key: "putMeatInCoffer",
+    value: function(amount) {
+      this._check();
+      var result = (0, import_kolmafia9.visitUrl)("clan_stash.php?pwd&action=contribute&howmuch=".concat(amount));
+      return result.includes("You contributed");
+    }
+  }, {
+    key: "take",
+    value: function(items) {
+      this._check();
+      var map = arrayToCountedMap(items);
+      return map.forEach(function(quantity, item) {
+        var needed = Math.max(0, quantity - (0, import_kolmafia9.availableAmount)(item));
+        if (needed === 0)
+          return map.set(item, 0);
+        var foldGroup = getFoldGroup(item), _iterator = _createForOfIteratorHelper6(foldGroup), _step;
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done; ) {
+            for (var foldable = _step.value, quantityToFold = Math.min(needed, (0, import_kolmafia9.availableAmount)(foldable)), _i3 = 0; _i3 < quantityToFold; _i3++)
+              (0, import_kolmafia9.cliExecute)("fold ".concat(item.name)), needed--;
+            return map.set(item, needed);
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+        (0, import_kolmafia9.refreshStash)();
+        for (var _i2 = 0, _arr2 = [item].concat(_toConsumableArray4(foldGroup)); _i2 < _arr2.length; _i2++) {
+          var matchingItem = _arr2[_i2], quantityToTake = Math.min(needed, (0, import_kolmafia9.stashAmount)(matchingItem));
+          if (quantityToTake !== 0) {
+            if (!(0, import_kolmafia9.takeStash)(quantityToTake, matchingItem))
+              return;
+            if (matchingItem === item)
+              needed -= quantityToTake;
+            else
+              for (var i = 0; i < quantityToTake; i++)
+                (0, import_kolmafia9.cliExecute)("fold ".concat(matchingItem.name)), needed--;
+          }
+        }
+      }), Array.isArray(items) ? countedMapToArray(map) : map;
+    }
+  }, {
+    key: "put",
+    value: function(items) {
+      this._check();
+      var map = arrayToCountedMap(items);
+      if (!this.check())
+        throw new Error("Wanted to return ".concat(countedMapToString(map), " to ").concat(this.name, " but KoLmafia's clan data is out of sync"));
+      return map.forEach(function(quantity, item) {
+        (0, import_kolmafia9.retrieveItem)(quantity, item);
+        var returned = Math.min(quantity, (0, import_kolmafia9.availableAmount)(item));
+        (0, import_kolmafia9.putStash)(returned, item), map.set(item, quantity - returned);
+      }), Array.isArray(items) ? countedMapToArray(map) : map;
+    }
+  }, {
+    key: "withStash",
+    value: function(items, callback) {
+      var _this = this;
+      this._check();
+      var map = arrayToCountedMap(items);
+      return Clan2._withStash(function() {
+        return _this.take(map);
+      }, function(borrowed) {
+        return _this.put(borrowed);
+      }, callback);
+    }
+  }], [{
+    key: "_join",
+    value: function(id) {
+      var result = (0, import_kolmafia9.visitUrl)("showclan.php?recruiter=1&whichclan=".concat(id, "&pwd&whichclan=").concat(id, "&action=joinclan&apply=Apply+to+this+Clan&confirm=on"));
+      if (!result.includes("clanhalltop.gif"))
+        throw new Error("Could not join clan");
+      return Clan2.get();
+    }
+  }, {
+    key: "_withStash",
+    value: function(borrowFn, returnFn, callback) {
+      var borrowed = borrowFn(), map = arrayToCountedMap(borrowed);
+      try {
+        return callback(borrowed);
+      } finally {
+        if (map.size > 0) {
+          var returned = arrayToCountedMap(returnFn(borrowed));
+          map.forEach(function(quantity, item) {
+            var remaining = quantity - (returned.get(item) || 0);
+            remaining > 0 ? map.set(item, remaining) : map.delete(item);
+          }), map.size > 0 && logger_default.error("Failed to return <b>".concat(countedMapToString(map), "</b> to <b>").concat(this.name, "</b> stash"));
+        }
+      }
+    }
+    /**
+     * Join a clan
+     *
+     * @param clanIdOrName Clan id or name
+     * @returns Instance of joined clan
+     */
+  }, {
+    key: "join",
+    value: function(clanIdOrName) {
+      var clanId;
+      if (typeof clanIdOrName == "string") {
+        var clanName = clanIdOrName.toLowerCase();
+        if (clanName === (0, import_kolmafia9.getClanName)().toLowerCase())
+          return Clan2.get();
+        if (!(clanName in clanIdCache)) {
+          var clan = Clan2.getWhitelisted().find(function(c) {
+            return c.name.toLowerCase() === clanName;
+          });
+          if (!clan)
+            throw new Error("Player is not whitelisted to clan");
+          clanIdCache[clanName] = clan.id;
+        }
+        clanId = clanIdCache[clanName];
+      } else if (clanId = clanIdOrName, clanId === (0, import_kolmafia9.getClanId)())
+        return Clan2.get();
+      return Clan2._join(clanId);
+    }
+    /**
+     * Execute callback as a member of a clan and then restore prior membership
+     *
+     * @param clanIdOrName Clan id or name
+     * @param callback Actions to carry out while member of specified can
+     * @returns Return value from callback
+     */
+  }, {
+    key: "with",
+    value: function(clanIdOrName, callback) {
+      var startingClan = Clan2.get(), clan = Clan2.join(clanIdOrName);
+      try {
+        return callback(clan);
+      } finally {
+        startingClan.join();
+      }
+    }
+  }, {
+    key: "withStash",
+    value: function(clanIdOrName, items, callback) {
+      return Clan2._withStash(function() {
+        return Clan2.with(clanIdOrName, function(clan) {
+          return clan.take(items);
+        });
+      }, function(borrowed) {
+        return Clan2.with(clanIdOrName, function(clan) {
+          return clan.put(borrowed);
+        });
+      }, callback);
+    }
+    /**
+     * Get the player's current clan
+     *
+     * @returns Player's clan
+     */
+  }, {
+    key: "get",
+    value: function() {
+      return new Clan2((0, import_kolmafia9.getClanId)(), (0, import_kolmafia9.getClanName)());
+    }
+    /**
+     * Get list of clans to which the player is whitelisted
+     *
+     * @returns List of clans
+     */
+  }, {
+    key: "getWhitelisted",
+    value: function() {
+      var page = (0, import_kolmafia9.visitUrl)("clan_signup.php");
+      return (0, import_kolmafia9.xpath)(page, '//select[@name="whichclan"]//option').map(function(option) {
+        var validHtml = "<select>".concat(option, "</select>"), id = Number.parseInt((0, import_kolmafia9.xpath)(validHtml, "//@value")[0]), name = (0, import_html_entities.decode)((0, import_kolmafia9.xpath)(validHtml, "//text()")[0]);
+        return new Clan2(id, name);
+      });
+    }
+  }]), Clan2;
+}();
+
+// node_modules/grimoire-kolmafia/dist/combat.js
+function _inherits5(subClass, superClass) {
+  if (typeof superClass != "function" && superClass !== null)
+    throw new TypeError("Super expression must either be null or a function");
+  subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: !0, configurable: !0 } }), Object.defineProperty(subClass, "prototype", { writable: !1 }), superClass && _setPrototypeOf5(subClass, superClass);
+}
+function _setPrototypeOf5(o, p) {
+  return _setPrototypeOf5 = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(o2, p2) {
+    return o2.__proto__ = p2, o2;
+  }, _setPrototypeOf5(o, p);
 }
 function _createSuper4(Derived) {
   var hasNativeReflectConstruct = _isNativeReflectConstruct4();
@@ -3383,24 +8597,24 @@ function _getPrototypeOf4(o) {
     return o2.__proto__ || Object.getPrototypeOf(o2);
   }, _getPrototypeOf4(o);
 }
-function _toConsumableArray4(arr) {
-  return _arrayWithoutHoles4(arr) || _iterableToArray4(arr) || _unsupportedIterableToArray7(arr) || _nonIterableSpread4();
+function _toConsumableArray5(arr) {
+  return _arrayWithoutHoles5(arr) || _iterableToArray5(arr) || _unsupportedIterableToArray9(arr) || _nonIterableSpread5();
 }
-function _nonIterableSpread4() {
+function _nonIterableSpread5() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _iterableToArray4(iter) {
+function _iterableToArray5(iter) {
   if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
     return Array.from(iter);
 }
-function _arrayWithoutHoles4(arr) {
+function _arrayWithoutHoles5(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray7(arr);
+    return _arrayLikeToArray9(arr);
 }
-function _createForOfIteratorHelper6(o, allowArrayLike) {
+function _createForOfIteratorHelper7(o, allowArrayLike) {
   var it = typeof Symbol < "u" && o[Symbol.iterator] || o["@@iterator"];
   if (!it) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray7(o)) || allowArrayLike && o && typeof o.length == "number") {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray9(o)) || allowArrayLike && o && typeof o.length == "number") {
       it && (o = it);
       var i = 0, F = function() {
       };
@@ -3429,41 +8643,41 @@ function _createForOfIteratorHelper6(o, allowArrayLike) {
     }
   } };
 }
-function _unsupportedIterableToArray7(o, minLen) {
+function _unsupportedIterableToArray9(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray7(o, minLen);
+      return _arrayLikeToArray9(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray7(o, minLen);
+      return _arrayLikeToArray9(o, minLen);
   }
 }
-function _arrayLikeToArray7(arr, len) {
+function _arrayLikeToArray9(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
   return arr2;
 }
-function _classCallCheck8(instance, Constructor) {
+function _classCallCheck9(instance, Constructor) {
   if (!(instance instanceof Constructor))
     throw new TypeError("Cannot call a class as a function");
 }
-function _defineProperties8(target, props) {
+function _defineProperties9(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey8(descriptor.key), descriptor);
+    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey9(descriptor.key), descriptor);
   }
 }
-function _createClass8(Constructor, protoProps, staticProps) {
-  return protoProps && _defineProperties8(Constructor.prototype, protoProps), staticProps && _defineProperties8(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
+function _createClass9(Constructor, protoProps, staticProps) {
+  return protoProps && _defineProperties9(Constructor.prototype, protoProps), staticProps && _defineProperties9(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
 }
-function _toPropertyKey8(arg) {
-  var key = _toPrimitive8(arg, "string");
+function _toPropertyKey9(arg) {
+  var key = _toPrimitive9(arg, "string");
   return typeof key == "symbol" ? key : String(key);
 }
-function _toPrimitive8(input, hint) {
+function _toPrimitive9(input, hint) {
   if (typeof input != "object" || input === null)
     return input;
   var prim = input[Symbol.toPrimitive];
@@ -3477,9 +8691,9 @@ function _toPrimitive8(input, hint) {
 }
 var CombatStrategy = /* @__PURE__ */ function() {
   function CombatStrategy2() {
-    _classCallCheck8(this, CombatStrategy2), this.macros = /* @__PURE__ */ new Map(), this.autoattacks = /* @__PURE__ */ new Map(), this.actions = /* @__PURE__ */ new Map(), this.ccs_entries = /* @__PURE__ */ new Map();
+    _classCallCheck9(this, CombatStrategy2), this.macros = /* @__PURE__ */ new Map(), this.autoattacks = /* @__PURE__ */ new Map(), this.actions = /* @__PURE__ */ new Map(), this.ccs_entries = /* @__PURE__ */ new Map();
   }
-  return _createClass8(CombatStrategy2, [{
+  return _createClass9(CombatStrategy2, [{
     key: "macro",
     value: function(_macro, monsters, prepend) {
       var _a, _b;
@@ -3487,7 +8701,7 @@ var CombatStrategy = /* @__PURE__ */ function() {
         this.default_macro === void 0 && (this.default_macro = []), prepend ? this.default_macro.unshift(_macro) : this.default_macro.push(_macro);
       else {
         monsters instanceof import_kolmafia10.Monster && (monsters = [monsters]);
-        var _iterator = _createForOfIteratorHelper6(monsters), _step;
+        var _iterator = _createForOfIteratorHelper7(monsters), _step;
         try {
           for (_iterator.s(); !(_step = _iterator.n()).done; ) {
             var monster = _step.value;
@@ -3520,7 +8734,7 @@ var CombatStrategy = /* @__PURE__ */ function() {
         this.default_autoattack === void 0 && (this.default_autoattack = []), prepend ? this.default_autoattack.unshift(macro) : this.default_autoattack.push(macro);
       else {
         monsters instanceof import_kolmafia10.Monster && (monsters = [monsters]);
-        var _iterator2 = _createForOfIteratorHelper6(monsters), _step2;
+        var _iterator2 = _createForOfIteratorHelper7(monsters), _step2;
         try {
           for (_iterator2.s(); !(_step2 = _iterator2.n()).done; ) {
             var monster = _step2.value;
@@ -3563,7 +8777,7 @@ var CombatStrategy = /* @__PURE__ */ function() {
       else if (monsters instanceof import_kolmafia10.Monster)
         this.actions.set(monsters, _action);
       else {
-        var _iterator3 = _createForOfIteratorHelper6(monsters), _step3;
+        var _iterator3 = _createForOfIteratorHelper7(monsters), _step3;
         try {
           for (_iterator3.s(); !(_step3 = _iterator3.n()).done; ) {
             var monster = _step3.value;
@@ -3595,7 +8809,7 @@ var CombatStrategy = /* @__PURE__ */ function() {
     value: function(entry, monsters, prepend) {
       var _a, _b;
       monsters instanceof import_kolmafia10.Monster && (monsters = [monsters]);
-      var _iterator4 = _createForOfIteratorHelper6(monsters), _step4;
+      var _iterator4 = _createForOfIteratorHelper7(monsters), _step4;
       try {
         for (_iterator4.s(); !(_step4 = _iterator4.n()).done; ) {
           var monster = _step4.value;
@@ -3652,24 +8866,24 @@ var CombatStrategy = /* @__PURE__ */ function() {
     key: "clone",
     value: function() {
       var result = new CombatStrategy2();
-      this.starting_macro && (result.starting_macro = _toConsumableArray4(this.starting_macro)), this.default_macro && (result.default_macro = _toConsumableArray4(this.default_macro));
-      var _iterator5 = _createForOfIteratorHelper6(this.macros), _step5;
+      this.starting_macro && (result.starting_macro = _toConsumableArray5(this.starting_macro)), this.default_macro && (result.default_macro = _toConsumableArray5(this.default_macro));
+      var _iterator5 = _createForOfIteratorHelper7(this.macros), _step5;
       try {
         for (_iterator5.s(); !(_step5 = _iterator5.n()).done; ) {
           var pair = _step5.value;
-          result.macros.set(pair[0], _toConsumableArray4(pair[1]));
+          result.macros.set(pair[0], _toConsumableArray5(pair[1]));
         }
       } catch (err) {
         _iterator5.e(err);
       } finally {
         _iterator5.f();
       }
-      this.default_autoattack && (result.default_autoattack = _toConsumableArray4(this.default_autoattack));
-      var _iterator6 = _createForOfIteratorHelper6(this.autoattacks), _step6;
+      this.default_autoattack && (result.default_autoattack = _toConsumableArray5(this.default_autoattack));
+      var _iterator6 = _createForOfIteratorHelper7(this.autoattacks), _step6;
       try {
         for (_iterator6.s(); !(_step6 = _iterator6.n()).done; ) {
           var _pair = _step6.value;
-          result.autoattacks.set(_pair[0], _toConsumableArray4(_pair[1]));
+          result.autoattacks.set(_pair[0], _toConsumableArray5(_pair[1]));
         }
       } catch (err) {
         _iterator6.e(err);
@@ -3677,7 +8891,7 @@ var CombatStrategy = /* @__PURE__ */ function() {
         _iterator6.f();
       }
       result.default_action = this.default_action;
-      var _iterator7 = _createForOfIteratorHelper6(this.actions), _step7;
+      var _iterator7 = _createForOfIteratorHelper7(this.actions), _step7;
       try {
         for (_iterator7.s(); !(_step7 = _iterator7.n()).done; ) {
           var _pair2 = _step7.value;
@@ -3688,11 +8902,11 @@ var CombatStrategy = /* @__PURE__ */ function() {
       } finally {
         _iterator7.f();
       }
-      var _iterator8 = _createForOfIteratorHelper6(this.ccs_entries), _step8;
+      var _iterator8 = _createForOfIteratorHelper7(this.ccs_entries), _step8;
       try {
         for (_iterator8.s(); !(_step8 = _iterator8.n()).done; ) {
           var _pair3 = _step8.value;
-          result.ccs_entries.set(_pair3[0], _toConsumableArray4(_pair3[1]));
+          result.ccs_entries.set(_pair3[0], _toConsumableArray5(_pair3[1]));
         }
       } catch (err) {
         _iterator8.e(err);
@@ -3713,16 +8927,16 @@ var CombatStrategy = /* @__PURE__ */ function() {
     key: "compile",
     value: function(resources, defaults, location) {
       var _a, _b, result = new Macro();
-      this.starting_macro && result.step.apply(result, _toConsumableArray4(this.starting_macro.map(function(macro2) {
+      this.starting_macro && result.step.apply(result, _toConsumableArray5(this.starting_macro.map(function(macro2) {
         return undelay(macro2);
       })));
       var monster_macros = new CompressedMacro();
       this.macros.forEach(function(value, key) {
         var _Macro;
-        monster_macros.add(key, (_Macro = new Macro()).step.apply(_Macro, _toConsumableArray4(value.map(function(macro2) {
+        monster_macros.add(key, (_Macro = new Macro()).step.apply(_Macro, _toConsumableArray5(value.map(function(macro2) {
           return undelay(macro2);
         }))));
-      }), result.step(monster_macros.compile()), this.default_macro && result.step.apply(result, _toConsumableArray4(this.default_macro.map(function(macro2) {
+      }), result.step(monster_macros.compile()), this.default_macro && result.step.apply(result, _toConsumableArray5(this.default_macro.map(function(macro2) {
         return undelay(macro2);
       })));
       var monster_actions = new CompressedMacro();
@@ -3746,10 +8960,10 @@ var CombatStrategy = /* @__PURE__ */ function() {
       var result = new Macro(), monster_macros = new CompressedMacro();
       return this.autoattacks.forEach(function(value, key) {
         var _Macro2;
-        monster_macros.add(key, (_Macro2 = new Macro()).step.apply(_Macro2, _toConsumableArray4(value.map(function(macro) {
+        monster_macros.add(key, (_Macro2 = new Macro()).step.apply(_Macro2, _toConsumableArray5(value.map(function(macro) {
           return undelay(macro);
         }))));
-      }), result.step(monster_macros.compile()), this.default_autoattack && result.step.apply(result, _toConsumableArray4(this.default_autoattack.map(function(macro) {
+      }), result.step(monster_macros.compile()), this.default_autoattack && result.step.apply(result, _toConsumableArray5(this.default_autoattack.map(function(macro) {
         return undelay(macro);
       }))), result;
     }
@@ -3761,11 +8975,11 @@ var CombatStrategy = /* @__PURE__ */ function() {
   }, {
     key: "compileCcs",
     value: function() {
-      var result = [], _iterator9 = _createForOfIteratorHelper6(this.ccs_entries), _step9;
+      var result = [], _iterator9 = _createForOfIteratorHelper7(this.ccs_entries), _step9;
       try {
         for (_iterator9.s(); !(_step9 = _iterator9.n()).done; ) {
           var ccs_entry = _step9.value;
-          result.push.apply(result, ["[".concat(ccs_entry[0].name, "]")].concat(_toConsumableArray4(ccs_entry[1])));
+          result.push.apply(result, ["[".concat(ccs_entry[0].name, "]")].concat(_toConsumableArray5(ccs_entry[1])));
         }
       } catch (err) {
         _iterator9.e(err);
@@ -3792,13 +9006,13 @@ var CombatStrategy = /* @__PURE__ */ function() {
     key: "withActions",
     value: function(actions) {
       var CombatStrategyWithActions = /* @__PURE__ */ function(_this) {
-        _inherits4(CombatStrategyWithActions2, _this);
+        _inherits5(CombatStrategyWithActions2, _this);
         var _super = _createSuper4(CombatStrategyWithActions2);
         function CombatStrategyWithActions2() {
-          return _classCallCheck8(this, CombatStrategyWithActions2), _super.apply(this, arguments);
+          return _classCallCheck9(this, CombatStrategyWithActions2), _super.apply(this, arguments);
         }
-        return _createClass8(CombatStrategyWithActions2);
-      }(this), proto = CombatStrategyWithActions.prototype, _iterator10 = _createForOfIteratorHelper6(actions), _step10;
+        return _createClass9(CombatStrategyWithActions2);
+      }(this), proto = CombatStrategyWithActions.prototype, _iterator10 = _createForOfIteratorHelper7(actions), _step10;
       try {
         var _loop = function() {
           var action = _step10.value;
@@ -3818,9 +9032,9 @@ var CombatStrategy = /* @__PURE__ */ function() {
   }]), CombatStrategy2;
 }(), CompressedMacro = /* @__PURE__ */ function() {
   function CompressedMacro2() {
-    _classCallCheck8(this, CompressedMacro2), this.components = /* @__PURE__ */ new Map();
+    _classCallCheck9(this, CompressedMacro2), this.components = /* @__PURE__ */ new Map();
   }
-  return _createClass8(CompressedMacro2, [{
+  return _createClass9(CompressedMacro2, [{
     key: "add",
     value: function(monster, macro) {
       var _a, macro_text = macro.toString();
@@ -3843,9 +9057,9 @@ var CombatStrategy = /* @__PURE__ */ function() {
   }]), CompressedMacro2;
 }(), CombatResources = /* @__PURE__ */ function() {
   function CombatResources2() {
-    _classCallCheck8(this, CombatResources2), this.resources = /* @__PURE__ */ new Map();
+    _classCallCheck9(this, CombatResources2), this.resources = /* @__PURE__ */ new Map();
   }
-  return _createClass8(CombatResources2, [{
+  return _createClass9(CombatResources2, [{
     key: "provide",
     value: function(action, resource) {
       resource !== void 0 && this.resources.set(action, resource);
@@ -3902,23 +9116,23 @@ function _objectSpread5(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     i % 2 ? ownKeys5(Object(source), !0).forEach(function(key) {
-      _defineProperty7(target, key, source[key]);
+      _defineProperty8(target, key, source[key]);
     }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys5(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
   return target;
 }
-function _defineProperty7(obj, key, value) {
-  return key = _toPropertyKey9(key), key in obj ? Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value, obj;
+function _defineProperty8(obj, key, value) {
+  return key = _toPropertyKey10(key), key in obj ? Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value, obj;
 }
-function _slicedToArray4(arr, i) {
-  return _arrayWithHoles4(arr) || _iterableToArrayLimit4(arr, i) || _unsupportedIterableToArray8(arr, i) || _nonIterableRest4();
+function _slicedToArray7(arr, i) {
+  return _arrayWithHoles7(arr) || _iterableToArrayLimit7(arr, i) || _unsupportedIterableToArray10(arr, i) || _nonIterableRest7();
 }
-function _nonIterableRest4() {
+function _nonIterableRest7() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _iterableToArrayLimit4(arr, i) {
+function _iterableToArrayLimit7(arr, i) {
   var _i = arr == null ? null : typeof Symbol < "u" && arr[Symbol.iterator] || arr["@@iterator"];
   if (_i != null) {
     var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1;
@@ -3944,14 +9158,14 @@ function _iterableToArrayLimit4(arr, i) {
     return _arr;
   }
 }
-function _arrayWithHoles4(arr) {
+function _arrayWithHoles7(arr) {
   if (Array.isArray(arr))
     return arr;
 }
-function _createForOfIteratorHelper7(o, allowArrayLike) {
+function _createForOfIteratorHelper8(o, allowArrayLike) {
   var it = typeof Symbol < "u" && o[Symbol.iterator] || o["@@iterator"];
   if (!it) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray8(o)) || allowArrayLike && o && typeof o.length == "number") {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray10(o)) || allowArrayLike && o && typeof o.length == "number") {
       it && (o = it);
       var i = 0, F = function() {
       };
@@ -3983,55 +9197,55 @@ function _createForOfIteratorHelper7(o, allowArrayLike) {
 function _taggedTemplateLiteral4(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
-function _toConsumableArray5(arr) {
-  return _arrayWithoutHoles5(arr) || _iterableToArray5(arr) || _unsupportedIterableToArray8(arr) || _nonIterableSpread5();
+function _toConsumableArray6(arr) {
+  return _arrayWithoutHoles6(arr) || _iterableToArray6(arr) || _unsupportedIterableToArray10(arr) || _nonIterableSpread6();
 }
-function _nonIterableSpread5() {
+function _nonIterableSpread6() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray8(o, minLen) {
+function _unsupportedIterableToArray10(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray8(o, minLen);
+      return _arrayLikeToArray10(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray8(o, minLen);
+      return _arrayLikeToArray10(o, minLen);
   }
 }
-function _iterableToArray5(iter) {
+function _iterableToArray6(iter) {
   if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
     return Array.from(iter);
 }
-function _arrayWithoutHoles5(arr) {
+function _arrayWithoutHoles6(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray8(arr);
+    return _arrayLikeToArray10(arr);
 }
-function _arrayLikeToArray8(arr, len) {
+function _arrayLikeToArray10(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
   return arr2;
 }
-function _classCallCheck9(instance, Constructor) {
+function _classCallCheck10(instance, Constructor) {
   if (!(instance instanceof Constructor))
     throw new TypeError("Cannot call a class as a function");
 }
-function _defineProperties9(target, props) {
+function _defineProperties10(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey9(descriptor.key), descriptor);
+    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey10(descriptor.key), descriptor);
   }
 }
-function _createClass9(Constructor, protoProps, staticProps) {
-  return protoProps && _defineProperties9(Constructor.prototype, protoProps), staticProps && _defineProperties9(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
+function _createClass10(Constructor, protoProps, staticProps) {
+  return protoProps && _defineProperties10(Constructor.prototype, protoProps), staticProps && _defineProperties10(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
 }
-function _toPropertyKey9(arg) {
-  var key = _toPrimitive9(arg, "string");
+function _toPropertyKey10(arg) {
+  var key = _toPrimitive10(arg, "string");
   return typeof key == "symbol" ? key : String(key);
 }
-function _toPrimitive9(input, hint) {
+function _toPrimitive10(input, hint) {
   if (typeof input != "object" || input === null)
     return input;
   var prim = input[Symbol.toPrimitive];
@@ -4050,16 +9264,16 @@ var weaponHands = function(i) {
   return i ? (0, import_kolmafia11.weaponHands)(i) : 0;
 }, modeableCommands2 = ["backupcamera", "umbrella", "snowsuit", "edpiece", "retrocape", "parka", "jillcandle"], Outfit = /* @__PURE__ */ function() {
   function Outfit2() {
-    _classCallCheck9(this, Outfit2), this.equips = /* @__PURE__ */ new Map(), this.riders = /* @__PURE__ */ new Map(), this.modes = {}, this.skipDefaults = !1, this.modifier = [], this.avoid = [], this.bonuses = /* @__PURE__ */ new Map(), this.postActions = [], this.preActions = [];
+    _classCallCheck10(this, Outfit2), this.equips = /* @__PURE__ */ new Map(), this.riders = /* @__PURE__ */ new Map(), this.modes = {}, this.skipDefaults = !1, this.modifier = [], this.avoid = [], this.bonuses = /* @__PURE__ */ new Map(), this.postActions = [], this.preActions = [];
   }
-  return _createClass9(Outfit2, [{
+  return _createClass10(Outfit2, [{
     key: "equippedAmount",
     value: (
       /**
        * Check how many of an item is equipped on the outfit.
        */
       function(item) {
-        return _toConsumableArray5(this.equips.values()).filter(function(i) {
+        return _toConsumableArray6(this.equips.values()).filter(function(i) {
           return i === item;
         }).length;
       }
@@ -4103,7 +9317,7 @@ var weaponHands = function(i) {
     key: "equipAccessory",
     value: function(item, slot) {
       var _this = this;
-      if (![void 0].concat(_toConsumableArray5($slots(_templateObject73 || (_templateObject73 = _taggedTemplateLiteral4(["acc1, acc2, acc3"]))))).includes(slot) || (0, import_kolmafia11.toSlot)(item) !== $slot(_templateObject83 || (_templateObject83 = _taggedTemplateLiteral4(["acc1"]))) || !(0, import_kolmafia11.canEquip)(item))
+      if (![void 0].concat(_toConsumableArray6($slots(_templateObject73 || (_templateObject73 = _taggedTemplateLiteral4(["acc1, acc2, acc3"]))))).includes(slot) || (0, import_kolmafia11.toSlot)(item) !== $slot(_templateObject83 || (_templateObject83 = _taggedTemplateLiteral4(["acc1"]))) || !(0, import_kolmafia11.canEquip)(item))
         return !1;
       if (slot === void 0) {
         var empty = $slots(_templateObject94 || (_templateObject94 = _taggedTemplateLiteral4(["acc1, acc2, acc3"]))).find(function(s) {
@@ -4197,10 +9411,10 @@ var weaponHands = function(i) {
   }, {
     key: "applyBonuses",
     value: function(items, reducer) {
-      var _iterator = _createForOfIteratorHelper7(items), _step;
+      var _iterator = _createForOfIteratorHelper8(items), _step;
       try {
         for (_iterator.s(); !(_step = _iterator.n()).done; ) {
-          var _step$value = _slicedToArray4(_step.value, 2), item = _step$value[0], value = _step$value[1];
+          var _step$value = _slicedToArray7(_step.value, 2), item = _step$value[0], value = _step$value[1];
           this.applyBonus(item, value, reducer);
         }
       } catch (err) {
@@ -4263,7 +9477,7 @@ var weaponHands = function(i) {
         var slotName = _outfitSlots2[_i2], slot = (_a = (/* @__PURE__ */ new Map([["famequip", $slot(_templateObject253 || (_templateObject253 = _taggedTemplateLiteral4(["familiar"])))], ["offhand", $slot(_templateObject263 || (_templateObject263 = _taggedTemplateLiteral4(["off-hand"])))]])).get(slotName)) !== null && _a !== void 0 ? _a : (0, import_kolmafia11.toSlot)(slotName), itemOrItems = spec[slotName];
         itemOrItems !== void 0 && !this.equip(itemOrItems, slot) && (succeeded = !1);
       }
-      var _iterator2 = _createForOfIteratorHelper7((_b = spec == null ? void 0 : spec.equip) !== null && _b !== void 0 ? _b : []), _step2;
+      var _iterator2 = _createForOfIteratorHelper8((_b = spec == null ? void 0 : spec.equip) !== null && _b !== void 0 ? _b : []), _step2;
       try {
         for (_iterator2.s(); !(_step2 = _iterator2.n()).done; ) {
           var item = _step2.value;
@@ -4274,11 +9488,11 @@ var weaponHands = function(i) {
       } finally {
         _iterator2.f();
       }
-      if ((spec == null ? void 0 : spec.familiar) !== void 0 && (this.equip(spec.familiar) || (succeeded = !1)), (_this$avoid = this.avoid).push.apply(_this$avoid, _toConsumableArray5((_c = spec == null ? void 0 : spec.avoid) !== null && _c !== void 0 ? _c : [])), this.skipDefaults = this.skipDefaults || ((_d = spec.skipDefaults) !== null && _d !== void 0 ? _d : !1), spec.modifier) {
+      if ((spec == null ? void 0 : spec.familiar) !== void 0 && (this.equip(spec.familiar) || (succeeded = !1)), (_this$avoid = this.avoid).push.apply(_this$avoid, _toConsumableArray6((_c = spec == null ? void 0 : spec.avoid) !== null && _c !== void 0 ? _c : [])), this.skipDefaults = this.skipDefaults || ((_d = spec.skipDefaults) !== null && _d !== void 0 ? _d : !1), spec.modifier) {
         var _this$modifier;
-        Array.isArray(spec.modifier) ? (_this$modifier = this.modifier).push.apply(_this$modifier, _toConsumableArray5(spec.modifier)) : this.modifier.push(spec.modifier);
+        Array.isArray(spec.modifier) ? (_this$modifier = this.modifier).push.apply(_this$modifier, _toConsumableArray6(spec.modifier)) : this.modifier.push(spec.modifier);
       }
-      return spec.modes && (this.setModes(spec.modes) || (succeeded = !1)), spec.riders && (spec.riders["buddy-bjorn"] && !this.bjornify(spec.riders["buddy-bjorn"]) && (succeeded = !1), spec.riders["crown-of-thrones"] && !this.enthrone(spec.riders["crown-of-thrones"]) && (succeeded = !1)), spec.bonuses && this.addBonuses(spec.bonuses), this.beforeDress.apply(this, _toConsumableArray5((_e = spec.beforeDress) !== null && _e !== void 0 ? _e : [])), this.afterDress.apply(this, _toConsumableArray5((_f = spec.afterDress) !== null && _f !== void 0 ? _f : [])), succeeded;
+      return spec.modes && (this.setModes(spec.modes) || (succeeded = !1)), spec.riders && (spec.riders["buddy-bjorn"] && !this.bjornify(spec.riders["buddy-bjorn"]) && (succeeded = !1), spec.riders["crown-of-thrones"] && !this.enthrone(spec.riders["crown-of-thrones"]) && (succeeded = !1)), spec.bonuses && this.addBonuses(spec.bonuses), this.beforeDress.apply(this, _toConsumableArray6((_e = spec.beforeDress) !== null && _e !== void 0 ? _e : [])), this.afterDress.apply(this, _toConsumableArray6((_f = spec.afterDress) !== null && _f !== void 0 ? _f : [])), succeeded;
     }
     /**
      * Equip the first thing that can be equipped to the outfit.
@@ -4339,11 +9553,11 @@ var weaponHands = function(i) {
         var current = this.riders.get(slot), targets = Array.isArray(target) ? target : [target];
         if (current)
           return targets.includes(current);
-        var otherRiders = _toConsumableArray5(this.riders.entries()).filter(function(_ref) {
-          var _ref2 = _slicedToArray4(_ref, 1), key = _ref2[0];
+        var otherRiders = _toConsumableArray6(this.riders.entries()).filter(function(_ref) {
+          var _ref2 = _slicedToArray7(_ref, 1), key = _ref2[0];
           return slot !== key;
         }).map(function(_ref3) {
-          var _ref4 = _slicedToArray4(_ref3, 2), value = _ref4[1];
+          var _ref4 = _slicedToArray7(_ref3, 2), value = _ref4[1];
           return value;
         }), fam = targets.find(function(f) {
           return have(f) && _this.familiar !== f && !otherRiders.includes(f);
@@ -4456,7 +9670,7 @@ var weaponHands = function(i) {
       bjorn && (this.equips.get($slot(_templateObject313 || (_templateObject313 = _taggedTemplateLiteral4(["back"])))) === $item(_templateObject323 || (_templateObject323 = _taggedTemplateLiteral4(["Buddy Bjorn"]))) || this.getBonus($item(_templateObject333 || (_templateObject333 = _taggedTemplateLiteral4(["Buddy Bjorn"]))))) && (usedSlots.add($slot(_templateObject343 || (_templateObject343 = _taggedTemplateLiteral4(["buddy-bjorn"])))), usedSlots.add($slot(_templateObject352 || (_templateObject352 = _taggedTemplateLiteral4(["crown-of-thrones"])))));
       var crown = this.riders.get($slot(_templateObject362 || (_templateObject362 = _taggedTemplateLiteral4(["crown-of-thrones"]))));
       crown && (this.equips.get($slot(_templateObject372 || (_templateObject372 = _taggedTemplateLiteral4(["hat"])))) === $item(_templateObject382 || (_templateObject382 = _taggedTemplateLiteral4(["Crown of Thrones"]))) || this.getBonus($item(_templateObject392 || (_templateObject392 = _taggedTemplateLiteral4(["Crown of Thrones"]))))) && (usedSlots.add($slot(_templateObject402 || (_templateObject402 = _taggedTemplateLiteral4(["buddy-bjorn"])))), usedSlots.add($slot(_templateObject412 || (_templateObject412 = _taggedTemplateLiteral4(["crown-of-thrones"])))));
-      var _iterator3 = _createForOfIteratorHelper7(nonaccessorySlots), _step3;
+      var _iterator3 = _createForOfIteratorHelper8(nonaccessorySlots), _step3;
       try {
         for (_iterator3.s(); !(_step3 = _iterator3.n()).done; ) {
           var slot = _step3.value;
@@ -4467,7 +9681,7 @@ var weaponHands = function(i) {
       } finally {
         _iterator3.f();
       }
-      var _iterator4 = _createForOfIteratorHelper7(nonaccessorySlots), _step4;
+      var _iterator4 = _createForOfIteratorHelper8(nonaccessorySlots), _step4;
       try {
         for (_iterator4.s(); !(_step4 = _iterator4.n()).done; ) {
           var _slot = _step4.value, equipment = this.equips.get(_slot);
@@ -4482,7 +9696,7 @@ var weaponHands = function(i) {
         return _this.equips.get(slot2);
       }).filter(function(item) {
         return item !== void 0;
-      }), missingAccessories = [], _iterator5 = _createForOfIteratorHelper7(accessoryEquips), _step5;
+      }), missingAccessories = [], _iterator5 = _createForOfIteratorHelper8(accessoryEquips), _step5;
       try {
         var _loop = function() {
           var accessory2 = _step5.value, alreadyEquipped = accessorySlots.find(function(slot2) {
@@ -4506,12 +9720,12 @@ var weaponHands = function(i) {
         (0, import_kolmafia11.equip)(unusedSlot, accessory), usedSlots.add(unusedSlot);
       }
       var modes = convertToLibramModes(this.modes);
-      if (this.modifier.length > 0 || _toConsumableArray5(this.bonuses).filter(function(_ref5) {
-        var _ref6 = _slicedToArray4(_ref5, 2), value = _ref6[1];
+      if (this.modifier.length > 0 || _toConsumableArray6(this.bonuses).filter(function(_ref5) {
+        var _ref6 = _slicedToArray7(_ref5, 2), value = _ref6[1];
         return value;
       }).length > 0) {
         var allRequirements = [new Requirement(this.modifier, {
-          preventSlot: _toConsumableArray5(usedSlots),
+          preventSlot: _toConsumableArray6(usedSlots),
           preventEquip: this.avoid,
           modes: modes,
           bonusEquip: this.bonuses
@@ -4526,7 +9740,7 @@ var weaponHands = function(i) {
       }
       if (applyModes(modes), bjorn && (0, import_kolmafia11.haveEquipped)($item(_templateObject432 || (_templateObject432 = _taggedTemplateLiteral4(["Buddy Bjorn"])))) && ((0, import_kolmafia11.myEnthronedFamiliar)() === bjorn && (0, import_kolmafia11.enthroneFamiliar)($familiar.none), (0, import_kolmafia11.myBjornedFamiliar)() !== bjorn && (0, import_kolmafia11.bjornifyFamiliar)(bjorn)), crown && (0, import_kolmafia11.haveEquipped)($item(_templateObject442 || (_templateObject442 = _taggedTemplateLiteral4(["Crown of Thrones"])))) && ((0, import_kolmafia11.myBjornedFamiliar)() === crown && (0, import_kolmafia11.bjornifyFamiliar)($familiar.none), (0, import_kolmafia11.myEnthronedFamiliar)() !== crown && (0, import_kolmafia11.enthroneFamiliar)(crown)), this.familiar !== void 0 && (0, import_kolmafia11.myFamiliar)() !== this.familiar)
         throw "Failed to fully dress (expected: familiar ".concat(this.familiar, ")");
-      var _iterator6 = _createForOfIteratorHelper7(nonaccessorySlots), _step6;
+      var _iterator6 = _createForOfIteratorHelper8(nonaccessorySlots), _step6;
       try {
         for (_iterator6.s(); !(_step6 = _iterator6.n()).done; ) {
           var _slot2 = _step6.value;
@@ -4538,7 +9752,7 @@ var weaponHands = function(i) {
       } finally {
         _iterator6.f();
       }
-      var _iterator7 = _createForOfIteratorHelper7(accessoryEquips), _step7;
+      var _iterator7 = _createForOfIteratorHelper8(accessoryEquips), _step7;
       try {
         var _loop2 = function() {
           var accessory2 = _step7.value;
@@ -4555,15 +9769,15 @@ var weaponHands = function(i) {
         _iterator7.f();
       }
       for (var _i5 = 0, _arr2 = [[$slot(_templateObject452 || (_templateObject452 = _taggedTemplateLiteral4(["buddy-bjorn"]))), $item(_templateObject462 || (_templateObject462 = _taggedTemplateLiteral4(["Buddy Bjorn"]))), import_kolmafia11.myBjornedFamiliar], [$slot(_templateObject472 || (_templateObject472 = _taggedTemplateLiteral4(["crown-of-thrones"]))), $item(_templateObject482 || (_templateObject482 = _taggedTemplateLiteral4(["Crown of Thrones"]))), import_kolmafia11.myEnthronedFamiliar]]; _i5 < _arr2.length; _i5++) {
-        var _arr2$_i = _slicedToArray4(_arr2[_i5], 3), rider = _arr2$_i[0], throne = _arr2$_i[1], checkingFunction = _arr2$_i[2], wanted = this.riders.get(rider);
-        if (_toConsumableArray5(this.equips.values()).includes(throne) && wanted && checkingFunction() !== wanted)
+        var _arr2$_i = _slicedToArray7(_arr2[_i5], 3), rider = _arr2$_i[0], throne = _arr2$_i[1], checkingFunction = _arr2$_i[2], wanted = this.riders.get(rider);
+        if (_toConsumableArray6(this.equips.values()).includes(throne) && wanted && checkingFunction() !== wanted)
           throw "Failed to fully dress: (expected ".concat(rider, " ").concat(wanted, ")");
       }
     }
   }, {
     key: "dress",
     value: function() {
-      var _iterator8 = _createForOfIteratorHelper7(this.preActions), _step8;
+      var _iterator8 = _createForOfIteratorHelper8(this.preActions), _step8;
       try {
         for (_iterator8.s(); !(_step8 = _iterator8.n()).done; ) {
           var action = _step8.value;
@@ -4575,7 +9789,7 @@ var weaponHands = function(i) {
         _iterator8.f();
       }
       this._dress(!1);
-      var _iterator9 = _createForOfIteratorHelper7(this.postActions), _step9;
+      var _iterator9 = _createForOfIteratorHelper8(this.postActions), _step9;
       try {
         for (_iterator9.s(); !(_step9 = _iterator9.n()).done; ) {
           var _action = _step9.value;
@@ -4594,7 +9808,7 @@ var weaponHands = function(i) {
     key: "clone",
     value: function() {
       var result = new Outfit2();
-      return result.equips = new Map(this.equips), result.skipDefaults = this.skipDefaults, result.familiar = this.familiar, result.modifier = _toConsumableArray5(this.modifier), result.avoid = _toConsumableArray5(this.avoid), result.modes = _objectSpread5({}, this.modes), result.riders = new Map(this.riders), result.bonuses = new Map(this.bonuses), result.beforeDress.apply(result, _toConsumableArray5(this.preActions)), result.afterDress.apply(result, _toConsumableArray5(this.postActions)), result;
+      return result.equips = new Map(this.equips), result.skipDefaults = this.skipDefaults, result.familiar = this.familiar, result.modifier = _toConsumableArray6(this.modifier), result.avoid = _toConsumableArray6(this.avoid), result.modes = _objectSpread5({}, this.modes), result.riders = new Map(this.riders), result.bonuses = new Map(this.bonuses), result.beforeDress.apply(result, _toConsumableArray6(this.preActions)), result.afterDress.apply(result, _toConsumableArray6(this.postActions)), result;
     }
     /**
      * Build an OutfitSpec identical to this outfit.
@@ -4603,8 +9817,8 @@ var weaponHands = function(i) {
     key: "spec",
     value: function() {
       var _a, result = {
-        modifier: _toConsumableArray5(this.modifier),
-        avoid: _toConsumableArray5(this.avoid),
+        modifier: _toConsumableArray6(this.modifier),
+        avoid: _toConsumableArray6(this.avoid),
         skipDefaults: this.skipDefaults,
         modes: _objectSpread5({}, this.modes),
         bonuses: new Map(this.bonuses)
@@ -4639,8 +9853,8 @@ var weaponHands = function(i) {
       if (spec instanceof Requirement) {
         var result = {};
         result.modifier = spec.maximizeParameters, !((_a = spec.maximizeOptions.forceEquip) === null || _a === void 0) && _a.length && (result.equip = spec.maximizeOptions.forceEquip), result.avoid = spec.maximizeOptions.preventEquip, result.bonuses = spec.maximizeOptions.bonusEquip, spec.maximizeOptions.modes && (result.modes = convertFromLibramModes(spec.maximizeOptions.modes));
-        var cleanedResult = Object.fromEntries(_toConsumableArray5(Object.entries(result)).filter(function(_ref7) {
-          var _ref8 = _slicedToArray4(_ref7, 2), v = _ref8[1];
+        var cleanedResult = Object.fromEntries(_toConsumableArray6(Object.entries(result)).filter(function(_ref7) {
+          var _ref8 = _slicedToArray7(_ref7, 2), v = _ref8[1];
           return v !== void 0;
         }));
         return Outfit2.from(cleanedResult);
@@ -4694,27 +9908,27 @@ var _templateObject64, _templateObject215;
 function _taggedTemplateLiteral5(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
-function _toConsumableArray6(arr) {
-  return _arrayWithoutHoles6(arr) || _iterableToArray6(arr) || _unsupportedIterableToArray9(arr) || _nonIterableSpread6();
+function _toConsumableArray7(arr) {
+  return _arrayWithoutHoles7(arr) || _iterableToArray7(arr) || _unsupportedIterableToArray11(arr) || _nonIterableSpread7();
 }
-function _nonIterableSpread6() {
+function _nonIterableSpread7() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _iterableToArray6(iter) {
+function _iterableToArray7(iter) {
   if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
     return Array.from(iter);
 }
-function _arrayWithoutHoles6(arr) {
+function _arrayWithoutHoles7(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray9(arr);
+    return _arrayLikeToArray11(arr);
 }
-function _slicedToArray5(arr, i) {
-  return _arrayWithHoles5(arr) || _iterableToArrayLimit5(arr, i) || _unsupportedIterableToArray9(arr, i) || _nonIterableRest5();
+function _slicedToArray8(arr, i) {
+  return _arrayWithHoles8(arr) || _iterableToArrayLimit8(arr, i) || _unsupportedIterableToArray11(arr, i) || _nonIterableRest8();
 }
-function _nonIterableRest5() {
+function _nonIterableRest8() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _iterableToArrayLimit5(arr, i) {
+function _iterableToArrayLimit8(arr, i) {
   var _i = arr == null ? null : typeof Symbol < "u" && arr[Symbol.iterator] || arr["@@iterator"];
   if (_i != null) {
     var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1;
@@ -4740,14 +9954,14 @@ function _iterableToArrayLimit5(arr, i) {
     return _arr;
   }
 }
-function _arrayWithHoles5(arr) {
+function _arrayWithHoles8(arr) {
   if (Array.isArray(arr))
     return arr;
 }
-function _createForOfIteratorHelper8(o, allowArrayLike) {
+function _createForOfIteratorHelper9(o, allowArrayLike) {
   var it = typeof Symbol < "u" && o[Symbol.iterator] || o["@@iterator"];
   if (!it) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray9(o)) || allowArrayLike && o && typeof o.length == "number") {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray11(o)) || allowArrayLike && o && typeof o.length == "number") {
       it && (o = it);
       var i = 0, F = function() {
       };
@@ -4776,18 +9990,18 @@ function _createForOfIteratorHelper8(o, allowArrayLike) {
     }
   } };
 }
-function _unsupportedIterableToArray9(o, minLen) {
+function _unsupportedIterableToArray11(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray9(o, minLen);
+      return _arrayLikeToArray11(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray9(o, minLen);
+      return _arrayLikeToArray11(o, minLen);
   }
 }
-function _arrayLikeToArray9(arr, len) {
+function _arrayLikeToArray11(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
@@ -4807,30 +10021,30 @@ function _objectSpread6(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     i % 2 ? ownKeys6(Object(source), !0).forEach(function(key) {
-      _defineProperty8(target, key, source[key]);
+      _defineProperty9(target, key, source[key]);
     }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys6(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
   return target;
 }
-function _defineProperty8(obj, key, value) {
-  return key = _toPropertyKey10(key), key in obj ? Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value, obj;
+function _defineProperty9(obj, key, value) {
+  return key = _toPropertyKey11(key), key in obj ? Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value, obj;
 }
-function _defineProperties10(target, props) {
+function _defineProperties11(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey10(descriptor.key), descriptor);
+    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey11(descriptor.key), descriptor);
   }
 }
-function _createClass10(Constructor, protoProps, staticProps) {
-  return protoProps && _defineProperties10(Constructor.prototype, protoProps), staticProps && _defineProperties10(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
+function _createClass11(Constructor, protoProps, staticProps) {
+  return protoProps && _defineProperties11(Constructor.prototype, protoProps), staticProps && _defineProperties11(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
 }
-function _toPropertyKey10(arg) {
-  var key = _toPrimitive10(arg, "string");
+function _toPropertyKey11(arg) {
+  var key = _toPrimitive11(arg, "string");
   return typeof key == "symbol" ? key : String(key);
 }
-function _toPrimitive10(input, hint) {
+function _toPrimitive11(input, hint) {
   if (typeof input != "object" || input === null)
     return input;
   var prim = input[Symbol.toPrimitive];
@@ -4842,17 +10056,17 @@ function _toPrimitive10(input, hint) {
   }
   return (hint === "string" ? String : Number)(input);
 }
-function _classCallCheck10(instance, Constructor) {
+function _classCallCheck11(instance, Constructor) {
   if (!(instance instanceof Constructor))
     throw new TypeError("Cannot call a class as a function");
 }
 var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
   function Engine2(tasks, options) {
     var _this = this;
-    _classCallCheck10(this, Engine2), this.attempts = {}, this.propertyManager = new PropertiesManager(), this.tasks_by_name = /* @__PURE__ */ new Map(), this.cachedCcsContents = "", this.options = options != null ? options : {}, this.tasks = tasks.map(function(task2) {
+    _classCallCheck11(this, Engine2), this.attempts = {}, this.propertyManager = new PropertiesManager(), this.tasks_by_name = /* @__PURE__ */ new Map(), this.cachedCcsContents = "", this.options = options != null ? options : {}, this.tasks = tasks.map(function(task2) {
       return _objectSpread6(_objectSpread6({}, _this.options.default_task_options), task2);
     });
-    var _iterator = _createForOfIteratorHelper8(this.tasks), _step;
+    var _iterator = _createForOfIteratorHelper9(this.tasks), _step;
     try {
       for (_iterator.s(); !(_step = _iterator.n()).done; ) {
         var task = _step.value;
@@ -4865,7 +10079,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
     }
     this.initPropertiesManager(this.propertyManager);
   }
-  return _createClass10(Engine2, [{
+  return _createClass11(Engine2, [{
     key: "getNextTask",
     value: function() {
       var _this = this;
@@ -4909,7 +10123,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
       var _a, _b;
       if (((_a = task.limit) === null || _a === void 0 ? void 0 : _a.skip) !== void 0 && this.attempts[task.name] >= task.limit.skip)
         return !1;
-      var _iterator2 = _createForOfIteratorHelper8((_b = task.after) !== null && _b !== void 0 ? _b : []), _step2;
+      var _iterator2 = _createForOfIteratorHelper9((_b = task.after) !== null && _b !== void 0 ? _b : []), _step2;
       try {
         for (_iterator2.s(); !(_step2 = _iterator2.n()).done; ) {
           var after = _step2.value, after_task = this.tasks_by_name.get(after);
@@ -4939,7 +10153,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
       this.acquireItems(task), this.acquireEffects(task);
       var task_combat = (_d = (_c = task.combat) === null || _c === void 0 ? void 0 : _c.clone()) !== null && _d !== void 0 ? _d : new CombatStrategy(), outfit2 = this.createOutfit(task), task_resources = new CombatResources();
       this.customize(task, outfit2, task_combat, task_resources), this.dress(task, outfit2), this.setCombat(task, task_combat, task_resources), this.setChoices(task, this.propertyManager);
-      var _iterator3 = _createForOfIteratorHelper8(task_resources.all()), _step3;
+      var _iterator3 = _createForOfIteratorHelper9(task_resources.all()), _step3;
       try {
         for (_iterator3.s(); !(_step3 = _iterator3.n()).done; ) {
           var resource = _step3.value;
@@ -4961,7 +10175,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
   }, {
     key: "acquireItems",
     value: function(task) {
-      var _a, acquire = undelay(task.acquire), _iterator4 = _createForOfIteratorHelper8(acquire || []), _step4;
+      var _a, acquire = undelay(task.acquire), _iterator4 = _createForOfIteratorHelper9(acquire || []), _step4;
       try {
         for (_iterator4.s(); !(_step4 = _iterator4.n()).done; ) {
           var to_get = _step4.value, num_needed = (_a = to_get.num) !== null && _a !== void 0 ? _a : 1, num_have = (0, import_kolmafia12.itemAmount)(to_get.item) + (0, import_kolmafia12.equippedAmount)(to_get.item);
@@ -4996,7 +10210,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
           break;
         uneffect(toRemove);
       }
-      var _iterator5 = _createForOfIteratorHelper8(effects), _step5;
+      var _iterator5 = _createForOfIteratorHelper9(effects), _step5;
       try {
         for (_iterator5.s(); !(_step5 = _iterator5.n()).done; ) {
           var effect = _step5.value;
@@ -5060,7 +10274,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
     key: "setChoices",
     value: function(task, manager) {
       for (var _a, _i = 0, _Object$entries = Object.entries(undelay((_a = task.choices) !== null && _a !== void 0 ? _a : {})); _i < _Object$entries.length; _i++) {
-        var _Object$entries$_i = _slicedToArray5(_Object$entries[_i], 2), key = _Object$entries$_i[0], value = _Object$entries$_i[1];
+        var _Object$entries$_i = _slicedToArray8(_Object$entries[_i], 2), key = _Object$entries$_i[0], value = _Object$entries$_i[1];
         value !== void 0 && manager.setChoice(parseInt(key), value);
       }
     }
@@ -5075,7 +10289,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
     value: function(task, task_combat, task_resources) {
       var _a, macro = task_combat.compile(task_resources, (_a = this.options) === null || _a === void 0 ? void 0 : _a.combat_defaults, task.do instanceof import_kolmafia12.Location ? task.do : void 0);
       if (macro.save(), !this.options.ccs) {
-        var otherCCSEntries = task_combat.compileCcs(), ccsContents = ["[default]", '"'.concat(macro.toString(), '"')].concat(_toConsumableArray6(otherCCSEntries)).join("\n");
+        var otherCCSEntries = task_combat.compileCcs(), ccsContents = ["[default]", '"'.concat(macro.toString(), '"')].concat(_toConsumableArray7(otherCCSEntries)).join("\n");
         (0, import_kolmafia12.logprint)("CCS: ".concat(ccsContents.replace("\n", "\\n "))), ccsContents !== this.cachedCcsContents && ((0, import_kolmafia12.writeCcs)(ccsContents, grimoireCCS), (0, import_kolmafia12.cliExecute)("ccs ".concat(grimoireCCS)), this.cachedCcsContents = ccsContents);
       }
       var autoattack = task_combat.compileAutoattack();
@@ -5186,7 +10400,7 @@ var grimoireCCS = "grimoire_macro", Engine = /* @__PURE__ */ function() {
 }();
 Engine.defaultSettings = {
   logPreferenceChange: !0,
-  logPreferenceChangeFilter: _toConsumableArray6(new Set([].concat(_toConsumableArray6(get("logPreferenceChangeFilter").split(",")), ["libram_savedMacro", "maximizerMRUList", "testudinalTeachings", "_lastCombatStarted"]))).sort().filter(function(a) {
+  logPreferenceChangeFilter: _toConsumableArray7(new Set([].concat(_toConsumableArray7(get("logPreferenceChangeFilter").split(",")), ["libram_savedMacro", "maximizerMRUList", "testudinalTeachings", "_lastCombatStarted"]))).sort().filter(function(a) {
     return a;
   }).join(","),
   battleAction: "custom combat script",
@@ -5299,21 +10513,21 @@ function _objectSpread7(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     i % 2 ? ownKeys7(Object(source), !0).forEach(function(key) {
-      _defineProperty9(target, key, source[key]);
+      _defineProperty10(target, key, source[key]);
     }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys7(Object(source)).forEach(function(key) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
   return target;
 }
-function _defineProperty9(obj, key, value) {
-  return key = _toPropertyKey11(key), key in obj ? Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value, obj;
+function _defineProperty10(obj, key, value) {
+  return key = _toPropertyKey12(key), key in obj ? Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value, obj;
 }
-function _toPropertyKey11(arg) {
-  var key = _toPrimitive11(arg, "string");
+function _toPropertyKey12(arg) {
+  var key = _toPrimitive12(arg, "string");
   return typeof key == "symbol" ? key : String(key);
 }
-function _toPrimitive11(input, hint) {
+function _toPrimitive12(input, hint) {
   if (typeof input != "object" || input === null)
     return input;
   var prim = input[Symbol.toPrimitive];
@@ -5325,10 +10539,10 @@ function _toPrimitive11(input, hint) {
   }
   return (hint === "string" ? String : Number)(input);
 }
-function _createForOfIteratorHelper9(o, allowArrayLike) {
+function _createForOfIteratorHelper10(o, allowArrayLike) {
   var it = typeof Symbol < "u" && o[Symbol.iterator] || o["@@iterator"];
   if (!it) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray10(o)) || allowArrayLike && o && typeof o.length == "number") {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray12(o)) || allowArrayLike && o && typeof o.length == "number") {
       it && (o = it);
       var i = 0, F = function() {
       };
@@ -5357,28 +10571,28 @@ function _createForOfIteratorHelper9(o, allowArrayLike) {
     }
   } };
 }
-function _unsupportedIterableToArray10(o, minLen) {
+function _unsupportedIterableToArray12(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray10(o, minLen);
+      return _arrayLikeToArray12(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray10(o, minLen);
+      return _arrayLikeToArray12(o, minLen);
   }
 }
-function _arrayLikeToArray10(arr, len) {
+function _arrayLikeToArray12(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
   return arr2;
 }
 function getTasks(quests) {
-  var implicitAfter = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : !1, _a, _b, result = [], _iterator = _createForOfIteratorHelper9(quests), _step;
+  var implicitAfter = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : !1, _a, _b, result = [], _iterator = _createForOfIteratorHelper10(quests), _step;
   try {
     var _loop = function() {
-      var quest = _step.value, questCompleted = quest.completed, questReady = quest.ready, _iterator3 = _createForOfIteratorHelper9(quest.tasks), _step3;
+      var quest = _step.value, questCompleted = quest.completed, questReady = quest.ready, _iterator3 = _createForOfIteratorHelper10(quest.tasks), _step3;
       try {
         var _loop22 = function() {
           var task2 = _step3.value, renamedTask = _objectSpread7({}, task2);
@@ -5417,7 +10631,7 @@ function getTasks(quests) {
     names.add(task.name);
   }
   for (var _i2 = 0, _result2 = result; _i2 < _result2.length; _i2++) {
-    var _task = _result2[_i2], _iterator2 = _createForOfIteratorHelper9((_b = _task.after) !== null && _b !== void 0 ? _b : []), _step2;
+    var _task = _result2[_i2], _iterator2 = _createForOfIteratorHelper10((_b = _task.after) !== null && _b !== void 0 ? _b : []), _step2;
     try {
       for (_iterator2.s(); !(_step2 = _iterator2.n()).done; ) {
         var after = _step2.value;
@@ -5442,83 +10656,12 @@ init_kolmafia_polyfill();
 // src/lib/args.ts
 init_kolmafia_polyfill();
 
-// src/lib/aliases/workshed.ts
+// src/quests/leg1/leg1.ts
 init_kolmafia_polyfill();
-var import_kolmafia13 = require("kolmafia");
-var _templateObject65, _templateObject216, _templateObject314, _templateObject413;
-function _toConsumableArray7(arr) {
-  return _arrayWithoutHoles7(arr) || _iterableToArray7(arr) || _unsupportedIterableToArray11(arr) || _nonIterableSpread7();
-}
-function _nonIterableSpread7() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _unsupportedIterableToArray11(o, minLen) {
-  if (o) {
-    if (typeof o == "string")
-      return _arrayLikeToArray11(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
-      return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray11(o, minLen);
-  }
-}
-function _iterableToArray7(iter) {
-  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
-    return Array.from(iter);
-}
-function _arrayWithoutHoles7(arr) {
-  if (Array.isArray(arr))
-    return _arrayLikeToArray11(arr);
-}
-function _arrayLikeToArray11(arr, len) {
-  (len == null || len > arr.length) && (len = arr.length);
-  for (var i = 0, arr2 = new Array(len); i < len; i++)
-    arr2[i] = arr[i];
-  return arr2;
-}
-function _taggedTemplateLiteral6(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var workshedAliases = [{
-  item: $item(_templateObject65 || (_templateObject65 = _taggedTemplateLiteral6(["model train set"]))),
-  aliases: ["trainrealm"]
-}, {
-  item: $item(_templateObject216 || (_templateObject216 = _taggedTemplateLiteral6(["Asdon Martin keyfob (on ring)"]))),
-  aliases: ["breadcar", "car", "aston"]
-}, {
-  item: $item(_templateObject314 || (_templateObject314 = _taggedTemplateLiteral6(["Little Geneticist DNA-Splicing Lab"]))),
-  aliases: ["dnalab"]
-}], unaliasedSheds = $items(_templateObject413 || (_templateObject413 = _taggedTemplateLiteral6(["cold medicine cabinet, diabolic pizza cube, portable Mayo Clinic, spinning wheel, warbear auto-anvil, warbear chemistry lab, warbear high-efficiency still, warbear induction oven, warbear jackhammer drill press, warbear LP-ROM burner"]))), allWorkshedAliases = [].concat(_toConsumableArray7(workshedAliases.map(function(_ref) {
-  var item = _ref.item, aliases = _ref.aliases;
-  return {
-    item: item,
-    aliases: [].concat(_toConsumableArray7(aliases), [item.name.toLowerCase()])
-  };
-})), _toConsumableArray7(unaliasedSheds.map(function(item) {
-  return {
-    item: item,
-    aliases: [item.name.toLowerCase()]
-  };
-})));
-function stringToWorkshedItem(s) {
-  if (s === "")
-    return $item.none;
-  var lowerCaseWorkshed = s.toLowerCase(), strippedWorkshed = stripString(lowerCaseWorkshed), validWorksheds = allWorkshedAliases.filter(function(_ref2) {
-    var item = _ref2.item, aliases = _ref2.aliases;
-    return toInitials(item.name.toLowerCase()) === lowerCaseWorkshed || item.name.toLowerCase().includes(lowerCaseWorkshed) || stripString(item.name.toLowerCase()).includes(strippedWorkshed) || aliases.some(function(alias) {
-      return alias === lowerCaseWorkshed;
-    });
-  });
-  if (validWorksheds.length > 1)
-    throw (0, import_kolmafia13.print)("Invalid Workshed: ".concat(s, " matches multiple worksheds! Matched:"), "red"), validWorksheds.forEach(function(_ref3) {
-      var item = _ref3.item;
-      return (0, import_kolmafia13.print)("".concat(item), "red");
-    }), new Error();
-  if (validWorksheds.length === 0)
-    throw (0, import_kolmafia13.print)("Invalid Workshed: ".concat(s, " does not match any worksheds!"), "red"), new Error();
-  return validWorksheds[0].item;
-}
+
+// src/quests/breakfast.ts
+init_kolmafia_polyfill();
+var import_kolmafia36 = require("kolmafia");
 
 // src/lib/constants.ts
 init_kolmafia_polyfill();
@@ -5537,27 +10680,27 @@ __export(astralDeli_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia15 = require("kolmafia");
+var import_kolmafia14 = require("kolmafia");
 
 // src/lib/aliases/astralDeli.ts
 init_kolmafia_polyfill();
-var import_kolmafia14 = require("kolmafia");
-var _templateObject66, _templateObject217, _templateObject315;
+var import_kolmafia13 = require("kolmafia");
+var _templateObject65, _templateObject216, _templateObject314;
 function _toConsumableArray8(arr) {
-  return _arrayWithoutHoles8(arr) || _iterableToArray8(arr) || _unsupportedIterableToArray12(arr) || _nonIterableSpread8();
+  return _arrayWithoutHoles8(arr) || _iterableToArray8(arr) || _unsupportedIterableToArray13(arr) || _nonIterableSpread8();
 }
 function _nonIterableSpread8() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray12(o, minLen) {
+function _unsupportedIterableToArray13(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray12(o, minLen);
+      return _arrayLikeToArray13(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray12(o, minLen);
+      return _arrayLikeToArray13(o, minLen);
   }
 }
 function _iterableToArray8(iter) {
@@ -5566,25 +10709,25 @@ function _iterableToArray8(iter) {
 }
 function _arrayWithoutHoles8(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray12(arr);
+    return _arrayLikeToArray13(arr);
 }
-function _arrayLikeToArray12(arr, len) {
+function _arrayLikeToArray13(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
   return arr2;
 }
-function _taggedTemplateLiteral7(strings, raw) {
+function _taggedTemplateLiteral6(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 var astralDeliAliases = [{
-  item: $item(_templateObject66 || (_templateObject66 = _taggedTemplateLiteral7(["astral hot dog dinner"]))),
+  item: $item(_templateObject65 || (_templateObject65 = _taggedTemplateLiteral6(["astral hot dog dinner"]))),
   aliases: ["hot dog"]
 }, {
-  item: $item(_templateObject217 || (_templateObject217 = _taggedTemplateLiteral7(["astral six-pack"]))),
+  item: $item(_templateObject216 || (_templateObject216 = _taggedTemplateLiteral6(["astral six-pack"]))),
   aliases: ["six-pack", "pilsner"]
 }, {
-  item: $item(_templateObject315 || (_templateObject315 = _taggedTemplateLiteral7(["[10882]carton of astral energy drinks"]))),
+  item: $item(_templateObject314 || (_templateObject314 = _taggedTemplateLiteral6(["[10882]carton of astral energy drinks"]))),
   aliases: ["energy drinks"]
 }], allAstralDeliAliases = _toConsumableArray8(astralDeliAliases.map(function(_ref) {
   var item = _ref.item, aliases = _ref.aliases;
@@ -5603,31 +10746,31 @@ function stringToAstralDeliItem(s) {
     });
   });
   if (validItems.length > 1)
-    throw (0, import_kolmafia14.print)("Invalid Astral Deli Item: ".concat(s, " matches multiple worksheds! Matched:"), "red"), validItems.forEach(function(_ref3) {
+    throw (0, import_kolmafia13.print)("Invalid Astral Deli Item: ".concat(s, " matches multiple worksheds! Matched:"), "red"), validItems.forEach(function(_ref3) {
       var item = _ref3.item;
-      return (0, import_kolmafia14.print)("".concat(item), "red");
+      return (0, import_kolmafia13.print)("".concat(item), "red");
     }), new Error();
   if (validItems.length === 0)
-    throw (0, import_kolmafia14.print)("Invalid Astral Deli Item: ".concat(s, " does not match any astral deli items!"), "red"), new Error();
+    throw (0, import_kolmafia13.print)("Invalid Astral Deli Item: ".concat(s, " does not match any astral deli items!"), "red"), new Error();
   return validItems[0].item;
 }
 
 // src/lib/preferences/afterlife/astralDeli.ts
 function _toConsumableArray9(arr) {
-  return _arrayWithoutHoles9(arr) || _iterableToArray9(arr) || _unsupportedIterableToArray13(arr) || _nonIterableSpread9();
+  return _arrayWithoutHoles9(arr) || _iterableToArray9(arr) || _unsupportedIterableToArray14(arr) || _nonIterableSpread9();
 }
 function _nonIterableSpread9() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray13(o, minLen) {
+function _unsupportedIterableToArray14(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray13(o, minLen);
+      return _arrayLikeToArray14(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray13(o, minLen);
+      return _arrayLikeToArray14(o, minLen);
   }
 }
 function _iterableToArray9(iter) {
@@ -5636,9 +10779,9 @@ function _iterableToArray9(iter) {
 }
 function _arrayWithoutHoles9(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray13(arr);
+    return _arrayLikeToArray14(arr);
 }
-function _arrayLikeToArray13(arr, len) {
+function _arrayLikeToArray14(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
@@ -5659,7 +10802,7 @@ var astralDeli = {
   })), [[$item.none, "leave this field blank"]])
 }, stringToAstralDeliItem, "Item");
 function setAstralDeli() {
-  var pref = (0, import_kolmafia15.userPrompt)("".concat(astralDeli.help, " Use 'blooper help options' to see all acceptable values for this setting."));
+  var pref = (0, import_kolmafia14.userPrompt)("".concat(astralDeli.help, " Use 'blooper help options' to see all acceptable values for this setting."));
   _set(astralDeli.setting, pref), args.afterlife.astralDeli = stringToAstralDeliItem(pref);
 }
 
@@ -5677,27 +10820,27 @@ __export(astralPet_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia17 = require("kolmafia");
+var import_kolmafia16 = require("kolmafia");
 
 // src/lib/aliases/astralPet.ts
 init_kolmafia_polyfill();
-var import_kolmafia16 = require("kolmafia");
-var _templateObject67, _templateObject218, _templateObject316, _templateObject414, _templateObject510, _templateObject68, _templateObject74, _templateObject84, _templateObject95, _templateObject104, _templateObject114, _templateObject124, _templateObject134, _templateObject144, _templateObject154;
+var import_kolmafia15 = require("kolmafia");
+var _templateObject66, _templateObject217, _templateObject315, _templateObject413, _templateObject510, _templateObject67, _templateObject74, _templateObject84, _templateObject95, _templateObject104, _templateObject114, _templateObject124, _templateObject134, _templateObject144, _templateObject154;
 function _toConsumableArray10(arr) {
-  return _arrayWithoutHoles10(arr) || _iterableToArray10(arr) || _unsupportedIterableToArray14(arr) || _nonIterableSpread10();
+  return _arrayWithoutHoles10(arr) || _iterableToArray10(arr) || _unsupportedIterableToArray15(arr) || _nonIterableSpread10();
 }
 function _nonIterableSpread10() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray14(o, minLen) {
+function _unsupportedIterableToArray15(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray14(o, minLen);
+      return _arrayLikeToArray15(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray14(o, minLen);
+      return _arrayLikeToArray15(o, minLen);
   }
 }
 function _iterableToArray10(iter) {
@@ -5706,61 +10849,61 @@ function _iterableToArray10(iter) {
 }
 function _arrayWithoutHoles10(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray14(arr);
+    return _arrayLikeToArray15(arr);
 }
-function _arrayLikeToArray14(arr, len) {
+function _arrayLikeToArray15(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
   return arr2;
 }
-function _taggedTemplateLiteral8(strings, raw) {
+function _taggedTemplateLiteral7(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 var astralPetAliases = [{
-  item: $item(_templateObject67 || (_templateObject67 = _taggedTemplateLiteral8(["astral bludgeon"]))),
+  item: $item(_templateObject66 || (_templateObject66 = _taggedTemplateLiteral7(["astral bludgeon"]))),
   aliases: ["bludgeon"]
 }, {
-  item: $item(_templateObject218 || (_templateObject218 = _taggedTemplateLiteral8(["astral shield"]))),
+  item: $item(_templateObject217 || (_templateObject217 = _taggedTemplateLiteral7(["astral shield"]))),
   aliases: ["shield"]
 }, {
-  item: $item(_templateObject316 || (_templateObject316 = _taggedTemplateLiteral8(["astral chapeau"]))),
+  item: $item(_templateObject315 || (_templateObject315 = _taggedTemplateLiteral7(["astral chapeau"]))),
   aliases: ["chapeau"]
 }, {
-  item: $item(_templateObject414 || (_templateObject414 = _taggedTemplateLiteral8(["astral bracer"]))),
+  item: $item(_templateObject413 || (_templateObject413 = _taggedTemplateLiteral7(["astral bracer"]))),
   aliases: ["bracer"]
 }, {
-  item: $item(_templateObject510 || (_templateObject510 = _taggedTemplateLiteral8(["astral longbow"]))),
+  item: $item(_templateObject510 || (_templateObject510 = _taggedTemplateLiteral7(["astral longbow"]))),
   aliases: ["longbow"]
 }, {
-  item: $item(_templateObject68 || (_templateObject68 = _taggedTemplateLiteral8(["astral shorts"]))),
+  item: $item(_templateObject67 || (_templateObject67 = _taggedTemplateLiteral7(["astral shorts"]))),
   aliases: ["shorts"]
 }, {
-  item: $item(_templateObject74 || (_templateObject74 = _taggedTemplateLiteral8(["astral mace"]))),
+  item: $item(_templateObject74 || (_templateObject74 = _taggedTemplateLiteral7(["astral mace"]))),
   aliases: ["mace"]
 }, {
-  item: $item(_templateObject84 || (_templateObject84 = _taggedTemplateLiteral8(["astral trousers"]))),
+  item: $item(_templateObject84 || (_templateObject84 = _taggedTemplateLiteral7(["astral trousers"]))),
   aliases: ["trousers"]
 }, {
-  item: $item(_templateObject95 || (_templateObject95 = _taggedTemplateLiteral8(["astral ring"]))),
+  item: $item(_templateObject95 || (_templateObject95 = _taggedTemplateLiteral7(["astral ring"]))),
   aliases: ["ring"]
 }, {
-  item: $item(_templateObject104 || (_templateObject104 = _taggedTemplateLiteral8(["astral statuette"]))),
+  item: $item(_templateObject104 || (_templateObject104 = _taggedTemplateLiteral7(["astral statuette"]))),
   aliases: ["statuette"]
 }, {
-  item: $item(_templateObject114 || (_templateObject114 = _taggedTemplateLiteral8(["astral pistol"]))),
+  item: $item(_templateObject114 || (_templateObject114 = _taggedTemplateLiteral7(["astral pistol"]))),
   aliases: ["pistol"]
 }, {
-  item: $item(_templateObject124 || (_templateObject124 = _taggedTemplateLiteral8(["astral mask"]))),
+  item: $item(_templateObject124 || (_templateObject124 = _taggedTemplateLiteral7(["astral mask"]))),
   aliases: ["mask"]
 }, {
-  item: $item(_templateObject134 || (_templateObject134 = _taggedTemplateLiteral8(["astral pet sweater"]))),
+  item: $item(_templateObject134 || (_templateObject134 = _taggedTemplateLiteral7(["astral pet sweater"]))),
   aliases: ["pet sweater", "sweater"]
 }, {
-  item: $item(_templateObject144 || (_templateObject144 = _taggedTemplateLiteral8(["astral shirt"]))),
+  item: $item(_templateObject144 || (_templateObject144 = _taggedTemplateLiteral7(["astral shirt"]))),
   aliases: ["shirt"]
 }, {
-  item: $item(_templateObject154 || (_templateObject154 = _taggedTemplateLiteral8(["astral belt"]))),
+  item: $item(_templateObject154 || (_templateObject154 = _taggedTemplateLiteral7(["astral belt"]))),
   aliases: ["belt"]
 }], allAstralPetAliases = _toConsumableArray10(astralPetAliases.map(function(_ref) {
   var item = _ref.item, aliases = _ref.aliases;
@@ -5779,31 +10922,31 @@ function stringToAstralPet(s) {
     });
   });
   if (validItems.length > 1)
-    throw (0, import_kolmafia16.print)("Invalid Astral Pet: ".concat(s, " matches multiple worksheds! Matched:"), "red"), validItems.forEach(function(_ref3) {
+    throw (0, import_kolmafia15.print)("Invalid Astral Pet: ".concat(s, " matches multiple worksheds! Matched:"), "red"), validItems.forEach(function(_ref3) {
       var item = _ref3.item;
-      return (0, import_kolmafia16.print)("".concat(item), "red");
+      return (0, import_kolmafia15.print)("".concat(item), "red");
     }), new Error();
   if (validItems.length === 0)
-    throw (0, import_kolmafia16.print)("Invalid Astral Pet: ".concat(s, " does not match any astral pets!"), "red"), new Error();
+    throw (0, import_kolmafia15.print)("Invalid Astral Pet: ".concat(s, " does not match any astral pets!"), "red"), new Error();
   return validItems[0].item;
 }
 
 // src/lib/preferences/afterlife/astralPet.ts
 function _toConsumableArray11(arr) {
-  return _arrayWithoutHoles11(arr) || _iterableToArray11(arr) || _unsupportedIterableToArray15(arr) || _nonIterableSpread11();
+  return _arrayWithoutHoles11(arr) || _iterableToArray11(arr) || _unsupportedIterableToArray16(arr) || _nonIterableSpread11();
 }
 function _nonIterableSpread11() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray15(o, minLen) {
+function _unsupportedIterableToArray16(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray15(o, minLen);
+      return _arrayLikeToArray16(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray15(o, minLen);
+      return _arrayLikeToArray16(o, minLen);
   }
 }
 function _iterableToArray11(iter) {
@@ -5812,9 +10955,9 @@ function _iterableToArray11(iter) {
 }
 function _arrayWithoutHoles11(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray15(arr);
+    return _arrayLikeToArray16(arr);
 }
-function _arrayLikeToArray15(arr, len) {
+function _arrayLikeToArray16(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
@@ -5835,7 +10978,7 @@ var astralPet = {
   })), [[$item.none, "leave this field blank"]])
 }, stringToAstralPet, "Item");
 function setAstralPet() {
-  var pref = (0, import_kolmafia17.userPrompt)("".concat(astralPet.help, " Use 'blooper help options' to see all acceptable values for this setting."));
+  var pref = (0, import_kolmafia16.userPrompt)("".concat(astralPet.help, " Use 'blooper help options' to see all acceptable values for this setting."));
   _set(astralPet.setting, pref), args.afterlife.astralPet = stringToAstralPet(pref);
 }
 
@@ -5853,96 +10996,16 @@ __export(class_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia19 = require("kolmafia");
+var import_kolmafia18 = require("kolmafia");
 
 // src/lib/aliases/class.ts
 init_kolmafia_polyfill();
-var import_kolmafia18 = require("kolmafia");
-var _templateObject69, _templateObject219, _templateObject317, _templateObject415, _templateObject511, _templateObject610, _templateObject75;
+var import_kolmafia17 = require("kolmafia");
+var _templateObject68, _templateObject218, _templateObject316, _templateObject414, _templateObject511, _templateObject69, _templateObject75;
 function _toConsumableArray12(arr) {
-  return _arrayWithoutHoles12(arr) || _iterableToArray12(arr) || _unsupportedIterableToArray16(arr) || _nonIterableSpread12();
+  return _arrayWithoutHoles12(arr) || _iterableToArray12(arr) || _unsupportedIterableToArray17(arr) || _nonIterableSpread12();
 }
 function _nonIterableSpread12() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _unsupportedIterableToArray16(o, minLen) {
-  if (o) {
-    if (typeof o == "string")
-      return _arrayLikeToArray16(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
-      return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray16(o, minLen);
-  }
-}
-function _iterableToArray12(iter) {
-  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
-    return Array.from(iter);
-}
-function _arrayWithoutHoles12(arr) {
-  if (Array.isArray(arr))
-    return _arrayLikeToArray16(arr);
-}
-function _arrayLikeToArray16(arr, len) {
-  (len == null || len > arr.length) && (len = arr.length);
-  for (var i = 0, arr2 = new Array(len); i < len; i++)
-    arr2[i] = arr[i];
-  return arr2;
-}
-function _taggedTemplateLiteral9(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var classAliases = [{
-  classObj: $class(_templateObject69 || (_templateObject69 = _taggedTemplateLiteral9(["Seal Clubber"]))),
-  aliases: ["seal clubber", "sc"]
-}, {
-  classObj: $class(_templateObject219 || (_templateObject219 = _taggedTemplateLiteral9(["Turtle Tamer"]))),
-  aliases: ["turtle tamer", "tt"]
-}, {
-  classObj: $class(_templateObject317 || (_templateObject317 = _taggedTemplateLiteral9(["Pastamancer"]))),
-  aliases: ["pastamancer", "pm"]
-}, {
-  classObj: $class(_templateObject415 || (_templateObject415 = _taggedTemplateLiteral9(["Sauceror"]))),
-  aliases: ["sauceror", "s"]
-}, {
-  classObj: $class(_templateObject511 || (_templateObject511 = _taggedTemplateLiteral9(["Disco Bandit"]))),
-  aliases: ["disco bandit", "db"]
-}, {
-  classObj: $class(_templateObject610 || (_templateObject610 = _taggedTemplateLiteral9(["Accordion Thief"]))),
-  aliases: ["accordion thief", "at"]
-}], allClasses = _toConsumableArray12(classAliases.map(function(_ref) {
-  var classObj = _ref.classObj, aliases = _ref.aliases;
-  return {
-    classObj: classObj,
-    aliases: aliases
-  };
-}));
-function stringToClass(s) {
-  if (s === "")
-    return $class(_templateObject75 || (_templateObject75 = _taggedTemplateLiteral9(["Sauceror"])));
-  var lowerCaseName = s.toLowerCase(), validClasses = allClasses.filter(function(_ref2) {
-    var aliases = _ref2.aliases;
-    return aliases.some(function(alias) {
-      return alias === lowerCaseName;
-    });
-  });
-  if (validClasses.length > 1)
-    throw (0, import_kolmafia18.print)("Invalid Class: ".concat(s, " matches multipel classes! Matched:"), "red"), validClasses.forEach(function(_ref3) {
-      var classObj = _ref3.classObj;
-      return (0, import_kolmafia18.print)("".concat(classObj), "red");
-    }), new Error();
-  if (validClasses.length === 0)
-    throw (0, import_kolmafia18.print)("Invalid Class: ".concat(s, " does not match any classes!"), "red"), new Error();
-  return validClasses[0].classObj;
-}
-
-// src/lib/preferences/afterlife/class.ts
-var _templateObject70;
-function _toConsumableArray13(arr) {
-  return _arrayWithoutHoles13(arr) || _iterableToArray13(arr) || _unsupportedIterableToArray17(arr) || _nonIterableSpread13();
-}
-function _nonIterableSpread13() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 function _unsupportedIterableToArray17(o, minLen) {
@@ -5956,11 +11019,11 @@ function _unsupportedIterableToArray17(o, minLen) {
       return _arrayLikeToArray17(o, minLen);
   }
 }
-function _iterableToArray13(iter) {
+function _iterableToArray12(iter) {
   if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
     return Array.from(iter);
 }
-function _arrayWithoutHoles13(arr) {
+function _arrayWithoutHoles12(arr) {
   if (Array.isArray(arr))
     return _arrayLikeToArray17(arr);
 }
@@ -5970,7 +11033,87 @@ function _arrayLikeToArray17(arr, len) {
     arr2[i] = arr[i];
   return arr2;
 }
-function _taggedTemplateLiteral10(strings, raw) {
+function _taggedTemplateLiteral8(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var classAliases = [{
+  classObj: $class(_templateObject68 || (_templateObject68 = _taggedTemplateLiteral8(["Seal Clubber"]))),
+  aliases: ["seal clubber", "sc"]
+}, {
+  classObj: $class(_templateObject218 || (_templateObject218 = _taggedTemplateLiteral8(["Turtle Tamer"]))),
+  aliases: ["turtle tamer", "tt"]
+}, {
+  classObj: $class(_templateObject316 || (_templateObject316 = _taggedTemplateLiteral8(["Pastamancer"]))),
+  aliases: ["pastamancer", "pm"]
+}, {
+  classObj: $class(_templateObject414 || (_templateObject414 = _taggedTemplateLiteral8(["Sauceror"]))),
+  aliases: ["sauceror", "s"]
+}, {
+  classObj: $class(_templateObject511 || (_templateObject511 = _taggedTemplateLiteral8(["Disco Bandit"]))),
+  aliases: ["disco bandit", "db"]
+}, {
+  classObj: $class(_templateObject69 || (_templateObject69 = _taggedTemplateLiteral8(["Accordion Thief"]))),
+  aliases: ["accordion thief", "at"]
+}], allClasses = _toConsumableArray12(classAliases.map(function(_ref) {
+  var classObj = _ref.classObj, aliases = _ref.aliases;
+  return {
+    classObj: classObj,
+    aliases: aliases
+  };
+}));
+function stringToClass(s) {
+  if (s === "")
+    return $class(_templateObject75 || (_templateObject75 = _taggedTemplateLiteral8(["Sauceror"])));
+  var lowerCaseName = s.toLowerCase(), validClasses = allClasses.filter(function(_ref2) {
+    var aliases = _ref2.aliases;
+    return aliases.some(function(alias) {
+      return alias === lowerCaseName;
+    });
+  });
+  if (validClasses.length > 1)
+    throw (0, import_kolmafia17.print)("Invalid Class: ".concat(s, " matches multipel classes! Matched:"), "red"), validClasses.forEach(function(_ref3) {
+      var classObj = _ref3.classObj;
+      return (0, import_kolmafia17.print)("".concat(classObj), "red");
+    }), new Error();
+  if (validClasses.length === 0)
+    throw (0, import_kolmafia17.print)("Invalid Class: ".concat(s, " does not match any classes!"), "red"), new Error();
+  return validClasses[0].classObj;
+}
+
+// src/lib/preferences/afterlife/class.ts
+var _templateObject70;
+function _toConsumableArray13(arr) {
+  return _arrayWithoutHoles13(arr) || _iterableToArray13(arr) || _unsupportedIterableToArray18(arr) || _nonIterableSpread13();
+}
+function _nonIterableSpread13() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _unsupportedIterableToArray18(o, minLen) {
+  if (o) {
+    if (typeof o == "string")
+      return _arrayLikeToArray18(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
+      return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+      return _arrayLikeToArray18(o, minLen);
+  }
+}
+function _iterableToArray13(iter) {
+  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
+    return Array.from(iter);
+}
+function _arrayWithoutHoles13(arr) {
+  if (Array.isArray(arr))
+    return _arrayLikeToArray18(arr);
+}
+function _arrayLikeToArray18(arr, len) {
+  (len == null || len > arr.length) && (len = arr.length);
+  for (var i = 0, arr2 = new Array(len); i < len; i++)
+    arr2[i] = arr[i];
+  return arr2;
+}
+function _taggedTemplateLiteral9(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 var ascendClass = {
@@ -5979,7 +11122,7 @@ var ascendClass = {
 }, ascendClassPref = Args.custom({
   setting: ascendClass.setting,
   help: ascendClass.help,
-  default: $class(_templateObject70 || (_templateObject70 = _taggedTemplateLiteral10(["Sauceror"]))),
+  default: $class(_templateObject70 || (_templateObject70 = _taggedTemplateLiteral9(["Sauceror"]))),
   options: _toConsumableArray13(allClasses.map(function(_ref) {
     var classObj = _ref.classObj, aliases = _ref.aliases;
     return [classObj, "".concat(aliases.filter(function(alias) {
@@ -5988,7 +11131,7 @@ var ascendClass = {
   }))
 }, stringToClass, "Class");
 function setAscendClass() {
-  var pref = (0, import_kolmafia19.userPrompt)("".concat(ascendClass.help, " Use 'blooper help options' to see all acceptable values for this setting."));
+  var pref = (0, import_kolmafia18.userPrompt)("".concat(ascendClass.help, " Use 'blooper help options' to see all acceptable values for this setting."));
   _set(ascendClass.setting, pref), args.afterlife.class = stringToClass(pref);
 }
 
@@ -6006,7 +11149,7 @@ __export(gender_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia20 = require("kolmafia");
+var import_kolmafia19 = require("kolmafia");
 var gender = {
   setting: "tptb.bLooper.gender",
   help: ""
@@ -6017,7 +11160,7 @@ var gender = {
   options: [[1, "Male"], [2, "Female"]]
 });
 function setGender() {
-  var pref = Number.parseInt((0, import_kolmafia20.userPrompt)("".concat(gender.help, " Use 'blooper help options' to see all acceptable values for this setting.")));
+  var pref = Number.parseInt((0, import_kolmafia19.userPrompt)("".concat(gender.help, " Use 'blooper help options' to see all acceptable values for this setting.")));
   _set(gender.setting, pref), args.afterlife.gender = pref;
 }
 
@@ -6035,7 +11178,7 @@ __export(lifestyle_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia21 = require("kolmafia");
+var import_kolmafia20 = require("kolmafia");
 var lifestyle = {
   setting: "tptb.bLooper.lifestyle",
   help: "The type of ascension you want to run."
@@ -6046,7 +11189,7 @@ var lifestyle = {
   options: [[1, "Casual"], [2, "Normal (or Softcore)"], [3, "Hardcore"]]
 });
 function setLifestyle() {
-  var pref = Number.parseInt((0, import_kolmafia21.userPrompt)("".concat(lifestyle.help, " Use 'blooper help options' to see all acceptable values for this setting.")));
+  var pref = Number.parseInt((0, import_kolmafia20.userPrompt)("".concat(lifestyle.help, " Use 'blooper help options' to see all acceptable values for this setting.")));
   _set(lifestyle.setting, pref), args.afterlife.lifestyle = pref;
 }
 
@@ -6064,7 +11207,7 @@ __export(moonSign_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia22 = require("kolmafia");
+var import_kolmafia21 = require("kolmafia");
 var moonSign = {
   setting: "tptb.bLooper.moonId",
   help: "The name of the Moon Sign you want to ascend under."
@@ -6075,7 +11218,7 @@ var moonSign = {
   options: [[1, "Mongoose"], [2, "Wallaby"], [3, "Vole"], [4, "Platypus"], [5, "Opossum"], [6, "Marmot"], [7, "Wombat"], [8, "Blender"], [9, "Packrat"]]
 });
 function setMoonSign() {
-  var pref = Number.parseInt((0, import_kolmafia22.userPrompt)("".concat(moonSign.help, " Use 'blooper help options' to see all acceptable values for this setting.")));
+  var pref = Number.parseInt((0, import_kolmafia21.userPrompt)("".concat(moonSign.help, " Use 'blooper help options' to see all acceptable values for this setting.")));
   _set(moonSign.setting, pref), args.afterlife.moonSign = pref;
 }
 
@@ -6093,77 +11236,16 @@ __export(path_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia24 = require("kolmafia");
+var import_kolmafia23 = require("kolmafia");
 
 // src/lib/aliases/path.ts
 init_kolmafia_polyfill();
-var import_kolmafia23 = require("kolmafia");
-var _templateObject71, _templateObject220;
+var import_kolmafia22 = require("kolmafia");
+var _templateObject71, _templateObject219;
 function _toConsumableArray14(arr) {
-  return _arrayWithoutHoles14(arr) || _iterableToArray14(arr) || _unsupportedIterableToArray18(arr) || _nonIterableSpread14();
+  return _arrayWithoutHoles14(arr) || _iterableToArray14(arr) || _unsupportedIterableToArray19(arr) || _nonIterableSpread14();
 }
 function _nonIterableSpread14() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _unsupportedIterableToArray18(o, minLen) {
-  if (o) {
-    if (typeof o == "string")
-      return _arrayLikeToArray18(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
-      return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray18(o, minLen);
-  }
-}
-function _iterableToArray14(iter) {
-  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
-    return Array.from(iter);
-}
-function _arrayWithoutHoles14(arr) {
-  if (Array.isArray(arr))
-    return _arrayLikeToArray18(arr);
-}
-function _arrayLikeToArray18(arr, len) {
-  (len == null || len > arr.length) && (len = arr.length);
-  for (var i = 0, arr2 = new Array(len); i < len; i++)
-    arr2[i] = arr[i];
-  return arr2;
-}
-function _taggedTemplateLiteral11(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var unaliasedPaths = $paths(_templateObject71 || (_templateObject71 = _taggedTemplateLiteral11(["Community Service"]))), allPathAliases = _toConsumableArray14(unaliasedPaths.map(function(path2) {
-  return {
-    path: path2,
-    aliases: [path2.name.toLowerCase()]
-  };
-}));
-function stringToPath(s) {
-  if (s === "")
-    return $path(_templateObject220 || (_templateObject220 = _taggedTemplateLiteral11(["Community Service"])));
-  var lowercaseName = s.toLowerCase(), strippedName = stripString(lowercaseName), validPaths = allPathAliases.filter(function(_ref) {
-    var path2 = _ref.path, aliases = _ref.aliases;
-    return toInitials(path2.name.toLowerCase()) === lowercaseName || path2.name.toLowerCase().includes(lowercaseName) || stripString(path2.name.toLowerCase()).includes(strippedName) || aliases.some(function(alias) {
-      return alias === lowercaseName;
-    });
-  });
-  if (validPaths.length > 1)
-    throw (0, import_kolmafia23.print)("Invalid Path: ".concat(s, " matches multiple paths! Matched:"), "red"), validPaths.forEach(function(_ref2) {
-      var path2 = _ref2.path;
-      return (0, import_kolmafia23.print)("".concat(path2), "red");
-    }), new Error();
-  if (validPaths.length === 0)
-    throw (0, import_kolmafia23.print)("Invalid Path: ".concat(s, " does not match any paths!"), "red"), new Error();
-  return validPaths[0].path;
-}
-
-// src/lib/preferences/afterlife/path.ts
-var _templateObject76;
-function _toConsumableArray15(arr) {
-  return _arrayWithoutHoles15(arr) || _iterableToArray15(arr) || _unsupportedIterableToArray19(arr) || _nonIterableSpread15();
-}
-function _nonIterableSpread15() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 function _unsupportedIterableToArray19(o, minLen) {
@@ -6177,11 +11259,11 @@ function _unsupportedIterableToArray19(o, minLen) {
       return _arrayLikeToArray19(o, minLen);
   }
 }
-function _iterableToArray15(iter) {
+function _iterableToArray14(iter) {
   if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
     return Array.from(iter);
 }
-function _arrayWithoutHoles15(arr) {
+function _arrayWithoutHoles14(arr) {
   if (Array.isArray(arr))
     return _arrayLikeToArray19(arr);
 }
@@ -6191,7 +11273,68 @@ function _arrayLikeToArray19(arr, len) {
     arr2[i] = arr[i];
   return arr2;
 }
-function _taggedTemplateLiteral12(strings, raw) {
+function _taggedTemplateLiteral10(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var unaliasedPaths = $paths(_templateObject71 || (_templateObject71 = _taggedTemplateLiteral10(["Community Service"]))), allPathAliases = _toConsumableArray14(unaliasedPaths.map(function(path2) {
+  return {
+    path: path2,
+    aliases: [path2.name.toLowerCase()]
+  };
+}));
+function stringToPath(s) {
+  if (s === "")
+    return $path(_templateObject219 || (_templateObject219 = _taggedTemplateLiteral10(["Community Service"])));
+  var lowercaseName = s.toLowerCase(), strippedName = stripString(lowercaseName), validPaths = allPathAliases.filter(function(_ref) {
+    var path2 = _ref.path, aliases = _ref.aliases;
+    return toInitials(path2.name.toLowerCase()) === lowercaseName || path2.name.toLowerCase().includes(lowercaseName) || stripString(path2.name.toLowerCase()).includes(strippedName) || aliases.some(function(alias) {
+      return alias === lowercaseName;
+    });
+  });
+  if (validPaths.length > 1)
+    throw (0, import_kolmafia22.print)("Invalid Path: ".concat(s, " matches multiple paths! Matched:"), "red"), validPaths.forEach(function(_ref2) {
+      var path2 = _ref2.path;
+      return (0, import_kolmafia22.print)("".concat(path2), "red");
+    }), new Error();
+  if (validPaths.length === 0)
+    throw (0, import_kolmafia22.print)("Invalid Path: ".concat(s, " does not match any paths!"), "red"), new Error();
+  return validPaths[0].path;
+}
+
+// src/lib/preferences/afterlife/path.ts
+var _templateObject76;
+function _toConsumableArray15(arr) {
+  return _arrayWithoutHoles15(arr) || _iterableToArray15(arr) || _unsupportedIterableToArray20(arr) || _nonIterableSpread15();
+}
+function _nonIterableSpread15() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _unsupportedIterableToArray20(o, minLen) {
+  if (o) {
+    if (typeof o == "string")
+      return _arrayLikeToArray20(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
+      return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+      return _arrayLikeToArray20(o, minLen);
+  }
+}
+function _iterableToArray15(iter) {
+  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
+    return Array.from(iter);
+}
+function _arrayWithoutHoles15(arr) {
+  if (Array.isArray(arr))
+    return _arrayLikeToArray20(arr);
+}
+function _arrayLikeToArray20(arr, len) {
+  (len == null || len > arr.length) && (len = arr.length);
+  for (var i = 0, arr2 = new Array(len); i < len; i++)
+    arr2[i] = arr[i];
+  return arr2;
+}
+function _taggedTemplateLiteral11(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 var path = {
@@ -6200,7 +11343,7 @@ var path = {
 }, pathPref = Args.custom({
   setting: path.setting,
   help: path.help,
-  default: $path(_templateObject76 || (_templateObject76 = _taggedTemplateLiteral12(["Community Service"]))),
+  default: $path(_templateObject76 || (_templateObject76 = _taggedTemplateLiteral11(["Community Service"]))),
   options: _toConsumableArray15(allPathAliases.map(function(_ref) {
     var path2 = _ref.path, aliases = _ref.aliases;
     return [path2, "".concat([].concat(_toConsumableArray15(aliases), [toInitials(path2.name)]).filter(function(alias) {
@@ -6209,7 +11352,7 @@ var path = {
   }))
 }, stringToPath, "Path");
 function setPath() {
-  var pref = (0, import_kolmafia24.userPrompt)("".concat(path.help, " Use 'blooper help options' to see all acceptable values for this setting."));
+  var pref = (0, import_kolmafia23.userPrompt)("".concat(path.help, " Use 'blooper help options' to see all acceptable values for this setting."));
   _set(path.setting, pref), args.afterlife.path = stringToPath(pref);
 }
 
@@ -6227,7 +11370,7 @@ __export(permType_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia25 = require("kolmafia");
+var import_kolmafia24 = require("kolmafia");
 var permType = {
   setting: "tptb.bLooper.permType",
   help: "How should we try and permanancey skills in the afterlife?"
@@ -6238,7 +11381,7 @@ var permType = {
   options: [["sc", "Softcore"], ["hc", "Hardcore"]]
 });
 function setPermType() {
-  var pref = (0, import_kolmafia25.userPrompt)("".concat(permType.help, " Use 'blooper help options' to see all acceptable values for this setting."));
+  var pref = (0, import_kolmafia24.userPrompt)("".concat(permType.help, " Use 'blooper help options' to see all acceptable values for this setting."));
   _set(permType.setting, pref), args.afterlife.permType = pref;
 }
 
@@ -6275,7 +11418,7 @@ __export(getBounties_exports, {
 init_kolmafia_polyfill();
 var getBounties = {
   setting: "tptb.bLooper.getBounties",
-  help: "If true, will run 'bountiful' after 'garbo nobarf' at the start of each leg."
+  help: "If true, will run 'bountiful' after 'garbo nobarf' at the start of each leg. Currently dependencies aren't installed automatically, so ensure you have \"Bountiful\" installed before setting this to true."
 }, getBountiesPref = Args.boolean({
   setting: getBounties.setting,
   help: getBounties.help,
@@ -6296,7 +11439,7 @@ __export(homeClan_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia26 = require("kolmafia");
+var import_kolmafia25 = require("kolmafia");
 var homeClan = {
   setting: "tptb.bLooper.homeClan",
   help: "Your home clan. The script will ensure you are in this clan at the start of each leg of the loop."
@@ -6306,7 +11449,7 @@ var homeClan = {
   default: ""
 });
 function setHomeClan() {
-  var homeClanPref2 = (0, import_kolmafia26.userPrompt)(homeClan.help);
+  var homeClanPref2 = (0, import_kolmafia25.userPrompt)(homeClan.help);
   _set(homeClan.setting, homeClanPref2), args.global.homeClan = homeClanPref2;
 }
 
@@ -6324,17 +11467,17 @@ __export(buyDaypass_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia27 = require("kolmafia");
+var import_kolmafia26 = require("kolmafia");
 var buyDaypass = {
   setting: "tptb.bLooper.buyDaypass",
-  help: "Set to 'true' if you'd like to attempt purchasing a one-day pass to Spring Break Beach for yachtzeechaining."
+  help: "Set to 'true' if you'd like to attempt purchasing a one-day ticket to Spring Break Beach for yachtzeechaining."
 }, buyDaypassPref = Args.boolean({
   setting: buyDaypass.setting,
   help: buyDaypass.help,
   default: !1
 });
 function setBuyDaypass() {
-  var pref = (0, import_kolmafia27.toBoolean)((0, import_kolmafia27.userPrompt)(buyDaypass.help));
+  var pref = (0, import_kolmafia26.toBoolean)((0, import_kolmafia26.userPrompt)(buyDaypass.help));
   _set(buyDaypass.setting, pref), args.leg1.buyDaypass = pref;
 }
 
@@ -6352,17 +11495,17 @@ __export(leg1ValueOfAdventure_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia28 = require("kolmafia");
+var import_kolmafia27 = require("kolmafia");
 var leg1ValueOfAdventure = {
   setting: "tptb.bLooper.leg1ValueOfAdventure",
-  help: "The 'valueOfAdventure' to set before running Garbo in Leg1 of your loop."
+  help: "The 'valueOfAdventure' to set before running Garbo in Leg 1 of your daily loop."
 }, leg1ValueOfAdventurePref = Args.number({
   setting: leg1ValueOfAdventure.setting,
   help: leg1ValueOfAdventure.help,
   default: get("valueOfAdventure")
 });
 function setLeg1ValueOfAdventure() {
-  var pref = Number.parseInt((0, import_kolmafia28.userPrompt)(leg1ValueOfAdventure.help));
+  var pref = Number.parseInt((0, import_kolmafia27.userPrompt)(leg1ValueOfAdventure.help));
   _set(leg1ValueOfAdventure.setting, pref), args.leg1.leg1ValueOfAdventure = pref;
 }
 
@@ -6381,21 +11524,26 @@ __export(leg1Workshed_exports, {
 });
 init_kolmafia_polyfill();
 var import_kolmafia29 = require("kolmafia");
+
+// src/lib/aliases/workshed.ts
+init_kolmafia_polyfill();
+var import_kolmafia28 = require("kolmafia");
+var _templateObject77, _templateObject220, _templateObject317, _templateObject415;
 function _toConsumableArray16(arr) {
-  return _arrayWithoutHoles16(arr) || _iterableToArray16(arr) || _unsupportedIterableToArray20(arr) || _nonIterableSpread16();
+  return _arrayWithoutHoles16(arr) || _iterableToArray16(arr) || _unsupportedIterableToArray21(arr) || _nonIterableSpread16();
 }
 function _nonIterableSpread16() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray20(o, minLen) {
+function _unsupportedIterableToArray21(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray20(o, minLen);
+      return _arrayLikeToArray21(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray20(o, minLen);
+      return _arrayLikeToArray21(o, minLen);
   }
 }
 function _iterableToArray16(iter) {
@@ -6404,9 +11552,84 @@ function _iterableToArray16(iter) {
 }
 function _arrayWithoutHoles16(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray20(arr);
+    return _arrayLikeToArray21(arr);
 }
-function _arrayLikeToArray20(arr, len) {
+function _arrayLikeToArray21(arr, len) {
+  (len == null || len > arr.length) && (len = arr.length);
+  for (var i = 0, arr2 = new Array(len); i < len; i++)
+    arr2[i] = arr[i];
+  return arr2;
+}
+function _taggedTemplateLiteral12(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var workshedAliases = [{
+  item: $item(_templateObject77 || (_templateObject77 = _taggedTemplateLiteral12(["model train set"]))),
+  aliases: ["trainrealm"]
+}, {
+  item: $item(_templateObject220 || (_templateObject220 = _taggedTemplateLiteral12(["Asdon Martin keyfob (on ring)"]))),
+  aliases: ["breadcar", "car", "aston"]
+}, {
+  item: $item(_templateObject317 || (_templateObject317 = _taggedTemplateLiteral12(["Little Geneticist DNA-Splicing Lab"]))),
+  aliases: ["dnalab"]
+}], unaliasedSheds = $items(_templateObject415 || (_templateObject415 = _taggedTemplateLiteral12(["cold medicine cabinet, diabolic pizza cube, portable Mayo Clinic, spinning wheel, warbear auto-anvil, warbear chemistry lab, warbear high-efficiency still, warbear induction oven, warbear jackhammer drill press, warbear LP-ROM burner"]))), allWorkshedAliases = [].concat(_toConsumableArray16(workshedAliases.map(function(_ref) {
+  var item = _ref.item, aliases = _ref.aliases;
+  return {
+    item: item,
+    aliases: [].concat(_toConsumableArray16(aliases), [item.name.toLowerCase()])
+  };
+})), _toConsumableArray16(unaliasedSheds.map(function(item) {
+  return {
+    item: item,
+    aliases: [item.name.toLowerCase()]
+  };
+})));
+function stringToWorkshedItem(s) {
+  if (s === "")
+    return $item.none;
+  var lowerCaseWorkshed = s.toLowerCase(), strippedWorkshed = stripString(lowerCaseWorkshed), validWorksheds = allWorkshedAliases.filter(function(_ref2) {
+    var item = _ref2.item, aliases = _ref2.aliases;
+    return toInitials(item.name.toLowerCase()) === lowerCaseWorkshed || item.name.toLowerCase().includes(lowerCaseWorkshed) || stripString(item.name.toLowerCase()).includes(strippedWorkshed) || aliases.some(function(alias) {
+      return alias === lowerCaseWorkshed;
+    });
+  });
+  if (validWorksheds.length > 1)
+    throw (0, import_kolmafia28.print)("Invalid Workshed: ".concat(s, " matches multiple worksheds! Matched:"), "red"), validWorksheds.forEach(function(_ref3) {
+      var item = _ref3.item;
+      return (0, import_kolmafia28.print)("".concat(item), "red");
+    }), new Error();
+  if (validWorksheds.length === 0)
+    throw (0, import_kolmafia28.print)("Invalid Workshed: ".concat(s, " does not match any worksheds!"), "red"), new Error();
+  return validWorksheds[0].item;
+}
+
+// src/lib/preferences/leg1/leg1Workshed.ts
+function _toConsumableArray17(arr) {
+  return _arrayWithoutHoles17(arr) || _iterableToArray17(arr) || _unsupportedIterableToArray22(arr) || _nonIterableSpread17();
+}
+function _nonIterableSpread17() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _unsupportedIterableToArray22(o, minLen) {
+  if (o) {
+    if (typeof o == "string")
+      return _arrayLikeToArray22(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
+      return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+      return _arrayLikeToArray22(o, minLen);
+  }
+}
+function _iterableToArray17(iter) {
+  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
+    return Array.from(iter);
+}
+function _arrayWithoutHoles17(arr) {
+  if (Array.isArray(arr))
+    return _arrayLikeToArray22(arr);
+}
+function _arrayLikeToArray22(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
@@ -6419,9 +11642,9 @@ var leg1Workshed = {
   setting: leg1Workshed.setting,
   help: leg1Workshed.help,
   default: $item.none,
-  options: [].concat(_toConsumableArray16(allWorkshedAliases.map(function(_ref) {
+  options: [].concat(_toConsumableArray17(allWorkshedAliases.map(function(_ref) {
     var item = _ref.item, aliases = _ref.aliases;
-    return [item, "".concat([].concat(_toConsumableArray16(aliases), [toInitials(item.name.toLowerCase())]).filter(function(alias) {
+    return [item, "".concat([].concat(_toConsumableArray17(aliases), [toInitials(item.name.toLowerCase())]).filter(function(alias) {
       return alias !== "";
     }).join(", "))];
   })), [[$item.none, "leave this field blank"]])
@@ -6450,33 +11673,33 @@ var import_kolmafia31 = require("kolmafia");
 // src/lib/aliases/garden.ts
 init_kolmafia_polyfill();
 var import_kolmafia30 = require("kolmafia");
-var _templateObject77, _templateObject221, _templateObject318, _templateObject416, _templateObject513, _templateObject611, _templateObject78, _templateObject85, _templateObject96;
-function _toConsumableArray17(arr) {
-  return _arrayWithoutHoles17(arr) || _iterableToArray17(arr) || _unsupportedIterableToArray21(arr) || _nonIterableSpread17();
+var _templateObject78, _templateObject221, _templateObject318, _templateObject416, _templateObject513, _templateObject610, _templateObject79, _templateObject85, _templateObject96;
+function _toConsumableArray18(arr) {
+  return _arrayWithoutHoles18(arr) || _iterableToArray18(arr) || _unsupportedIterableToArray23(arr) || _nonIterableSpread18();
 }
-function _nonIterableSpread17() {
+function _nonIterableSpread18() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray21(o, minLen) {
+function _unsupportedIterableToArray23(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray21(o, minLen);
+      return _arrayLikeToArray23(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray21(o, minLen);
+      return _arrayLikeToArray23(o, minLen);
   }
 }
-function _iterableToArray17(iter) {
+function _iterableToArray18(iter) {
   if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
     return Array.from(iter);
 }
-function _arrayWithoutHoles17(arr) {
+function _arrayWithoutHoles18(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray21(arr);
+    return _arrayLikeToArray23(arr);
 }
-function _arrayLikeToArray21(arr, len) {
+function _arrayLikeToArray23(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
@@ -6486,7 +11709,7 @@ function _taggedTemplateLiteral13(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 var gardenAliases = [{
-  item: $item(_templateObject77 || (_templateObject77 = _taggedTemplateLiteral13(["packet of pumpkin seeds"]))),
+  item: $item(_templateObject78 || (_templateObject78 = _taggedTemplateLiteral13(["packet of pumpkin seeds"]))),
   aliases: ["pumpkin"]
 }, {
   item: $item(_templateObject221 || (_templateObject221 = _taggedTemplateLiteral13(["Peppermint Pip Packet"]))),
@@ -6501,10 +11724,10 @@ var gardenAliases = [{
   item: $item(_templateObject513 || (_templateObject513 = _taggedTemplateLiteral13(["packet of winter seeds"]))),
   aliases: ["winter"]
 }, {
-  item: $item(_templateObject611 || (_templateObject611 = _taggedTemplateLiteral13(["packet of thanksgarden seeds"]))),
+  item: $item(_templateObject610 || (_templateObject610 = _taggedTemplateLiteral13(["packet of thanksgarden seeds"]))),
   aliases: ["thanksgarden"]
 }, {
-  item: $item(_templateObject78 || (_templateObject78 = _taggedTemplateLiteral13(["packet of tall grass seeds"]))),
+  item: $item(_templateObject79 || (_templateObject79 = _taggedTemplateLiteral13(["packet of tall grass seeds"]))),
   aliases: ["grass"]
 }, {
   item: $item(_templateObject85 || (_templateObject85 = _taggedTemplateLiteral13(["packet of mushroom spores"]))),
@@ -6512,11 +11735,11 @@ var gardenAliases = [{
 }, {
   item: $item(_templateObject96 || (_templateObject96 = _taggedTemplateLiteral13(["packet of rock seeds"]))),
   aliases: ["rock"]
-}], allGardenAliases = _toConsumableArray17(gardenAliases.map(function(_ref) {
+}], allGardenAliases = _toConsumableArray18(gardenAliases.map(function(_ref) {
   var item = _ref.item, aliases = _ref.aliases;
   return {
     item: item,
-    aliases: [].concat(_toConsumableArray17(aliases), [item.name.toLowerCase()])
+    aliases: [].concat(_toConsumableArray18(aliases), [item.name.toLowerCase()])
   };
 }));
 function stringToGardenItem(s) {
@@ -6539,32 +11762,32 @@ function stringToGardenItem(s) {
 }
 
 // src/lib/preferences/leg1/preAscendGarden.ts
-function _toConsumableArray18(arr) {
-  return _arrayWithoutHoles18(arr) || _iterableToArray18(arr) || _unsupportedIterableToArray22(arr) || _nonIterableSpread18();
+function _toConsumableArray19(arr) {
+  return _arrayWithoutHoles19(arr) || _iterableToArray19(arr) || _unsupportedIterableToArray24(arr) || _nonIterableSpread19();
 }
-function _nonIterableSpread18() {
+function _nonIterableSpread19() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray22(o, minLen) {
+function _unsupportedIterableToArray24(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray22(o, minLen);
+      return _arrayLikeToArray24(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray22(o, minLen);
+      return _arrayLikeToArray24(o, minLen);
   }
 }
-function _iterableToArray18(iter) {
+function _iterableToArray19(iter) {
   if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
     return Array.from(iter);
 }
-function _arrayWithoutHoles18(arr) {
+function _arrayWithoutHoles19(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray22(arr);
+    return _arrayLikeToArray24(arr);
 }
-function _arrayLikeToArray22(arr, len) {
+function _arrayLikeToArray24(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
@@ -6577,9 +11800,9 @@ var preAscendGarden = {
   setting: preAscendGarden.setting,
   help: preAscendGarden.help,
   default: $item.none,
-  options: [].concat(_toConsumableArray18(allGardenAliases.map(function(_ref) {
+  options: [].concat(_toConsumableArray19(allGardenAliases.map(function(_ref) {
     var item = _ref.item, aliases = _ref.aliases;
-    return [item, "".concat([].concat(_toConsumableArray18(aliases), [toInitials(item.name.toLowerCase())]).filter(function(alias) {
+    return [item, "".concat([].concat(_toConsumableArray19(aliases), [toInitials(item.name.toLowerCase())]).filter(function(alias) {
       return alias !== "";
     }).join(", "))];
   })), [[$item.none, "leave this field blank"]])
@@ -6606,7 +11829,7 @@ init_kolmafia_polyfill();
 var import_kolmafia32 = require("kolmafia");
 var wineglassValueOfAdventure = {
   setting: "tptb.bLooper.wineglassValueOfAdventure",
-  help: "The 'valueOfAdventure' to set before running garbo in Leg1 while overdrunk with a wineglass."
+  help: "The 'valueOfAdventure' to set before running garbo in Leg 1 while overdrunk with a wineglass."
 }, wineglassValueOfAdventurePref = Args.number({
   setting: wineglassValueOfAdventure.setting,
   help: wineglassValueOfAdventure.help,
@@ -6644,37 +11867,682 @@ function setAscensionScript() {
   _set(ascensionScript.setting, pref), args.leg2.ascensionScript = pref;
 }
 
-// src/lib/constants.ts
-var BIG_BOOK_USED = "_tptb.bLooper.bigBookUsed";
-var LEG1GARBO_NOBARF = "leg1garbo_nobarf", LEG1GARBO = "leg1garbo";
-
-// src/lib/args.ts
-function _toConsumableArray19(arr) {
-  return _arrayWithoutHoles19(arr) || _iterableToArray19(arr) || _unsupportedIterableToArray23(arr) || _nonIterableSpread19();
+// src/lib/preferences/leg2/leg2ValueOfAdventure.ts
+var leg2ValueOfAdventure_exports = {};
+__export(leg2ValueOfAdventure_exports, {
+  arg: function() {
+    return leg2ValueOfAdventurePref;
+  },
+  init: function() {
+    return setLeg2ValueOfAdventure;
+  },
+  pref: function() {
+    return leg2ValueOfAdventure;
+  }
+});
+init_kolmafia_polyfill();
+var import_kolmafia34 = require("kolmafia");
+var leg2ValueOfAdventure = {
+  setting: "tptb.bLooper.leg2ValueOfAdventure",
+  help: "The 'valueOfAdventure' to set before running Garbo in Leg 2 of your daily loop."
+}, leg2ValueOfAdventurePref = Args.number({
+  setting: leg2ValueOfAdventure.setting,
+  help: leg2ValueOfAdventure.help,
+  default: get("valueOfAdventure")
+});
+function setLeg2ValueOfAdventure() {
+  var pref = Number.parseInt((0, import_kolmafia34.userPrompt)(leg2ValueOfAdventure.help));
+  _set(leg2ValueOfAdventure.setting, pref), args.leg2.leg2ValueOfAdventure = pref;
 }
-function _nonIterableSpread19() {
+
+// src/lib/preferences/leg2/leg2workshed.ts
+var leg2workshed_exports = {};
+__export(leg2workshed_exports, {
+  arg: function() {
+    return leg2WorkshedPref;
+  },
+  init: function() {
+    return setLeg2Workshed;
+  },
+  pref: function() {
+    return leg2Workshed;
+  }
+});
+init_kolmafia_polyfill();
+var import_kolmafia35 = require("kolmafia");
+function _toConsumableArray20(arr) {
+  return _arrayWithoutHoles20(arr) || _iterableToArray20(arr) || _unsupportedIterableToArray25(arr) || _nonIterableSpread20();
+}
+function _nonIterableSpread20() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray23(o, minLen) {
+function _unsupportedIterableToArray25(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray23(o, minLen);
+      return _arrayLikeToArray25(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray23(o, minLen);
+      return _arrayLikeToArray25(o, minLen);
   }
 }
-function _iterableToArray19(iter) {
+function _iterableToArray20(iter) {
   if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
     return Array.from(iter);
 }
-function _arrayWithoutHoles19(arr) {
+function _arrayWithoutHoles20(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray23(arr);
+    return _arrayLikeToArray25(arr);
 }
-function _arrayLikeToArray23(arr, len) {
+function _arrayLikeToArray25(arr, len) {
+  (len == null || len > arr.length) && (len = arr.length);
+  for (var i = 0, arr2 = new Array(len); i < len; i++)
+    arr2[i] = arr[i];
+  return arr2;
+}
+var leg2Workshed = {
+  setting: "tptb.bLooper.leg2Workshed",
+  help: "The workshed you'd like the script to install at the start of Leg 2. Leave blank to ignore."
+}, leg2WorkshedPref = Args.custom({
+  setting: leg2Workshed.setting,
+  help: leg2Workshed.help,
+  default: $item.none,
+  options: [].concat(_toConsumableArray20(allWorkshedAliases.map(function(_ref) {
+    var item = _ref.item, aliases = _ref.aliases;
+    return [item, "".concat([].concat(_toConsumableArray20(aliases), [toInitials(item.name.toLowerCase())]).filter(function(alias) {
+      return alias !== "";
+    }).join(", "))];
+  })), [[$item.none, "leave this field blank"]])
+}, stringToWorkshedItem, "Item");
+function setLeg2Workshed() {
+  var pref = (0, import_kolmafia35.userPrompt)("".concat(leg2Workshed.help, " Use 'blooper help options' to see all acceptable values for this setting."));
+  _set(leg2Workshed.setting, pref), args.leg2.leg2Workshed = stringToWorkshedItem(pref);
+}
+
+// src/lib/constants.ts
+var BIG_BOOK_USED = "_tptb.bLooper.bigBookUsed";
+var LEG1NOBARF = "leg1nobarf", LEG1GARBO = "leg1garbo";
+var LEG2NOBARF = "leg2nobarf", LEG2GARBO = "leg2garbo";
+
+// src/quests/breakfast.ts
+var _templateObject80, _templateObject224;
+function _taggedTemplateLiteral14(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var JOIN_CLAN = {
+  name: "Join Home Clan",
+  ready: function() {
+    return args.global.homeClan !== "";
+  },
+  completed: function() {
+    return (0, import_kolmafia36.getClanName)() === args.global.homeClan;
+  },
+  do: function() {
+    return Clan.join(args.global.homeClan);
+  }
+}, BREAKFAST = {
+  name: "Breakfast",
+  completed: function() {
+    return get("breakfastCompleted");
+  },
+  do: function() {
+    return (0, import_kolmafia36.cliExecute)("breakfast");
+  }
+}, DOUBLE_ICE = {
+  name: "Double Ice",
+  completed: function() {
+    return get("_aprilShower");
+  },
+  do: function() {
+    return (0, import_kolmafia36.cliExecute)("shower ice");
+  }
+}, BIG_BOOK = {
+  name: "Big Book of Every Skill",
+  ready: function() {
+    return have($item(_templateObject80 || (_templateObject80 = _taggedTemplateLiteral14(["The Big Book of Every Skill"]))));
+  },
+  completed: function() {
+    return args.bigBookUsed;
+  },
+  do: function() {
+    (0, import_kolmafia36.use)($item(_templateObject224 || (_templateObject224 = _taggedTemplateLiteral14(["The Big Book of Every Skill"])))), _set(BIG_BOOK_USED, !0), args.bigBookUsed = !0;
+  }
+}, EXTENDED_BREAKFAST = [JOIN_CLAN, BREAKFAST, DOUBLE_ICE, BIG_BOOK];
+
+// src/quests/leg1/tasks/ascendPrep.ts
+init_kolmafia_polyfill();
+var import_kolmafia37 = require("kolmafia");
+var _templateObject81, _templateObject225;
+function _taggedTemplateLiteral15(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var PLANT_GARDEN = {
+  name: "Plant Garden",
+  ready: function() {
+    return args.leg1.preAscendGarden !== $item.none && have(args.leg1.preAscendGarden);
+  },
+  completed: function() {
+    return stringToGardenItem((0, import_kolmafia37.myGardenType)()) === args.leg1.preAscendGarden;
+  },
+  do: function() {
+    (0, import_kolmafia37.cliExecute)("garden pick"), (0, import_kolmafia37.use)(1, args.leg1.preAscendGarden);
+  }
+}, stillsuit = $item(_templateObject81 || (_templateObject81 = _taggedTemplateLiteral15(["tiny stillsuit"]))), STILLSUIT = {
+  name: "Tiny Stillsuit",
+  ready: function() {
+    return have(stillsuit);
+  },
+  outfit: {
+    familiar: $familiar(_templateObject225 || (_templateObject225 = _taggedTemplateLiteral15(["Stooper"]))),
+    famequip: stillsuit
+  },
+  completed: function() {
+    return get("familiarSweat") < 10;
+  },
+  do: function() {
+    return (0, import_kolmafia37.cliExecute)("drink stillsuit distillate");
+  }
+}, CONSUME = {
+  name: "CONSUME",
+  completed: function() {
+    return (0, import_kolmafia37.myFullness)() >= (0, import_kolmafia37.fullnessLimit)() && (0, import_kolmafia37.myInebriety)() >= (0, import_kolmafia37.inebrietyLimit)() && (0, import_kolmafia37.mySpleenUse)() >= (0, import_kolmafia37.spleenLimit)();
+  },
+  do: function() {
+    return (0, import_kolmafia37.cliExecute)("CONSUME ALL");
+  }
+}, ASCEND_PREP = [PLANT_GARDEN, STILLSUIT, CONSUME];
+
+// src/quests/leg1/tasks/garbo.ts
+init_kolmafia_polyfill();
+var import_kolmafia40 = require("kolmafia");
+
+// src/lib/eventLogging.ts
+init_kolmafia_polyfill();
+function logEvent(event) {
+  var events = args.global.eventList.split(",");
+  if (events.includes(event)) {
+    logEvent("".concat(event, "1"));
+    return;
+  }
+  events.push(event), args.global.eventList = events.toString(), _set(eventList_exports.pref.setting, events.toString());
+}
+
+// src/lib/libraryExecutors/bountiful.ts
+init_kolmafia_polyfill();
+var import_kolmafia38 = require("kolmafia");
+function executeBountiful() {
+  var success = (0, import_kolmafia38.cliExecute)("bountiful");
+  if (!success)
+    throw "Failed to run 'bountiful'. Please check what went wrong and try again.";
+}
+function bountiesComplete() {
+  (0, import_kolmafia38.visitUrl)("bounty.php");
+  var easyDone = get("_untakenEasyBountyItem") === "" && get("currentEasyBountyItem") === "", hardDone = get("_untakenHardBountyItem") === "" && get("currentHardBountyItem") === "", specDone = get("_untakenSpecialBountyItem") === "" && get("currentSpecialBountyItem") === "";
+  return easyDone && hardDone && specDone;
+}
+
+// src/lib/libraryExecutors/garbo.ts
+init_kolmafia_polyfill();
+var import_kolmafia39 = require("kolmafia");
+var _templateObject86, _templateObject226, _templateObject319, _templateObject417, _templateObject514, _templateObject611;
+function _taggedTemplateLiteral16(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+function executeGarbo(leg, ascending) {
+  var nobarf = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : !1, command = buildGarboCommand(leg, ascending, nobarf);
+  (0, import_kolmafia39.print)("Running garbo with command '".concat(command, "'"), "teal");
+  var success = (0, import_kolmafia39.cliExecute)("garbo ".concat(command));
+  if (!success)
+    throw "Failed to execute garbo with command '".concat(command, "'");
+}
+function buildGarboCommand(leg, ascending, nobarf) {
+  var commandStrings = ["candydish"];
+  return nobarf && commandStrings.push("nobarf"), ascending && commandStrings.push("ascend"), hasYachtzeeAccess(leg) && commandStrings.push("yachtzeechain"), leg === 1 ? args.leg1.leg1Workshed !== $item.none && commandStrings.push('workshed="'.concat(args.leg1.leg1Workshed, '"')) : args.leg2.leg2Workshed !== $item.none && commandStrings.push('workshed="'.concat(args.leg2.leg2Workshed, '"')), commandStrings.join(" ");
+}
+function hasYachtzeeAccess(leg) {
+  if ((0, import_kolmafia39.canAdventure)($location(_templateObject86 || (_templateObject86 = _taggedTemplateLiteral16(["The Sunken Party Yacht"])))))
+    return !0;
+  if (leg !== 1)
+    return !1;
+  if (args.leg1.buyDaypass && (have($item(_templateObject226 || (_templateObject226 = _taggedTemplateLiteral16(["Jurassic Parka"])))) || (0, import_kolmafia39.haveEquipped)($item(_templateObject319 || (_templateObject319 = _taggedTemplateLiteral16(["Jurassic Parka"]))))) && have($item(_templateObject417 || (_templateObject417 = _taggedTemplateLiteral16(["Cincho de Mayo"])))) && have($item(_templateObject514 || (_templateObject514 = _taggedTemplateLiteral16(["Clara's bell"])))) && get("_spikolodonSpikeUses") === 0 && get("_claraBellUsed") === !1) {
+    var sbb = $item(_templateObject611 || (_templateObject611 = _taggedTemplateLiteral16(["one-day ticket to Spring Break Beach"])));
+    return have(sbb) || (0, import_kolmafia39.buy)(1, sbb, 6e5), have(sbb) ? ((0, import_kolmafia39.use)(1, sbb), !0) : !1;
+  }
+  return !1;
+}
+
+// src/quests/leg1/tasks/garbo.ts
+var _templateObject87, _templateObject227, _templateObject320;
+function _taggedTemplateLiteral17(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var tofu = $item(_templateObject87 || (_templateObject87 = _taggedTemplateLiteral17(["essential tofu"]))), ESSENTIAL_TOFU = {
+  name: "Essential Tofu",
+  ready: function() {
+    return (0, import_kolmafia40.mallPrice)(tofu) < 4 * get("valueOfAdventure");
+  },
+  completed: function() {
+    return get("_essentialTofuUsed");
+  },
+  acquire: [{
+    item: tofu,
+    price: get("valueOfAdventure") * 4
+  }],
+  do: function() {
+    return (0, import_kolmafia40.use)(1, tofu);
+  }
+}, goldenDice = $item(_templateObject227 || (_templateObject227 = _taggedTemplateLiteral17(["Glenn's golden dice"]))), GOLDEN_DICE = {
+  name: "Golden Dice",
+  ready: function() {
+    return have(goldenDice);
+  },
+  completed: function() {
+    return get("_glennGoldenDiceUsed");
+  },
+  do: function() {
+    return (0, import_kolmafia40.use)(1, goldenDice);
+  }
+}, lodestone = $item(_templateObject320 || (_templateObject320 = _taggedTemplateLiteral17(["lodestone"]))), LODESTONE = {
+  name: "Lodestone",
+  ready: function() {
+    return have(lodestone);
+  },
+  completed: function() {
+    return get("_lodestoneUsed");
+  },
+  do: function() {
+    return (0, import_kolmafia40.use)(1, lodestone);
+  }
+}, VALUE_OF_ADVENTURE = {
+  name: "Set valueOfAdventure",
+  completed: function() {
+    return get("valueOfAdventure") === args.leg1.leg1ValueOfAdventure;
+  },
+  do: function() {
+    return _set("valueOfAdventure", args.leg1.leg1ValueOfAdventure);
+  }
+}, RUN_GARBO_NOBARF = {
+  name: "Garbo Nobarf",
+  ready: function() {
+    return (0, import_kolmafia40.myInebriety)() <= (0, import_kolmafia40.inebrietyLimit)() && args.global.getBounties;
+  },
+  completed: function() {
+    return args.global.eventList.includes(LEG1NOBARF);
+  },
+  do: function() {
+    executeGarbo(1, !0, !0), logEvent(LEG1NOBARF);
+  },
+  limit: {
+    tries: 1
+  }
+}, BOUNTIFUL = {
+  name: "Bountiful",
+  ready: function() {
+    return args.global.getBounties;
+  },
+  completed: bountiesComplete,
+  do: executeBountiful
+}, LEG1_GARBO = {
+  name: "Garbo",
+  ready: function() {
+    return (0, import_kolmafia40.myInebriety)() <= (0, import_kolmafia40.inebrietyLimit)();
+  },
+  completed: function() {
+    return args.global.eventList.includes(LEG1GARBO);
+  },
+  do: function() {
+    if (executeGarbo(1, !0, !1), (0, import_kolmafia40.myAdventures)() === 0)
+      logEvent(LEG1GARBO);
+    else
+      throw "We still had adventures left over after successfully running garbo, that shouldn't happen.";
+  },
+  limit: {
+    tries: 1
+  }
+}, GARBO = [ESSENTIAL_TOFU, GOLDEN_DICE, LODESTONE, VALUE_OF_ADVENTURE, RUN_GARBO_NOBARF, BOUNTIFUL, LEG1_GARBO];
+
+// src/quests/leg1/leg1.ts
+function _toConsumableArray21(arr) {
+  return _arrayWithoutHoles21(arr) || _iterableToArray21(arr) || _unsupportedIterableToArray26(arr) || _nonIterableSpread21();
+}
+function _nonIterableSpread21() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _unsupportedIterableToArray26(o, minLen) {
+  if (o) {
+    if (typeof o == "string")
+      return _arrayLikeToArray26(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
+      return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+      return _arrayLikeToArray26(o, minLen);
+  }
+}
+function _iterableToArray21(iter) {
+  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
+    return Array.from(iter);
+}
+function _arrayWithoutHoles21(arr) {
+  if (Array.isArray(arr))
+    return _arrayLikeToArray26(arr);
+}
+function _arrayLikeToArray26(arr, len) {
+  (len == null || len > arr.length) && (len = arr.length);
+  for (var i = 0, arr2 = new Array(len); i < len; i++)
+    arr2[i] = arr[i];
+  return arr2;
+}
+var LEG_1 = {
+  name: "Leg 1",
+  ready: function() {
+    return get("ascensionsToday") === 0;
+  },
+  tasks: [].concat(_toConsumableArray21(EXTENDED_BREAKFAST), _toConsumableArray21(GARBO), _toConsumableArray21(ASCEND_PREP))
+};
+
+// src/quests/leg1/leg1Overdrunk.ts
+init_kolmafia_polyfill();
+var import_kolmafia42 = require("kolmafia");
+
+// src/lib/libraryExecutors/combo.ts
+init_kolmafia_polyfill();
+var import_kolmafia41 = require("kolmafia");
+var _templateObject88, _templateObject228, _templateObject321, _templateObject418, _templateObject515, _templateObject612, _templateObject710;
+function _taggedTemplateLiteral18(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+function executeCombo() {
+  var success = (0, import_kolmafia41.cliExecute)("combo ".concat((0, import_kolmafia41.myAdventures)()));
+  if (!success)
+    throw "Failed to run combo successfully, please check what went wrong.";
+  if ((0, import_kolmafia41.myAdventures)() > 0)
+    throw "Failed to spend all of our turns running combo, please check what went wrong.";
+}
+function comboReady() {
+  if (have($item(_templateObject88 || (_templateObject88 = _taggedTemplateLiteral18(["Beach Comb"])))))
+    return !0;
+  if (!have($item(_templateObject228 || (_templateObject228 = _taggedTemplateLiteral18(["driftwood beach comb"]))))) {
+    var sandprice = (0, import_kolmafia41.mallPrice)($item(_templateObject321 || (_templateObject321 = _taggedTemplateLiteral18(["grain of sand"])))) * 3, combPrice = (0, import_kolmafia41.mallPrice)($item(_templateObject418 || (_templateObject418 = _taggedTemplateLiteral18(["piece of driftwood"])))), advLimit = combPrice / sandprice;
+    (0, import_kolmafia41.myAdventures)() > advLimit && ((0, import_kolmafia41.buy)($item(_templateObject515 || (_templateObject515 = _taggedTemplateLiteral18(["piece of driftwood"])))), (0, import_kolmafia41.use)($item(_templateObject612 || (_templateObject612 = _taggedTemplateLiteral18(["piece of driftwood"])))));
+  }
+  return have($item(_templateObject710 || (_templateObject710 = _taggedTemplateLiteral18(["driftwood beach comb"]))));
+}
+
+// src/quests/leg1/leg1Overdrunk.ts
+var _templateObject89, _templateObject229, _templateObject324, _templateObject419, _templateObject516;
+function _taggedTemplateLiteral19(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var OVERDRINK = {
+  name: "Get Drunk",
+  completed: function() {
+    return (0, import_kolmafia42.myInebriety)() > (0, import_kolmafia42.inebrietyLimit)();
+  },
+  do: function() {
+    return (0, import_kolmafia42.cliExecute)("CONSUME ALL NIGHTCAP VALUE ".concat(get("valueOfAdventure") / 2));
+  }
+}, BREAK_HIPPY_STONE = {
+  name: "Break Hippy Stone",
+  completed: function() {
+    return (0, import_kolmafia42.hippyStoneBroken)();
+  },
+  do: function() {
+    return (0, import_kolmafia42.visitUrl)("peevpee.php?action=smashstone&pwd&confirm=on", !0);
+  }
+}, diploma = $item(_templateObject89 || (_templateObject89 = _taggedTemplateLiteral19(["School of Hard Knocks Diploma"]))), GO_TO_SCHOOL = {
+  name: "Go to School",
+  ready: function() {
+    return have(diploma);
+  },
+  completed: function() {
+    return get("_hardKnocksDiplomaUsed");
+  },
+  do: function() {
+    return (0, import_kolmafia42.use)(diploma);
+  }
+}, mirror = $item(_templateObject229 || (_templateObject229 = _taggedTemplateLiteral19(["punching mirror"]))), PUNCH_MIRRORS = {
+  name: "Punch Mirrors",
+  ready: function() {
+    return have(mirror);
+  },
+  completed: function() {
+    return get("_punchingMirrorUsed");
+  },
+  do: function() {
+    return (0, import_kolmafia42.use)(mirror);
+  }
+}, fireStarter = $item(_templateObject324 || (_templateObject324 = _taggedTemplateLiteral19(["CSA fire-starting kit"]))), BURN_STUFF = {
+  name: "Burn Stuff",
+  ready: function() {
+    return have(fireStarter);
+  },
+  completed: function() {
+    return get("_fireStartingKitUsed");
+  },
+  choices: {
+    595: 1
+  },
+  do: function() {
+    return (0, import_kolmafia42.use)(fireStarter);
+  }
+}, PVP_PREP = [BREAK_HIPPY_STONE, GO_TO_SCHOOL, PUNCH_MIRRORS, BURN_STUFF], FIGHT_STUFF = {
+  name: "Fight Stuff",
+  ready: import_kolmafia42.hippyStoneBroken,
+  completed: function() {
+    return (0, import_kolmafia42.pvpAttacksLeft)() === 0;
+  },
+  do: function() {
+    var success = (0, import_kolmafia42.cliExecute)("PVP_MAB");
+    if (!success)
+      throw "Failed to run PVP_MAB for some reason, please check what went wrong.";
+  },
+  limit: {
+    tries: 1
+  }
+}, FIGHT_STUFF_2 = {
+  name: "Fight Stuff Again",
+  ready: import_kolmafia42.hippyStoneBroken,
+  completed: function() {
+    return (0, import_kolmafia42.pvpAttacksLeft)() === 0;
+  },
+  do: function() {
+    var success = (0, import_kolmafia42.cliExecute)("PVP_MAB");
+    if (!success)
+      throw "Failed to run PVP_MAB for some reason, please check what went wrong.";
+  },
+  limit: {
+    tries: 1
+  }
+}, WINEGLASS_VALUEOFADVENTURE = {
+  name: "Set valueOfAdventure",
+  completed: function() {
+    return get("valueOfAdventure") === args.leg1.wineglassValueOfAdventure;
+  },
+  do: function() {
+    return _set("valueOfAdventure", args.leg1.wineglassValueOfAdventure);
+  }
+}, OVERDRUNK_GARBO = {
+  name: "Overdrunk Garbo",
+  ready: function() {
+    return (0, import_kolmafia42.myInebriety)() > (0, import_kolmafia42.inebrietyLimit)();
+  },
+  completed: function() {
+    return (0, import_kolmafia42.myAdventures)() === 0;
+  },
+  do: function() {
+    return executeGarbo(1, !0, !1);
+  },
+  limit: {
+    tries: 1
+  }
+}, USE_COMBO = {
+  name: "Comb the Beach",
+  ready: comboReady,
+  completed: function() {
+    return (0, import_kolmafia42.myAdventures)() === 0;
+  },
+  do: executeCombo
+}, WITH_WINEGLASS = {
+  name: "Overdrunk with Wineglass",
+  ready: function() {
+    return have($item(_templateObject419 || (_templateObject419 = _taggedTemplateLiteral19(["Drunkula's wineglass"]))));
+  },
+  tasks: [OVERDRINK].concat(PVP_PREP, [FIGHT_STUFF, WINEGLASS_VALUEOFADVENTURE, OVERDRUNK_GARBO, FIGHT_STUFF_2])
+}, WITHOUT_WINEGLASS = {
+  name: "Overdrunk without Wineglass",
+  ready: function() {
+    return !have($item(_templateObject516 || (_templateObject516 = _taggedTemplateLiteral19(["Drunkula's wineglass"]))));
+  },
+  tasks: [OVERDRINK, USE_COMBO].concat(PVP_PREP, [FIGHT_STUFF])
+}, LEG_1_OVERDRUNK = [WITH_WINEGLASS, WITHOUT_WINEGLASS];
+
+// src/quests/leg2/leg2.ts
+init_kolmafia_polyfill();
+
+// src/quests/leg2/tasks/garbo.ts
+init_kolmafia_polyfill();
+var import_kolmafia43 = require("kolmafia");
+var VALUE_OF_ADVENTURE2 = {
+  name: "Set valueOfAdventure",
+  completed: function() {
+    return get("valueOfAdventure") === args.leg2.leg2ValueOfAdventure;
+  },
+  do: function() {
+    return _set("valueOfAdventure", args.leg2.leg2ValueOfAdventure);
+  }
+}, RUN_GARBO_NOBARF2 = {
+  name: "Garbo Nobarf",
+  ready: function() {
+    return (0, import_kolmafia43.myInebriety)() <= (0, import_kolmafia43.inebrietyLimit)() && args.global.getBounties;
+  },
+  completed: function() {
+    return args.global.eventList.includes(LEG2NOBARF);
+  },
+  do: function() {
+    executeGarbo(2, !1, !0), logEvent(LEG2NOBARF);
+  },
+  limit: {
+    tries: 1
+  }
+}, BOUNTIFUL2 = {
+  name: "Bountiful",
+  ready: function() {
+    return args.global.getBounties;
+  },
+  completed: bountiesComplete,
+  do: executeBountiful
+}, LEG2_GARBO = {
+  name: "Garbo",
+  ready: function() {
+    return (0, import_kolmafia43.myInebriety)() <= (0, import_kolmafia43.inebrietyLimit)();
+  },
+  completed: function() {
+    return args.global.eventList.includes(LEG2GARBO);
+  },
+  do: function() {
+    if (executeGarbo(2, !1, !1), (0, import_kolmafia43.myAdventures)() === 0)
+      logEvent(LEG2GARBO);
+    else
+      throw "We still had adventures left over after successfully running garbo, that shouldn't happen.";
+  },
+  limit: {
+    tries: 1
+  }
+}, GARBO2 = [VALUE_OF_ADVENTURE2, RUN_GARBO_NOBARF2, BOUNTIFUL2, LEG2_GARBO];
+
+// src/quests/leg2/tasks/path.ts
+init_kolmafia_polyfill();
+
+// src/lib/libraryExecutors/ascensionScript.ts
+init_kolmafia_polyfill();
+var import_kolmafia44 = require("kolmafia");
+function executeAscensionScript() {
+  var success = (0, import_kolmafia44.cliExecute)("".concat(args.leg2.ascensionScript));
+  if (!success)
+    throw "Failed to run the specified ascension script '".concat(args.leg2.ascensionScript, "' to completion. Please check what went wrong and try again.");
+}
+
+// src/quests/leg2/tasks/path.ts
+var PATH = {
+  name: "Run Ascencion Script",
+  completed: function() {
+    return get("kingLiberated") || get("csServicesPerformed").split(",").length === 11;
+  },
+  do: executeAscensionScript,
+  limit: {
+    tries: 1
+  }
+};
+
+// src/quests/leg2/leg2.ts
+function _toConsumableArray22(arr) {
+  return _arrayWithoutHoles22(arr) || _iterableToArray22(arr) || _unsupportedIterableToArray27(arr) || _nonIterableSpread22();
+}
+function _nonIterableSpread22() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _unsupportedIterableToArray27(o, minLen) {
+  if (o) {
+    if (typeof o == "string")
+      return _arrayLikeToArray27(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
+      return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+      return _arrayLikeToArray27(o, minLen);
+  }
+}
+function _iterableToArray22(iter) {
+  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
+    return Array.from(iter);
+}
+function _arrayWithoutHoles22(arr) {
+  if (Array.isArray(arr))
+    return _arrayLikeToArray27(arr);
+}
+function _arrayLikeToArray27(arr, len) {
+  (len == null || len > arr.length) && (len = arr.length);
+  for (var i = 0, arr2 = new Array(len); i < len; i++)
+    arr2[i] = arr[i];
+  return arr2;
+}
+var LEG_2 = {
+  name: "Leg 2",
+  ready: function() {
+    return get("ascensionsToday") === 1;
+  },
+  tasks: [PATH].concat(_toConsumableArray22(EXTENDED_BREAKFAST), _toConsumableArray22(GARBO2))
+};
+
+// src/lib/args.ts
+function _toConsumableArray23(arr) {
+  return _arrayWithoutHoles23(arr) || _iterableToArray23(arr) || _unsupportedIterableToArray28(arr) || _nonIterableSpread23();
+}
+function _nonIterableSpread23() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _unsupportedIterableToArray28(o, minLen) {
+  if (o) {
+    if (typeof o == "string")
+      return _arrayLikeToArray28(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
+      return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+      return _arrayLikeToArray28(o, minLen);
+  }
+}
+function _iterableToArray23(iter) {
+  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
+    return Array.from(iter);
+}
+function _arrayWithoutHoles23(arr) {
+  if (Array.isArray(arr))
+    return _arrayLikeToArray28(arr);
+}
+function _arrayLikeToArray28(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
@@ -6689,50 +12557,52 @@ function toInitials(s) {
 function stripString(s) {
   return s.includes(" ") ? stripString(s.replace(" ", "")) : s.includes("-") ? stripString(s.replace("-", "")) : s;
 }
-var args = Args.create("bLooper", "A re-entrant daily looping wrapper", {
+var args = Args.create("bLooper", "A re-entrant daily looping wrapper for Community Service. Heavily inspired by Prusias' pLooper script", {
   init: Args.flag({
+    setting: "",
     help: "Use for first-time setup of bLooper.",
     default: !1
   }),
   options: Args.flag({
+    setting: "",
     help: "Use this to see all options for the preferences in this help menu. By default, none will be shown.",
     default: !1
   }),
-  global: Args.group("Global Preferences", {
+  global: Args.group("Global Preferences - These preferences can and are used at several point throughout the script.", {
     eventList: eventList_exports.arg,
     homeClan: homeClan_exports.arg,
-    getBounties: getBounties_exports.arg
+    getBounties: getBounties_exports.arg,
+    abortBefore: Args.string({
+      setting: "tptb.bLooper.abortBefore",
+      help: "The script will abort execution before running the task specified here. The task name must be fully qualified in order to successfully abort.",
+      default: "",
+      options: [].concat(_toConsumableArray23(getTasks([LEG_1].concat(_toConsumableArray23(LEG_1_OVERDRUNK), [LEG_2])).map(function(_ref) {
+        var name = _ref.name;
+        return [name];
+      })), [[""]])
+    })
   }),
-  leg1: Args.group("Leg 1 Preferences", {
+  leg1: Args.group("Leg 1 Preferences - These preferences modify behavior during Leg 1 (pre-ascension) of your daily loop.", {
     buyDaypass: buyDaypass_exports.arg,
     leg1ValueOfAdventure: leg1ValueOfAdventure_exports.arg,
     leg1Workshed: leg1Workshed_exports.arg,
     preAscendGarden: preAscendGarden_exports.arg,
     wineglassValueOfAdventure: wineglassValueOfAdventure_exports.arg
   }),
-  afterlife: Args.group("Afterlife preferences", {
+  afterlife: Args.group("Afterlife Preferences - These preferences control actions taken in Valhalla, including what choices to make when reincarnating.", {
     astralDeli: astralDeli_exports.arg,
     astralPet: astralPet_exports.arg,
+    permType: permType_exports.arg,
     lifestyle: lifestyle_exports.arg,
-    moonSign: moonSign_exports.arg,
-    path: path_exports.arg,
     class: class_exports.arg,
     gender: gender_exports.arg,
-    permType: permType_exports.arg
+    path: path_exports.arg,
+    moonSign: moonSign_exports.arg
   }),
-  leg2: Args.group("Leg 2 Preferences", {
+  leg2: Args.group("Leg 2 Preferences - These preferences modify behavior during Leg 2 (post-ascension) of your daily loop.", {
     ascensionScript: ascensionScript_exports.arg,
-    leg2Workshed: Args.custom({
-      setting: "tptb.bLooper.leg2Workshed",
-      help: "The workshed you'd like the script to install at the start of Leg 2. Leave blank to ignore.",
-      default: $item.none,
-      options: [].concat(_toConsumableArray19(allWorkshedAliases.map(function(_ref) {
-        var item = _ref.item, aliases = _ref.aliases;
-        return [item, "".concat([].concat(_toConsumableArray19(aliases), [toInitials(item.name.toLowerCase())]).filter(function(alias) {
-          return alias !== "";
-        }).join(", "))];
-      })), [[$item.none, "leave this field blank"]])
-    }, stringToWorkshedItem, "Item")
+    leg2Workshed: leg2workshed_exports.arg,
+    leg2ValueOfAdventure: leg2ValueOfAdventure_exports.arg
   }),
   // Hidden properties
   bigBookUsed: Args.boolean({
@@ -6742,584 +12612,256 @@ var args = Args.create("bLooper", "A re-entrant daily looping wrapper", {
   })
 });
 
-// src/quests/breakfast/breakfast.ts
+// src/lib/engine.ts
 init_kolmafia_polyfill();
-
-// src/quests/breakfast/tasks/daily.ts
-init_kolmafia_polyfill();
-var import_kolmafia34 = require("kolmafia");
-var _templateObject79, _templateObject224;
-function _taggedTemplateLiteral14(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+var import_kolmafia45 = require("kolmafia");
+function _classCallCheck12(instance, Constructor) {
+  if (!(instance instanceof Constructor))
+    throw new TypeError("Cannot call a class as a function");
 }
-var DAILY_TASKS = [{
-  name: "Breakfast",
-  completed: function() {
-    return get("breakfastCompleted");
-  },
-  do: function() {
-    return (0, import_kolmafia34.cliExecute)("breakfast");
-  }
-}, {
-  name: "Double Ice",
-  completed: function() {
-    return get("_aprilShower");
-  },
-  do: function() {
-    return (0, import_kolmafia34.cliExecute)("shower ice");
-  }
-}, {
-  name: "Big Book",
-  ready: function() {
-    return (0, import_kolmafia34.availableAmount)($item(_templateObject79 || (_templateObject79 = _taggedTemplateLiteral14(["The Big Book of Every Skill"])))) > 0;
-  },
-  completed: function() {
-    return args.bigBookUsed;
-  },
-  do: function() {
-    (0, import_kolmafia34.use)($item(_templateObject224 || (_templateObject224 = _taggedTemplateLiteral14(["The Big Book of Every Skill"])))), _set(BIG_BOOK_USED, !0), args.bigBookUsed = !0;
-  }
-}];
-
-// src/quests/breakfast/breakfast.ts
-function _toConsumableArray20(arr) {
-  return _arrayWithoutHoles20(arr) || _iterableToArray20(arr) || _unsupportedIterableToArray24(arr) || _nonIterableSpread20();
-}
-function _nonIterableSpread20() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _unsupportedIterableToArray24(o, minLen) {
-  if (o) {
-    if (typeof o == "string")
-      return _arrayLikeToArray24(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
-      return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray24(o, minLen);
+function _defineProperties12(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, _toPropertyKey13(descriptor.key), descriptor);
   }
 }
-function _iterableToArray20(iter) {
-  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
-    return Array.from(iter);
+function _createClass12(Constructor, protoProps, staticProps) {
+  return protoProps && _defineProperties12(Constructor.prototype, protoProps), staticProps && _defineProperties12(Constructor, staticProps), Object.defineProperty(Constructor, "prototype", { writable: !1 }), Constructor;
 }
-function _arrayWithoutHoles20(arr) {
-  if (Array.isArray(arr))
-    return _arrayLikeToArray24(arr);
+function _toPropertyKey13(arg) {
+  var key = _toPrimitive13(arg, "string");
+  return typeof key == "symbol" ? key : String(key);
 }
-function _arrayLikeToArray24(arr, len) {
-  (len == null || len > arr.length) && (len = arr.length);
-  for (var i = 0, arr2 = new Array(len); i < len; i++)
-    arr2[i] = arr[i];
-  return arr2;
+function _toPrimitive13(input, hint) {
+  if (typeof input != "object" || input === null)
+    return input;
+  var prim = input[Symbol.toPrimitive];
+  if (prim !== void 0) {
+    var res = prim.call(input, hint || "default");
+    if (typeof res != "object")
+      return res;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return (hint === "string" ? String : Number)(input);
 }
-var breakfast = {
-  name: "Breakfast",
-  ready: function() {
-    return get("ascensionsToday") === 0;
-  },
-  tasks: _toConsumableArray20(DAILY_TASKS)
-};
-
-// src/quests/leg1/leg1.ts
-init_kolmafia_polyfill();
-
-// src/quests/leg1/tasks/ascend.ts
-init_kolmafia_polyfill();
-var import_kolmafia35 = require("kolmafia");
-var _templateObject80;
-function _taggedTemplateLiteral15(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var ASCEND = {
-  name: "Ascend CS",
-  ready: function() {
-    return get("ascensionsToday") === 0 && args.afterlife.path === $path(_templateObject80 || (_templateObject80 = _taggedTemplateLiteral15(["Community Service"])));
-  },
-  completed: function() {
-    return get("ascensionsToday") === 1;
-  },
-  tasks: [{
-    name: "Ascend",
-    ready: function() {
-      return (0, import_kolmafia35.count)(get("csServicesPerformed").split(",")) === 11;
-    },
-    completed: function() {
-      return (0, import_kolmafia35.visitUrl)("charpane.php").includes("Astral Spirit");
-    },
-    do: function() {
-      var perms = (0, import_kolmafia35.getPermedSkills)(), permSkills = new Map(import_kolmafia35.Skill.all().filter(function(s) {
-        return have(s) && !perms[s.name] && s.permable;
-      }).map(function(s) {
-        return [s, Lifestyle.hardcore];
-      }));
-      (0, import_kolmafia35.visitUrl)("council.php"), ascend({
-        path: args.afterlife.path,
-        playerClass: args.afterlife.class,
-        lifestyle: args.afterlife.lifestyle,
-        kolGender: args.afterlife.gender,
-        moon: args.afterlife.moonSign,
-        consumable: args.afterlife.astralDeli,
-        pet: args.afterlife.astralPet,
-        permOptions: {
-          neverAbort: !0,
-          permSkills: permSkills
-        }
-      });
+function _get() {
+  return typeof Reflect < "u" && Reflect.get ? _get = Reflect.get.bind() : _get = function(target, property, receiver) {
+    var base = _superPropBase(target, property);
+    if (base) {
+      var desc = Object.getOwnPropertyDescriptor(base, property);
+      return desc.get ? desc.get.call(arguments.length < 3 ? target : receiver) : desc.value;
     }
-  }]
-};
+  }, _get.apply(this, arguments);
+}
+function _superPropBase(object, property) {
+  for (; !Object.prototype.hasOwnProperty.call(object, property) && (object = _getPrototypeOf5(object), object !== null); )
+    ;
+  return object;
+}
+function _inherits6(subClass, superClass) {
+  if (typeof superClass != "function" && superClass !== null)
+    throw new TypeError("Super expression must either be null or a function");
+  subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: !0, configurable: !0 } }), Object.defineProperty(subClass, "prototype", { writable: !1 }), superClass && _setPrototypeOf6(subClass, superClass);
+}
+function _setPrototypeOf6(o, p) {
+  return _setPrototypeOf6 = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(o2, p2) {
+    return o2.__proto__ = p2, o2;
+  }, _setPrototypeOf6(o, p);
+}
+function _createSuper5(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct5();
+  return function() {
+    var Super = _getPrototypeOf5(Derived), result;
+    if (hasNativeReflectConstruct) {
+      var NewTarget = _getPrototypeOf5(this).constructor;
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else
+      result = Super.apply(this, arguments);
+    return _possibleConstructorReturn5(this, result);
+  };
+}
+function _possibleConstructorReturn5(self, call) {
+  if (call && (typeof call == "object" || typeof call == "function"))
+    return call;
+  if (call !== void 0)
+    throw new TypeError("Derived constructors may only return object or undefined");
+  return _assertThisInitialized5(self);
+}
+function _assertThisInitialized5(self) {
+  if (self === void 0)
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  return self;
+}
+function _isNativeReflectConstruct5() {
+  if (typeof Reflect > "u" || !Reflect.construct || Reflect.construct.sham)
+    return !1;
+  if (typeof Proxy == "function")
+    return !0;
+  try {
+    return Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {
+    })), !0;
+  } catch (e) {
+    return !1;
+  }
+}
+function _getPrototypeOf5(o) {
+  return _getPrototypeOf5 = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function(o2) {
+    return o2.__proto__ || Object.getPrototypeOf(o2);
+  }, _getPrototypeOf5(o);
+}
+var bLoopEngine = /* @__PURE__ */ function(_Engine) {
+  _inherits6(bLoopEngine2, _Engine);
+  var _super = _createSuper5(bLoopEngine2);
+  function bLoopEngine2() {
+    return _classCallCheck12(this, bLoopEngine2), _super.apply(this, arguments);
+  }
+  return _createClass12(bLoopEngine2, [{
+    key: "execute",
+    value: function(task) {
+      task.name === args.global.abortBefore && (0, import_kolmafia45.abort)("Aborting before executing specified task '".concat(task.name, "'.")), _get(_getPrototypeOf5(bLoopEngine2.prototype), "execute", this).call(this, task);
+    }
+  }]), bLoopEngine2;
+}(Engine);
 
-// src/quests/leg1/tasks/ascendPrep.ts
+// src/quests/ascension/ascend.ts
 init_kolmafia_polyfill();
-var import_kolmafia36 = require("kolmafia");
-var _templateObject81, _templateObject225, _templateObject319, _templateObject417, _templateObject514, _templateObject612, _templateObject710, _templateObject86, _templateObject97, _templateObject105, _templateObject115, _templateObject125, _templateObject135, _templateObject145, _templateObject155, _templateObject164, _templateObject174, _templateObject184, _templateObject194;
-function _taggedTemplateLiteral16(strings, raw) {
+
+// src/quests/ascension/tasks/communityService.ts
+init_kolmafia_polyfill();
+var import_kolmafia46 = require("kolmafia");
+var _templateObject90, _templateObject230, _templateObject325, _templateObject420, _templateObject517, _templateObject613, _templateObject711, _templateObject810;
+function _taggedTemplateLiteral20(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
-var PRE_ASCEND = [{
-  name: "Plant Garden",
-  ready: function() {
-    return args.leg1.preAscendGarden !== $item.none && (0, import_kolmafia36.itemAmount)(args.leg1.preAscendGarden) > 0;
-  },
-  completed: function() {
-    return stringToGardenItem((0, import_kolmafia36.myGardenType)()) === args.leg1.preAscendGarden;
-  },
-  do: function() {
-    (0, import_kolmafia36.cliExecute)("garden pick"), (0, import_kolmafia36.use)(1, args.leg1.preAscendGarden);
-  }
-}, {
-  name: "Stillsuit",
-  ready: function() {
-    return (0, import_kolmafia36.itemAmount)($item(_templateObject81 || (_templateObject81 = _taggedTemplateLiteral16(["tiny stillsuit"])))) > 0 || (0, import_kolmafia36.haveEquipped)($item(_templateObject225 || (_templateObject225 = _taggedTemplateLiteral16(["tiny stillsuit"]))));
-  },
-  outfit: {
-    familiar: $familiar(_templateObject319 || (_templateObject319 = _taggedTemplateLiteral16(["Stooper"])))
-  },
-  completed: function() {
-    return get("familiarSweat") < 10;
-  },
-  do: function() {
-    return (0, import_kolmafia36.cliExecute)("drink stillsuit distillate");
-  }
-}, {
-  name: "CONSUME",
-  completed: function() {
-    return (0, import_kolmafia36.myFullness)() >= (0, import_kolmafia36.fullnessLimit)() && (0, import_kolmafia36.myInebriety)() >= (0, import_kolmafia36.inebrietyLimit)() && (0, import_kolmafia36.mySpleenUse)() >= (0, import_kolmafia36.spleenLimit)();
-  },
-  do: function() {
-    return (0, import_kolmafia36.cliExecute)("CONSUME ALL");
-  }
-}, {
+var calzone = $item(_templateObject90 || (_templateObject90 = _taggedTemplateLiteral20(["Calzone of Legend"]))), pizza = $item(_templateObject230 || (_templateObject230 = _taggedTemplateLiteral20(["Pizza of Legend"]))), deepDish = $item(_templateObject325 || (_templateObject325 = _taggedTemplateLiteral20(["Deep Dish of Legend"]))), time = $item(_templateObject420 || (_templateObject420 = _taggedTemplateLiteral20(["borrowed time"]))), angle = $item(_templateObject517 || (_templateObject517 = _taggedTemplateLiteral20(["non-Euclidean angle"]))), tobiko = $item(_templateObject613 || (_templateObject613 = _taggedTemplateLiteral20(["tobiko marble soda"]))), wasabi = $item(_templateObject711 || (_templateObject711 = _taggedTemplateLiteral20(["wasabi marble soda"]))), dinsey = $item(_templateObject810 || (_templateObject810 = _taggedTemplateLiteral20(["one-day ticket to Dinseylandfill"]))), PREPARE_PULLS = {
   name: "Prepare Pulls",
   acquire: [{
-    item: $item(_templateObject417 || (_templateObject417 = _taggedTemplateLiteral16(["Calzone of Legend"]))),
+    item: calzone,
     price: 50 * get("valueOfAdventure")
   }, {
-    item: $item(_templateObject514 || (_templateObject514 = _taggedTemplateLiteral16(["Pizza of Legend"]))),
+    item: pizza,
     price: 50 * get("valueOfAdventure")
   }, {
-    item: $item(_templateObject612 || (_templateObject612 = _taggedTemplateLiteral16(["Deep Dish of Legend"]))),
+    item: deepDish,
     price: 50 * get("valueOfAdventure")
   }, {
-    item: $item(_templateObject710 || (_templateObject710 = _taggedTemplateLiteral16(["borrowed time"])))
+    item: time
   }, {
-    item: $item(_templateObject86 || (_templateObject86 = _taggedTemplateLiteral16(["non-Euclidean angle"])))
+    item: angle
   }, {
-    item: $item(_templateObject97 || (_templateObject97 = _taggedTemplateLiteral16(["tobiko marble soda"])))
+    item: tobiko
   }, {
-    item: $item(_templateObject105 || (_templateObject105 = _taggedTemplateLiteral16(["wasabi marble soda"])))
+    item: wasabi
   }, {
-    item: $item(_templateObject115 || (_templateObject115 = _taggedTemplateLiteral16(["one-day ticket to Dinseylandfill"])))
+    item: dinsey
   }],
-  completed: function() {
-    return haveCsPulls();
-  },
+  completed: haveCsPulls,
   do: function() {
   }
-}];
+}, ASCEND = {
+  name: "Ascend",
+  completed: function() {
+    return (0, import_kolmafia46.myPath)() === args.afterlife.path;
+  },
+  do: function() {
+    var perms = (0, import_kolmafia46.getPermedSkills)(), permSkills = new Map(import_kolmafia46.Skill.all().filter(function(s) {
+      return have(s) && !perms[s.name] && s.permable;
+    }).map(function(s) {
+      return [s, args.afterlife.permType === "hc" ? Lifestyle.hardcore : Lifestyle.softcore];
+    }));
+    (0, import_kolmafia46.visitUrl)("council.php"), ascend({
+      consumable: args.afterlife.astralDeli,
+      pet: args.afterlife.astralPet,
+      lifestyle: args.afterlife.lifestyle,
+      playerClass: args.afterlife.class,
+      kolGender: args.afterlife.gender,
+      path: args.afterlife.path,
+      moon: args.afterlife.moonSign,
+      permOptions: {
+        neverAbort: !0,
+        permSkills: permSkills
+      }
+    });
+  }
+}, CS_ASCEND_TASKS = [PREPARE_PULLS, ASCEND];
 function haveCsPulls() {
-  return (0, import_kolmafia36.availableAmount)($item(_templateObject125 || (_templateObject125 = _taggedTemplateLiteral16(["Calzone of Legend"])))) > 0 && (0, import_kolmafia36.availableAmount)($item(_templateObject135 || (_templateObject135 = _taggedTemplateLiteral16(["Pizza of Legend"])))) > 0 && (0, import_kolmafia36.availableAmount)($item(_templateObject145 || (_templateObject145 = _taggedTemplateLiteral16(["Deep Dish of Legend"])))) > 0 && (0, import_kolmafia36.availableAmount)($item(_templateObject155 || (_templateObject155 = _taggedTemplateLiteral16(["borrowed time"])))) > 0 && (0, import_kolmafia36.availableAmount)($item(_templateObject164 || (_templateObject164 = _taggedTemplateLiteral16(["non-Euclidean angle"])))) > 0 && (0, import_kolmafia36.availableAmount)($item(_templateObject174 || (_templateObject174 = _taggedTemplateLiteral16(["tobiko marble soda"])))) > 0 && (0, import_kolmafia36.availableAmount)($item(_templateObject184 || (_templateObject184 = _taggedTemplateLiteral16(["wasabi marble soda"])))) > 0 && (0, import_kolmafia36.availableAmount)($item(_templateObject194 || (_templateObject194 = _taggedTemplateLiteral16(["one-day ticket to Dinseylandfill"])))) > 0;
+  return have(calzone) && have(pizza) && have(deepDish) && have(time) && have(angle) && have(tobiko) && have(wasabi) && have(dinsey);
 }
 
-// src/quests/leg1/tasks/garbo.ts
-init_kolmafia_polyfill();
-var import_kolmafia38 = require("kolmafia");
-
-// src/eventLogging.ts
-init_kolmafia_polyfill();
-function logEvent(event) {
-  var events = args.global.eventList.split(",");
-  if (events.includes(event)) {
-    logEvent("".concat(event, "1"));
-    return;
-  }
-  events.push(event), args.global.eventList = events.toString(), _set(eventList_exports.pref.setting, events.toString());
+// src/quests/ascension/ascend.ts
+var _templateObject91;
+function _toConsumableArray24(arr) {
+  return _arrayWithoutHoles24(arr) || _iterableToArray24(arr) || _unsupportedIterableToArray29(arr) || _nonIterableSpread24();
 }
-
-// src/lib/garboBuilder.ts
-init_kolmafia_polyfill();
-var import_kolmafia37 = require("kolmafia");
-var _templateObject87, _templateObject226, _templateObject320, _templateObject418, _templateObject515, _templateObject613;
-function _taggedTemplateLiteral17(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-function executeGarbo(ascending) {
-  var nobarf = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : !1, command = buildGarboCommand(ascending, nobarf);
-  (0, import_kolmafia37.print)("Running garbo with command '".concat(command, "'"), "teal");
-  var success = (0, import_kolmafia37.cliExecute)("garbo ".concat(command));
-  if (!success)
-    throw "Failed to execute garbo with command '".concat(command, "'");
-}
-function buildGarboCommand(ascending, nobarf) {
-  var commandStrings = ["candydish"];
-  return nobarf && commandStrings.push("nobarf"), ascending && commandStrings.push("ascend"), hasYachtzeeAccess() && commandStrings.push("yachtzeechain"), args.leg1.leg1Workshed !== $item.none && commandStrings.push('workshed="'.concat(args.leg1.leg1Workshed, '"')), commandStrings.join(" ");
-}
-function hasYachtzeeAccess() {
-  if ((0, import_kolmafia37.canAdventure)($location(_templateObject87 || (_templateObject87 = _taggedTemplateLiteral17(["The Sunken Party Yacht"])))))
-    return !0;
-  if (args.leg1.buyDaypass && ((0, import_kolmafia37.itemAmount)($item(_templateObject226 || (_templateObject226 = _taggedTemplateLiteral17(["Jurassic Parka"])))) > 0 || (0, import_kolmafia37.haveEquipped)($item(_templateObject320 || (_templateObject320 = _taggedTemplateLiteral17(["Jurassic Parka"]))))) && (0, import_kolmafia37.itemAmount)($item(_templateObject418 || (_templateObject418 = _taggedTemplateLiteral17(["Cincho de Mayo"])))) > 0 && (0, import_kolmafia37.itemAmount)($item(_templateObject515 || (_templateObject515 = _taggedTemplateLiteral17(["Clara's bell"])))) > 0 && get("_spikolodonSpikeUses") === 0 && get("_claraBellUsed") === !1) {
-    var sbb = $item(_templateObject613 || (_templateObject613 = _taggedTemplateLiteral17(["one-day ticket to Spring Break Beach"])));
-    return (0, import_kolmafia37.itemAmount)(sbb) === 0 && (0, import_kolmafia37.buy)(1, sbb, 6e5), (0, import_kolmafia37.itemAmount)(sbb) === 0 ? !1 : ((0, import_kolmafia37.use)(1, sbb), !0);
-  }
-  return !1;
-}
-
-// src/quests/leg1/tasks/garbo.ts
-var _templateObject88, _templateObject227, _templateObject321, _templateObject419, _templateObject516, _templateObject614, _templateObject711;
-function _taggedTemplateLiteral18(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var GARBO = [{
-  name: "Essential Tofu",
-  ready: function() {
-    return (0, import_kolmafia38.mallPrice)($item(_templateObject88 || (_templateObject88 = _taggedTemplateLiteral18(["essential tofu"])))) < 4 * get("valueOfAdventure");
-  },
-  completed: function() {
-    return get("_essentialTofuUsed");
-  },
-  acquire: [{
-    item: $item(_templateObject227 || (_templateObject227 = _taggedTemplateLiteral18(["essential tofu"]))),
-    price: get("valueOfAdventure") * 4
-  }],
-  do: function() {
-    return (0, import_kolmafia38.use)(1, $item(_templateObject321 || (_templateObject321 = _taggedTemplateLiteral18(["essential tofu"]))));
-  }
-}, {
-  name: "Golden Dice",
-  ready: function() {
-    return (0, import_kolmafia38.itemAmount)($item(_templateObject419 || (_templateObject419 = _taggedTemplateLiteral18(["Glenn's golden dice"])))) > 0;
-  },
-  completed: function() {
-    return get("_glennGoldenDiceUsed");
-  },
-  do: function() {
-    return (0, import_kolmafia38.use)(1, $item(_templateObject516 || (_templateObject516 = _taggedTemplateLiteral18(["Glenn's golden dice"]))));
-  }
-}, {
-  name: "Lodestone",
-  ready: function() {
-    return (0, import_kolmafia38.itemAmount)($item(_templateObject614 || (_templateObject614 = _taggedTemplateLiteral18(["lodestone"])))) > 0;
-  },
-  completed: function() {
-    return get("_lodestoneUsed");
-  },
-  do: function() {
-    return (0, import_kolmafia38.use)(1, $item(_templateObject711 || (_templateObject711 = _taggedTemplateLiteral18(["lodestone"]))));
-  }
-}, {
-  name: "Leg1 valueOfAdventure",
-  completed: function() {
-    return get("valueOfAdventure") === args.leg1.leg1ValueOfAdventure;
-  },
-  do: function() {
-    _set("valueOfAdventure", args.leg1.leg1ValueOfAdventure);
-  }
-}, {
-  name: "Garbo Nobarf",
-  ready: function() {
-    return get("ascensionsToday") === 0 && (0, import_kolmafia38.myInebriety)() <= (0, import_kolmafia38.inebrietyLimit)() && args.global.getBounties;
-  },
-  completed: function() {
-    return args.global.eventList.includes(LEG1GARBO_NOBARF);
-  },
-  do: function() {
-    executeGarbo(!1, !0), logEvent(LEG1GARBO_NOBARF);
-  },
-  limit: {
-    tries: 1
-  }
-}, {
-  name: "Bountiful",
-  ready: function() {
-    return get("ascensionsToday") === 0 && args.global.getBounties;
-  },
-  completed: function() {
-    return !1;
-  },
-  do: function() {
-    var success = (0, import_kolmafia38.cliExecute)("bountiful");
-    if (!success)
-      throw "Failed to run 'bountiful'. Please check what went wrong and try again.";
-  }
-}, {
-  name: "Garbo",
-  ready: function() {
-    return get("ascensionsToday") === 0 && (0, import_kolmafia38.myInebriety)() <= (0, import_kolmafia38.inebrietyLimit)();
-  },
-  completed: function() {
-    return args.global.eventList.includes(LEG1GARBO);
-  },
-  do: function() {
-    executeGarbo(!0), (0, import_kolmafia38.myAdventures)() === 0 && logEvent(LEG1GARBO);
-  },
-  limit: {
-    tries: 1
-  }
-}];
-
-// src/quests/leg1/tasks/overdrunk.ts
-init_kolmafia_polyfill();
-var import_kolmafia39 = require("kolmafia");
-var _templateObject89, _templateObject228, _templateObject324, _templateObject420, _templateObject517, _templateObject615, _templateObject712, _templateObject810, _templateObject98, _templateObject106, _templateObject116, _templateObject126, _templateObject136, _templateObject146, _templateObject156;
-function _taggedTemplateLiteral19(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var overdrink = {
-  name: "Get drunk",
-  completed: function() {
-    return (0, import_kolmafia39.myInebriety)() > (0, import_kolmafia39.inebrietyLimit)();
-  },
-  do: function() {
-    return (0, import_kolmafia39.cliExecute)("CONSUME ALL NIGHTCAP VALUE ".concat(get("valueOfAdventure") / 2));
-  }
-}, breakHippyStone = {
-  name: "Break Hippy Stone",
-  completed: function() {
-    return (0, import_kolmafia39.hippyStoneBroken)();
-  },
-  do: function() {
-    return (0, import_kolmafia39.visitUrl)("peevpee.php?action=smashstone&pwd&confirm=on", !0);
-  }
-}, goToSchool = {
-  name: "Go to School",
-  ready: function() {
-    return have($item(_templateObject89 || (_templateObject89 = _taggedTemplateLiteral19(["School of Hard Knocks Diploma"]))));
-  },
-  completed: function() {
-    return get("_hardKnocksDiplomaUsed");
-  },
-  do: function() {
-    return (0, import_kolmafia39.use)(1, $item(_templateObject228 || (_templateObject228 = _taggedTemplateLiteral19(["School of Hard Knocks Diploma"]))));
-  }
-}, punchMirrors = {
-  name: "Punch mirrors",
-  ready: function() {
-    return have($item(_templateObject324 || (_templateObject324 = _taggedTemplateLiteral19(["punching mirror"]))));
-  },
-  completed: function() {
-    return getBoolean("_punchingMirrorUsed");
-  },
-  do: function() {
-    return (0, import_kolmafia39.use)(1, $item(_templateObject420 || (_templateObject420 = _taggedTemplateLiteral19(["punching mirror"]))));
-  }
-}, burnStuff = {
-  name: "Burn stuff",
-  ready: function() {
-    return have($item(_templateObject517 || (_templateObject517 = _taggedTemplateLiteral19(["CSA fire-starting kit"]))));
-  },
-  completed: function() {
-    return get("_fireStartingKitUsed");
-  },
-  choices: {
-    595: 1
-  },
-  do: function() {
-    return (0, import_kolmafia39.use)(1, $item(_templateObject615 || (_templateObject615 = _taggedTemplateLiteral19(["CSA fire-starting kit"]))));
-  }
-}, pvpPrep = [breakHippyStone, goToSchool, punchMirrors, burnStuff], fightStuff = {
-  name: "Fight stuff",
-  ready: function() {
-    return (0, import_kolmafia39.hippyStoneBroken)();
-  },
-  completed: function() {
-    return (0, import_kolmafia39.pvpAttacksLeft)() === 0;
-  },
-  do: function() {
-    return (0, import_kolmafia39.cliExecute)("PVP_MAB");
-  }
-}, overdrunkGarbo = [{
-  name: "Wineglass valueOfAdventure",
-  completed: function() {
-    return get("valueOfAdventure") === args.leg1.wineglassValueOfAdventure;
-  },
-  do: function() {
-    set("valueOfAdventure", args.leg1.wineglassValueOfAdventure);
-  }
-}, {
-  name: "Overdrunk Garbo",
-  ready: function() {
-    return (0, import_kolmafia39.myInebriety)() > (0, import_kolmafia39.inebrietyLimit)() && (0, import_kolmafia39.myAdventures)() > 0;
-  },
-  completed: function() {
-    return (0, import_kolmafia39.myAdventures)() === 0;
-  },
-  do: function() {
-    executeGarbo(!0);
-  }
-}], useCombo = {
-  name: "Comb the Beach",
-  ready: function() {
-    return comboReady();
-  },
-  completed: function() {
-    return (0, import_kolmafia39.myAdventures)() === 0;
-  },
-  do: function() {
-    return (0, import_kolmafia39.cliExecute)("combo ".concat((0, import_kolmafia39.myAdventures)()));
-  }
-}, OVERDRUNK = [{
-  name: "Overdrunk with Wineglass",
-  ready: function() {
-    return get("ascensionsToday") === 0 && have($item(_templateObject712 || (_templateObject712 = _taggedTemplateLiteral19(["Drunkula's wineglass"]))));
-  },
-  tasks: [overdrink].concat(pvpPrep, [fightStuff], overdrunkGarbo, [fightStuff])
-}, {
-  name: "Overdrunk without Wineglass",
-  ready: function() {
-    return get("ascensionsToday") === 0 && !have($item(_templateObject810 || (_templateObject810 = _taggedTemplateLiteral19(["Drunkula's wineglass"]))));
-  },
-  tasks: [overdrink, useCombo].concat(pvpPrep, [fightStuff])
-}];
-function comboReady() {
-  if (have($item(_templateObject98 || (_templateObject98 = _taggedTemplateLiteral19(["Beach Comb"])))))
-    return !0;
-  if (have($item(_templateObject106 || (_templateObject106 = _taggedTemplateLiteral19(["driftwood beach comb"]))))) {
-    var sandPrice = (0, import_kolmafia39.mallPrice)($item(_templateObject116 || (_templateObject116 = _taggedTemplateLiteral19(["grain of sand"])))) * 3, combPrice = (0, import_kolmafia39.mallPrice)($item(_templateObject126 || (_templateObject126 = _taggedTemplateLiteral19(["piece of driftwood"])))), advLimit = combPrice / sandPrice;
-    (0, import_kolmafia39.myAdventures)() > advLimit && ((0, import_kolmafia39.buy)(1, $item(_templateObject136 || (_templateObject136 = _taggedTemplateLiteral19(["piece of driftwood"])))), (0, import_kolmafia39.use)(1, $item(_templateObject146 || (_templateObject146 = _taggedTemplateLiteral19(["piece of driftwood"])))));
-  }
-  return have($item(_templateObject156 || (_templateObject156 = _taggedTemplateLiteral19(["driftwood beach comb"]))));
-}
-
-// src/quests/leg1/tasks/whitelist.ts
-init_kolmafia_polyfill();
-var import_kolmafia40 = require("kolmafia");
-var JOIN_CLAN = {
-  name: "Whitelist",
-  completed: function() {
-    return (0, import_kolmafia40.getClanName)() === args.global.homeClan;
-  },
-  do: function() {
-    return (0, import_kolmafia40.cliExecute)("/whitelist ".concat(args.global.homeClan));
-  }
-};
-
-// src/quests/leg1/leg1.ts
-function _toConsumableArray21(arr) {
-  return _arrayWithoutHoles21(arr) || _iterableToArray21(arr) || _unsupportedIterableToArray25(arr) || _nonIterableSpread21();
-}
-function _nonIterableSpread21() {
+function _nonIterableSpread24() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray25(o, minLen) {
+function _unsupportedIterableToArray29(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray25(o, minLen);
+      return _arrayLikeToArray29(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray25(o, minLen);
+      return _arrayLikeToArray29(o, minLen);
   }
 }
-function _iterableToArray21(iter) {
+function _iterableToArray24(iter) {
   if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
     return Array.from(iter);
 }
-function _arrayWithoutHoles21(arr) {
+function _arrayWithoutHoles24(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray25(arr);
+    return _arrayLikeToArray29(arr);
 }
-function _arrayLikeToArray25(arr, len) {
+function _arrayLikeToArray29(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
   return arr2;
 }
-var leg1 = [{
-  name: "Loop Start",
-  tasks: [JOIN_CLAN]
-}, {
-  name: "Leg 1 Garbo",
+function _taggedTemplateLiteral21(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var ASCEND_CS = {
+  name: "Ascend into Community Service",
   ready: function() {
-    return get("ascensionsToday") === 0;
+    return args.afterlife.path === $path(_templateObject91 || (_templateObject91 = _taggedTemplateLiteral21(["Community Service"])));
   },
-  tasks: _toConsumableArray21(GARBO)
-}, {
-  name: "Ascenscion Prep",
-  ready: function() {
-    return get("ascensionsToday") === 0;
-  },
-  tasks: _toConsumableArray21(PRE_ASCEND)
-}].concat(_toConsumableArray21(OVERDRUNK), [ASCEND]);
-
-// src/quests/leg2/leg2.ts
-init_kolmafia_polyfill();
-
-// src/quests/leg2/tasks/path.ts
-init_kolmafia_polyfill();
-var import_kolmafia41 = require("kolmafia");
-var PATH = {
-  name: "Ascension Path",
-  ready: function() {
+  completed: function() {
     return get("ascensionsToday") === 1;
   },
-  tasks: [{
-    name: "Run Script",
-    completed: function() {
-      return get("kingLiberated") || get("csServicesPerformed").split(",").length === 11;
-    },
-    do: function() {
-      var success = (0, import_kolmafia41.cliExecute)("".concat(args.leg2.ascensionScript));
-      if (!success)
-        throw "Failed to run the specified ascension script '".concat(args.leg2.ascensionScript, "' to completion. Please check what went wrong and try again.");
-    },
-    limit: {
-      tries: 1
-    }
-  }]
-};
-
-// src/quests/leg2/leg2.ts
-var leg2 = [PATH];
+  tasks: _toConsumableArray24(CS_ASCEND_TASKS)
+}, ASCENSION = [ASCEND_CS];
 
 // src/main.ts
-function _toConsumableArray22(arr) {
-  return _arrayWithoutHoles22(arr) || _iterableToArray22(arr) || _unsupportedIterableToArray26(arr) || _nonIterableSpread22();
+function _toConsumableArray25(arr) {
+  return _arrayWithoutHoles25(arr) || _iterableToArray25(arr) || _unsupportedIterableToArray30(arr) || _nonIterableSpread25();
 }
-function _nonIterableSpread22() {
+function _nonIterableSpread25() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray26(o, minLen) {
+function _unsupportedIterableToArray30(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray26(o, minLen);
+      return _arrayLikeToArray30(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray26(o, minLen);
+      return _arrayLikeToArray30(o, minLen);
   }
 }
-function _iterableToArray22(iter) {
+function _iterableToArray25(iter) {
   if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
     return Array.from(iter);
 }
-function _arrayWithoutHoles22(arr) {
+function _arrayWithoutHoles25(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray26(arr);
+    return _arrayLikeToArray30(arr);
 }
-function _arrayLikeToArray26(arr, len) {
+function _arrayLikeToArray30(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
@@ -7334,7 +12876,7 @@ function main(command) {
     initialize();
     return;
   }
-  var tasks = getTasks([breakfast].concat(_toConsumableArray22(leg1), _toConsumableArray22(leg2))), engine = new Engine(tasks);
+  var tasks = getTasks([LEG_1].concat(_toConsumableArray25(LEG_1_OVERDRUNK), _toConsumableArray25(ASCENSION), [LEG_2])), engine = new bLoopEngine(tasks);
   try {
     engine.run();
   } finally {
@@ -7342,5 +12884,5 @@ function main(command) {
   }
 }
 function initialize() {
-  homeClan_exports.init(), buyDaypass_exports.init(), leg1ValueOfAdventure_exports.init(), leg1Workshed_exports.init(), preAscendGarden_exports.init(), wineglassValueOfAdventure_exports.init(), permType_exports.init(), path_exports.init(), lifestyle_exports.init(), moonSign_exports.init(), class_exports.init(), astralPet_exports.init(), astralDeli_exports.init(), gender_exports.init(), ascensionScript_exports.init();
+  homeClan_exports.init(), buyDaypass_exports.init(), leg1Workshed_exports.init(), preAscendGarden_exports.init(), astralDeli_exports.init(), astralPet_exports.init(), permType_exports.init(), lifestyle_exports.init(), class_exports.init(), gender_exports.init(), path_exports.init(), moonSign_exports.init(), ascensionScript_exports.init();
 }
