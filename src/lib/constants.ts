@@ -44,12 +44,16 @@ export {
 };
 
 // Event Names
+export const START = "start";
 export const LEG1NOBARF = "leg1nobarf";
 export const LEG1GARBO = "leg1garbo";
 export const WINEGLASS = "wineglassDone";
 export const PRE_ASCEND = "preAscend";
+export const LEG1END = "leg1end";
+export const LEG2START = "leg2start";
 export const LEG2NOBARF = "leg2nobarf";
 export const LEG2GARBO = "leg2garbo";
+export const END = "end";
 
 // Ascension Path IDs
 export const COMMUNITY_SERVICE = 25;

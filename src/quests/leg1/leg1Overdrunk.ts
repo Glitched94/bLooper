@@ -12,6 +12,8 @@ import {
 import { $item, get, have, set } from "libram";
 
 import { args } from "../../lib/args";
+import { LEG1END } from "../../lib/constants";
+import { logEvent } from "../../lib/eventLogging";
 import { comboReady, executeCombo } from "../../lib/libraryExecutors/combo";
 import { executeGarbo } from "../../lib/libraryExecutors/garbo";
 
@@ -105,9 +107,15 @@ const USE_COMBO: Task = {
   do: executeCombo,
 };
 
+const LOG_END: Task = {
+  name: "Log Leg1 End",
+  completed: () => args.global.eventList.includes(LEG1END),
+  do: () => logEvent(LEG1END),
+};
+
 const WITH_WINEGLASS: Quest<Task> = {
   name: "Overdrunk with Wineglass",
-  ready: () => have($item`Drunkula's wineglass`),
+  ready: () => have($item`Drunkula's wineglass`) && get("ascensionsToday") === 0,
   tasks: [
     OVERDRINK,
     ...PVP_PREP,
@@ -115,13 +123,14 @@ const WITH_WINEGLASS: Quest<Task> = {
     WINEGLASS_VALUEOFADVENTURE,
     OVERDRUNK_GARBO,
     FIGHT_STUFF_2,
+    LOG_END,
   ],
 };
 
 const WITHOUT_WINEGLASS: Quest<Task> = {
   name: "Overdrunk without Wineglass",
-  ready: () => !have($item`Drunkula's wineglass`),
-  tasks: [OVERDRINK, USE_COMBO, ...PVP_PREP, FIGHT_STUFF],
+  ready: () => !have($item`Drunkula's wineglass`) && get("ascensionsToday") === 0,
+  tasks: [OVERDRINK, USE_COMBO, ...PVP_PREP, FIGHT_STUFF, LOG_END],
 };
 
 export const LEG_1_OVERDRUNK: Quest<Task>[] = [WITH_WINEGLASS, WITHOUT_WINEGLASS];

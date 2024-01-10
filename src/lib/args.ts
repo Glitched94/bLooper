@@ -1,8 +1,8 @@
 import { Args, getTasks } from "grimoire-kolmafia";
 
+import { ASCENSION } from "../quests/ascension/ascend";
 import { LEG_1 } from "../quests/leg1/leg1";
 import { LEG_1_OVERDRUNK } from "../quests/leg1/leg1Overdrunk";
-import { ASCENSION } from "../quests/ascension/ascend";
 import { LEG_2 } from "../quests/leg2/leg2";
 
 import * as constants from "./constants";
@@ -46,7 +46,9 @@ export const args = Args.create(
           help: "The script will abort execution before running the task specified here. The task name must be fully qualified in order to successfully abort.",
           default: "",
           options: [
-            ...getTasks([LEG_1, ...LEG_1_OVERDRUNK, ...ASCENSION, LEG_2]).map(({ name }) => [name] as [string]),
+            ...getTasks([LEG_1, ...LEG_1_OVERDRUNK, ...ASCENSION, LEG_2]).map(
+              ({ name }) => [name] as [string],
+            ),
             [""],
           ],
         }),

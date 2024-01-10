@@ -33,7 +33,7 @@ const STILLSUIT: Task = {
     familiar: $familiar`Stooper`,
     famequip: stillsuit,
   },
-  completed: () => get("familiarSweat") < 10,
+  completed: () => myInebriety() > inebrietyLimit() || get("familiarSweat") < 10,
   do: () => cliExecute("drink stillsuit distillate"),
 };
 
