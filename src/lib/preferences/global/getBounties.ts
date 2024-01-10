@@ -6,7 +6,7 @@ export { getBounties as pref, getBountiesPref as arg };
 
 const getBounties: preference = {
   setting: "tptb.bLooper.getBounties",
-  help: "If true, will run 'bountiful' after 'garbo nobarf' at the start of each leg.",
+  help: "If true, will run 'bountiful' after 'garbo nobarf' at the start of each leg. Currently dependencies aren't installed automatically, so ensure you have \"Bountiful\" installed before setting this to true.",
 };
 
 const getBountiesPref = Args.boolean({

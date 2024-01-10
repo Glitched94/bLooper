@@ -1,10 +1,13 @@
-import { Args, Engine, getTasks } from "grimoire-kolmafia";
+import { Args, getTasks } from "grimoire-kolmafia";
 
+import { bLoopEngine } from "./lib/engine";
 import { args } from "./lib/args";
+import { LEG_1 } from "./quests/leg1/leg1";
+import { LEG_1_OVERDRUNK } from "./quests/leg1/leg1Overdrunk";
+import { ASCENSION } from "./quests/ascension/ascend";
+import { LEG_2 } from "./quests/leg2/leg2";
+
 import * as constants from "./lib/constants";
-import { breakfast } from "./quests/breakfast/breakfast";
-import { leg1 } from "./quests/leg1/leg1";
-import { leg2 } from "./quests/leg2/leg2";
 
 export default function main(command?: string): void {
   Args.fill(args, command);
@@ -23,8 +26,8 @@ export default function main(command?: string): void {
     return;
   }
 
-  const tasks = getTasks([breakfast, ...leg1, ...leg2]);
-  const engine = new Engine(tasks);
+  const tasks = getTasks([LEG_1, ...LEG_1_OVERDRUNK, ...ASCENSION, LEG_2]);
+  const engine = new bLoopEngine(tasks);
 
   try {
     engine.run();
@@ -39,20 +42,19 @@ function initialize(): void {
 
   // Leg 1
   constants.buyDaypass.init();
-  constants.leg1ValueOfAdventure.init();
   constants.leg1Workshed.init();
   constants.preAscendGarden.init();
-  constants.wineglassValueOfAdventure.init();
 
   // Afterlife
-  constants.permType.init();
-  constants.path.init();
-  constants.lifestyle.init();
-  constants.moonSign.init();
-  constants.ascendClass.init();
-  constants.astralPet.init();
   constants.astralDeli.init();
+  constants.astralPet.init();
+  constants.permType.init();
+
+  constants.lifestyle.init();
+  constants.ascendClass.init();
   constants.gender.init();
+  constants.path.init();
+  constants.moonSign.init();
 
   // Leg 2
   constants.ascensionScript.init();

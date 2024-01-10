@@ -13,7 +13,7 @@ export {
 
 const leg1ValueOfAdventure: preference = {
   setting: "tptb.bLooper.leg1ValueOfAdventure",
-  help: "The 'valueOfAdventure' to set before running Garbo in Leg1 of your loop.",
+  help: "The 'valueOfAdventure' to set before running Garbo in Leg 1 of your daily loop.",
 };
 
 const leg1ValueOfAdventurePref = Args.number({

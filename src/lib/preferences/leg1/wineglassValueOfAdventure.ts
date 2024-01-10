@@ -13,7 +13,7 @@ export {
 
 const wineglassValueOfAdventure: preference = {
   setting: "tptb.bLooper.wineglassValueOfAdventure",
-  help: "The 'valueOfAdventure' to set before running garbo in Leg1 while overdrunk with a wineglass.",
+  help: "The 'valueOfAdventure' to set before running garbo in Leg 1 while overdrunk with a wineglass.",
 };
 
 const wineglassValueOfAdventurePref = Args.number({

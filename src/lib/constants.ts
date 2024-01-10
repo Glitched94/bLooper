@@ -15,6 +15,8 @@ import * as leg1Workshed from "./preferences/leg1/leg1Workshed";
 import * as preAscendGarden from "./preferences/leg1/preAscendGarden";
 import * as wineglassValueOfAdventure from "./preferences/leg1/wineglassValueOfAdventure";
 import * as ascensionScript from "./preferences/leg2/ascensionScript";
+import * as leg2ValueOfAdventure from "./preferences/leg2/leg2ValueOfAdventure";
+import * as leg2Workshed from "./preferences/leg2/leg2workshed";
 
 // Properties (that I need to access)
 export const BIG_BOOK_USED = "_tptb.bLooper.bigBookUsed";
@@ -37,13 +39,17 @@ export {
   gender,
   permType,
   ascensionScript,
+  leg2Workshed,
+  leg2ValueOfAdventure,
 };
 
 // Event Names
-export const LEG1GARBO_NOBARF = "leg1garbo_nobarf";
+export const LEG1NOBARF = "leg1nobarf";
 export const LEG1GARBO = "leg1garbo";
 export const WINEGLASS = "wineglassDone";
 export const PRE_ASCEND = "preAscend";
+export const LEG2NOBARF = "leg2nobarf";
+export const LEG2GARBO = "leg2garbo";
 
 // Ascension Path IDs
 export const COMMUNITY_SERVICE = 25;
