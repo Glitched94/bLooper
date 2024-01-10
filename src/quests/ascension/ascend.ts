@@ -6,7 +6,7 @@ import { args } from "../../lib/args";
 import { CS_ASCEND_TASKS } from "./tasks/communityService";
 
 const ASCEND_CS: Quest<Task> = {
-  name: "Ascend into Community Service",
+  name: "Community Service",
   ready: () => args.afterlife.path === $path`Community Service`,
   completed: () => get("ascensionsToday") === 1,
   tasks: [...CS_ASCEND_TASKS],
