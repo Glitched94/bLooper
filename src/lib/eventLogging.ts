@@ -1,7 +1,7 @@
 import { set } from "libram";
 
-import { eventList } from "./constants";
 import { args } from "./args";
+import { eventList } from "./constants";
 
 export function logEvent(event: string): void {
   const events = args.global.eventList.split(",");

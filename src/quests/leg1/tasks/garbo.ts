@@ -3,10 +3,10 @@ import { inebrietyLimit, mallPrice, myAdventures, myInebriety, use } from "kolma
 import { $item, get, have, set } from "libram";
 
 import { args } from "../../../lib/args";
-import { executeGarbo } from "../../../lib/libraryExecutors/garbo";
+import { LEG1GARBO, LEG1NOBARF } from "../../../lib/constants";
 import { logEvent } from "../../../lib/eventLogging";
 import { bountiesComplete, executeBountiful } from "../../../lib/libraryExecutors/bountiful";
-import { LEG1GARBO, LEG1NOBARF } from "../../../lib/constants";
+import { executeGarbo } from "../../../lib/libraryExecutors/garbo";
 
 const tofu = $item`essential tofu`;
 const ESSENTIAL_TOFU: Task = {

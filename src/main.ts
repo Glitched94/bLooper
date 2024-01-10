@@ -1,15 +1,14 @@
 import { Args, getTasks } from "grimoire-kolmafia";
 
-import { bLoopEngine } from "./lib/engine";
 import { args } from "./lib/args";
+import * as constants from "./lib/constants";
+import { bLoopEngine } from "./lib/engine";
+import { ASCENSION } from "./quests/ascension/ascend";
 import { LEG_1 } from "./quests/leg1/leg1";
 import { LEG_1_OVERDRUNK } from "./quests/leg1/leg1Overdrunk";
-import { ASCENSION } from "./quests/ascension/ascend";
 import { LEG_2 } from "./quests/leg2/leg2";
 
-import * as constants from "./lib/constants";
-
-export default function main(command?: string): void {
+export default function main(command: string): void {
   Args.fill(args, command);
   if (args.help) {
     if (args.options) {

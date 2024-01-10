@@ -12,8 +12,8 @@ import {
 } from "kolmafia";
 import { $familiar, $item, get, have } from "libram";
 
-import { args } from "../../../lib/args";
 import { stringToGardenItem } from "../../../lib/aliases/garden";
+import { args } from "../../../lib/args";
 
 const PLANT_GARDEN: Task = {
   name: "Plant Garden",

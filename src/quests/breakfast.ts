@@ -6,7 +6,7 @@ import { args } from "../lib/args";
 import * as constants from "../lib/constants";
 
 const JOIN_CLAN: Task = {
-  name: `Join ${args.global.homeClan}`,
+  name: "Join Home Clan",
   ready: () => args.global.homeClan !== "",
   completed: () => getClanName() === args.global.homeClan,
   do: () => Clan.join(args.global.homeClan),

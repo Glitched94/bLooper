@@ -1,8 +1,9 @@
 import { Quest, Task } from "grimoire-kolmafia";
 import { $path, get } from "libram";
 
-import { CS_ASCEND_TASKS } from "./tasks/communityService";
 import { args } from "../../lib/args";
+
+import { CS_ASCEND_TASKS } from "./tasks/communityService";
 
 const ASCEND_CS: Quest<Task> = {
   name: "Ascend into Community Service",

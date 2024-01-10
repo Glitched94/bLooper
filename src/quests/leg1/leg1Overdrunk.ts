@@ -12,8 +12,8 @@ import {
 import { $item, get, have, set } from "libram";
 
 import { args } from "../../lib/args";
-import { executeGarbo } from "../../lib/libraryExecutors/garbo";
 import { comboReady, executeCombo } from "../../lib/libraryExecutors/combo";
+import { executeGarbo } from "../../lib/libraryExecutors/garbo";
 
 const OVERDRINK: Task = {
   name: "Get Drunk",
@@ -69,6 +69,19 @@ const FIGHT_STUFF: Task = {
   },
 };
 
+const FIGHT_STUFF_2: Task = {
+  name: "Fight Stuff Again",
+  ready: hippyStoneBroken,
+  completed: () => pvpAttacksLeft() === 0,
+  do: () => {
+    const success = cliExecute("PVP_MAB");
+    if (!success) throw `Failed to run PVP_MAB for some reason, please check what went wrong.`;
+  },
+  limit: {
+    tries: 1,
+  },
+};
+
 const WINEGLASS_VALUEOFADVENTURE: Task = {
   name: "Set valueOfAdventure",
   completed: () => get("valueOfAdventure") === args.leg1.wineglassValueOfAdventure,
@@ -93,7 +106,7 @@ const USE_COMBO: Task = {
 };
 
 const WITH_WINEGLASS: Quest<Task> = {
-  name: "Leg 1 Overdrunk",
+  name: "Overdrunk with Wineglass",
   ready: () => have($item`Drunkula's wineglass`),
   tasks: [
     OVERDRINK,
@@ -101,12 +114,12 @@ const WITH_WINEGLASS: Quest<Task> = {
     FIGHT_STUFF,
     WINEGLASS_VALUEOFADVENTURE,
     OVERDRUNK_GARBO,
-    FIGHT_STUFF,
+    FIGHT_STUFF_2,
   ],
 };
 
 const WITHOUT_WINEGLASS: Quest<Task> = {
-  name: "Leg 1 Overdrunk",
+  name: "Overdrunk without Wineglass",
   ready: () => !have($item`Drunkula's wineglass`),
   tasks: [OVERDRINK, USE_COMBO, ...PVP_PREP, FIGHT_STUFF],
 };

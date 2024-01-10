@@ -3,15 +3,14 @@ import { inebrietyLimit, myAdventures, myInebriety } from "kolmafia";
 import { get, set } from "libram";
 
 import { args } from "../../../lib/args";
-import { executeGarbo } from "../../../lib/libraryExecutors/garbo";
+import { LEG2GARBO, LEG2NOBARF } from "../../../lib/constants";
 import { logEvent } from "../../../lib/eventLogging";
 import { bountiesComplete, executeBountiful } from "../../../lib/libraryExecutors/bountiful";
-import { LEG2GARBO, LEG2NOBARF } from "../../../lib/constants";
+import { executeGarbo } from "../../../lib/libraryExecutors/garbo";
 
 const VALUE_OF_ADVENTURE: Task = {
   name: "Set valueOfAdventure",
-  completed: () => get("valueOfAdventure") === 
-  args.leg2.leg2ValueOfAdventure,
+  completed: () => get("valueOfAdventure") === args.leg2.leg2ValueOfAdventure,
   do: () => set("valueOfAdventure", args.leg2.leg2ValueOfAdventure),
 };
 
