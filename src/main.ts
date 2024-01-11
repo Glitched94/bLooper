@@ -3,11 +3,11 @@ import { Args, getTasks } from "grimoire-kolmafia";
 import { args } from "./lib/args";
 import * as constants from "./lib/constants";
 import { bLoopEngine } from "./lib/engine";
+import { printAllDiff } from "./lib/eventLogging";
 import { ASCENSION } from "./quests/ascension/ascend";
 import { LEG_1 } from "./quests/leg1/leg1";
 import { LEG_1_OVERDRUNK } from "./quests/leg1/leg1Overdrunk";
 import { LEG_2 } from "./quests/leg2/leg2";
-import { printAllDiff } from "./lib/eventLogging";
 
 export default function main(command: string): void {
   Args.fill(args, command);
