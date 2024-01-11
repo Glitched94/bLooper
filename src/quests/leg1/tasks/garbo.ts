@@ -4,7 +4,7 @@ import { $item, get, have, set } from "libram";
 
 import { args } from "../../../lib/args";
 import { LEG1GARBO, LEG1NOBARF } from "../../../lib/constants";
-import { logEvent } from "../../../lib/eventLogging";
+import { checkLogForEvent, logEvent } from "../../../lib/eventLogging";
 import { bountiesComplete, executeBountiful } from "../../../lib/libraryExecutors/bountiful";
 import { executeGarbo } from "../../../lib/libraryExecutors/garbo";
 
@@ -47,7 +47,7 @@ const VALUE_OF_ADVENTURE: Task = {
 const RUN_GARBO_NOBARF: Task = {
   name: "Garbo Nobarf",
   ready: () => myInebriety() <= inebrietyLimit() && args.global.getBounties,
-  completed: () => args.global.eventList.includes(LEG1NOBARF),
+  completed: () => checkLogForEvent(LEG1NOBARF),
   do: () => {
     executeGarbo(1, true, true);
     logEvent(LEG1NOBARF);
@@ -67,7 +67,7 @@ const BOUNTIFUL: Task = {
 const LEG1_GARBO: Task = {
   name: "Garbo",
   ready: () => myInebriety() <= inebrietyLimit(),
-  completed: () => args.global.eventList.includes(LEG1GARBO),
+  completed: () => checkLogForEvent(LEG1GARBO),
   do: () => {
     executeGarbo(1, true, false);
 

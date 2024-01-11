@@ -13,7 +13,7 @@ import { $item, get, have, set } from "libram";
 
 import { args } from "../../lib/args";
 import { LEG1END } from "../../lib/constants";
-import { logEvent } from "../../lib/eventLogging";
+import { checkLogForEvent, logEvent } from "../../lib/eventLogging";
 import { comboReady, executeCombo } from "../../lib/libraryExecutors/combo";
 import { executeGarbo } from "../../lib/libraryExecutors/garbo";
 
@@ -109,7 +109,7 @@ const USE_COMBO: Task = {
 
 const LOG_END: Task = {
   name: "Log Leg1 End",
-  completed: () => args.global.eventList.includes(LEG1END),
+  completed: () => checkLogForEvent(LEG1END),
   do: () => logEvent(LEG1END),
 };
 

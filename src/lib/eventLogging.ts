@@ -20,7 +20,7 @@ import { Snapshot } from "snapshot-libram";
 import { args } from "./args";
 import { eventList } from "./constants";
 
-export { logEvent, printAllDiff };
+export { checkLogForEvent, logEvent, printAllDiff };
 
 function checkDate(): void {
   const now = todayToString();
@@ -56,6 +56,13 @@ function logEvent(event: string): void {
 
   args.global.eventList = events.toString();
   set(eventList.pref.setting, events.toString());
+}
+
+function checkLogForEvent(event: string): boolean {
+  checkDate();
+
+  const events = args.global.eventList.split(",");
+  return events.includes(event);
 }
 
 function printAllDiff(): void {
