@@ -12585,6 +12585,11 @@ function logEvent(event) {
   var snapshot = Snapshot.current();
   snapshot.toFile(event), events[0] === "" ? events[0] = event : events.push(event), args.global.eventList = events.toString(), _set(eventList_exports.pref.setting, events.toString());
 }
+function checkLogForEvent(event) {
+  checkDate();
+  var events = args.global.eventList.split(",");
+  return events.includes(event);
+}
 function printAllDiff() {
   var events = args.global.eventList.split(","), lastRun = get("tptb.bLooper.lastRun");
   if (events.length < 2) {
@@ -12816,7 +12821,7 @@ var tofu = $item(_templateObject99 || (_templateObject99 = _taggedTemplateLitera
     return (0, import_kolmafia43.myInebriety)() <= (0, import_kolmafia43.inebrietyLimit)() && args.global.getBounties;
   },
   completed: function() {
-    return args.global.eventList.includes(LEG1NOBARF);
+    return checkLogForEvent(LEG1NOBARF);
   },
   do: function() {
     executeGarbo(1, !0, !0), logEvent(LEG1NOBARF);
@@ -12837,7 +12842,7 @@ var tofu = $item(_templateObject99 || (_templateObject99 = _taggedTemplateLitera
     return (0, import_kolmafia43.myInebriety)() <= (0, import_kolmafia43.inebrietyLimit)();
   },
   completed: function() {
-    return args.global.eventList.includes(LEG1GARBO);
+    return checkLogForEvent(LEG1GARBO);
   },
   do: function() {
     if (executeGarbo(1, !0, !1), (0, import_kolmafia43.myAdventures)() === 0)
@@ -12855,7 +12860,7 @@ init_kolmafia_polyfill();
 var LOG_START = {
   name: "Log Start",
   completed: function() {
-    return args.global.eventList.includes(START);
+    return checkLogForEvent(START);
   },
   do: function() {
     return logEvent(START);
@@ -13047,7 +13052,7 @@ var OVERDRINK = {
 }, LOG_END = {
   name: "Log Leg1 End",
   completed: function() {
-    return args.global.eventList.includes(LEG1END);
+    return checkLogForEvent(LEG1END);
   },
   do: function() {
     return logEvent(LEG1END);
@@ -13086,7 +13091,7 @@ var VALUE_OF_ADVENTURE2 = {
     return (0, import_kolmafia46.myInebriety)() <= (0, import_kolmafia46.inebrietyLimit)() && args.global.getBounties;
   },
   completed: function() {
-    return args.global.eventList.includes(LEG2NOBARF);
+    return checkLogForEvent(LEG2NOBARF);
   },
   do: function() {
     executeGarbo(2, !1, !0), logEvent(LEG2NOBARF);
@@ -13107,7 +13112,7 @@ var VALUE_OF_ADVENTURE2 = {
     return (0, import_kolmafia46.myInebriety)() <= (0, import_kolmafia46.inebrietyLimit)();
   },
   completed: function() {
-    return args.global.eventList.includes(LEG2GARBO);
+    return checkLogForEvent(LEG2GARBO);
   },
   do: function() {
     if (executeGarbo(2, !1, !1), (0, import_kolmafia46.myAdventures)() === 0)
@@ -13125,7 +13130,7 @@ init_kolmafia_polyfill();
 var LOG_START2 = {
   name: "Log Leg2 Start",
   completed: function() {
-    return args.global.eventList.includes(LEG2START);
+    return checkLogForEvent(LEG2START);
   },
   do: function() {
     return logEvent(LEG2START);
