@@ -48,6 +48,11 @@ const RUN_GARBO_NOBARF: Task = {
   name: "Garbo Nobarf",
   ready: () => myInebriety() <= inebrietyLimit() && args.global.getBounties,
   completed: () => checkLogForEvent(LEG1NOBARF),
+  acquire: [
+    {
+      item: $item`bitchin' meatcar`,
+    },
+  ],
   do: () => {
     executeGarbo(1, true, true);
     logEvent(LEG1NOBARF);
@@ -68,6 +73,11 @@ const LEG1_GARBO: Task = {
   name: "Garbo",
   ready: () => myInebriety() <= inebrietyLimit(),
   completed: () => checkLogForEvent(LEG1GARBO),
+  acquire: [
+    {
+      item: $item`bitchin' meatcar`,
+    },
+  ],
   do: () => {
     executeGarbo(1, true, false);
 

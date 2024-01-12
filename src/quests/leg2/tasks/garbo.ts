@@ -1,6 +1,6 @@
 import { Task } from "grimoire-kolmafia";
 import { inebrietyLimit, myAdventures, myInebriety } from "kolmafia";
-import { get, set } from "libram";
+import { $item, get, set } from "libram";
 
 import { args } from "../../../lib/args";
 import { LEG2GARBO, LEG2NOBARF } from "../../../lib/constants";
@@ -18,6 +18,11 @@ const RUN_GARBO_NOBARF: Task = {
   name: "Garbo Nobarf",
   ready: () => myInebriety() <= inebrietyLimit() && args.global.getBounties,
   completed: () => checkLogForEvent(LEG2NOBARF),
+  acquire: [
+    {
+      item: $item`bitchin' meatcar`,
+    },
+  ],
   do: () => {
     executeGarbo(2, false, true);
     logEvent(LEG2NOBARF);
@@ -38,6 +43,11 @@ const LEG2_GARBO: Task = {
   name: "Garbo",
   ready: () => myInebriety() <= inebrietyLimit(),
   completed: () => checkLogForEvent(LEG2GARBO),
+  acquire: [
+    {
+      item: $item`bitchin' meatcar`,
+    },
+  ],
   do: () => {
     executeGarbo(2, false, false);
 

@@ -84,6 +84,7 @@ export const args = Args.create(
         ascensionScript: constants.ascensionScript.arg,
         leg2Workshed: constants.leg2Workshed.arg,
         leg2ValueOfAdventure: constants.leg2ValueOfAdventure.arg,
+        rolloverOutfit: constants.rolloverOutfit.arg,
       },
     ),
 

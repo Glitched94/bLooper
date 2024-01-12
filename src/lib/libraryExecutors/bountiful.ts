@@ -2,8 +2,9 @@ import { cliExecute, visitUrl } from "kolmafia";
 import { get } from "libram";
 
 export function executeBountiful(): void {
-  const success = cliExecute("bountiful");
-  if (!success) throw `Failed to run 'bountiful'. Please check what went wrong and try again.`;
+  const success = cliExecute("bountiful hunt all");
+  if (!success)
+    throw `Failed to run 'bountiful hunt all'. Please check what went wrong and try again.`;
 }
 
 export function bountiesComplete(): boolean {

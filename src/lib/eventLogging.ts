@@ -93,8 +93,8 @@ function printEventDiff(event1: string, event2: string): void {
   const event2Snapshot = Snapshot.fromFile(event2);
 
   // Diff the two events
-  const eventDiff = event2Snapshot.diff(event1Snapshot);
-  const mpa = event2Snapshot.computeMPA(event1Snapshot, { value: itemValue });
+  const eventDiff = event1Snapshot.diff(event2Snapshot);
+  const mpa = event1Snapshot.computeMPA(event2Snapshot, { value: itemValue });
 
   const report: ItemReport[] = [];
   eventDiff.items.forEach((qty, item) => {
@@ -107,32 +107,37 @@ function printEventDiff(event1: string, event2: string): void {
 
   const sortedReport = report.sort((a, b) => a.totalPrice - b.totalPrice);
 
-  printHtml("<b>**********************************<b>");
+  printHtml("<b>**********************************</b>");
   if (sortedReport.length >= 10) {
     for (let i = 0; i < 10; i++) {
       const lineItem = sortedReport[i];
-      print(`${lineItem.qty} ${lineItem.item}: ${lineItem.totalPrice}`);
+      print(`${lineItem.qty} ${lineItem.item}: ${toString(lineItem.totalPrice, "%,.0f")}`);
     }
   }
   print("---------------------------------");
   if (sortedReport.length >= 20) {
     for (let i = sortedReport.length - 1; i > sortedReport.length - 11; i--) {
       const lineItem = sortedReport[i];
-      print(`${lineItem.qty} ${lineItem.item}: ${lineItem.totalPrice}`);
+      print(`${lineItem.qty} ${lineItem.item}: ${toString(lineItem.totalPrice, "%,.0f")}`);
     }
   }
-  printHtml("<b>**********************************<b>");
+  printHtml("<b>**********************************</b>");
 
   printHtml("<b>Summary:</b>");
-  print(`You've earned ${toString(mpa.mpa.items, "%,d")} in item differences.`, "teal");
-  printHtml(`<font color=cc5500>You've earned ${toString(mpa.values.meat, "%,d")} liquid meat.`);
+  print(`You've earned ${toString(mpa.mpa.items, "%,.0f")} in item differences.`, "teal");
   printHtml(
-    `You've spent ${mpa.turns} adventures for a total (meat + item) <b>${mpa.mpa.total} mpa</b>.`,
+    `<font color=cc5500>You've earned ${toString(mpa.values.meat, "%,.0f")} liquid meat.</font>`,
+  );
+  printHtml(
+    `You've spent ${mpa.turns} adventures for a total (meat + item) <b>${toString(
+      mpa.mpa.effective,
+      "%,.2f",
+    )} mpa</b>.`,
   );
   print(
     `You've earned a total of ${toString(
-      mpa.values.total,
-      "%,d",
+      mpa.values.effective,
+      "%,.0f",
     )} meat between ${event1} and ${event2}.`,
     "teal",
   );

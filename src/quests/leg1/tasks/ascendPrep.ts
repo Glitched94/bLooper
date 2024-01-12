@@ -10,10 +10,11 @@ import {
   spleenLimit,
   use,
 } from "kolmafia";
-import { $familiar, $item, get, have } from "libram";
+import { $item, have } from "libram";
 
 import { stringToGardenItem } from "../../../lib/aliases/garden";
 import { args } from "../../../lib/args";
+import { STILLSUIT } from "../../stillsuit";
 
 const PLANT_GARDEN: Task = {
   name: "Plant Garden",
@@ -23,18 +24,6 @@ const PLANT_GARDEN: Task = {
     cliExecute("garden pick");
     use(1, args.leg1.preAscendGarden);
   },
-};
-
-const stillsuit = $item`tiny stillsuit`;
-const STILLSUIT: Task = {
-  name: "Tiny Stillsuit",
-  ready: () => have(stillsuit),
-  outfit: {
-    familiar: $familiar`Stooper`,
-    famequip: stillsuit,
-  },
-  completed: () => myInebriety() > inebrietyLimit() || get("familiarSweat") < 10,
-  do: () => cliExecute("drink stillsuit distillate"),
 };
 
 const CONSUME: Task = {
