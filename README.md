@@ -1,36 +1,39 @@
 # bLooper
 
+## Table of Contents
+
+1. [Introduction](#introduction)
+    - [Features](#features)
+    - [Requirements](#requirements)
+    - [Installation](#installation)
+    - [Usage](#usage)
+7. [Contributing](#contributing)
+8. [License](#license)
+
+## Introduction
+
 bLooper is a script designed for the game Kingdom of Loathing. It serves as a wrapper for 1-day Community Service ascensions, automatically running the farming script "garbo" before and after the Community Service (CS) run. It incorporates several automatic optimizations to maximize profits.
 
-## Features
+### Features
 
 - **Wrapper for CS Ascensions:** Automates the process of running "garbo" before and after each ascension.
 - **Automatic Optimizations:** Includes built-in strategies to enhance profit-making.
 - **User-Friendly:** Easy to set up and use, even for those new to scripting in Kingdom of Loathing.
 
-## Requirements
+### Requirements
 
 - All requirements of the CS Script of your choice.
 
-## Installation
+### Installation
 
 ```
 git checkout glitched94/blooper release
 ```
 
-## Usage
+### Usage
 
-If you're using bLooper for the first time, run the initialization command:
-
-```
-bLooper init
-```
-
-Otherwise:
-
-```
-bLooper
-```
+If you're using bLooper for the first time, run the initialization command `bLooper init`, otherwise just use `bLooper`.
+Below is a overview of all the tasks that bLooper performs. Further details for each section of the script can be found in their respective pages.
 
 ```mermaid
 graph TD
@@ -73,6 +76,25 @@ graph TD
 
     L1 --> L1E --> L2 --> L2E
 ```
+
+1. [Leg 1](/docs/leg1.md)
+   - [Join Home Clan](/docs/leg1.md#join-home-clan)
+   - [Morning Preparations](/docs/leg1.md#morning-preparations)
+   - [PreRun Optimizations](/docs/leg1.md#prerun-optimizations)
+   - [Bounties Decision](/docs/leg1.md#bounties-decision)
+2. [Leg 1 End](/docs/leg1end.md)
+   - [Plant Garden and CONSUME](/docs/leg1end.md#plant-garden-and-consume)
+   - [Overdrunk Condition](/docs/leg1end.md#overdrunk-condition)
+3. [Community Service - Preparing and Ascending](/docs/community-service.md)
+   - [Prepare Pulls](/docs/community-service.md#prepare-pulls)
+   - [Ascend](/docs/community-service.md#ascend)
+4. [Leg 2](/docs/leg2.md)
+   - [Run Ascension Script](/docs/leg2.md#run-ascension-script)
+   - [PostRun Optimizations](/docs/leg2.md#postrun-optimizations)
+   - [Bounties Decision](/docs/leg2.md#bounties-decision)
+5. [Leg 2 End](/docs/leg2end.md)
+   - [Campground Setup](/docs/leg2-end.md#campground-setup)
+   - [Nightcap](/docs/leg2-end.md#nightcap)
 
 ## Contributing
 
