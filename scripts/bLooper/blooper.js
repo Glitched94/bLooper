@@ -12888,10 +12888,10 @@ function printAllDiff() {
     return;
   }
   var event1 = events[0], event2 = events[events.length - 1];
-  (0, import_kolmafia43.printHtml)("<font color=0000ff><b>Now comparing all events from ".concat(lastRun, "...</b></font>")), printEventDiff(event1, event2);
+  (0, import_kolmafia43.print)(""), (0, import_kolmafia43.printHtml)("<font color=0000ff><b>Now comparing all events from ".concat(lastRun, "...</b></font>")), printEventDiff(event1, event2);
 }
 function printEventDiff(event1, event2) {
-  var event1Snapshot = Snapshot.fromFile(event1), event2Snapshot = Snapshot.fromFile(event2), eventDiff = event1Snapshot.diff(event2Snapshot), mpa = event1Snapshot.computeMPA(event2Snapshot, {
+  var event1Snapshot = Snapshot.fromFile(event1), event2Snapshot = Snapshot.fromFile(event2), eventDiff = event2Snapshot.diff(event1Snapshot), mpa = event1Snapshot.computeMPA(event2Snapshot, {
     value: itemValue
   }), report = [];
   eventDiff.items.forEach(function(qty, item) {
