@@ -3,12 +3,12 @@
 ## Table of Contents
 
 1. [Introduction](#introduction)
-    - [Features](#features)
-    - [Requirements](#requirements)
-    - [Installation](#installation)
-    - [Usage](#usage)
-7. [Contributing](#contributing)
-8. [License](#license)
+   - [Features](#features)
+   - [Requirements](#requirements)
+   - [Installation](#installation)
+   - [Usage](#usage)
+2. [Contributing](#contributing)
+3. [License](#license)
 
 ## Introduction
 

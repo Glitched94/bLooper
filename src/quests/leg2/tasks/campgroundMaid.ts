@@ -24,7 +24,7 @@ const MEAT_BUTLER: Task = {
   acquire: [
     {
       item: meatButler,
-      price: (get("valueOfAdventure") * 3) + 941,
+      price: get("valueOfAdventure") * 3 + 941,
     },
   ],
   do: () => use(meatButler),
