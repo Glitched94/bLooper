@@ -12,22 +12,10 @@ const CLOCKWORK_MAID: Task = {
   acquire: [
     {
       item: clockworkMaid,
-      price: get("valueOfAdventure") * 8 * 0.75,
+      price: get("valueOfAdventure") * 3,
     },
   ],
   do: () => use(clockworkMaid),
-};
-
-const MEAT_MAID: Task = {
-  name: "Install Meat Maid",
-  completed: haveMaid,
-  acquire: [
-    {
-      item: meatMaid,
-      price: get("valueOfAdventure") * 4 * 0.75,
-    },
-  ],
-  do: () => use(meatMaid),
 };
 
 const MEAT_BUTLER: Task = {
@@ -36,10 +24,22 @@ const MEAT_BUTLER: Task = {
   acquire: [
     {
       item: meatButler,
-      price: 962 * 0.75,
+      price: (get("valueOfAdventure") * 3) + 941,
     },
   ],
   do: () => use(meatButler),
+};
+
+const MEAT_MAID: Task = {
+  name: "Install Meat Maid",
+  completed: haveMaid,
+  acquire: [
+    {
+      item: meatMaid,
+      price: get("valueOfAdventure") * 3,
+    },
+  ],
+  do: () => use(meatMaid),
 };
 
 function haveMaid(): boolean {
@@ -48,4 +48,4 @@ function haveMaid(): boolean {
   );
 }
 
-export const FILL_MAID: Task[] = [CLOCKWORK_MAID, MEAT_MAID, MEAT_BUTLER];
+export const FILL_MAID: Task[] = [CLOCKWORK_MAID, MEAT_BUTLER, MEAT_MAID];
