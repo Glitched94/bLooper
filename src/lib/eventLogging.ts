@@ -77,6 +77,7 @@ function printAllDiff(): void {
   const event1 = events[0];
   const event2 = events[events.length - 1];
 
+  print("");
   printHtml(`<font color=0000ff><b>Now comparing all events from ${lastRun}...</b></font>`);
   printEventDiff(event1, event2);
 }
@@ -93,7 +94,7 @@ function printEventDiff(event1: string, event2: string): void {
   const event2Snapshot = Snapshot.fromFile(event2);
 
   // Diff the two events
-  const eventDiff = event1Snapshot.diff(event2Snapshot);
+  const eventDiff = event2Snapshot.diff(event1Snapshot);
   const mpa = event1Snapshot.computeMPA(event2Snapshot, { value: itemValue });
 
   const report: ItemReport[] = [];
