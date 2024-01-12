@@ -13,6 +13,7 @@ bLooper is a script designed for the game Kingdom of Loathing. It serves as a wr
 - All requirements of the CS Script of your choice.
 
 ## Installation
+
 ```
 git checkout glitched94/blooper release
 ```
@@ -20,10 +21,13 @@ git checkout glitched94/blooper release
 ## Usage
 
 If you're using bLooper for the first time, run the initialization command:
+
 ```
 bLooper init
 ```
+
 Otherwise:
+
 ```
 bLooper
 ```
@@ -66,7 +70,7 @@ graph TD
         O --> P[Nightcap\n\n- Tiny Stillsuit\n- Equip Jammies\n- Overdrink]
         P --> Q[EVENT: Leg 2 End]
     end
-    
+
     L1 --> L1E --> L2 --> L2E
 ```
 
