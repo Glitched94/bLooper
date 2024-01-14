@@ -39,25 +39,27 @@ git checkout glitched94/blooper release
 If you're using bLooper for the first time, run the initialization command `bLooper init`, otherwise just use `bLooper`.
 Below is a overview of all the tasks that bLooper performs. Further details for each section of the script can be found in their respective pages.
 
+Note: Each line of the chart below is also a link to the relative documentation for that task. Click them to learn more about what the script is doing!
+
 ```mermaid
 graph TD
     subgraph L1 [Leg 1]
         direction LR
-        A[EVENT: Start] --> B[Breakfast\n\n- Join Home Clan\n- Mafia Breakfast\n- Double Ice\n- Big Book of Every Skill]
-        B --> C[PreRun Optimizations\n\n- Essential Tofu\n- Golden Dice\n- Lodestone\n- Set valueOfAdventure]
-        C -->|Run Bounties?| D1[Garbo Nobarf\nBountiful Hunt All]
-        C -->|Skip Bounties| D2[Garbo]
+        A[EVENT: Start] --> B[<a href='docs/leg1.md#morning-preparations'>Morning Preparations</a>\n\n- <a href='docs/leg1.md#join-home-clan'>Join Home Clan</a>\n- <a href='docs/leg1.md#breakfast'>Breakfast</a>\n- <a href='docs/leg1.md#double-ice'>Double Ice</a>\n- <a href='docs/leg1.md#big-book-of-every-skill'>Big Book of Every Skill</a>]
+        B --> C[<a href='docs/leg1.md#prerun-optimizations'>PreRun Optimizations</a>\n\n- <a href='docs/leg1.md#essential-tofu'>Essential Tofu</a>\n- <a href='docs/leg1.md#golden-dice'>Golden Dice</a>\n- <a href='docs/leg1.md#lodestone'>Lodestone</a>\n- <a href='docs/leg1.md#set-valueofadventure'>Set valueOfAdventure</a>]
+        C -->|Run Bounties?| D1[- <a href='docs/leg1.md#garbo-nobarf'>Garbo Nobarf</a>\n- <a href='docs/leg1.md#bountiful'>Bountiful Hunt All</a>]
+        C -->|Skip Bounties| D2[<a href='docs/leg1.md#garbo'>Garbo</a>]
         D1 --> D2
     end
 
     subgraph L1E [Leg 1 End]
         direction LR
-        E[Plant Garden\nTiny Stillsuit\nCONSUME]
-        E -->|Has Drunkula's Wineglass| F[Overdrunk with Wineglass\n\n- Get Drunk\n- Break Hippy Stone\n- Go to School\n- Punch Mirrors\n- Burn Stuff\n- Fight Stuff\n- Set valueOfAdventure\n- Overdrunk Garbo\n- Fight Stuff Again]
-        E -->|No Drunkula's Wineglass| G[Overdrunk without Wineglass\n\n- Get Drunk\n- Comb the Beach\n- Break Hippy Stone\n- Go to School\n- Punch Mirrors\n- Burn Stuff\n- Fight Stuff]
+        E[- <a href='docs/leg1end.md#plant-garden'>Plant Garden</a>\n- <a href='docs/leg1end.md#tiny-stillsuit'>Tiny Stillsuit</a>\n- <a href='docs/leg1end.md#consume'>CONSUME</a>]
+        E -->|Has Drunkula's Wineglass| F[<a href='docs/leg1end.md#overdrunk-with-wineglass'>Overdrunk with Wineglass</a>\n\n- <a href='docs/leg1end.md#get-drunk'>Get Drunk</a>\n- <a href='docs/leg1end.md#break-hippy-stone'>Break Hippy Stone</a>- <a href='docs/leg1end.md#go-to-school'>Go to School</a>\n- <a href='docs/leg1end.md#punch-mirrors'>Punch Mirrors</a>\n- <a href='docs/leg1end.md#burn-stuff'>Burn Stuff</a>\n- <a href='docs/leg1end.md#fight-stuff'>Fight Stuff</a>\n- <a href='docs/leg1end.md#set-valueofadventure'>Set valueOfAdventure</a>\n- <a href='docs/leg1end.md#overdrunk-garbo'>Overdrunk Garbo</a>\n- <a href='docs/leg1end.md#fight-stuff-again'>Fight Stuff Again</a>]
+        E -->|No Drunkula's Wineglass| G[<a href='docs/leg1end.md#overdrunk-without-wineglass'>Overdrunk without Wineglass</a>\n\n- <a href='docs/leg1end.md#get-drunk-1'>Get Drunk</a>\n- <a href='docs/leg1end.md#comb-the-beach'>Comb the Beach</a>\n- <a href='docs/leg1end.md#break-hippy-stone-1'>Break Hippy Stone</a>\n- <a href='docs/leg1end.md#go-to-school-1'>Go to School</a>\n- <a href='docs/leg1end.md#punch-mirrors-1'>Punch Mirrors</a>\n- <a href='docs/leg1end.md#burn-stuff-1'>Burn Stuff</a>\n- <a href='docs/leg1end.md#fight-stuff-1'>Fight Stuff</a>]
         F --> H[EVENT: Leg 1 End]
         G --> H
-        H --> I[Community Service\n\n- Prepare Pulls\n- Ascend]
+        H --> I[<a href='docs/leg1end.md#community-service-prep'>Community Service Prep</a>\n\n- <a href='docs/leg1end.md#prepare-pulls'>Prepare Pulls</a>\n- <a href='docs/leg1end.md#ascend'>Ascend</a>]
     end
 
     subgraph L2 [Leg 2]

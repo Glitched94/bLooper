@@ -1,5 +1,17 @@
 # Leg 1
 
+```mermaid
+graph TD
+    subgraph L1 [Leg 1]
+        direction LR
+        A[EVENT: Start] --> B[<a href='#morning-preparations'>Morning Preparations</a>\n\n- <a href='#join-home-clan'>Join Home Clan</a>\n- <a href='#breakfast'>Breakfast</a>\n- <a href='#double-ice'>Double Ice</a>\n- <a href='#big-book-of-every-skill'>Big Book of Every Skill</a>]
+        B --> C[<a href='#prerun-optimizations'>PreRun Optimizations</a>\n\n- <a href='#essential-tofu'>Essential Tofu</a>\n- <a href='#golden-dice'>Golden Dice</a>\n- <a href='#lodestone'>Lodestone</a>\n- <a href='#set-valueofadventure'>Set valueOfAdventure</a>]
+        C -->|Run Bounties?| D1[- <a href='#garbo-nobarf'>Garbo Nobarf</a>\n- <a href='#bountiful'>Bountiful Hunt All</a>]
+        C -->|Skip Bounties| D2[<a href='#garbo'>Garbo</a>]
+        D1 --> D2
+    end
+```
+
 ## Table of Contents
 
 1. [Morning Preparations](#morning-preparations)
