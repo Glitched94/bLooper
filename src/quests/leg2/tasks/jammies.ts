@@ -1,12 +1,23 @@
 import { Outfit, Task } from "grimoire-kolmafia";
-import { buy, cliExecute, create, getOutfits, isWearingOutfit, outfitPieces } from "kolmafia";
+import {
+  buy,
+  cliExecute,
+  create,
+  getCustomOutfits,
+  getOutfits,
+  isWearingOutfit,
+  outfitPieces,
+} from "kolmafia";
 import { $familiar, $item, $slot, have } from "libram";
 
 import { args } from "../../../lib/args";
 
 export const JAMMIES: Task = {
   name: "Equip Jammies",
-  ready: () => args.leg2.rolloverOutfit !== "" && getOutfits().includes(args.leg2.rolloverOutfit),
+  ready: () =>
+    args.leg2.rolloverOutfit !== "" &&
+    (getOutfits().includes(args.leg2.rolloverOutfit) ||
+      getCustomOutfits().includes(args.leg2.rolloverOutfit)),
   completed: () => isWearingOutfit(args.leg2.rolloverOutfit),
   prepare: () => {
     // Prepare foldables that may be in the wrong form and make a burning cape
