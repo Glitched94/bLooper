@@ -4,10 +4,10 @@
 graph TD
     subgraph L1 [Leg 1]
         direction LR
-        A[EVENT: Start] --> B[<a href='#morning-preparations'>Morning Preparations</a>\n\n- <a href='#join-home-clan'>Join Home Clan</a>\n- <a href='#breakfast'>Breakfast</a>\n- <a href='#double-ice'>Double Ice</a>\n- <a href='#big-book-of-every-skill'>Big Book of Every Skill</a>]
-        B --> C[<a href='#prerun-optimizations'>PreRun Optimizations</a>\n\n- <a href='#essential-tofu'>Essential Tofu</a>\n- <a href='#golden-dice'>Golden Dice</a>\n- <a href='#lodestone'>Lodestone</a>\n- <a href='#set-valueofadventure'>Set valueOfAdventure</a>]
-        C -->|Run Bounties?| D1[- <a href='#garbo-nobarf'>Garbo Nobarf</a>\n- <a href='#bountiful'>Bountiful Hunt All</a>]
-        C -->|Skip Bounties| D2[<a href='#garbo'>Garbo</a>]
+        A[EVENT: Start] --> B[<a href='/Glitched94/bLooper/blob/main/docs/leg1.md#morning-preparations'>Morning Preparations</a>\n\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1.md#join-home-clan'>Join Home Clan</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1.md#breakfast'>Breakfast</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1.md#double-ice'>Double Ice</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1.md#big-book-of-every-skill'>Big Book of Every Skill</a>]
+        B --> C[<a href='/Glitched94/bLooper/blob/main/docs/leg1.md#prerun-optimizations'>PreRun Optimizations</a>\n\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1.md#essential-tofu'>Essential Tofu</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1.md#golden-dice'>Golden Dice</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1.md#lodestone'>Lodestone</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1.md#set-valueofadventure'>Set valueOfAdventure</a>]
+        C -->|Run Bounties?| D1[- <a href='/Glitched94/bLooper/blob/main/docs/leg1.md#garbo-nobarf'>Garbo Nobarf</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1.md#bountiful'>Bountiful Hunt All</a>]
+        C -->|Skip Bounties| D2[<a href='/Glitched94/bLooper/blob/main/docs/leg1.md#garbo'>Garbo</a>]
         D1 --> D2
     end
 ```
