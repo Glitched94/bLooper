@@ -14,11 +14,15 @@
 
 bLooper is a script designed for the game Kingdom of Loathing. It serves as a wrapper for 1-day Community Service ascensions, automatically running the farming script "garbo" before and after the Community Service (CS) run. It incorporates several automatic optimizations to maximize profits.
 
+bLooper started its life as a fork of [pLooper](https://github.com/prusias-kol/pLooper), made by the awesome Prusias (#3235855)! If you'd like to stick with tried-and-true, I recommend checking his script out instead of this one. bLooper came about with the intention of writing pLooper in TypeScript, and grew from there, and isn't nearly as tested as pLooper is.
+
+Many many thanks to Prusias for helping get me started on this journey!
+
 ### Features
 
 - **Wrapper for CS Ascensions:** Automates the process of running "garbo" before and after each ascension.
 - **Automatic Optimizations:** Includes built-in strategies to enhance profit-making.
-- **User-Friendly:** Easy to set up and use, even for those new to scripting in Kingdom of Loathing.
+- **User-Friendly:** Easy to set up and use, even for those new to scripting.
 
 ### Requirements
 
@@ -78,10 +82,10 @@ graph TD
 ```
 
 1. [Leg 1](/docs/leg1.md)
-   - [Join Home Clan](/docs/leg1.md#join-home-clan)
    - [Morning Preparations](/docs/leg1.md#morning-preparations)
    - [PreRun Optimizations](/docs/leg1.md#prerun-optimizations)
    - [Bounties Decision](/docs/leg1.md#bounties-decision)
+   - [Garbo](/docs/leg1.md#garbo)
 2. [Leg 1 End](/docs/leg1end.md)
    - [Plant Garden and CONSUME](/docs/leg1end.md#plant-garden-and-consume)
    - [Overdrunk Condition](/docs/leg1end.md#overdrunk-condition)
