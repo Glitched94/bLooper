@@ -11028,31 +11028,59 @@ init_kolmafia_polyfill();
 
 // src/quests/breakfast.ts
 init_kolmafia_polyfill();
-var import_kolmafia39 = require("kolmafia");
-
-// src/lib/constants.ts
-init_kolmafia_polyfill();
-
-// src/lib/preferences/afterlife/astralDeli.ts
-var astralDeli_exports = {};
-__export(astralDeli_exports, {
-  arg: function() {
-    return astralDeliPref;
+var import_kolmafia15 = require("kolmafia");
+var _templateObject69, _templateObject218;
+function _taggedTemplateLiteral9(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var JOIN_CLAN = {
+  name: "Join Home Clan",
+  ready: function() {
+    return args.global.homeClan !== "";
   },
-  init: function() {
-    return setAstralDeli;
+  completed: function() {
+    return (0, import_kolmafia15.getClanName)() === args.global.homeClan;
   },
-  pref: function() {
-    return astralDeli;
+  do: function() {
+    return Clan.join(args.global.homeClan);
   }
-});
+}, BREAKFAST = {
+  name: "Breakfast",
+  completed: function() {
+    return get("breakfastCompleted");
+  },
+  do: function() {
+    return (0, import_kolmafia15.cliExecute)("breakfast");
+  }
+}, DOUBLE_ICE = {
+  name: "Double Ice",
+  completed: function() {
+    return get("_aprilShower");
+  },
+  do: function() {
+    return (0, import_kolmafia15.cliExecute)("shower ice");
+  }
+}, BIG_BOOK = {
+  name: "Big Book of Every Skill",
+  ready: function() {
+    return have($item(_templateObject69 || (_templateObject69 = _taggedTemplateLiteral9(["The Big Book of Every Skill"]))));
+  },
+  completed: function() {
+    return get("_bookOfEverySkillUsed");
+  },
+  do: function() {
+    return (0, import_kolmafia15.use)($item(_templateObject218 || (_templateObject218 = _taggedTemplateLiteral9(["The Big Book of Every Skill"]))));
+  }
+}, EXTENDED_BREAKFAST = [JOIN_CLAN, BREAKFAST, DOUBLE_ICE, BIG_BOOK];
+
+// src/quests/leg1/tasks/ascendPrep.ts
+init_kolmafia_polyfill();
+var import_kolmafia18 = require("kolmafia");
+
+// src/lib/aliases/garden.ts
 init_kolmafia_polyfill();
 var import_kolmafia16 = require("kolmafia");
-
-// src/lib/aliases/astralDeli.ts
-init_kolmafia_polyfill();
-var import_kolmafia15 = require("kolmafia");
-var _templateObject69, _templateObject218, _templateObject316;
+var _templateObject70, _templateObject219, _templateObject316, _templateObject415, _templateObject511, _templateObject610, _templateObject76, _templateObject86, _templateObject96;
 function _toConsumableArray9(arr) {
   return _arrayWithoutHoles9(arr) || _iterableToArray9(arr) || _unsupportedIterableToArray15(arr) || _nonIterableSpread9();
 }
@@ -11084,45 +11112,135 @@ function _arrayLikeToArray15(arr, len) {
     arr2[i] = arr[i];
   return arr2;
 }
-function _taggedTemplateLiteral9(strings, raw) {
+function _taggedTemplateLiteral10(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
-var astralDeliAliases = [{
-  item: $item(_templateObject69 || (_templateObject69 = _taggedTemplateLiteral9(["astral hot dog dinner"]))),
-  aliases: ["hot dog"]
+var gardenAliases = [{
+  item: $item(_templateObject70 || (_templateObject70 = _taggedTemplateLiteral10(["packet of pumpkin seeds"]))),
+  aliases: ["pumpkin"]
 }, {
-  item: $item(_templateObject218 || (_templateObject218 = _taggedTemplateLiteral9(["astral six-pack"]))),
-  aliases: ["six-pack", "pilsner"]
+  item: $item(_templateObject219 || (_templateObject219 = _taggedTemplateLiteral10(["Peppermint Pip Packet"]))),
+  aliases: ["peppermint"]
 }, {
-  item: $item(_templateObject316 || (_templateObject316 = _taggedTemplateLiteral9(["[10882]carton of astral energy drinks"]))),
-  aliases: ["energy drinks"]
-}], allAstralDeliAliases = _toConsumableArray9(astralDeliAliases.map(function(_ref) {
+  item: $item(_templateObject316 || (_templateObject316 = _taggedTemplateLiteral10(["packet of dragon's teeth"]))),
+  aliases: ["skeleton"]
+}, {
+  item: $item(_templateObject415 || (_templateObject415 = _taggedTemplateLiteral10(["packet of beer seeds"]))),
+  aliases: ["beer"]
+}, {
+  item: $item(_templateObject511 || (_templateObject511 = _taggedTemplateLiteral10(["packet of winter seeds"]))),
+  aliases: ["winter"]
+}, {
+  item: $item(_templateObject610 || (_templateObject610 = _taggedTemplateLiteral10(["packet of thanksgarden seeds"]))),
+  aliases: ["thanksgarden"]
+}, {
+  item: $item(_templateObject76 || (_templateObject76 = _taggedTemplateLiteral10(["packet of tall grass seeds"]))),
+  aliases: ["grass"]
+}, {
+  item: $item(_templateObject86 || (_templateObject86 = _taggedTemplateLiteral10(["packet of mushroom spores"]))),
+  aliases: ["mushroom"]
+}, {
+  item: $item(_templateObject96 || (_templateObject96 = _taggedTemplateLiteral10(["packet of rock seeds"]))),
+  aliases: ["rock"]
+}], allGardenAliases = _toConsumableArray9(gardenAliases.map(function(_ref) {
   var item = _ref.item, aliases = _ref.aliases;
   return {
     item: item,
     aliases: [].concat(_toConsumableArray9(aliases), [item.name.toLowerCase()])
   };
 }));
-function stringToAstralDeliItem(s) {
+function stringToGardenItem(s) {
   if (s === "")
     return $item.none;
-  var lowercaseName = s.toLowerCase(), strippedName = stripString(lowercaseName), validItems = allAstralDeliAliases.filter(function(_ref2) {
+  var lowerCaseGarden = s.toLowerCase(), strippedGarden = stripString(lowerCaseGarden), validGardens = allGardenAliases.filter(function(_ref2) {
     var item = _ref2.item, aliases = _ref2.aliases;
-    return toInitials(item.name.toLowerCase()) === lowercaseName || item.name.toLowerCase().includes(lowercaseName) || stripString(item.name.toLowerCase()).includes(strippedName) || aliases.some(function(alias) {
-      return alias === lowercaseName;
+    return toInitials(item.name.toLowerCase()) === lowerCaseGarden || item.name.toLowerCase().includes(lowerCaseGarden) || stripString(item.name.toLowerCase()).includes(strippedGarden) || aliases.some(function(alias) {
+      return alias === lowerCaseGarden;
     });
   });
-  if (validItems.length > 1)
-    throw (0, import_kolmafia15.print)("Invalid Astral Deli Item: ".concat(s, " matches multiple worksheds! Matched:"), "red"), validItems.forEach(function(_ref3) {
+  if (validGardens.length > 1)
+    throw (0, import_kolmafia16.print)("Invalid Garden: ".concat(s, " matches multiple gardens! Matched:"), "red"), validGardens.forEach(function(_ref3) {
       var item = _ref3.item;
-      return (0, import_kolmafia15.print)("".concat(item), "red");
+      return (0, import_kolmafia16.print)("".concat(item), "red");
     }), new Error();
-  if (validItems.length === 0)
-    throw (0, import_kolmafia15.print)("Invalid Astral Deli Item: ".concat(s, " does not match any astral deli items!"), "red"), new Error();
-  return validItems[0].item;
+  if (validGardens.length === 0)
+    throw (0, import_kolmafia16.print)("Invalid Garden: ".concat(s, " does not match any gardens!"), "red"), new Error();
+  return validGardens[0].item;
 }
 
+// src/quests/stillsuit.ts
+init_kolmafia_polyfill();
+var import_kolmafia17 = require("kolmafia");
+var _templateObject71, _templateObject220;
+function _taggedTemplateLiteral11(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var stillsuit = $item(_templateObject71 || (_templateObject71 = _taggedTemplateLiteral11(["tiny stillsuit"]))), STILLSUIT = {
+  name: "Tiny Stillsuit",
+  ready: function() {
+    return have(stillsuit);
+  },
+  outfit: {
+    familiar: $familiar(_templateObject220 || (_templateObject220 = _taggedTemplateLiteral11(["Stooper"]))),
+    famequip: stillsuit
+  },
+  completed: function() {
+    return (0, import_kolmafia17.myInebriety)() > (0, import_kolmafia17.inebrietyLimit)() || get("familiarSweat") < 10;
+  },
+  do: function() {
+    return (0, import_kolmafia17.cliExecute)("drink stillsuit distillate");
+  }
+};
+
+// src/quests/leg1/tasks/ascendPrep.ts
+var PLANT_GARDEN = {
+  name: "Plant Garden",
+  ready: function() {
+    return args.leg1.preAscendGarden !== $item.none && have(args.leg1.preAscendGarden);
+  },
+  completed: function() {
+    return stringToGardenItem((0, import_kolmafia18.myGardenType)()) === args.leg1.preAscendGarden;
+  },
+  do: function() {
+    (0, import_kolmafia18.cliExecute)("garden pick"), (0, import_kolmafia18.use)(1, args.leg1.preAscendGarden);
+  }
+}, CONSUME = {
+  name: "CONSUME",
+  completed: function() {
+    return (0, import_kolmafia18.myFullness)() >= (0, import_kolmafia18.fullnessLimit)() && (0, import_kolmafia18.myInebriety)() >= (0, import_kolmafia18.inebrietyLimit)() && (0, import_kolmafia18.mySpleenUse)() >= (0, import_kolmafia18.spleenLimit)();
+  },
+  do: function() {
+    return (0, import_kolmafia18.cliExecute)("CONSUME ALL");
+  }
+}, ASCEND_PREP = [PLANT_GARDEN, STILLSUIT, CONSUME];
+
+// src/quests/leg1/tasks/garbo.ts
+init_kolmafia_polyfill();
+var import_kolmafia46 = require("kolmafia");
+
+// src/lib/constants.ts
+init_kolmafia_polyfill();
+
 // src/lib/preferences/afterlife/astralDeli.ts
+var astralDeli_exports = {};
+__export(astralDeli_exports, {
+  arg: function() {
+    return astralDeliPref;
+  },
+  init: function() {
+    return setAstralDeli;
+  },
+  pref: function() {
+    return astralDeli;
+  }
+});
+init_kolmafia_polyfill();
+var import_kolmafia20 = require("kolmafia");
+
+// src/lib/aliases/astralDeli.ts
+init_kolmafia_polyfill();
+var import_kolmafia19 = require("kolmafia");
+var _templateObject77, _templateObject221, _templateObject317;
 function _toConsumableArray10(arr) {
   return _arrayWithoutHoles10(arr) || _iterableToArray10(arr) || _unsupportedIterableToArray16(arr) || _nonIterableSpread10();
 }
@@ -11154,45 +11272,45 @@ function _arrayLikeToArray16(arr, len) {
     arr2[i] = arr[i];
   return arr2;
 }
-var astralDeli = {
-  setting: "tptb.bLooper.astralDeli",
-  help: "The name of the item you'd like to buy from the Astral Deli in the afterlife."
-}, astralDeliPref = Args.custom({
-  setting: astralDeli.setting,
-  help: astralDeli.help,
-  default: $item.none,
-  options: [].concat(_toConsumableArray10(allAstralDeliAliases.map(function(_ref) {
-    var item = _ref.item, aliases = _ref.aliases;
-    return [item, "".concat(aliases.filter(function(alias) {
-      return alias !== "";
-    }).join(", "))];
-  })), [[$item.none, "leave this field blank"]])
-}, stringToAstralDeliItem, "Item");
-function setAstralDeli() {
-  var pref = (0, import_kolmafia16.userPrompt)("".concat(astralDeli.help, " Use 'blooper help options' to see all acceptable values for this setting."));
-  _set(astralDeli.setting, pref), args.afterlife.astralDeli = stringToAstralDeliItem(pref);
+function _taggedTemplateLiteral12(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var astralDeliAliases = [{
+  item: $item(_templateObject77 || (_templateObject77 = _taggedTemplateLiteral12(["astral hot dog dinner"]))),
+  aliases: ["hot dog"]
+}, {
+  item: $item(_templateObject221 || (_templateObject221 = _taggedTemplateLiteral12(["astral six-pack"]))),
+  aliases: ["six-pack", "pilsner"]
+}, {
+  item: $item(_templateObject317 || (_templateObject317 = _taggedTemplateLiteral12(["[10882]carton of astral energy drinks"]))),
+  aliases: ["energy drinks"]
+}], allAstralDeliAliases = _toConsumableArray10(astralDeliAliases.map(function(_ref) {
+  var item = _ref.item, aliases = _ref.aliases;
+  return {
+    item: item,
+    aliases: [].concat(_toConsumableArray10(aliases), [item.name.toLowerCase()])
+  };
+}));
+function stringToAstralDeliItem(s) {
+  if (s === "")
+    return $item.none;
+  var lowercaseName = s.toLowerCase(), strippedName = stripString(lowercaseName), validItems = allAstralDeliAliases.filter(function(_ref2) {
+    var item = _ref2.item, aliases = _ref2.aliases;
+    return toInitials(item.name.toLowerCase()) === lowercaseName || item.name.toLowerCase().includes(lowercaseName) || stripString(item.name.toLowerCase()).includes(strippedName) || aliases.some(function(alias) {
+      return alias === lowercaseName;
+    });
+  });
+  if (validItems.length > 1)
+    throw (0, import_kolmafia19.print)("Invalid Astral Deli Item: ".concat(s, " matches multiple worksheds! Matched:"), "red"), validItems.forEach(function(_ref3) {
+      var item = _ref3.item;
+      return (0, import_kolmafia19.print)("".concat(item), "red");
+    }), new Error();
+  if (validItems.length === 0)
+    throw (0, import_kolmafia19.print)("Invalid Astral Deli Item: ".concat(s, " does not match any astral deli items!"), "red"), new Error();
+  return validItems[0].item;
 }
 
-// src/lib/preferences/afterlife/astralPet.ts
-var astralPet_exports = {};
-__export(astralPet_exports, {
-  arg: function() {
-    return astralPetPref;
-  },
-  init: function() {
-    return setAstralPet;
-  },
-  pref: function() {
-    return astralPet;
-  }
-});
-init_kolmafia_polyfill();
-var import_kolmafia18 = require("kolmafia");
-
-// src/lib/aliases/astralPet.ts
-init_kolmafia_polyfill();
-var import_kolmafia17 = require("kolmafia");
-var _templateObject70, _templateObject219, _templateObject317, _templateObject415, _templateObject511, _templateObject610, _templateObject76, _templateObject86, _templateObject96, _templateObject105, _templateObject115, _templateObject125, _templateObject135, _templateObject144, _templateObject154;
+// src/lib/preferences/afterlife/astralDeli.ts
 function _toConsumableArray11(arr) {
   return _arrayWithoutHoles11(arr) || _iterableToArray11(arr) || _unsupportedIterableToArray17(arr) || _nonIterableSpread11();
 }
@@ -11224,81 +11342,45 @@ function _arrayLikeToArray17(arr, len) {
     arr2[i] = arr[i];
   return arr2;
 }
-function _taggedTemplateLiteral10(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var astralPetAliases = [{
-  item: $item(_templateObject70 || (_templateObject70 = _taggedTemplateLiteral10(["astral bludgeon"]))),
-  aliases: ["bludgeon"]
-}, {
-  item: $item(_templateObject219 || (_templateObject219 = _taggedTemplateLiteral10(["astral shield"]))),
-  aliases: ["shield"]
-}, {
-  item: $item(_templateObject317 || (_templateObject317 = _taggedTemplateLiteral10(["astral chapeau"]))),
-  aliases: ["chapeau"]
-}, {
-  item: $item(_templateObject415 || (_templateObject415 = _taggedTemplateLiteral10(["astral bracer"]))),
-  aliases: ["bracer"]
-}, {
-  item: $item(_templateObject511 || (_templateObject511 = _taggedTemplateLiteral10(["astral longbow"]))),
-  aliases: ["longbow"]
-}, {
-  item: $item(_templateObject610 || (_templateObject610 = _taggedTemplateLiteral10(["astral shorts"]))),
-  aliases: ["shorts"]
-}, {
-  item: $item(_templateObject76 || (_templateObject76 = _taggedTemplateLiteral10(["astral mace"]))),
-  aliases: ["mace"]
-}, {
-  item: $item(_templateObject86 || (_templateObject86 = _taggedTemplateLiteral10(["astral trousers"]))),
-  aliases: ["trousers"]
-}, {
-  item: $item(_templateObject96 || (_templateObject96 = _taggedTemplateLiteral10(["astral ring"]))),
-  aliases: ["ring"]
-}, {
-  item: $item(_templateObject105 || (_templateObject105 = _taggedTemplateLiteral10(["astral statuette"]))),
-  aliases: ["statuette"]
-}, {
-  item: $item(_templateObject115 || (_templateObject115 = _taggedTemplateLiteral10(["astral pistol"]))),
-  aliases: ["pistol"]
-}, {
-  item: $item(_templateObject125 || (_templateObject125 = _taggedTemplateLiteral10(["astral mask"]))),
-  aliases: ["mask"]
-}, {
-  item: $item(_templateObject135 || (_templateObject135 = _taggedTemplateLiteral10(["astral pet sweater"]))),
-  aliases: ["pet sweater", "sweater"]
-}, {
-  item: $item(_templateObject144 || (_templateObject144 = _taggedTemplateLiteral10(["astral shirt"]))),
-  aliases: ["shirt"]
-}, {
-  item: $item(_templateObject154 || (_templateObject154 = _taggedTemplateLiteral10(["astral belt"]))),
-  aliases: ["belt"]
-}], allAstralPetAliases = _toConsumableArray11(astralPetAliases.map(function(_ref) {
-  var item = _ref.item, aliases = _ref.aliases;
-  return {
-    item: item,
-    aliases: [].concat(_toConsumableArray11(aliases), [item.name.toLowerCase()])
-  };
-}));
-function stringToAstralPet(s) {
-  if (s === "")
-    return $item.none;
-  var lowercaseName = s.toLowerCase(), strippedName = stripString(lowercaseName), validItems = allAstralPetAliases.filter(function(_ref2) {
-    var item = _ref2.item, aliases = _ref2.aliases;
-    return toInitials(item.name.toLowerCase()) === lowercaseName || item.name.toLowerCase().includes(lowercaseName) || stripString(item.name.toLowerCase()).includes(strippedName) || aliases.some(function(alias) {
-      return alias === lowercaseName;
-    });
-  });
-  if (validItems.length > 1)
-    throw (0, import_kolmafia17.print)("Invalid Astral Pet: ".concat(s, " matches multiple worksheds! Matched:"), "red"), validItems.forEach(function(_ref3) {
-      var item = _ref3.item;
-      return (0, import_kolmafia17.print)("".concat(item), "red");
-    }), new Error();
-  if (validItems.length === 0)
-    throw (0, import_kolmafia17.print)("Invalid Astral Pet: ".concat(s, " does not match any astral pets!"), "red"), new Error();
-  return validItems[0].item;
+var astralDeli = {
+  setting: "tptb.bLooper.astralDeli",
+  help: "The name of the item you'd like to buy from the Astral Deli in the afterlife."
+}, astralDeliPref = Args.custom({
+  setting: astralDeli.setting,
+  help: astralDeli.help,
+  default: $item.none,
+  options: [].concat(_toConsumableArray11(allAstralDeliAliases.map(function(_ref) {
+    var item = _ref.item, aliases = _ref.aliases;
+    return [item, "".concat(aliases.filter(function(alias) {
+      return alias !== "";
+    }).join(", "))];
+  })), [[$item.none, "leave this field blank"]])
+}, stringToAstralDeliItem, "Item");
+function setAstralDeli() {
+  var pref = (0, import_kolmafia20.userPrompt)("".concat(astralDeli.help, " Use 'blooper help options' to see all acceptable values for this setting."));
+  _set(astralDeli.setting, pref), args.afterlife.astralDeli = stringToAstralDeliItem(pref);
 }
 
 // src/lib/preferences/afterlife/astralPet.ts
+var astralPet_exports = {};
+__export(astralPet_exports, {
+  arg: function() {
+    return astralPetPref;
+  },
+  init: function() {
+    return setAstralPet;
+  },
+  pref: function() {
+    return astralPet;
+  }
+});
+init_kolmafia_polyfill();
+var import_kolmafia22 = require("kolmafia");
+
+// src/lib/aliases/astralPet.ts
+init_kolmafia_polyfill();
+var import_kolmafia21 = require("kolmafia");
+var _templateObject78, _templateObject224, _templateObject318, _templateObject416, _templateObject513, _templateObject611, _templateObject79, _templateObject87, _templateObject97, _templateObject105, _templateObject115, _templateObject125, _templateObject135, _templateObject144, _templateObject154;
 function _toConsumableArray12(arr) {
   return _arrayWithoutHoles12(arr) || _iterableToArray12(arr) || _unsupportedIterableToArray18(arr) || _nonIterableSpread12();
 }
@@ -11330,45 +11412,81 @@ function _arrayLikeToArray18(arr, len) {
     arr2[i] = arr[i];
   return arr2;
 }
-var astralPet = {
-  setting: "tptb.bLooper.astralPet",
-  help: ""
-}, astralPetPref = Args.custom({
-  setting: astralPet.setting,
-  help: astralPet.help,
-  default: $item.none,
-  options: [].concat(_toConsumableArray12(allAstralPetAliases.map(function(_ref) {
-    var item = _ref.item, aliases = _ref.aliases;
-    return [item, "".concat(aliases.filter(function(alias) {
-      return alias !== "";
-    }).join(", "))];
-  })), [[$item.none, "leave this field blank"]])
-}, stringToAstralPet, "Item");
-function setAstralPet() {
-  var pref = (0, import_kolmafia18.userPrompt)("".concat(astralPet.help, " Use 'blooper help options' to see all acceptable values for this setting."));
-  _set(astralPet.setting, pref), args.afterlife.astralPet = stringToAstralPet(pref);
+function _taggedTemplateLiteral13(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var astralPetAliases = [{
+  item: $item(_templateObject78 || (_templateObject78 = _taggedTemplateLiteral13(["astral bludgeon"]))),
+  aliases: ["bludgeon"]
+}, {
+  item: $item(_templateObject224 || (_templateObject224 = _taggedTemplateLiteral13(["astral shield"]))),
+  aliases: ["shield"]
+}, {
+  item: $item(_templateObject318 || (_templateObject318 = _taggedTemplateLiteral13(["astral chapeau"]))),
+  aliases: ["chapeau"]
+}, {
+  item: $item(_templateObject416 || (_templateObject416 = _taggedTemplateLiteral13(["astral bracer"]))),
+  aliases: ["bracer"]
+}, {
+  item: $item(_templateObject513 || (_templateObject513 = _taggedTemplateLiteral13(["astral longbow"]))),
+  aliases: ["longbow"]
+}, {
+  item: $item(_templateObject611 || (_templateObject611 = _taggedTemplateLiteral13(["astral shorts"]))),
+  aliases: ["shorts"]
+}, {
+  item: $item(_templateObject79 || (_templateObject79 = _taggedTemplateLiteral13(["astral mace"]))),
+  aliases: ["mace"]
+}, {
+  item: $item(_templateObject87 || (_templateObject87 = _taggedTemplateLiteral13(["astral trousers"]))),
+  aliases: ["trousers"]
+}, {
+  item: $item(_templateObject97 || (_templateObject97 = _taggedTemplateLiteral13(["astral ring"]))),
+  aliases: ["ring"]
+}, {
+  item: $item(_templateObject105 || (_templateObject105 = _taggedTemplateLiteral13(["astral statuette"]))),
+  aliases: ["statuette"]
+}, {
+  item: $item(_templateObject115 || (_templateObject115 = _taggedTemplateLiteral13(["astral pistol"]))),
+  aliases: ["pistol"]
+}, {
+  item: $item(_templateObject125 || (_templateObject125 = _taggedTemplateLiteral13(["astral mask"]))),
+  aliases: ["mask"]
+}, {
+  item: $item(_templateObject135 || (_templateObject135 = _taggedTemplateLiteral13(["astral pet sweater"]))),
+  aliases: ["pet sweater", "sweater"]
+}, {
+  item: $item(_templateObject144 || (_templateObject144 = _taggedTemplateLiteral13(["astral shirt"]))),
+  aliases: ["shirt"]
+}, {
+  item: $item(_templateObject154 || (_templateObject154 = _taggedTemplateLiteral13(["astral belt"]))),
+  aliases: ["belt"]
+}], allAstralPetAliases = _toConsumableArray12(astralPetAliases.map(function(_ref) {
+  var item = _ref.item, aliases = _ref.aliases;
+  return {
+    item: item,
+    aliases: [].concat(_toConsumableArray12(aliases), [item.name.toLowerCase()])
+  };
+}));
+function stringToAstralPet(s) {
+  if (s === "")
+    return $item.none;
+  var lowercaseName = s.toLowerCase(), strippedName = stripString(lowercaseName), validItems = allAstralPetAliases.filter(function(_ref2) {
+    var item = _ref2.item, aliases = _ref2.aliases;
+    return toInitials(item.name.toLowerCase()) === lowercaseName || item.name.toLowerCase().includes(lowercaseName) || stripString(item.name.toLowerCase()).includes(strippedName) || aliases.some(function(alias) {
+      return alias === lowercaseName;
+    });
+  });
+  if (validItems.length > 1)
+    throw (0, import_kolmafia21.print)("Invalid Astral Pet: ".concat(s, " matches multiple worksheds! Matched:"), "red"), validItems.forEach(function(_ref3) {
+      var item = _ref3.item;
+      return (0, import_kolmafia21.print)("".concat(item), "red");
+    }), new Error();
+  if (validItems.length === 0)
+    throw (0, import_kolmafia21.print)("Invalid Astral Pet: ".concat(s, " does not match any astral pets!"), "red"), new Error();
+  return validItems[0].item;
 }
 
-// src/lib/preferences/afterlife/class.ts
-var class_exports = {};
-__export(class_exports, {
-  arg: function() {
-    return ascendClassPref;
-  },
-  init: function() {
-    return setAscendClass;
-  },
-  pref: function() {
-    return ascendClass;
-  }
-});
-init_kolmafia_polyfill();
-var import_kolmafia20 = require("kolmafia");
-
-// src/lib/aliases/class.ts
-init_kolmafia_polyfill();
-var import_kolmafia19 = require("kolmafia");
-var _templateObject71, _templateObject220, _templateObject318, _templateObject416, _templateObject513, _templateObject611, _templateObject77;
+// src/lib/preferences/afterlife/astralPet.ts
 function _toConsumableArray13(arr) {
   return _arrayWithoutHoles13(arr) || _iterableToArray13(arr) || _unsupportedIterableToArray19(arr) || _nonIterableSpread13();
 }
@@ -11400,55 +11518,45 @@ function _arrayLikeToArray19(arr, len) {
     arr2[i] = arr[i];
   return arr2;
 }
-function _taggedTemplateLiteral11(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var classAliases = [{
-  classObj: $class(_templateObject71 || (_templateObject71 = _taggedTemplateLiteral11(["Seal Clubber"]))),
-  aliases: ["seal clubber", "sc"]
-}, {
-  classObj: $class(_templateObject220 || (_templateObject220 = _taggedTemplateLiteral11(["Turtle Tamer"]))),
-  aliases: ["turtle tamer", "tt"]
-}, {
-  classObj: $class(_templateObject318 || (_templateObject318 = _taggedTemplateLiteral11(["Pastamancer"]))),
-  aliases: ["pastamancer", "pm"]
-}, {
-  classObj: $class(_templateObject416 || (_templateObject416 = _taggedTemplateLiteral11(["Sauceror"]))),
-  aliases: ["sauceror", "s"]
-}, {
-  classObj: $class(_templateObject513 || (_templateObject513 = _taggedTemplateLiteral11(["Disco Bandit"]))),
-  aliases: ["disco bandit", "db"]
-}, {
-  classObj: $class(_templateObject611 || (_templateObject611 = _taggedTemplateLiteral11(["Accordion Thief"]))),
-  aliases: ["accordion thief", "at"]
-}], allClasses = _toConsumableArray13(classAliases.map(function(_ref) {
-  var classObj = _ref.classObj, aliases = _ref.aliases;
-  return {
-    classObj: classObj,
-    aliases: aliases
-  };
-}));
-function stringToClass(s) {
-  if (s === "")
-    return $class(_templateObject77 || (_templateObject77 = _taggedTemplateLiteral11(["Sauceror"])));
-  var lowerCaseName = s.toLowerCase(), validClasses = allClasses.filter(function(_ref2) {
-    var aliases = _ref2.aliases;
-    return aliases.some(function(alias) {
-      return alias === lowerCaseName;
-    });
-  });
-  if (validClasses.length > 1)
-    throw (0, import_kolmafia19.print)("Invalid Class: ".concat(s, " matches multipel classes! Matched:"), "red"), validClasses.forEach(function(_ref3) {
-      var classObj = _ref3.classObj;
-      return (0, import_kolmafia19.print)("".concat(classObj), "red");
-    }), new Error();
-  if (validClasses.length === 0)
-    throw (0, import_kolmafia19.print)("Invalid Class: ".concat(s, " does not match any classes!"), "red"), new Error();
-  return validClasses[0].classObj;
+var astralPet = {
+  setting: "tptb.bLooper.astralPet",
+  help: ""
+}, astralPetPref = Args.custom({
+  setting: astralPet.setting,
+  help: astralPet.help,
+  default: $item.none,
+  options: [].concat(_toConsumableArray13(allAstralPetAliases.map(function(_ref) {
+    var item = _ref.item, aliases = _ref.aliases;
+    return [item, "".concat(aliases.filter(function(alias) {
+      return alias !== "";
+    }).join(", "))];
+  })), [[$item.none, "leave this field blank"]])
+}, stringToAstralPet, "Item");
+function setAstralPet() {
+  var pref = (0, import_kolmafia22.userPrompt)("".concat(astralPet.help, " Use 'blooper help options' to see all acceptable values for this setting."));
+  _set(astralPet.setting, pref), args.afterlife.astralPet = stringToAstralPet(pref);
 }
 
 // src/lib/preferences/afterlife/class.ts
-var _templateObject78;
+var class_exports = {};
+__export(class_exports, {
+  arg: function() {
+    return ascendClassPref;
+  },
+  init: function() {
+    return setAscendClass;
+  },
+  pref: function() {
+    return ascendClass;
+  }
+});
+init_kolmafia_polyfill();
+var import_kolmafia24 = require("kolmafia");
+
+// src/lib/aliases/class.ts
+init_kolmafia_polyfill();
+var import_kolmafia23 = require("kolmafia");
+var _templateObject80, _templateObject225, _templateObject319, _templateObject417, _templateObject514, _templateObject612, _templateObject710;
 function _toConsumableArray14(arr) {
   return _arrayWithoutHoles14(arr) || _iterableToArray14(arr) || _unsupportedIterableToArray20(arr) || _nonIterableSpread14();
 }
@@ -11480,135 +11588,55 @@ function _arrayLikeToArray20(arr, len) {
     arr2[i] = arr[i];
   return arr2;
 }
-function _taggedTemplateLiteral12(strings, raw) {
+function _taggedTemplateLiteral14(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
-var ascendClass = {
-  setting: "tptb.bLooper.class",
-  help: ""
-}, ascendClassPref = Args.custom({
-  setting: ascendClass.setting,
-  help: ascendClass.help,
-  default: $class(_templateObject78 || (_templateObject78 = _taggedTemplateLiteral12(["Sauceror"]))),
-  options: _toConsumableArray14(allClasses.map(function(_ref) {
-    var classObj = _ref.classObj, aliases = _ref.aliases;
-    return [classObj, "".concat(aliases.filter(function(alias) {
-      return alias !== "";
-    }).join(", "))];
-  }))
-}, stringToClass, "Class");
-function setAscendClass() {
-  var pref = (0, import_kolmafia20.userPrompt)("".concat(ascendClass.help, " Use 'blooper help options' to see all acceptable values for this setting."));
-  _set(ascendClass.setting, pref), args.afterlife.class = stringToClass(pref);
+var classAliases = [{
+  classObj: $class(_templateObject80 || (_templateObject80 = _taggedTemplateLiteral14(["Seal Clubber"]))),
+  aliases: ["seal clubber", "sc"]
+}, {
+  classObj: $class(_templateObject225 || (_templateObject225 = _taggedTemplateLiteral14(["Turtle Tamer"]))),
+  aliases: ["turtle tamer", "tt"]
+}, {
+  classObj: $class(_templateObject319 || (_templateObject319 = _taggedTemplateLiteral14(["Pastamancer"]))),
+  aliases: ["pastamancer", "pm"]
+}, {
+  classObj: $class(_templateObject417 || (_templateObject417 = _taggedTemplateLiteral14(["Sauceror"]))),
+  aliases: ["sauceror", "s"]
+}, {
+  classObj: $class(_templateObject514 || (_templateObject514 = _taggedTemplateLiteral14(["Disco Bandit"]))),
+  aliases: ["disco bandit", "db"]
+}, {
+  classObj: $class(_templateObject612 || (_templateObject612 = _taggedTemplateLiteral14(["Accordion Thief"]))),
+  aliases: ["accordion thief", "at"]
+}], allClasses = _toConsumableArray14(classAliases.map(function(_ref) {
+  var classObj = _ref.classObj, aliases = _ref.aliases;
+  return {
+    classObj: classObj,
+    aliases: aliases
+  };
+}));
+function stringToClass(s) {
+  if (s === "")
+    return $class(_templateObject710 || (_templateObject710 = _taggedTemplateLiteral14(["Sauceror"])));
+  var lowerCaseName = s.toLowerCase(), validClasses = allClasses.filter(function(_ref2) {
+    var aliases = _ref2.aliases;
+    return aliases.some(function(alias) {
+      return alias === lowerCaseName;
+    });
+  });
+  if (validClasses.length > 1)
+    throw (0, import_kolmafia23.print)("Invalid Class: ".concat(s, " matches multipel classes! Matched:"), "red"), validClasses.forEach(function(_ref3) {
+      var classObj = _ref3.classObj;
+      return (0, import_kolmafia23.print)("".concat(classObj), "red");
+    }), new Error();
+  if (validClasses.length === 0)
+    throw (0, import_kolmafia23.print)("Invalid Class: ".concat(s, " does not match any classes!"), "red"), new Error();
+  return validClasses[0].classObj;
 }
 
-// src/lib/preferences/afterlife/gender.ts
-var gender_exports = {};
-__export(gender_exports, {
-  arg: function() {
-    return genderPref;
-  },
-  init: function() {
-    return setGender;
-  },
-  pref: function() {
-    return gender;
-  }
-});
-init_kolmafia_polyfill();
-var import_kolmafia21 = require("kolmafia");
-var gender = {
-  setting: "tptb.bLooper.gender",
-  help: ""
-}, genderPref = Args.number({
-  setting: gender.setting,
-  help: gender.help,
-  default: 1,
-  options: [[1, "Male"], [2, "Female"]]
-});
-function setGender() {
-  var pref = Number.parseInt((0, import_kolmafia21.userPrompt)("".concat(gender.help, " Use 'blooper help options' to see all acceptable values for this setting.")));
-  _set(gender.setting, pref), args.afterlife.gender = pref;
-}
-
-// src/lib/preferences/afterlife/lifestyle.ts
-var lifestyle_exports = {};
-__export(lifestyle_exports, {
-  arg: function() {
-    return lifestylePref;
-  },
-  init: function() {
-    return setLifestyle;
-  },
-  pref: function() {
-    return lifestyle;
-  }
-});
-init_kolmafia_polyfill();
-var import_kolmafia22 = require("kolmafia");
-var lifestyle = {
-  setting: "tptb.bLooper.lifestyle",
-  help: "The type of ascension you want to run."
-}, lifestylePref = Args.number({
-  setting: lifestyle.setting,
-  help: lifestyle.help,
-  default: 2,
-  options: [[1, "Casual"], [2, "Normal (or Softcore)"], [3, "Hardcore"]]
-});
-function setLifestyle() {
-  var pref = Number.parseInt((0, import_kolmafia22.userPrompt)("".concat(lifestyle.help, " Use 'blooper help options' to see all acceptable values for this setting.")));
-  _set(lifestyle.setting, pref), args.afterlife.lifestyle = pref;
-}
-
-// src/lib/preferences/afterlife/moonSign.ts
-var moonSign_exports = {};
-__export(moonSign_exports, {
-  arg: function() {
-    return moonSignPref;
-  },
-  init: function() {
-    return setMoonSign;
-  },
-  pref: function() {
-    return moonSign;
-  }
-});
-init_kolmafia_polyfill();
-var import_kolmafia23 = require("kolmafia");
-var moonSign = {
-  setting: "tptb.bLooper.moonId",
-  help: "The name of the Moon Sign you want to ascend under."
-}, moonSignPref = Args.number({
-  setting: moonSign.setting,
-  help: moonSign.help,
-  default: 8,
-  options: [[1, "Mongoose"], [2, "Wallaby"], [3, "Vole"], [4, "Platypus"], [5, "Opossum"], [6, "Marmot"], [7, "Wombat"], [8, "Blender"], [9, "Packrat"]]
-});
-function setMoonSign() {
-  var pref = Number.parseInt((0, import_kolmafia23.userPrompt)("".concat(moonSign.help, " Use 'blooper help options' to see all acceptable values for this setting.")));
-  _set(moonSign.setting, pref), args.afterlife.moonSign = pref;
-}
-
-// src/lib/preferences/afterlife/path.ts
-var path_exports = {};
-__export(path_exports, {
-  arg: function() {
-    return pathPref;
-  },
-  init: function() {
-    return setPath;
-  },
-  pref: function() {
-    return path;
-  }
-});
-init_kolmafia_polyfill();
-var import_kolmafia25 = require("kolmafia");
-
-// src/lib/aliases/path.ts
-init_kolmafia_polyfill();
-var import_kolmafia24 = require("kolmafia");
-var _templateObject79, _templateObject221;
+// src/lib/preferences/afterlife/class.ts
+var _templateObject81;
 function _toConsumableArray15(arr) {
   return _arrayWithoutHoles15(arr) || _iterableToArray15(arr) || _unsupportedIterableToArray21(arr) || _nonIterableSpread15();
 }
@@ -11640,36 +11668,135 @@ function _arrayLikeToArray21(arr, len) {
     arr2[i] = arr[i];
   return arr2;
 }
-function _taggedTemplateLiteral13(strings, raw) {
+function _taggedTemplateLiteral15(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
-var unaliasedPaths = $paths(_templateObject79 || (_templateObject79 = _taggedTemplateLiteral13(["Community Service"]))), allPathAliases = _toConsumableArray15(unaliasedPaths.map(function(path2) {
-  return {
-    path: path2,
-    aliases: [path2.name.toLowerCase()]
-  };
-}));
-function stringToPath(s) {
-  if (s === "")
-    return $path(_templateObject221 || (_templateObject221 = _taggedTemplateLiteral13(["Community Service"])));
-  var lowercaseName = s.toLowerCase(), strippedName = stripString(lowercaseName), validPaths = allPathAliases.filter(function(_ref) {
-    var path2 = _ref.path, aliases = _ref.aliases;
-    return toInitials(path2.name.toLowerCase()) === lowercaseName || path2.name.toLowerCase().includes(lowercaseName) || stripString(path2.name.toLowerCase()).includes(strippedName) || aliases.some(function(alias) {
-      return alias === lowercaseName;
-    });
-  });
-  if (validPaths.length > 1)
-    throw (0, import_kolmafia24.print)("Invalid Path: ".concat(s, " matches multiple paths! Matched:"), "red"), validPaths.forEach(function(_ref2) {
-      var path2 = _ref2.path;
-      return (0, import_kolmafia24.print)("".concat(path2), "red");
-    }), new Error();
-  if (validPaths.length === 0)
-    throw (0, import_kolmafia24.print)("Invalid Path: ".concat(s, " does not match any paths!"), "red"), new Error();
-  return validPaths[0].path;
+var ascendClass = {
+  setting: "tptb.bLooper.class",
+  help: ""
+}, ascendClassPref = Args.custom({
+  setting: ascendClass.setting,
+  help: ascendClass.help,
+  default: $class(_templateObject81 || (_templateObject81 = _taggedTemplateLiteral15(["Sauceror"]))),
+  options: _toConsumableArray15(allClasses.map(function(_ref) {
+    var classObj = _ref.classObj, aliases = _ref.aliases;
+    return [classObj, "".concat(aliases.filter(function(alias) {
+      return alias !== "";
+    }).join(", "))];
+  }))
+}, stringToClass, "Class");
+function setAscendClass() {
+  var pref = (0, import_kolmafia24.userPrompt)("".concat(ascendClass.help, " Use 'blooper help options' to see all acceptable values for this setting."));
+  _set(ascendClass.setting, pref), args.afterlife.class = stringToClass(pref);
+}
+
+// src/lib/preferences/afterlife/gender.ts
+var gender_exports = {};
+__export(gender_exports, {
+  arg: function() {
+    return genderPref;
+  },
+  init: function() {
+    return setGender;
+  },
+  pref: function() {
+    return gender;
+  }
+});
+init_kolmafia_polyfill();
+var import_kolmafia25 = require("kolmafia");
+var gender = {
+  setting: "tptb.bLooper.gender",
+  help: ""
+}, genderPref = Args.number({
+  setting: gender.setting,
+  help: gender.help,
+  default: 1,
+  options: [[1, "Male"], [2, "Female"]]
+});
+function setGender() {
+  var pref = Number.parseInt((0, import_kolmafia25.userPrompt)("".concat(gender.help, " Use 'blooper help options' to see all acceptable values for this setting.")));
+  _set(gender.setting, pref), args.afterlife.gender = pref;
+}
+
+// src/lib/preferences/afterlife/lifestyle.ts
+var lifestyle_exports = {};
+__export(lifestyle_exports, {
+  arg: function() {
+    return lifestylePref;
+  },
+  init: function() {
+    return setLifestyle;
+  },
+  pref: function() {
+    return lifestyle;
+  }
+});
+init_kolmafia_polyfill();
+var import_kolmafia26 = require("kolmafia");
+var lifestyle = {
+  setting: "tptb.bLooper.lifestyle",
+  help: "The type of ascension you want to run."
+}, lifestylePref = Args.number({
+  setting: lifestyle.setting,
+  help: lifestyle.help,
+  default: 2,
+  options: [[1, "Casual"], [2, "Normal (or Softcore)"], [3, "Hardcore"]]
+});
+function setLifestyle() {
+  var pref = Number.parseInt((0, import_kolmafia26.userPrompt)("".concat(lifestyle.help, " Use 'blooper help options' to see all acceptable values for this setting.")));
+  _set(lifestyle.setting, pref), args.afterlife.lifestyle = pref;
+}
+
+// src/lib/preferences/afterlife/moonSign.ts
+var moonSign_exports = {};
+__export(moonSign_exports, {
+  arg: function() {
+    return moonSignPref;
+  },
+  init: function() {
+    return setMoonSign;
+  },
+  pref: function() {
+    return moonSign;
+  }
+});
+init_kolmafia_polyfill();
+var import_kolmafia27 = require("kolmafia");
+var moonSign = {
+  setting: "tptb.bLooper.moonId",
+  help: "The name of the Moon Sign you want to ascend under."
+}, moonSignPref = Args.number({
+  setting: moonSign.setting,
+  help: moonSign.help,
+  default: 8,
+  options: [[1, "Mongoose"], [2, "Wallaby"], [3, "Vole"], [4, "Platypus"], [5, "Opossum"], [6, "Marmot"], [7, "Wombat"], [8, "Blender"], [9, "Packrat"]]
+});
+function setMoonSign() {
+  var pref = Number.parseInt((0, import_kolmafia27.userPrompt)("".concat(moonSign.help, " Use 'blooper help options' to see all acceptable values for this setting.")));
+  _set(moonSign.setting, pref), args.afterlife.moonSign = pref;
 }
 
 // src/lib/preferences/afterlife/path.ts
-var _templateObject80;
+var path_exports = {};
+__export(path_exports, {
+  arg: function() {
+    return pathPref;
+  },
+  init: function() {
+    return setPath;
+  },
+  pref: function() {
+    return path;
+  }
+});
+init_kolmafia_polyfill();
+var import_kolmafia29 = require("kolmafia");
+
+// src/lib/aliases/path.ts
+init_kolmafia_polyfill();
+var import_kolmafia28 = require("kolmafia");
+var _templateObject88, _templateObject226;
 function _toConsumableArray16(arr) {
   return _arrayWithoutHoles16(arr) || _iterableToArray16(arr) || _unsupportedIterableToArray22(arr) || _nonIterableSpread16();
 }
@@ -11701,7 +11828,68 @@ function _arrayLikeToArray22(arr, len) {
     arr2[i] = arr[i];
   return arr2;
 }
-function _taggedTemplateLiteral14(strings, raw) {
+function _taggedTemplateLiteral16(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var unaliasedPaths = $paths(_templateObject88 || (_templateObject88 = _taggedTemplateLiteral16(["Community Service"]))), allPathAliases = _toConsumableArray16(unaliasedPaths.map(function(path2) {
+  return {
+    path: path2,
+    aliases: [path2.name.toLowerCase()]
+  };
+}));
+function stringToPath(s) {
+  if (s === "")
+    return $path(_templateObject226 || (_templateObject226 = _taggedTemplateLiteral16(["Community Service"])));
+  var lowercaseName = s.toLowerCase(), strippedName = stripString(lowercaseName), validPaths = allPathAliases.filter(function(_ref) {
+    var path2 = _ref.path, aliases = _ref.aliases;
+    return toInitials(path2.name.toLowerCase()) === lowercaseName || path2.name.toLowerCase().includes(lowercaseName) || stripString(path2.name.toLowerCase()).includes(strippedName) || aliases.some(function(alias) {
+      return alias === lowercaseName;
+    });
+  });
+  if (validPaths.length > 1)
+    throw (0, import_kolmafia28.print)("Invalid Path: ".concat(s, " matches multiple paths! Matched:"), "red"), validPaths.forEach(function(_ref2) {
+      var path2 = _ref2.path;
+      return (0, import_kolmafia28.print)("".concat(path2), "red");
+    }), new Error();
+  if (validPaths.length === 0)
+    throw (0, import_kolmafia28.print)("Invalid Path: ".concat(s, " does not match any paths!"), "red"), new Error();
+  return validPaths[0].path;
+}
+
+// src/lib/preferences/afterlife/path.ts
+var _templateObject89;
+function _toConsumableArray17(arr) {
+  return _arrayWithoutHoles17(arr) || _iterableToArray17(arr) || _unsupportedIterableToArray23(arr) || _nonIterableSpread17();
+}
+function _nonIterableSpread17() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _unsupportedIterableToArray23(o, minLen) {
+  if (o) {
+    if (typeof o == "string")
+      return _arrayLikeToArray23(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
+      return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+      return _arrayLikeToArray23(o, minLen);
+  }
+}
+function _iterableToArray17(iter) {
+  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
+    return Array.from(iter);
+}
+function _arrayWithoutHoles17(arr) {
+  if (Array.isArray(arr))
+    return _arrayLikeToArray23(arr);
+}
+function _arrayLikeToArray23(arr, len) {
+  (len == null || len > arr.length) && (len = arr.length);
+  for (var i = 0, arr2 = new Array(len); i < len; i++)
+    arr2[i] = arr[i];
+  return arr2;
+}
+function _taggedTemplateLiteral17(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 var path = {
@@ -11710,16 +11898,16 @@ var path = {
 }, pathPref = Args.custom({
   setting: path.setting,
   help: path.help,
-  default: $path(_templateObject80 || (_templateObject80 = _taggedTemplateLiteral14(["Community Service"]))),
-  options: _toConsumableArray16(allPathAliases.map(function(_ref) {
+  default: $path(_templateObject89 || (_templateObject89 = _taggedTemplateLiteral17(["Community Service"]))),
+  options: _toConsumableArray17(allPathAliases.map(function(_ref) {
     var path2 = _ref.path, aliases = _ref.aliases;
-    return [path2, "".concat([].concat(_toConsumableArray16(aliases), [toInitials(path2.name)]).filter(function(alias) {
+    return [path2, "".concat([].concat(_toConsumableArray17(aliases), [toInitials(path2.name)]).filter(function(alias) {
       return alias !== "";
     }).join(", "))];
   }))
 }, stringToPath, "Path");
 function setPath() {
-  var pref = (0, import_kolmafia25.userPrompt)("".concat(path.help, " Use 'blooper help options' to see all acceptable values for this setting."));
+  var pref = (0, import_kolmafia29.userPrompt)("".concat(path.help, " Use 'blooper help options' to see all acceptable values for this setting."));
   _set(path.setting, pref), args.afterlife.path = stringToPath(pref);
 }
 
@@ -11737,7 +11925,7 @@ __export(permType_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia26 = require("kolmafia");
+var import_kolmafia30 = require("kolmafia");
 var permType = {
   setting: "tptb.bLooper.permType",
   help: "How should we try and permanancey skills in the afterlife?"
@@ -11748,7 +11936,7 @@ var permType = {
   options: [["sc", "Softcore"], ["hc", "Hardcore"]]
 });
 function setPermType() {
-  var pref = (0, import_kolmafia26.userPrompt)("".concat(permType.help, " Use 'blooper help options' to see all acceptable values for this setting."));
+  var pref = (0, import_kolmafia30.userPrompt)("".concat(permType.help, " Use 'blooper help options' to see all acceptable values for this setting."));
   _set(permType.setting, pref), args.afterlife.permType = pref;
 }
 
@@ -11806,7 +11994,7 @@ __export(homeClan_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia27 = require("kolmafia");
+var import_kolmafia31 = require("kolmafia");
 var homeClan = {
   setting: "tptb.bLooper.homeClan",
   help: "Your home clan. The script will ensure you are in this clan at the start of each leg of the loop."
@@ -11816,7 +12004,7 @@ var homeClan = {
   default: ""
 });
 function setHomeClan() {
-  var homeClanPref2 = (0, import_kolmafia27.userPrompt)(homeClan.help);
+  var homeClanPref2 = (0, import_kolmafia31.userPrompt)(homeClan.help);
   _set(homeClan.setting, homeClanPref2), args.global.homeClan = homeClanPref2;
 }
 
@@ -11834,7 +12022,7 @@ __export(buyDaypass_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia28 = require("kolmafia");
+var import_kolmafia32 = require("kolmafia");
 var buyDaypass = {
   setting: "tptb.bLooper.buyDaypass",
   help: "Set to 'true' if you'd like to attempt purchasing a one-day ticket to Spring Break Beach for yachtzeechaining."
@@ -11844,7 +12032,7 @@ var buyDaypass = {
   default: !1
 });
 function setBuyDaypass() {
-  var pref = (0, import_kolmafia28.toBoolean)((0, import_kolmafia28.userPrompt)(buyDaypass.help));
+  var pref = (0, import_kolmafia32.toBoolean)((0, import_kolmafia32.userPrompt)(buyDaypass.help));
   _set(buyDaypass.setting, pref), args.leg1.buyDaypass = pref;
 }
 
@@ -11862,7 +12050,7 @@ __export(leg1ValueOfAdventure_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia29 = require("kolmafia");
+var import_kolmafia33 = require("kolmafia");
 var leg1ValueOfAdventure = {
   setting: "tptb.bLooper.leg1ValueOfAdventure",
   help: "The 'valueOfAdventure' to set before running Garbo in Leg 1 of your daily loop."
@@ -11872,7 +12060,7 @@ var leg1ValueOfAdventure = {
   default: get("valueOfAdventure")
 });
 function setLeg1ValueOfAdventure() {
-  var pref = Number.parseInt((0, import_kolmafia29.userPrompt)(leg1ValueOfAdventure.help));
+  var pref = Number.parseInt((0, import_kolmafia33.userPrompt)(leg1ValueOfAdventure.help));
   _set(leg1ValueOfAdventure.setting, pref), args.leg1.leg1ValueOfAdventure = pref;
 }
 
@@ -11890,87 +12078,12 @@ __export(leg1Workshed_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia31 = require("kolmafia");
+var import_kolmafia35 = require("kolmafia");
 
 // src/lib/aliases/workshed.ts
 init_kolmafia_polyfill();
-var import_kolmafia30 = require("kolmafia");
-var _templateObject81, _templateObject224, _templateObject319, _templateObject417;
-function _toConsumableArray17(arr) {
-  return _arrayWithoutHoles17(arr) || _iterableToArray17(arr) || _unsupportedIterableToArray23(arr) || _nonIterableSpread17();
-}
-function _nonIterableSpread17() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _unsupportedIterableToArray23(o, minLen) {
-  if (o) {
-    if (typeof o == "string")
-      return _arrayLikeToArray23(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
-      return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray23(o, minLen);
-  }
-}
-function _iterableToArray17(iter) {
-  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
-    return Array.from(iter);
-}
-function _arrayWithoutHoles17(arr) {
-  if (Array.isArray(arr))
-    return _arrayLikeToArray23(arr);
-}
-function _arrayLikeToArray23(arr, len) {
-  (len == null || len > arr.length) && (len = arr.length);
-  for (var i = 0, arr2 = new Array(len); i < len; i++)
-    arr2[i] = arr[i];
-  return arr2;
-}
-function _taggedTemplateLiteral15(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var workshedAliases = [{
-  item: $item(_templateObject81 || (_templateObject81 = _taggedTemplateLiteral15(["model train set"]))),
-  aliases: ["trainrealm"]
-}, {
-  item: $item(_templateObject224 || (_templateObject224 = _taggedTemplateLiteral15(["Asdon Martin keyfob (on ring)"]))),
-  aliases: ["breadcar", "car", "aston"]
-}, {
-  item: $item(_templateObject319 || (_templateObject319 = _taggedTemplateLiteral15(["Little Geneticist DNA-Splicing Lab"]))),
-  aliases: ["dnalab"]
-}], unaliasedSheds = $items(_templateObject417 || (_templateObject417 = _taggedTemplateLiteral15(["cold medicine cabinet, diabolic pizza cube, portable Mayo Clinic, spinning wheel, warbear auto-anvil, warbear chemistry lab, warbear high-efficiency still, warbear induction oven, warbear jackhammer drill press, warbear LP-ROM burner"]))), allWorkshedAliases = [].concat(_toConsumableArray17(workshedAliases.map(function(_ref) {
-  var item = _ref.item, aliases = _ref.aliases;
-  return {
-    item: item,
-    aliases: [].concat(_toConsumableArray17(aliases), [item.name.toLowerCase()])
-  };
-})), _toConsumableArray17(unaliasedSheds.map(function(item) {
-  return {
-    item: item,
-    aliases: [item.name.toLowerCase()]
-  };
-})));
-function stringToWorkshedItem(s) {
-  if (s === "")
-    return $item.none;
-  var lowerCaseWorkshed = s.toLowerCase(), strippedWorkshed = stripString(lowerCaseWorkshed), validWorksheds = allWorkshedAliases.filter(function(_ref2) {
-    var item = _ref2.item, aliases = _ref2.aliases;
-    return toInitials(item.name.toLowerCase()) === lowerCaseWorkshed || item.name.toLowerCase().includes(lowerCaseWorkshed) || stripString(item.name.toLowerCase()).includes(strippedWorkshed) || aliases.some(function(alias) {
-      return alias === lowerCaseWorkshed;
-    });
-  });
-  if (validWorksheds.length > 1)
-    throw (0, import_kolmafia30.print)("Invalid Workshed: ".concat(s, " matches multiple worksheds! Matched:"), "red"), validWorksheds.forEach(function(_ref3) {
-      var item = _ref3.item;
-      return (0, import_kolmafia30.print)("".concat(item), "red");
-    }), new Error();
-  if (validWorksheds.length === 0)
-    throw (0, import_kolmafia30.print)("Invalid Workshed: ".concat(s, " does not match any worksheds!"), "red"), new Error();
-  return validWorksheds[0].item;
-}
-
-// src/lib/preferences/leg1/leg1Workshed.ts
+var import_kolmafia34 = require("kolmafia");
+var _templateObject90, _templateObject227, _templateObject320, _templateObject418;
 function _toConsumableArray18(arr) {
   return _arrayWithoutHoles18(arr) || _iterableToArray18(arr) || _unsupportedIterableToArray24(arr) || _nonIterableSpread18();
 }
@@ -12002,45 +12115,50 @@ function _arrayLikeToArray24(arr, len) {
     arr2[i] = arr[i];
   return arr2;
 }
-var leg1Workshed = {
-  setting: "tptb.bLooper.leg1Workshed",
-  help: "The workshed you'd like the script to install at the start of Leg 1. Leave blank to ignore."
-}, leg1WorkshedPref = Args.custom({
-  setting: leg1Workshed.setting,
-  help: leg1Workshed.help,
-  default: $item.none,
-  options: [].concat(_toConsumableArray18(allWorkshedAliases.map(function(_ref) {
-    var item = _ref.item, aliases = _ref.aliases;
-    return [item, "".concat([].concat(_toConsumableArray18(aliases), [toInitials(item.name.toLowerCase())]).filter(function(alias) {
-      return alias !== "";
-    }).join(", "))];
-  })), [[$item.none, "leave this field blank"]])
-}, stringToWorkshedItem, "Item");
-function setLeg1Workshed() {
-  var pref = (0, import_kolmafia31.userPrompt)("".concat(leg1Workshed.help, " Use 'blooper help options' to see all acceptable values for this setting."));
-  _set(leg1Workshed.setting, pref), args.leg1.leg1Workshed = stringToWorkshedItem(pref);
+function _taggedTemplateLiteral18(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var workshedAliases = [{
+  item: $item(_templateObject90 || (_templateObject90 = _taggedTemplateLiteral18(["model train set"]))),
+  aliases: ["trainrealm"]
+}, {
+  item: $item(_templateObject227 || (_templateObject227 = _taggedTemplateLiteral18(["Asdon Martin keyfob (on ring)"]))),
+  aliases: ["breadcar", "car", "aston"]
+}, {
+  item: $item(_templateObject320 || (_templateObject320 = _taggedTemplateLiteral18(["Little Geneticist DNA-Splicing Lab"]))),
+  aliases: ["dnalab"]
+}], unaliasedSheds = $items(_templateObject418 || (_templateObject418 = _taggedTemplateLiteral18(["cold medicine cabinet, diabolic pizza cube, portable Mayo Clinic, spinning wheel, warbear auto-anvil, warbear chemistry lab, warbear high-efficiency still, warbear induction oven, warbear jackhammer drill press, warbear LP-ROM burner"]))), allWorkshedAliases = [].concat(_toConsumableArray18(workshedAliases.map(function(_ref) {
+  var item = _ref.item, aliases = _ref.aliases;
+  return {
+    item: item,
+    aliases: [].concat(_toConsumableArray18(aliases), [item.name.toLowerCase()])
+  };
+})), _toConsumableArray18(unaliasedSheds.map(function(item) {
+  return {
+    item: item,
+    aliases: [item.name.toLowerCase()]
+  };
+})));
+function stringToWorkshedItem(s) {
+  if (s === "")
+    return $item.none;
+  var lowerCaseWorkshed = s.toLowerCase(), strippedWorkshed = stripString(lowerCaseWorkshed), validWorksheds = allWorkshedAliases.filter(function(_ref2) {
+    var item = _ref2.item, aliases = _ref2.aliases;
+    return toInitials(item.name.toLowerCase()) === lowerCaseWorkshed || item.name.toLowerCase().includes(lowerCaseWorkshed) || stripString(item.name.toLowerCase()).includes(strippedWorkshed) || aliases.some(function(alias) {
+      return alias === lowerCaseWorkshed;
+    });
+  });
+  if (validWorksheds.length > 1)
+    throw (0, import_kolmafia34.print)("Invalid Workshed: ".concat(s, " matches multiple worksheds! Matched:"), "red"), validWorksheds.forEach(function(_ref3) {
+      var item = _ref3.item;
+      return (0, import_kolmafia34.print)("".concat(item), "red");
+    }), new Error();
+  if (validWorksheds.length === 0)
+    throw (0, import_kolmafia34.print)("Invalid Workshed: ".concat(s, " does not match any worksheds!"), "red"), new Error();
+  return validWorksheds[0].item;
 }
 
-// src/lib/preferences/leg1/preAscendGarden.ts
-var preAscendGarden_exports = {};
-__export(preAscendGarden_exports, {
-  arg: function() {
-    return preAscendGardenPref;
-  },
-  init: function() {
-    return setPreAscendGarden;
-  },
-  pref: function() {
-    return preAscendGarden;
-  }
-});
-init_kolmafia_polyfill();
-var import_kolmafia33 = require("kolmafia");
-
-// src/lib/aliases/garden.ts
-init_kolmafia_polyfill();
-var import_kolmafia32 = require("kolmafia");
-var _templateObject87, _templateObject225, _templateObject320, _templateObject418, _templateObject514, _templateObject612, _templateObject710, _templateObject88, _templateObject97;
+// src/lib/preferences/leg1/leg1Workshed.ts
 function _toConsumableArray19(arr) {
   return _arrayWithoutHoles19(arr) || _iterableToArray19(arr) || _unsupportedIterableToArray25(arr) || _nonIterableSpread19();
 }
@@ -12072,63 +12190,40 @@ function _arrayLikeToArray25(arr, len) {
     arr2[i] = arr[i];
   return arr2;
 }
-function _taggedTemplateLiteral16(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var gardenAliases = [{
-  item: $item(_templateObject87 || (_templateObject87 = _taggedTemplateLiteral16(["packet of pumpkin seeds"]))),
-  aliases: ["pumpkin"]
-}, {
-  item: $item(_templateObject225 || (_templateObject225 = _taggedTemplateLiteral16(["Peppermint Pip Packet"]))),
-  aliases: ["peppermint"]
-}, {
-  item: $item(_templateObject320 || (_templateObject320 = _taggedTemplateLiteral16(["packet of dragon's teeth"]))),
-  aliases: ["skeleton"]
-}, {
-  item: $item(_templateObject418 || (_templateObject418 = _taggedTemplateLiteral16(["packet of beer seeds"]))),
-  aliases: ["beer"]
-}, {
-  item: $item(_templateObject514 || (_templateObject514 = _taggedTemplateLiteral16(["packet of winter seeds"]))),
-  aliases: ["winter"]
-}, {
-  item: $item(_templateObject612 || (_templateObject612 = _taggedTemplateLiteral16(["packet of thanksgarden seeds"]))),
-  aliases: ["thanksgarden"]
-}, {
-  item: $item(_templateObject710 || (_templateObject710 = _taggedTemplateLiteral16(["packet of tall grass seeds"]))),
-  aliases: ["grass"]
-}, {
-  item: $item(_templateObject88 || (_templateObject88 = _taggedTemplateLiteral16(["packet of mushroom spores"]))),
-  aliases: ["mushroom"]
-}, {
-  item: $item(_templateObject97 || (_templateObject97 = _taggedTemplateLiteral16(["packet of rock seeds"]))),
-  aliases: ["rock"]
-}], allGardenAliases = _toConsumableArray19(gardenAliases.map(function(_ref) {
-  var item = _ref.item, aliases = _ref.aliases;
-  return {
-    item: item,
-    aliases: [].concat(_toConsumableArray19(aliases), [item.name.toLowerCase()])
-  };
-}));
-function stringToGardenItem(s) {
-  if (s === "")
-    return $item.none;
-  var lowerCaseGarden = s.toLowerCase(), strippedGarden = stripString(lowerCaseGarden), validGardens = allGardenAliases.filter(function(_ref2) {
-    var item = _ref2.item, aliases = _ref2.aliases;
-    return toInitials(item.name.toLowerCase()) === lowerCaseGarden || item.name.toLowerCase().includes(lowerCaseGarden) || stripString(item.name.toLowerCase()).includes(strippedGarden) || aliases.some(function(alias) {
-      return alias === lowerCaseGarden;
-    });
-  });
-  if (validGardens.length > 1)
-    throw (0, import_kolmafia32.print)("Invalid Garden: ".concat(s, " matches multiple gardens! Matched:"), "red"), validGardens.forEach(function(_ref3) {
-      var item = _ref3.item;
-      return (0, import_kolmafia32.print)("".concat(item), "red");
-    }), new Error();
-  if (validGardens.length === 0)
-    throw (0, import_kolmafia32.print)("Invalid Garden: ".concat(s, " does not match any gardens!"), "red"), new Error();
-  return validGardens[0].item;
+var leg1Workshed = {
+  setting: "tptb.bLooper.leg1Workshed",
+  help: "The workshed you'd like the script to install at the start of Leg 1. Leave blank to ignore."
+}, leg1WorkshedPref = Args.custom({
+  setting: leg1Workshed.setting,
+  help: leg1Workshed.help,
+  default: $item.none,
+  options: [].concat(_toConsumableArray19(allWorkshedAliases.map(function(_ref) {
+    var item = _ref.item, aliases = _ref.aliases;
+    return [item, "".concat([].concat(_toConsumableArray19(aliases), [toInitials(item.name.toLowerCase())]).filter(function(alias) {
+      return alias !== "";
+    }).join(", "))];
+  })), [[$item.none, "leave this field blank"]])
+}, stringToWorkshedItem, "Item");
+function setLeg1Workshed() {
+  var pref = (0, import_kolmafia35.userPrompt)("".concat(leg1Workshed.help, " Use 'blooper help options' to see all acceptable values for this setting."));
+  _set(leg1Workshed.setting, pref), args.leg1.leg1Workshed = stringToWorkshedItem(pref);
 }
 
 // src/lib/preferences/leg1/preAscendGarden.ts
+var preAscendGarden_exports = {};
+__export(preAscendGarden_exports, {
+  arg: function() {
+    return preAscendGardenPref;
+  },
+  init: function() {
+    return setPreAscendGarden;
+  },
+  pref: function() {
+    return preAscendGarden;
+  }
+});
+init_kolmafia_polyfill();
+var import_kolmafia36 = require("kolmafia");
 function _toConsumableArray20(arr) {
   return _arrayWithoutHoles20(arr) || _iterableToArray20(arr) || _unsupportedIterableToArray26(arr) || _nonIterableSpread20();
 }
@@ -12175,7 +12270,7 @@ var preAscendGarden = {
   })), [[$item.none, "leave this field blank"]])
 }, stringToGardenItem, "Item");
 function setPreAscendGarden() {
-  var pref = (0, import_kolmafia33.userPrompt)("".concat(preAscendGarden.help, " Use 'blooper help options' to see all acceptable values for this setting."));
+  var pref = (0, import_kolmafia36.userPrompt)("".concat(preAscendGarden.help, " Use 'blooper help options' to see all acceptable values for this setting."));
   _set(preAscendGarden.setting, pref), args.leg1.preAscendGarden = stringToGardenItem(pref);
 }
 
@@ -12193,7 +12288,7 @@ __export(wineglassValueOfAdventure_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia34 = require("kolmafia");
+var import_kolmafia37 = require("kolmafia");
 var wineglassValueOfAdventure = {
   setting: "tptb.bLooper.wineglassValueOfAdventure",
   help: "The 'valueOfAdventure' to set before running garbo in Leg 1 while overdrunk with a wineglass."
@@ -12203,7 +12298,7 @@ var wineglassValueOfAdventure = {
   default: get("valueOfAdventure")
 });
 function setWineglassValueOfAdventure() {
-  var pref = Number.parseInt((0, import_kolmafia34.userPrompt)(wineglassValueOfAdventure.help));
+  var pref = Number.parseInt((0, import_kolmafia37.userPrompt)(wineglassValueOfAdventure.help));
   _set(wineglassValueOfAdventure.setting, pref), args.leg1.wineglassValueOfAdventure = pref;
 }
 
@@ -12221,7 +12316,7 @@ __export(ascensionScript_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia35 = require("kolmafia");
+var import_kolmafia38 = require("kolmafia");
 var ascensionScript = {
   setting: "tptb.bLooper.ascensionScript",
   help: "The command you'd normally use to run your ascension script (e.g., 'instansccs')"
@@ -12230,7 +12325,7 @@ var ascensionScript = {
   help: ascensionScript.help
 });
 function setAscensionScript() {
-  var pref = (0, import_kolmafia35.userPrompt)(ascensionScript.help);
+  var pref = (0, import_kolmafia38.userPrompt)(ascensionScript.help);
   _set(ascensionScript.setting, pref), args.leg2.ascensionScript = pref;
 }
 
@@ -12248,7 +12343,7 @@ __export(leg2ValueOfAdventure_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia36 = require("kolmafia");
+var import_kolmafia39 = require("kolmafia");
 var leg2ValueOfAdventure = {
   setting: "tptb.bLooper.leg2ValueOfAdventure",
   help: "The 'valueOfAdventure' to set before running Garbo in Leg 2 of your daily loop."
@@ -12258,7 +12353,7 @@ var leg2ValueOfAdventure = {
   default: get("valueOfAdventure")
 });
 function setLeg2ValueOfAdventure() {
-  var pref = Number.parseInt((0, import_kolmafia36.userPrompt)(leg2ValueOfAdventure.help));
+  var pref = Number.parseInt((0, import_kolmafia39.userPrompt)(leg2ValueOfAdventure.help));
   _set(leg2ValueOfAdventure.setting, pref), args.leg2.leg2ValueOfAdventure = pref;
 }
 
@@ -12276,7 +12371,7 @@ __export(leg2workshed_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia37 = require("kolmafia");
+var import_kolmafia40 = require("kolmafia");
 function _toConsumableArray21(arr) {
   return _arrayWithoutHoles21(arr) || _iterableToArray21(arr) || _unsupportedIterableToArray27(arr) || _nonIterableSpread21();
 }
@@ -12323,7 +12418,7 @@ var leg2Workshed = {
   })), [[$item.none, "leave this field blank"]])
 }, stringToWorkshedItem, "Item");
 function setLeg2Workshed() {
-  var pref = (0, import_kolmafia37.userPrompt)("".concat(leg2Workshed.help, " Use 'blooper help options' to see all acceptable values for this setting."));
+  var pref = (0, import_kolmafia40.userPrompt)("".concat(leg2Workshed.help, " Use 'blooper help options' to see all acceptable values for this setting."));
   _set(leg2Workshed.setting, pref), args.leg2.leg2Workshed = stringToWorkshedItem(pref);
 }
 
@@ -12341,7 +12436,7 @@ __export(rolloverOutfit_exports, {
   }
 });
 init_kolmafia_polyfill();
-var import_kolmafia38 = require("kolmafia");
+var import_kolmafia41 = require("kolmafia");
 var rolloverOutfit = {
   setting: "tptb.bLooper.rolloverOutfit",
   help: "The name of the outfit you'd like to equip for rollover."
@@ -12351,113 +12446,13 @@ var rolloverOutfit = {
   default: ""
 });
 function setRolloverOutfit() {
-  var pref = (0, import_kolmafia38.userPrompt)(rolloverOutfit.help);
+  var pref = (0, import_kolmafia41.userPrompt)(rolloverOutfit.help);
   _set(rolloverOutfit.setting, pref), args.leg2.rolloverOutfit = pref;
 }
 
 // src/lib/constants.ts
-var BIG_BOOK_USED = "_tptb.bLooper.bigBookUsed";
 var START = "start", LEG1NOBARF = "leg1nobarf", LEG1GARBO = "leg1garbo";
 var LEG1END = "leg1end", LEG2START = "leg2start", LEG2NOBARF = "leg2nobarf", LEG2GARBO = "leg2garbo", END = "end";
-
-// src/quests/breakfast.ts
-var _templateObject89, _templateObject226;
-function _taggedTemplateLiteral17(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var JOIN_CLAN = {
-  name: "Join Home Clan",
-  ready: function() {
-    return args.global.homeClan !== "";
-  },
-  completed: function() {
-    return (0, import_kolmafia39.getClanName)() === args.global.homeClan;
-  },
-  do: function() {
-    return Clan.join(args.global.homeClan);
-  }
-}, BREAKFAST = {
-  name: "Breakfast",
-  completed: function() {
-    return get("breakfastCompleted");
-  },
-  do: function() {
-    return (0, import_kolmafia39.cliExecute)("breakfast");
-  }
-}, DOUBLE_ICE = {
-  name: "Double Ice",
-  completed: function() {
-    return get("_aprilShower");
-  },
-  do: function() {
-    return (0, import_kolmafia39.cliExecute)("shower ice");
-  }
-}, BIG_BOOK = {
-  name: "Big Book of Every Skill",
-  ready: function() {
-    return have($item(_templateObject89 || (_templateObject89 = _taggedTemplateLiteral17(["The Big Book of Every Skill"]))));
-  },
-  completed: function() {
-    return args.bigBookUsed;
-  },
-  do: function() {
-    (0, import_kolmafia39.use)($item(_templateObject226 || (_templateObject226 = _taggedTemplateLiteral17(["The Big Book of Every Skill"])))), _set(BIG_BOOK_USED, !0), args.bigBookUsed = !0;
-  }
-}, EXTENDED_BREAKFAST = [JOIN_CLAN, BREAKFAST, DOUBLE_ICE, BIG_BOOK];
-
-// src/quests/leg1/tasks/ascendPrep.ts
-init_kolmafia_polyfill();
-var import_kolmafia41 = require("kolmafia");
-
-// src/quests/stillsuit.ts
-init_kolmafia_polyfill();
-var import_kolmafia40 = require("kolmafia");
-var _templateObject90, _templateObject227;
-function _taggedTemplateLiteral18(strings, raw) {
-  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
-}
-var stillsuit = $item(_templateObject90 || (_templateObject90 = _taggedTemplateLiteral18(["tiny stillsuit"]))), STILLSUIT = {
-  name: "Tiny Stillsuit",
-  ready: function() {
-    return have(stillsuit);
-  },
-  outfit: {
-    familiar: $familiar(_templateObject227 || (_templateObject227 = _taggedTemplateLiteral18(["Stooper"]))),
-    famequip: stillsuit
-  },
-  completed: function() {
-    return (0, import_kolmafia40.myInebriety)() > (0, import_kolmafia40.inebrietyLimit)() || get("familiarSweat") < 10;
-  },
-  do: function() {
-    return (0, import_kolmafia40.cliExecute)("drink stillsuit distillate");
-  }
-};
-
-// src/quests/leg1/tasks/ascendPrep.ts
-var PLANT_GARDEN = {
-  name: "Plant Garden",
-  ready: function() {
-    return args.leg1.preAscendGarden !== $item.none && have(args.leg1.preAscendGarden);
-  },
-  completed: function() {
-    return stringToGardenItem((0, import_kolmafia41.myGardenType)()) === args.leg1.preAscendGarden;
-  },
-  do: function() {
-    (0, import_kolmafia41.cliExecute)("garden pick"), (0, import_kolmafia41.use)(1, args.leg1.preAscendGarden);
-  }
-}, CONSUME = {
-  name: "CONSUME",
-  completed: function() {
-    return (0, import_kolmafia41.myFullness)() >= (0, import_kolmafia41.fullnessLimit)() && (0, import_kolmafia41.myInebriety)() >= (0, import_kolmafia41.inebrietyLimit)() && (0, import_kolmafia41.mySpleenUse)() >= (0, import_kolmafia41.spleenLimit)();
-  },
-  do: function() {
-    return (0, import_kolmafia41.cliExecute)("CONSUME ALL");
-  }
-}, ASCEND_PREP = [PLANT_GARDEN, STILLSUIT, CONSUME];
-
-// src/quests/leg1/tasks/garbo.ts
-init_kolmafia_polyfill();
-var import_kolmafia46 = require("kolmafia");
 
 // src/lib/eventLogging.ts
 init_kolmafia_polyfill();
@@ -13772,7 +13767,7 @@ var args = Args.create("bLooper", "A re-entrant daily looping wrapper for Commun
   }),
   // Hidden properties
   bigBookUsed: Args.boolean({
-    setting: BIG_BOOK_USED,
+    setting: void 0,
     default: !1,
     hidden: !0
   })
