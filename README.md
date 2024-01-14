@@ -12,11 +12,11 @@
 
 ## Introduction
 
-bLooper is a script designed for the game Kingdom of Loathing. It serves as a wrapper for 1-day Community Service ascensions, automatically running the farming script "garbo" before and after the Community Service (CS) run. It incorporates several automatic optimizations to maximize profits.
+Welcome to bLooper! This little script is all about making your 1-day Community Service ascensions in KoL a breeze. It's a straightforward wrapper that runs the "garbo" script for you, handling both the pre- and post-CS tasks. Plus, it's got a few tweaks and optimizations to help maximize your profits.
 
-bLooper started its life as a fork of [pLooper](https://github.com/prusias-kol/pLooper), made by the awesome Prusias (#3235855)! If you'd like to stick with tried-and-true, I recommend checking his script out instead of this one. bLooper came about with the intention of writing pLooper in TypeScript, and grew from there, and isn't nearly as tested as pLooper is.
+bLooper is a spin-off from the well-known [pLooper](https://github.com/prusias-kol/pLooper) by Prusias (#3235855). If you're a fan of the original or just want something tried-and-true, definitely stick with pLooper. But if you're curious about a new take on it, that's where bLooper comes in. It's still in the early stages and doesn't have the track record of pLooper, so expect some rough edges.
 
-Many many thanks to Prusias for helping get me started on this journey!
+Big thanks to Prusias for the inspiration and the groundwork. Feel free to dive into bLooper, and let's see how it spices up your ascensions!
 
 ### Features
 
