@@ -64,12 +64,8 @@ If you've got a [Big Book of Every Skill](https://kol.coldfront.net/thekolwiki/i
 const BIG_BOOK: Task = {
   name: "Big Book of Every Skill",
   ready: () => have($item`The Big Book of Every Skill`),
-  completed: () => args.bigBookUsed,
-  do: () => {
-    use($item`The Big Book of Every Skill`);
-    set(constants.BIG_BOOK_USED, true);
-    args.bigBookUsed = true;
-  },
+  completed: () => get("_bookOfEverySkillUsed"),
+  do: () => use($item`The Big Book of Every Skill`),
 };
 ```
 

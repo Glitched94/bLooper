@@ -1,9 +1,8 @@
 import { Task } from "grimoire-kolmafia";
 import { cliExecute, getClanName, use } from "kolmafia";
-import { $item, Clan, get, have, set } from "libram";
+import { $item, Clan, get, have } from "libram";
 
 import { args } from "../lib/args";
-import * as constants from "../lib/constants";
 
 const JOIN_CLAN: Task = {
   name: "Join Home Clan",
@@ -27,12 +26,8 @@ const DOUBLE_ICE: Task = {
 const BIG_BOOK: Task = {
   name: "Big Book of Every Skill",
   ready: () => have($item`The Big Book of Every Skill`),
-  completed: () => args.bigBookUsed,
-  do: () => {
-    use($item`The Big Book of Every Skill`);
-    set(constants.BIG_BOOK_USED, true);
-    args.bigBookUsed = true;
-  },
+  completed: () => get("_bookOfEverySkillUsed"),
+  do: () => use($item`The Big Book of Every Skill`),
 };
 
 export const EXTENDED_BREAKFAST = [JOIN_CLAN, BREAKFAST, DOUBLE_ICE, BIG_BOOK];

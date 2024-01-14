@@ -19,9 +19,6 @@ import * as leg2ValueOfAdventure from "./preferences/leg2/leg2ValueOfAdventure";
 import * as leg2Workshed from "./preferences/leg2/leg2workshed";
 import * as rolloverOutfit from "./preferences/leg2/rolloverOutfit";
 
-// Properties (that I need to access)
-export const BIG_BOOK_USED = "_tptb.bLooper.bigBookUsed";
-
 export {
   eventList,
   homeClan,
