@@ -16,8 +16,7 @@ export const JAMMIES: Task = {
   name: "Equip Jammies",
   ready: () =>
     args.leg2.rolloverOutfit !== "" &&
-    (getOutfits().includes(args.leg2.rolloverOutfit) ||
-      getCustomOutfits().includes(args.leg2.rolloverOutfit)),
+    getAllOutfitsLower().includes(args.leg2.rolloverOutfit.toLowerCase()),
   completed: () => isWearingOutfit(args.leg2.rolloverOutfit),
   prepare: () => {
     // Prepare foldables that may be in the wrong form and make a burning cape
@@ -62,3 +61,8 @@ export const JAMMIES: Task = {
   },
   do: () => cliExecute(`outfit ${args.leg2.rolloverOutfit}`),
 };
+
+function getAllOutfitsLower(): string[] {
+  const outfits = [...getOutfits(), ...getCustomOutfits()].map((outfit) => outfit.toLowerCase());
+  return outfits;
+}
