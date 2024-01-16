@@ -13469,13 +13469,44 @@ var VALUE_OF_ADVENTURE2 = {
 init_kolmafia_polyfill();
 var import_kolmafia52 = require("kolmafia");
 var _templateObject118, _templateObject241, _templateObject336, _templateObject427, _templateObject524, _templateObject618, _templateObject714, _templateObject812, _templateObject911, _templateObject1010, _templateObject119, _templateObject128, _templateObject138, _templateObject147, _templateObject157, _templateObject166, _templateObject176;
+function _toConsumableArray24(arr) {
+  return _arrayWithoutHoles24(arr) || _iterableToArray24(arr) || _unsupportedIterableToArray30(arr) || _nonIterableSpread24();
+}
+function _nonIterableSpread24() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _unsupportedIterableToArray30(o, minLen) {
+  if (o) {
+    if (typeof o == "string")
+      return _arrayLikeToArray30(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
+      return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+      return _arrayLikeToArray30(o, minLen);
+  }
+}
+function _iterableToArray24(iter) {
+  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
+    return Array.from(iter);
+}
+function _arrayWithoutHoles24(arr) {
+  if (Array.isArray(arr))
+    return _arrayLikeToArray30(arr);
+}
+function _arrayLikeToArray30(arr, len) {
+  (len == null || len > arr.length) && (len = arr.length);
+  for (var i = 0, arr2 = new Array(len); i < len; i++)
+    arr2[i] = arr[i];
+  return arr2;
+}
 function _taggedTemplateLiteral27(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 var JAMMIES = {
   name: "Equip Jammies",
   ready: function() {
-    return args.leg2.rolloverOutfit !== "" && ((0, import_kolmafia52.getOutfits)().includes(args.leg2.rolloverOutfit) || (0, import_kolmafia52.getCustomOutfits)().includes(args.leg2.rolloverOutfit));
+    return args.leg2.rolloverOutfit !== "" && getAllOutfitsLower().includes(args.leg2.rolloverOutfit.toLowerCase());
   },
   completed: function() {
     return (0, import_kolmafia52.isWearingOutfit)(args.leg2.rolloverOutfit);
@@ -13506,6 +13537,12 @@ var JAMMIES = {
     return (0, import_kolmafia52.cliExecute)("outfit ".concat(args.leg2.rolloverOutfit));
   }
 };
+function getAllOutfitsLower() {
+  var outfits = [].concat(_toConsumableArray24((0, import_kolmafia52.getOutfits)()), _toConsumableArray24((0, import_kolmafia52.getCustomOutfits)())).map(function(outfit2) {
+    return outfit2.toLowerCase();
+  });
+  return outfits;
+}
 
 // src/quests/leg2/tasks/logLeg2End.ts
 init_kolmafia_polyfill();
@@ -13632,46 +13669,6 @@ function haveShruggableBuffs() {
 }
 
 // src/quests/leg2/leg2.ts
-function _toConsumableArray24(arr) {
-  return _arrayWithoutHoles24(arr) || _iterableToArray24(arr) || _unsupportedIterableToArray30(arr) || _nonIterableSpread24();
-}
-function _nonIterableSpread24() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _unsupportedIterableToArray30(o, minLen) {
-  if (o) {
-    if (typeof o == "string")
-      return _arrayLikeToArray30(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
-      return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray30(o, minLen);
-  }
-}
-function _iterableToArray24(iter) {
-  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
-    return Array.from(iter);
-}
-function _arrayWithoutHoles24(arr) {
-  if (Array.isArray(arr))
-    return _arrayLikeToArray30(arr);
-}
-function _arrayLikeToArray30(arr, len) {
-  (len == null || len > arr.length) && (len = arr.length);
-  for (var i = 0, arr2 = new Array(len); i < len; i++)
-    arr2[i] = arr[i];
-  return arr2;
-}
-var LEG_2 = {
-  name: "Leg 2",
-  ready: function() {
-    return get("ascensionsToday") === 1;
-  },
-  tasks: [LOG_START2, PATH, SHRUG_AT].concat(_toConsumableArray24(EXTENDED_BREAKFAST), [REFUEL_ASDON, OPEN_RAINDOH], _toConsumableArray24(GARBO2), _toConsumableArray24(FILL_MAID), [STILLSUIT, JAMMIES, NIGHTCAP, LOG_END2])
-};
-
-// src/lib/args.ts
 function _toConsumableArray25(arr) {
   return _arrayWithoutHoles25(arr) || _iterableToArray25(arr) || _unsupportedIterableToArray31(arr) || _nonIterableSpread25();
 }
@@ -13698,6 +13695,46 @@ function _arrayWithoutHoles25(arr) {
     return _arrayLikeToArray31(arr);
 }
 function _arrayLikeToArray31(arr, len) {
+  (len == null || len > arr.length) && (len = arr.length);
+  for (var i = 0, arr2 = new Array(len); i < len; i++)
+    arr2[i] = arr[i];
+  return arr2;
+}
+var LEG_2 = {
+  name: "Leg 2",
+  ready: function() {
+    return get("ascensionsToday") === 1;
+  },
+  tasks: [LOG_START2, PATH, SHRUG_AT].concat(_toConsumableArray25(EXTENDED_BREAKFAST), [REFUEL_ASDON, OPEN_RAINDOH], _toConsumableArray25(GARBO2), _toConsumableArray25(FILL_MAID), [STILLSUIT, JAMMIES, NIGHTCAP, LOG_END2])
+};
+
+// src/lib/args.ts
+function _toConsumableArray26(arr) {
+  return _arrayWithoutHoles26(arr) || _iterableToArray26(arr) || _unsupportedIterableToArray32(arr) || _nonIterableSpread26();
+}
+function _nonIterableSpread26() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _unsupportedIterableToArray32(o, minLen) {
+  if (o) {
+    if (typeof o == "string")
+      return _arrayLikeToArray32(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
+      return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+      return _arrayLikeToArray32(o, minLen);
+  }
+}
+function _iterableToArray26(iter) {
+  if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
+    return Array.from(iter);
+}
+function _arrayWithoutHoles26(arr) {
+  if (Array.isArray(arr))
+    return _arrayLikeToArray32(arr);
+}
+function _arrayLikeToArray32(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
@@ -13731,7 +13768,7 @@ var args = Args.create("bLooper", "A re-entrant daily looping wrapper for Commun
       setting: "tptb.bLooper.abortBefore",
       help: "The script will abort execution before running the task specified here. The task name must be fully qualified in order to successfully abort.",
       default: "",
-      options: [].concat(_toConsumableArray25(getTasks([LEG_1].concat(_toConsumableArray25(LEG_1_OVERDRUNK), _toConsumableArray25(ASCENSION), [LEG_2])).map(function(_ref) {
+      options: [].concat(_toConsumableArray26(getTasks([LEG_1].concat(_toConsumableArray26(LEG_1_OVERDRUNK), _toConsumableArray26(ASCENSION), [LEG_2])).map(function(_ref) {
         var name = _ref.name;
         return [name];
       })), [[""]])
@@ -13880,32 +13917,32 @@ var bLoopEngine = /* @__PURE__ */ function(_Engine) {
 }(Engine);
 
 // src/main.ts
-function _toConsumableArray26(arr) {
-  return _arrayWithoutHoles26(arr) || _iterableToArray26(arr) || _unsupportedIterableToArray32(arr) || _nonIterableSpread26();
+function _toConsumableArray27(arr) {
+  return _arrayWithoutHoles27(arr) || _iterableToArray27(arr) || _unsupportedIterableToArray33(arr) || _nonIterableSpread27();
 }
-function _nonIterableSpread26() {
+function _nonIterableSpread27() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _unsupportedIterableToArray32(o, minLen) {
+function _unsupportedIterableToArray33(o, minLen) {
   if (o) {
     if (typeof o == "string")
-      return _arrayLikeToArray32(o, minLen);
+      return _arrayLikeToArray33(o, minLen);
     var n = Object.prototype.toString.call(o).slice(8, -1);
     if (n === "Object" && o.constructor && (n = o.constructor.name), n === "Map" || n === "Set")
       return Array.from(o);
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
-      return _arrayLikeToArray32(o, minLen);
+      return _arrayLikeToArray33(o, minLen);
   }
 }
-function _iterableToArray26(iter) {
+function _iterableToArray27(iter) {
   if (typeof Symbol < "u" && iter[Symbol.iterator] != null || iter["@@iterator"] != null)
     return Array.from(iter);
 }
-function _arrayWithoutHoles26(arr) {
+function _arrayWithoutHoles27(arr) {
   if (Array.isArray(arr))
-    return _arrayLikeToArray32(arr);
+    return _arrayLikeToArray33(arr);
 }
-function _arrayLikeToArray32(arr, len) {
+function _arrayLikeToArray33(arr, len) {
   (len == null || len > arr.length) && (len = arr.length);
   for (var i = 0, arr2 = new Array(len); i < len; i++)
     arr2[i] = arr[i];
@@ -13920,7 +13957,7 @@ function main(command) {
     initialize();
     return;
   }
-  var tasks = getTasks([LEG_1].concat(_toConsumableArray26(LEG_1_OVERDRUNK), _toConsumableArray26(ASCENSION), [LEG_2])), engine = new bLoopEngine(tasks);
+  var tasks = getTasks([LEG_1].concat(_toConsumableArray27(LEG_1_OVERDRUNK), _toConsumableArray27(ASCENSION), [LEG_2])), engine = new bLoopEngine(tasks);
   try {
     engine.run();
   } finally {
