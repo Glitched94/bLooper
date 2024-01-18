@@ -8643,7 +8643,7 @@ var clanIdCache = {}, toPlayerId = function(player) {
         var foldGroup = getFoldGroup(item), _iterator = _createForOfIteratorHelper6(foldGroup), _step;
         try {
           for (_iterator.s(); !(_step = _iterator.n()).done; ) {
-            for (var foldable = _step.value, quantityToFold = Math.min(needed, (0, import_kolmafia10.availableAmount)(foldable)), _i3 = 0; _i3 < quantityToFold; _i3++)
+            for (var foldable2 = _step.value, quantityToFold = Math.min(needed, (0, import_kolmafia10.availableAmount)(foldable2)), _i3 = 0; _i3 < quantityToFold; _i3++)
               (0, import_kolmafia10.cliExecute)("fold ".concat(item.name)), needed--;
             return map.set(item, needed);
           }
@@ -12569,7 +12569,7 @@ function recentPrice(item) {
 }
 
 // node_modules/snapshot-libram/dist/snapshot.js
-var _templateObject99, _templateObject230, _templateObject325, _templateObject420, _templateObject517, _templateObject615, _templateObject712, _templateObject811, _templateObject910, _templateObject107, _templateObject117, _templateObject127, _templateObject137, _templateObject146, _templateObject156, _templateObject165, _templateObject175, _templateObject185, _templateObject195, _templateObject205, _templateObject2111, _templateObject2210, _templateObject235, _templateObject245, _templateObject255, _templateObject265, _templateObject275, _templateObject285, _templateObject295, _templateObject305, _templateObject3111, _templateObject326, _templateObject335, _templateObject345;
+var _templateObject99, _templateObject230, _templateObject325, _templateObject420, _templateObject517, _templateObject615, _templateObject712, _templateObject811, _templateObject910, _templateObject107, _templateObject117, _templateObject127, _templateObject137, _templateObject146, _templateObject156, _templateObject165, _templateObject175, _templateObject185, _templateObject195, _templateObject205, _templateObject2111, _templateObject2210, _templateObject235, _templateObject245, _templateObject255, _templateObject265, _templateObject275, _templateObject285, _templateObject295, _templateObject305, _templateObject3111, _templateObject326, _templateObject335;
 function _classCallCheck12(instance, Constructor) {
   if (!(instance instanceof Constructor))
     throw new TypeError("Cannot call a class as a function");
@@ -12711,26 +12711,19 @@ function getEquipment() {
     item !== $item.none && (equippedItems[item.name] = 1);
   }), equippedItems;
 }
-function mySnapshotItemsWrapper() {
-  for (var inventoryOnly = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : !1, manyToOne = function(primary, mapped) {
-    return mapped.map(function(target) {
-      return [target, primary];
-    });
-  }, foldable = function(item2) {
-    return manyToOne(item2, getFoldGroup(item2));
-  }, itemMappings = new Map([].concat(_toConsumableArray22(foldable($item(_templateObject230 || (_templateObject230 = _taggedTemplateLiteral20(["liar's pants"]))))), _toConsumableArray22(foldable($item(_templateObject325 || (_templateObject325 = _taggedTemplateLiteral20(["ice pick"]))))), _toConsumableArray22(manyToOne($item(_templateObject420 || (_templateObject420 = _taggedTemplateLiteral20(["Spooky Putty sheet"]))), [$item(_templateObject517 || (_templateObject517 = _taggedTemplateLiteral20(["Spooky Putty monster"])))].concat(_toConsumableArray22(getFoldGroup($item(_templateObject615 || (_templateObject615 = _taggedTemplateLiteral20(["Spooky Putty sheet"])))))))), _toConsumableArray22(foldable($item(_templateObject712 || (_templateObject712 = _taggedTemplateLiteral20(["stinky cheese sword"]))))), _toConsumableArray22(foldable($item(_templateObject811 || (_templateObject811 = _taggedTemplateLiteral20(["naughty paper shuriken"]))))), _toConsumableArray22(foldable($item(_templateObject910 || (_templateObject910 = _taggedTemplateLiteral20(["Loathing Legion knife"]))))), _toConsumableArray22(foldable($item(_templateObject107 || (_templateObject107 = _taggedTemplateLiteral20(["deceased crimbo tree"]))))), _toConsumableArray22(foldable($item(_templateObject117 || (_templateObject117 = _taggedTemplateLiteral20(["makeshift turban"]))))), _toConsumableArray22(foldable($item(_templateObject127 || (_templateObject127 = _taggedTemplateLiteral20(["turtle wax shield"]))))), _toConsumableArray22(foldable($item(_templateObject137 || (_templateObject137 = _taggedTemplateLiteral20(["metallic foil bow"]))))), _toConsumableArray22(foldable($item(_templateObject146 || (_templateObject146 = _taggedTemplateLiteral20(["ironic moustache"]))))), _toConsumableArray22(foldable($item(_templateObject156 || (_templateObject156 = _taggedTemplateLiteral20(["bugged balaclava"]))))), _toConsumableArray22(foldable($item(_templateObject165 || (_templateObject165 = _taggedTemplateLiteral20(["toggle switch (Bartend)"]))))), _toConsumableArray22(foldable($item(_templateObject175 || (_templateObject175 = _taggedTemplateLiteral20(["mushroom cap"]))))), _toConsumableArray22(manyToOne($item(_templateObject185 || (_templateObject185 = _taggedTemplateLiteral20(["can of Rain-Doh"]))), $items(_templateObject195 || (_templateObject195 = _taggedTemplateLiteral20(["empty Rain-Doh can"]))))), _toConsumableArray22(manyToOne($item(_templateObject205 || (_templateObject205 = _taggedTemplateLiteral20(["meteorite fragment"]))), $items(_templateObject2111 || (_templateObject2111 = _taggedTemplateLiteral20(["meteorite earring, meteorite necklace, meteorite ring"]))))), _toConsumableArray22(manyToOne($item(_templateObject2210 || (_templateObject2210 = _taggedTemplateLiteral20(["Sneaky Pete's leather jacket"]))), $items(_templateObject235 || (_templateObject235 = _taggedTemplateLiteral20(["Sneaky Pete's leather jacket (collar popped)"]))))), _toConsumableArray22(manyToOne($item(_templateObject245 || (_templateObject245 = _taggedTemplateLiteral20(["Boris's Helm"]))), $items(_templateObject255 || (_templateObject255 = _taggedTemplateLiteral20(["Boris's Helm (askew)"]))))), _toConsumableArray22(manyToOne($item(_templateObject265 || (_templateObject265 = _taggedTemplateLiteral20(["Jarlsberg's pan"]))), $items(_templateObject275 || (_templateObject275 = _taggedTemplateLiteral20(["Jarlsberg's pan (Cosmic portal mode)"]))))), _toConsumableArray22(manyToOne($item(_templateObject285 || (_templateObject285 = _taggedTemplateLiteral20(["tiny plastic sword"]))), $items(_templateObject295 || (_templateObject295 = _taggedTemplateLiteral20(["grogtini, bodyslam, dirty martini, vesper, cherry bomb, sangria del diablo"]))))), _toConsumableArray22(manyToOne($item(_templateObject305 || (_templateObject305 = _taggedTemplateLiteral20(["earthenware muffin tin"]))), $items(_templateObject3111 || (_templateObject3111 = _taggedTemplateLiteral20(["blueberry muffin, bran muffin, chocolate chip muffin"]))))), _toConsumableArray22(manyToOne($item(_templateObject326 || (_templateObject326 = _taggedTemplateLiteral20(["ChibiBuddy\u2122 (on)"]))), $items(_templateObject335 || (_templateObject335 = _taggedTemplateLiteral20(["ChibiBuddy\u2122 (off)"]))))))), inventory = /* @__PURE__ */ new Map(), invLocations = inventoryOnly ? [import_kolmafia43.getInventory, getEquipment] : [import_kolmafia43.getInventory, getEquipment, import_kolmafia43.getCloset, import_kolmafia43.getDisplay, import_kolmafia43.getStorage], _i = 0, _invLocations = invLocations; _i < _invLocations.length; _i++)
-    for (var inventoryFunc = _invLocations[_i], _i2 = 0, _Object$entries = Object.entries(inventoryFunc()); _i2 < _Object$entries.length; _i2++) {
-      var _itemMappings$get, _inventory$get, _Object$entries$_i = _slicedToArray10(_Object$entries[_i2], 2), itemStr = _Object$entries$_i[0], quantity = _Object$entries$_i[1], item = (0, import_kolmafia43.toItem)(itemStr), mappedItem = (_itemMappings$get = itemMappings.get(item)) !== null && _itemMappings$get !== void 0 ? _itemMappings$get : item;
-      inventory.set(mappedItem, quantity + ((_inventory$get = inventory.get(mappedItem)) !== null && _inventory$get !== void 0 ? _inventory$get : 0));
-    }
-  for (var _i3 = 0, _Object$entries2 = Object.entries((0, import_kolmafia43.getCampground)()); _i3 < _Object$entries2.length; _i3++) {
-    var _itemMappings$get2, _inventory$get2, _Object$entries2$_i = _slicedToArray10(_Object$entries2[_i3], 2), _itemStr = _Object$entries2$_i[0], _quantity = _Object$entries2$_i[1], _item = (0, import_kolmafia43.toItem)(_itemStr);
-    if (_item !== $item(_templateObject345 || (_templateObject345 = _taggedTemplateLiteral20(["big rock"])))) {
-      var _mappedItem = (_itemMappings$get2 = itemMappings.get(_item)) !== null && _itemMappings$get2 !== void 0 ? _itemMappings$get2 : _item;
-      inventory.set(_mappedItem, _quantity + ((_inventory$get2 = inventory.get(_mappedItem)) !== null && _inventory$get2 !== void 0 ? _inventory$get2 : 0));
-    }
+var manyToOne = function(primary, mapped) {
+  return mapped.map(function(target) {
+    return [target, primary];
+  });
+}, foldable = function(item) {
+  return manyToOne(item, getFoldGroup(item));
+}, itemMappings = new Map([].concat(_toConsumableArray22(foldable($item(_templateObject230 || (_templateObject230 = _taggedTemplateLiteral20(["liar's pants"]))))), _toConsumableArray22(foldable($item(_templateObject325 || (_templateObject325 = _taggedTemplateLiteral20(["ice pick"]))))), _toConsumableArray22(manyToOne($item(_templateObject420 || (_templateObject420 = _taggedTemplateLiteral20(["Spooky Putty sheet"]))), [$item(_templateObject517 || (_templateObject517 = _taggedTemplateLiteral20(["Spooky Putty monster"])))].concat(_toConsumableArray22(getFoldGroup($item(_templateObject615 || (_templateObject615 = _taggedTemplateLiteral20(["Spooky Putty sheet"])))))))), _toConsumableArray22(foldable($item(_templateObject712 || (_templateObject712 = _taggedTemplateLiteral20(["stinky cheese sword"]))))), _toConsumableArray22(foldable($item(_templateObject811 || (_templateObject811 = _taggedTemplateLiteral20(["naughty paper shuriken"]))))), _toConsumableArray22(foldable($item(_templateObject910 || (_templateObject910 = _taggedTemplateLiteral20(["Loathing Legion knife"]))))), _toConsumableArray22(foldable($item(_templateObject107 || (_templateObject107 = _taggedTemplateLiteral20(["deceased crimbo tree"]))))), _toConsumableArray22(foldable($item(_templateObject117 || (_templateObject117 = _taggedTemplateLiteral20(["makeshift turban"]))))), _toConsumableArray22(foldable($item(_templateObject127 || (_templateObject127 = _taggedTemplateLiteral20(["turtle wax shield"]))))), _toConsumableArray22(foldable($item(_templateObject137 || (_templateObject137 = _taggedTemplateLiteral20(["metallic foil bow"]))))), _toConsumableArray22(foldable($item(_templateObject146 || (_templateObject146 = _taggedTemplateLiteral20(["ironic moustache"]))))), _toConsumableArray22(foldable($item(_templateObject156 || (_templateObject156 = _taggedTemplateLiteral20(["bugged balaclava"]))))), _toConsumableArray22(foldable($item(_templateObject165 || (_templateObject165 = _taggedTemplateLiteral20(["toggle switch (Bartend)"]))))), _toConsumableArray22(foldable($item(_templateObject175 || (_templateObject175 = _taggedTemplateLiteral20(["mushroom cap"]))))), _toConsumableArray22(manyToOne($item(_templateObject185 || (_templateObject185 = _taggedTemplateLiteral20(["can of Rain-Doh"]))), $items(_templateObject195 || (_templateObject195 = _taggedTemplateLiteral20(["empty Rain-Doh can"]))))), _toConsumableArray22(manyToOne($item(_templateObject205 || (_templateObject205 = _taggedTemplateLiteral20(["meteorite fragment"]))), $items(_templateObject2111 || (_templateObject2111 = _taggedTemplateLiteral20(["meteorite earring, meteorite necklace, meteorite ring"]))))), _toConsumableArray22(manyToOne($item(_templateObject2210 || (_templateObject2210 = _taggedTemplateLiteral20(["Sneaky Pete's leather jacket"]))), $items(_templateObject235 || (_templateObject235 = _taggedTemplateLiteral20(["Sneaky Pete's leather jacket (collar popped)"]))))), _toConsumableArray22(manyToOne($item(_templateObject245 || (_templateObject245 = _taggedTemplateLiteral20(["Boris's Helm"]))), $items(_templateObject255 || (_templateObject255 = _taggedTemplateLiteral20(["Boris's Helm (askew)"]))))), _toConsumableArray22(manyToOne($item(_templateObject265 || (_templateObject265 = _taggedTemplateLiteral20(["Jarlsberg's pan"]))), $items(_templateObject275 || (_templateObject275 = _taggedTemplateLiteral20(["Jarlsberg's pan (Cosmic portal mode)"]))))), _toConsumableArray22(manyToOne($item(_templateObject285 || (_templateObject285 = _taggedTemplateLiteral20(["tiny plastic sword"]))), $items(_templateObject295 || (_templateObject295 = _taggedTemplateLiteral20(["grogtini, bodyslam, dirty martini, vesper, cherry bomb, sangria del diablo"]))))), _toConsumableArray22(manyToOne($item(_templateObject305 || (_templateObject305 = _taggedTemplateLiteral20(["earthenware muffin tin"]))), $items(_templateObject3111 || (_templateObject3111 = _taggedTemplateLiteral20(["blueberry muffin, bran muffin, chocolate chip muffin"]))))), _toConsumableArray22(manyToOne($item(_templateObject326 || (_templateObject326 = _taggedTemplateLiteral20(["ChibiBuddy\u2122 (on)"]))), $items(_templateObject335 || (_templateObject335 = _taggedTemplateLiteral20(["ChibiBuddy\u2122 (off)"])))))));
+function mapify(data) {
+  for (var map = /* @__PURE__ */ new Map(), _i = 0, _Object$entries = Object.entries(data()); _i < _Object$entries.length; _i++) {
+    var _itemMappings$get, _map$get, _Object$entries$_i = _slicedToArray10(_Object$entries[_i], 2), itemStr = _Object$entries$_i[0], quantity = _Object$entries$_i[1], item = (0, import_kolmafia43.toItem)(itemStr), mappedItem = (_itemMappings$get = itemMappings.get(item)) !== null && _itemMappings$get !== void 0 ? _itemMappings$get : item;
+    map.set(mappedItem, quantity + ((_map$get = map.get(mappedItem)) !== null && _map$get !== void 0 ? _map$get : 0));
   }
-  return inventory;
+  return map;
 }
 function inventoryOperation(a, b, op) {
   var difference = /* @__PURE__ */ new Map(), _iterator = _createForOfIteratorHelper11(new Set([].concat(_toConsumableArray22(a.keys()), _toConsumableArray22(b.keys())))), _step;
@@ -12751,18 +12744,18 @@ function inventoryOperation(a, b, op) {
   }));
 }
 var Snapshot = /* @__PURE__ */ function() {
-  function Snapshot2(meat, items, totalTurns, timestamp) {
-    _classCallCheck12(this, Snapshot2), _defineProperty11(this, "meat", void 0), _defineProperty11(this, "items", void 0), _defineProperty11(this, "totalTurns", void 0), _defineProperty11(this, "timestamp", void 0), this.meat = meat, this.items = items, this.totalTurns = totalTurns, this.timestamp = timestamp != null ? timestamp : /* @__PURE__ */ new Date();
+  function Snapshot2(meat, items, inventory, equipment, closet, display, storage, campground, shop, totalTurns, timestamp) {
+    _classCallCheck12(this, Snapshot2), _defineProperty11(this, "meat", void 0), _defineProperty11(this, "items", void 0), _defineProperty11(this, "inventory", void 0), _defineProperty11(this, "equipment", void 0), _defineProperty11(this, "closet", void 0), _defineProperty11(this, "display", void 0), _defineProperty11(this, "storage", void 0), _defineProperty11(this, "campground", void 0), _defineProperty11(this, "shop", void 0), _defineProperty11(this, "totalTurns", void 0), _defineProperty11(this, "timestamp", void 0), this.meat = meat, this.inventory = inventory, this.equipment = equipment, this.closet = closet, this.display = display, this.storage = storage, this.campground = campground, this.shop = shop, this.totalTurns = totalTurns, this.timestamp = timestamp != null ? timestamp : /* @__PURE__ */ new Date(), items === void 0 ? this.items = this.combineItems() : this.items = items;
   }
   return _createClass12(Snapshot2, [{
-    key: "register",
-    value: function(target, quantity) {
-      if (target === "meat")
-        this.meat += quantity;
-      else {
-        var _this$items$get;
-        this.items.set(target, ((_this$items$get = this.items.get(target)) !== null && _this$items$get !== void 0 ? _this$items$get : 0) + quantity);
-      }
+    key: "combineItems",
+    value: function() {
+      var combined = /* @__PURE__ */ new Map();
+      return [this.inventory, this.equipment, this.closet, this.display, this.storage, this.campground, this.shop].forEach(function(sourceMap) {
+        sourceMap.forEach(function(quantity, item) {
+          combined.set(item, quantity + (combined.get(item) || 0));
+        });
+      }), combined;
     }
     /**
      * Value this Snapshot
@@ -12802,6 +12795,20 @@ var Snapshot = /* @__PURE__ */ function() {
       var timeDiff = this.timestamp.getTime() - other.timestamp.getTime();
       return new Snapshot2(this.meat - other.meat, inventoryOperation(this.items, other.items, function(a, b) {
         return a - b;
+      }), inventoryOperation(this.inventory, other.inventory, function(a, b) {
+        return a - b;
+      }), inventoryOperation(this.equipment, other.equipment, function(a, b) {
+        return a - b;
+      }), inventoryOperation(this.closet, other.closet, function(a, b) {
+        return a - b;
+      }), inventoryOperation(this.display, other.display, function(a, b) {
+        return a - b;
+      }), inventoryOperation(this.storage, other.storage, function(a, b) {
+        return a - b;
+      }), inventoryOperation(this.campground, other.campground, function(a, b) {
+        return a - b;
+      }), inventoryOperation(this.shop, other.shop, function(a, b) {
+        return a - b;
       }), this.totalTurns - other.totalTurns, new Date(timeDiff));
     }
     /**
@@ -12823,7 +12830,12 @@ var Snapshot = /* @__PURE__ */ function() {
       function(filename) {
         var val = {
           meat: this.meat,
-          items: Object.fromEntries(this.items),
+          inventory: Object.fromEntries(this.inventory),
+          equipment: Object.fromEntries(this.equipment),
+          closet: Object.fromEntries(this.closet),
+          display: Object.fromEntries(this.display),
+          storage: Object.fromEntries(this.storage),
+          campground: Object.fromEntries(this.campground),
           totalTurns: this.totalTurns,
           timestamp: this.timestamp.toJSON()
         };
@@ -12905,24 +12917,45 @@ var Snapshot = /* @__PURE__ */ function() {
         var _val$totalTurns, val = JSON.parse(fileValue), parsedItems = Object.entries(val.items).map(function(_ref7) {
           var _ref8 = _slicedToArray10(_ref7, 2), itemStr = _ref8[0], quantity = _ref8[1];
           return [(0, import_kolmafia43.toItem)(itemStr), quantity];
+        }), parsedInventory = Object.entries(val.inventory).map(function(_ref9) {
+          var _ref10 = _slicedToArray10(_ref9, 2), itemStr = _ref10[0], quantity = _ref10[1];
+          return [(0, import_kolmafia43.toItem)(itemStr), quantity];
+        }), parsedEquipment = Object.entries(val.equipment).map(function(_ref11) {
+          var _ref12 = _slicedToArray10(_ref11, 2), itemStr = _ref12[0], quantity = _ref12[1];
+          return [(0, import_kolmafia43.toItem)(itemStr), quantity];
+        }), parsedCloset = Object.entries(val.closet).map(function(_ref13) {
+          var _ref14 = _slicedToArray10(_ref13, 2), itemStr = _ref14[0], quantity = _ref14[1];
+          return [(0, import_kolmafia43.toItem)(itemStr), quantity];
+        }), parsedDisplay = Object.entries(val.display).map(function(_ref15) {
+          var _ref16 = _slicedToArray10(_ref15, 2), itemStr = _ref16[0], quantity = _ref16[1];
+          return [(0, import_kolmafia43.toItem)(itemStr), quantity];
+        }), parsedStorage = Object.entries(val.storage).map(function(_ref17) {
+          var _ref18 = _slicedToArray10(_ref17, 2), itemStr = _ref18[0], quantity = _ref18[1];
+          return [(0, import_kolmafia43.toItem)(itemStr), quantity];
+        }), parsedCampground = Object.entries(val.campground).map(function(_ref19) {
+          var _ref20 = _slicedToArray10(_ref19, 2), itemStr = _ref20[0], quantity = _ref20[1];
+          return [(0, import_kolmafia43.toItem)(itemStr), quantity];
+        }), parsedShop = Object.entries(val.shop).map(function(_ref21) {
+          var _ref22 = _slicedToArray10(_ref21, 2), itemStr = _ref22[0], quantity = _ref22[1];
+          return [(0, import_kolmafia43.toItem)(itemStr), quantity];
         });
-        return new Snapshot2(val.meat, new Map(parsedItems), (_val$totalTurns = val.totalTurns) !== null && _val$totalTurns !== void 0 ? _val$totalTurns : 0, new Date(val.timestamp));
+        return new Snapshot2(val.meat, parsedItems.length > 0 ? new Map(parsedItems) : void 0, new Map(parsedInventory), new Map(parsedEquipment), new Map(parsedCloset), new Map(parsedDisplay), new Map(parsedStorage), new Map(parsedCampground), new Map(parsedShop), (_val$totalTurns = val.totalTurns) !== null && _val$totalTurns !== void 0 ? _val$totalTurns : 0, new Date(val.timestamp));
       } else
-        return new Snapshot2(0, /* @__PURE__ */ new Map(), 0);
+        return new Snapshot2(0, void 0, /* @__PURE__ */ new Map(), /* @__PURE__ */ new Map(), /* @__PURE__ */ new Map(), /* @__PURE__ */ new Map(), /* @__PURE__ */ new Map(), /* @__PURE__ */ new Map(), /* @__PURE__ */ new Map(), 0);
     }
     /**
      * Return the meat and items for the current Snapshot
      *
-     * @param inventoryOnly should closet, DC, and storage be ignored for the Snapshot calculation
+     * @param inventoryMeatOnly should closet, DC, and storage be ignored for the Snapshot calculation
      * @returns current Snapshot
      */
   }, {
     key: "current",
     value: function() {
-      var inventoryOnly = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : !1, meat = inventoryOnly ? [import_kolmafia43.myMeat] : [import_kolmafia43.myMeat, import_kolmafia43.myClosetMeat, import_kolmafia43.myStorageMeat];
+      var inventoryMeatOnly = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : !1, meat = inventoryMeatOnly ? [import_kolmafia43.myMeat] : [import_kolmafia43.myMeat, import_kolmafia43.myClosetMeat, import_kolmafia43.myStorageMeat];
       return new Snapshot2(sum(meat, function(f) {
         return f();
-      }), mySnapshotItemsWrapper(inventoryOnly), (0, import_kolmafia43.totalTurnsPlayed)());
+      }), void 0, mapify(import_kolmafia43.getInventory), mapify(getEquipment), mapify(import_kolmafia43.getCloset), mapify(import_kolmafia43.getDisplay), mapify(import_kolmafia43.getStorage), mapify(import_kolmafia43.getCampground), mapify(import_kolmafia43.getShop), (0, import_kolmafia43.totalTurnsPlayed)());
     }
     /**
      * @param baseline the base Snapshot to use when computing MPA
