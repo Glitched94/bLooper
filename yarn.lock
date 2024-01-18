@@ -3142,10 +3142,10 @@ slash@^3, slash@^3.0.0:
   resolved "https://registry.npmjs.org/slash/-/slash-3.0.0.tgz"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
 
-snapshot-libram@0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/snapshot-libram/-/snapshot-libram-0.3.2.tgz#ae412383df5927c8e25cfb040ffe8057482a2fab"
-  integrity sha512-xmBevJKjepHFLtZNqVV9gis6xlexYS02wi4wR+0lo4A7FNxMC5dHtSq0HHSZ9BniXhGfDPdJBJfHxbnHFfomRA==
+snapshot-libram@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/snapshot-libram/-/snapshot-libram-0.4.0.tgz#dbf92c499aa38c7c8ee72e0ca84ce472ebfb015c"
+  integrity sha512-wUjMUPw2egT9CxF4NjYOMjaGn8tUY5UJzl+chzkN0E8ms2aW1mWL9eYcIzOD8/rVprkSGUpRCp3g0aXerCp1PQ==
   dependencies:
     libram "^0.8.22"
 
