@@ -13604,10 +13604,18 @@ var LOG_START2 = {
 
 // src/quests/leg2/tasks/nightcap.ts
 init_kolmafia_polyfill();
-var import_kolmafia53 = require("kolmafia"), NIGHTCAP = {
+var import_kolmafia53 = require("kolmafia");
+var _templateObject120;
+function _taggedTemplateLiteral28(strings, raw) {
+  return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
+}
+var NIGHTCAP = {
   name: "Nightcap",
+  outfit: {
+    familiar: $familiar(_templateObject120 || (_templateObject120 = _taggedTemplateLiteral28(["Stooper"])))
+  },
   completed: function() {
-    return (0, import_kolmafia53.myInebriety)() > (0, import_kolmafia53.inebrietyLimit)();
+    return (0, import_kolmafia53.myInebriety)() > (0, import_kolmafia53.inebrietyLimit)() + 1;
   },
   do: function() {
     return (0, import_kolmafia53.cliExecute)("CONSUME ALL NIGHTCAP");
@@ -13641,34 +13649,34 @@ var PATH = {
 // src/quests/leg2/tasks/raindoh.ts
 init_kolmafia_polyfill();
 var import_kolmafia55 = require("kolmafia");
-var _templateObject120, _templateObject246, _templateObject337;
-function _taggedTemplateLiteral28(strings, raw) {
+var _templateObject121, _templateObject246, _templateObject337;
+function _taggedTemplateLiteral29(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 var OPEN_RAINDOH = {
   name: "Open Rain-Doh",
   ready: function() {
-    return have($item(_templateObject120 || (_templateObject120 = _taggedTemplateLiteral28(["can of Rain-Doh"]))));
+    return have($item(_templateObject121 || (_templateObject121 = _taggedTemplateLiteral29(["can of Rain-Doh"]))));
   },
   completed: function() {
-    return have($item(_templateObject246 || (_templateObject246 = _taggedTemplateLiteral28(["empty Rain-Doh can"]))));
+    return have($item(_templateObject246 || (_templateObject246 = _taggedTemplateLiteral29(["empty Rain-Doh can"]))));
   },
   do: function() {
-    return (0, import_kolmafia55.use)($item(_templateObject337 || (_templateObject337 = _taggedTemplateLiteral28(["can of Rain-Doh"]))));
+    return (0, import_kolmafia55.use)($item(_templateObject337 || (_templateObject337 = _taggedTemplateLiteral29(["can of Rain-Doh"]))));
   }
 };
 
 // src/quests/leg2/tasks/refuelAsdon.ts
 init_kolmafia_polyfill();
 var import_kolmafia56 = require("kolmafia");
-var _templateObject121;
-function _taggedTemplateLiteral29(strings, raw) {
+var _templateObject129;
+function _taggedTemplateLiteral30(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 var REFUEL_ASDON = {
   name: "Refuel Asdon",
   ready: function() {
-    return (0, import_kolmafia56.getWorkshed)() === $item(_templateObject121 || (_templateObject121 = _taggedTemplateLiteral29(["Asdon Martin keyfob (on ring)"])));
+    return (0, import_kolmafia56.getWorkshed)() === $item(_templateObject129 || (_templateObject129 = _taggedTemplateLiteral30(["Asdon Martin keyfob (on ring)"])));
   },
   completed: function() {
     return have(AsdonMartin_exports.Driving.Observantly, 1260);
@@ -13681,8 +13689,8 @@ var REFUEL_ASDON = {
 // src/quests/leg2/tasks/shrugAT.ts
 init_kolmafia_polyfill();
 var import_kolmafia57 = require("kolmafia");
-var _templateObject129, _templateObject247, _templateObject338, _templateObject428, _templateObject525, _templateObject619, _templateObject715;
-function _taggedTemplateLiteral30(strings, raw) {
+var _templateObject130, _templateObject247, _templateObject338, _templateObject428, _templateObject525, _templateObject619, _templateObject715;
+function _taggedTemplateLiteral31(strings, raw) {
   return raw || (raw = strings.slice(0)), Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } }));
 }
 var SHRUG_AT = {
@@ -13697,7 +13705,7 @@ var SHRUG_AT = {
 function shrug(effect) {
   (0, import_kolmafia57.cliExecute)("shrug ".concat(effect));
 }
-var stevedave = $effect(_templateObject129 || (_templateObject129 = _taggedTemplateLiteral30(["Stevedave's Shanty of Superiority"]))), arrowsmith = $effect(_templateObject247 || (_templateObject247 = _taggedTemplateLiteral30(["Power Ballad of the Arrowsmith"]))), madrigal = $effect(_templateObject338 || (_templateObject338 = _taggedTemplateLiteral30(["The Moxious Madrigal"]))), melody = $effect(_templateObject428 || (_templateObject428 = _taggedTemplateLiteral30(["The Magical Mojomuscular Melody"]))), cletus = $effect(_templateObject525 || (_templateObject525 = _taggedTemplateLiteral30(["Cletus's Canticle of Celerity"]))), jackass = $effect(_templateObject619 || (_templateObject619 = _taggedTemplateLiteral30(["Jackasses' Symphony of Destruction"]))), brawnee = $effect(_templateObject715 || (_templateObject715 = _taggedTemplateLiteral30(["Brawnee's Anthem of Absorption"])));
+var stevedave = $effect(_templateObject130 || (_templateObject130 = _taggedTemplateLiteral31(["Stevedave's Shanty of Superiority"]))), arrowsmith = $effect(_templateObject247 || (_templateObject247 = _taggedTemplateLiteral31(["Power Ballad of the Arrowsmith"]))), madrigal = $effect(_templateObject338 || (_templateObject338 = _taggedTemplateLiteral31(["The Moxious Madrigal"]))), melody = $effect(_templateObject428 || (_templateObject428 = _taggedTemplateLiteral31(["The Magical Mojomuscular Melody"]))), cletus = $effect(_templateObject525 || (_templateObject525 = _taggedTemplateLiteral31(["Cletus's Canticle of Celerity"]))), jackass = $effect(_templateObject619 || (_templateObject619 = _taggedTemplateLiteral31(["Jackasses' Symphony of Destruction"]))), brawnee = $effect(_templateObject715 || (_templateObject715 = _taggedTemplateLiteral31(["Brawnee's Anthem of Absorption"])));
 function haveShruggableBuffs() {
   return have(stevedave) || have(arrowsmith) || have(madrigal) || have(melody) || have(cletus) || have(jackass) || have(brawnee);
 }
