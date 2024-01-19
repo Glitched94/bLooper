@@ -12836,6 +12836,7 @@ var Snapshot = /* @__PURE__ */ function() {
           display: Object.fromEntries(this.display),
           storage: Object.fromEntries(this.storage),
           campground: Object.fromEntries(this.campground),
+          shop: Object.fromEntries(this.shop),
           totalTurns: this.totalTurns,
           timestamp: this.timestamp.toJSON()
         };
@@ -12914,7 +12915,7 @@ var Snapshot = /* @__PURE__ */ function() {
     value: function(filename) {
       var fileValue = (0, import_kolmafia43.fileToBuffer)(Snapshot2.getFilepath(filename));
       if (fileValue.length > 0) {
-        var _val$totalTurns, val = JSON.parse(fileValue), parsedItems = Object.entries(val.items).map(function(_ref7) {
+        var _val$totalTurns, val = JSON.parse(fileValue), parsedItems = val.items === void 0 ? void 0 : Object.entries(val.items).map(function(_ref7) {
           var _ref8 = _slicedToArray10(_ref7, 2), itemStr = _ref8[0], quantity = _ref8[1];
           return [(0, import_kolmafia43.toItem)(itemStr), quantity];
         }), parsedInventory = Object.entries(val.inventory).map(function(_ref9) {
@@ -12939,7 +12940,7 @@ var Snapshot = /* @__PURE__ */ function() {
           var _ref22 = _slicedToArray10(_ref21, 2), itemStr = _ref22[0], quantity = _ref22[1];
           return [(0, import_kolmafia43.toItem)(itemStr), quantity];
         });
-        return new Snapshot2(val.meat, parsedItems.length > 0 ? new Map(parsedItems) : void 0, new Map(parsedInventory), new Map(parsedEquipment), new Map(parsedCloset), new Map(parsedDisplay), new Map(parsedStorage), new Map(parsedCampground), new Map(parsedShop), (_val$totalTurns = val.totalTurns) !== null && _val$totalTurns !== void 0 ? _val$totalTurns : 0, new Date(val.timestamp));
+        return new Snapshot2(val.meat, parsedItems === void 0 ? void 0 : new Map(parsedItems), new Map(parsedInventory), new Map(parsedEquipment), new Map(parsedCloset), new Map(parsedDisplay), new Map(parsedStorage), new Map(parsedCampground), new Map(parsedShop), (_val$totalTurns = val.totalTurns) !== null && _val$totalTurns !== void 0 ? _val$totalTurns : 0, new Date(val.timestamp));
       } else
         return new Snapshot2(0, void 0, /* @__PURE__ */ new Map(), /* @__PURE__ */ new Map(), /* @__PURE__ */ new Map(), /* @__PURE__ */ new Map(), /* @__PURE__ */ new Map(), /* @__PURE__ */ new Map(), /* @__PURE__ */ new Map(), 0);
     }
