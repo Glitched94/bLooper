@@ -28,8 +28,8 @@ export const LEG_2: Quest<Task> = {
     ...GARBO,
     ...FILL_MAID,
     STILLSUIT,
-    JAMMIES,
     NIGHTCAP,
+    JAMMIES,
     LOG_END,
   ],
 };
