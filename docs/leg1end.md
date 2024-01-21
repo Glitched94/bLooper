@@ -4,12 +4,43 @@
 graph TD
     subgraph L1E [Leg 1 End]
         direction LR
-        E[- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#plant-garden'>Plant Garden</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#tiny-stillsuit'>Tiny Stillsuit</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#consume'>CONSUME</a>]
-        E -->|Has Drunkula's Wineglass| F[<a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#overdrunk-with-wineglass'>Overdrunk with Wineglass</a>\n\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#get-drunk'>Get Drunk</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#break-hippy-stone'>Break Hippy Stone</a>- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#go-to-school'>Go to School</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#punch-mirrors'>Punch Mirrors</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#burn-stuff'>Burn Stuff</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#fight-stuff'>Fight Stuff</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#set-valueofadventure'>Set valueOfAdventure</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#overdrunk-garbo'>Overdrunk Garbo</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#fight-stuff-again'>Fight Stuff Again</a>]
-        E -->|No Drunkula's Wineglass| G[<a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#overdrunk-without-wineglass'>Overdrunk without Wineglass</a>\n\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#get-drunk-1'>Get Drunk</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#comb-the-beach'>Comb the Beach</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#break-hippy-stone-1'>Break Hippy Stone</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#go-to-school-1'>Go to School</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#punch-mirrors-1'>Punch Mirrors</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#burn-stuff-1'>Burn Stuff</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#fight-stuff-1'>Fight Stuff</a>]
+        E[
+          - Plant Garden
+          - Tiny Stillsuit
+          - CONSUME
+          ]
+        E -->|Has Drunkula's Wineglass| F[
+          Overdrunk with Wineglass
+          
+          - Get Drunk
+          - Break Hippy Stone
+          - Go to School
+          - Punch Mirrors
+          - Burn Stuff\
+          - Fight Stuff
+          - Set valueOfAdventure
+          - Overdrunk Garbo
+          - Fight Stuff Again
+          ]
+        E -->|No Drunkula's Wineglass| G[
+          Overdrunk without Wineglass
+          
+          - Get Drunk
+          - Comb the Beach
+          - Break Hippy Stone
+          - Go to School
+          - Punch Mirrors
+          - Burn Stuff
+          - Fight Stuff
+          ]
         F --> H[EVENT: Leg 1 End]
         G --> H
-        H --> I[<a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#community-service-prep'>Community Service Prep</a>\n\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#prepare-pulls'>Prepare Pulls</a>\n- <a href='/Glitched94/bLooper/blob/main/docs/leg1end.md#ascend'>Ascend</a>]
+        H --> I[
+          Community Service Prep
+          
+          - Prepare Pulls
+          - Ascend
+          ]
     end
 ```
 
@@ -44,6 +75,8 @@ graph TD
 ## Plant Garden and CONSUME
 
 ### Plant Garden
+
+
 
 ```ts
 const PLANT_GARDEN: Task = {
