@@ -13747,7 +13747,7 @@ var LEG_2 = {
   ready: function() {
     return get("ascensionsToday") === 1;
   },
-  tasks: [LOG_START2, PATH, SHRUG_AT].concat(_toConsumableArray25(EXTENDED_BREAKFAST), [REFUEL_ASDON, OPEN_RAINDOH], _toConsumableArray25(GARBO2), _toConsumableArray25(FILL_MAID), [STILLSUIT, JAMMIES, NIGHTCAP, LOG_END2])
+  tasks: [LOG_START2, PATH, SHRUG_AT].concat(_toConsumableArray25(EXTENDED_BREAKFAST), [REFUEL_ASDON, OPEN_RAINDOH], _toConsumableArray25(GARBO2), _toConsumableArray25(FILL_MAID), [STILLSUIT, NIGHTCAP, JAMMIES, LOG_END2])
 };
 
 // src/lib/args.ts
